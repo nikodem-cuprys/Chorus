@@ -1,0 +1,65 @@
+quote_start	quote_end	mention_start	mention_end	mention_phrase	char_id	quote
+76	82	84	85	his lady	23	“ My dear Mr. Bennet , ”
+91	103	84	85	his lady	23	“ have you heard that Netherfield Park is let at last ? ”
+112	117	119	119	she	23	“ But it is , ”
+121	138	119	119	she	23	“ for Mrs. Long has just been here , and she told me all about it . ”
+145	157	159	160	his wife	24	“ Do not you want to know who has taken it ? ”
+164	182	139	140	Mr. Bennet	3	“ _ You _ want to tell me , and I have no objection to hearing it . ”
+188	276	139	140	Mr. Bennet	3	“ Why , my dear , you must know , Mrs. Long says that Netherfield is taken by a young man of large fortune from the north of England ; that he came down on Monday in a chaise and four to see the place , and was so much delighted with it that he agreed with Mr. Morris immediately ; that he is to take possession before Michaelmas , and some of his servants are to be in the house by the end of next week . ”
+277	283	139	140	Mr. Bennet	3	“ What is his name ? ”
+284	287	139	140	Mr. Bennet	3	“ Bingley . ”
+288	295	139	140	Mr. Bennet	3	“ Is he married or single ? ”
+296	330	139	140	Mr. Bennet	3	“ Oh , single , my dear , to be sure ! A single man of large fortune ; four or five thousand a year . What a fine thing for our girls ! ”
+331	341	139	140	Mr. Bennet	3	“ How so ? how can it affect them ? ”
+342	348	350	351	his wife	24	“ My dear Mr. Bennet , ”
+353	375	350	351	his wife	24	“ how can you be so tiresome ? You must know that I am thinking of his marrying one of them . ”
+376	385	139	140	Mr. Bennet	3	“ Is that his design in settling here ? ”
+386	427	350	351	his wife	24	“ Design ? Nonsense , how can you talk so ! But it is very likely that he _ may _ fall in love with one of them , and therefore you must visit him as soon as he comes . ”
+428	480	139	140	Mr. Bennet	3	“ I see no occasion for that . You and the girls may go -- or you may send them by themselves , which perhaps will be still better ; for as you are as handsome as any of them , Mr. Bingley might like you the best of the party . ”
+481	532	350	351	his wife	24	“ My dear , you flatter me . I certainly _ have _ had my share of beauty , but I do not pretend to be anything extraordinary now . When a woman has five grown - up daughters , she ought to give over thinking of her own beauty . ”
+533	549	139	140	Mr. Bennet	3	“ In such cases , a woman has not often much beauty to think of . ”
+550	571	350	351	his wife	24	“ But , my dear , you must indeed go and see Mr. Bingley when he comes into the neighbourhood . ”
+572	585	139	140	Mr. Bennet	3	“ It is more than I engage for , I assure you . ”
+586	656	350	351	his wife	24	“ But consider your daughters . Only think what an establishment it would be for one of them . Sir William and Lady Lucas are determined to go , merely on that account ; for in general , you know , they visit no new comers . Indeed you must go , for it will be impossible for _ us _ to visit him , if you do not . ”
+657	717	139	140	Mr. Bennet	3	“ You are over scrupulous , surely . I dare say Mr. Bingley will be very glad to see you ; and I will send a few lines by you to assure him of my hearty consent to his marrying whichever he chooses of the girls -- though I must throw in a good word for my little Lizzy . ”
+718	771	350	351	his wife	24	“ I desire you will do no such thing . Lizzy is not a bit better than the others : and I am sure she is not half so handsome as Jane , nor half so good - humoured as Lydia . But you are always giving _ her _ the preference . ”
+772	783	785	785	he	27	“ They have none of them much to recommend them , ”
+787	809	785	785	he	27	“ they are all silly and ignorant like other girls ; but Lizzy has something more of quickness than her sisters . ”
+810	842	350	351	his wife	24	“ Mr. Bennet , how can you abuse your own children in such a way ? You take delight in vexing me . You have no compassion on my poor nerves . ”
+843	880	785	785	he	27	“ You mistake me , my dear . I have a high respect for your nerves . They are my old friends . I have heard you mention them with consideration these twenty years at least . ”
+881	892	350	351	his wife	24	“ Ah , you do not know what I suffer . ”
+893	920	785	785	he	27	“ But I hope you will get over it , and live to see many young men of four thousand a year come into the neighbourhood . ”
+921	943	350	351	his wife	24	“ It will be no use to us , if twenty such should come , since you will not visit them . ”
+944	964	785	785	he	27	“ Depend upon it , my dear , that when there are twenty , I will visit them all . ”
+1138	1149	1133	1133	he	3	“ I hope Mr. Bingley will like it , Lizzy . ”
+1150	1166	1168	1169	her mother	34	“ We are not in a way to know _ what _ Mr. Bingley likes , ”
+1173	1181	1168	1169	her mother	34	“ since we are not to visit . ”
+1182	1189	1191	1191	Elizabeth	10	“ But you forget , mamma , ”
+1193	1213	1191	1191	Elizabeth	10	“ that we shall meet him at the assemblies , and that Mrs. Long has promised to introduce him . ”
+1214	1251	1281	1282	Mrs. Bennet	13	“ I do not believe Mrs. Long will do any such thing . She has two nieces of her own . She is a selfish , hypocritical woman , and I have no opinion of her . ”
+1252	1258	1260	1261	Mr. Bennet	3	“ No more have I , ”
+1263	1280	1260	1261	Mr. Bennet	3	“ and I am glad to find that you do not depend on her serving you . ”
+1304	1332	1281	1282	Mrs. Bennet	13	“ Do n’t keep coughing so , Kitty , for heaven ’s sake ! Have a little compassion on my nerves . You tear them to pieces . ”
+1333	1342	1344	1345	her father	37	“ Kitty has no discretion in her coughs , ”
+1347	1353	1344	1345	her father	37	“ she times them ill . ”
+1354	1364	1366	1366	Kitty	14	“ I do not cough for my own amusement , ”
+1370	1381	1366	1366	Kitty	14	“ When is your next ball to be , Lizzy ? ”
+1382	1388	1281	1282	Mrs. Bennet	13	“ To - morrow fortnight . ”
+1389	1396	1398	1399	her mother	34	“ Ay , so it is , ”
+1401	1434	1398	1399	her mother	34	“ and Mrs. Long does not come back till the day before ; so , it will be impossible for her to introduce him , for she will not know him herself . ”
+1435	1459	1281	1282	Mrs. Bennet	13	“ Then , my dear , you may have the advantage of your friend , and introduce Mr. Bingley to _ her _ . ”
+1460	1484	1398	1399	her mother	34	“ Impossible , Mr. Bennet , impossible , when I am not acquainted with him myself ; how can you be so teasing ? ”
+1485	1570	1281	1282	Mrs. Bennet	13	“ I honour your circumspection . A fortnight ’s acquaintance is certainly very little . One can not know what a man really is by the end of a fortnight . But if _ we _ do not venture , somebody else will ; and after all , Mrs. Long and her nieces must stand their chance ; and , therefore , as she will think it an act of kindness , if you decline the office , I will take it on myself . ”
+1583	1588	1578	1579	Mrs. Bennet	13	“ Nonsense , nonsense ! ”
+1589	1600	1602	1602	he	40	“ What can be the meaning of that emphatic exclamation ? ”
+1604	1664	1602	1602	he	40	“ Do you consider the forms of introduction , and the stress that is laid on them , as nonsense ? I can not quite agree with you _ there _ . What say you , Mary ? For you are a young lady of deep reflection , I know , and read great books , and make extracts . ”
+1678	1686	1687	1687	he	40	“ While Mary is adjusting her ideas , ”
+1690	1698	1687	1687	he	40	“ let us return to Mr. Bingley . ”
+1699	1707	1709	1710	his wife	24	“ I am sick of Mr. Bingley , ”
+1712	1772	1709	1710	his wife	24	“ I am sorry to hear _ that _ ; but why did you not tell me so before ? If I had known as much this morning , I certainly would not have called on him . It is very unlucky ; but as I have actually paid the visit , we can not escape the acquaintance now . ”
+1818	1891	1803	1803	she	13	“ How good it was in you , my dear Mr. Bennet ! But I knew I should persuade you at last . I was sure you loved your girls too well to neglect such an acquaintance . Well , how pleased I am ! And it is such a good joke , too , that you should have gone this morning , and never said a word about it till now . ”
+1892	1906	1908	1909	Mr. Bennet	3	“ Now , Kitty , you may cough as much as you choose , ”
+1930	1940	1942	1942	she	24	“ What an excellent father you have , girls , ”
+1950	2035	1942	1942	she	24	“ I do not know how you will ever make him amends for his kindness ; or me either , for that matter . At our time of life , it is not so pleasant , I can tell you , to be making new acquaintances every day ; but for your sakes we would do anything . Lydia , my love , though you _ are _ the youngest , I dare say Mr. Bingley will dance with you at the next ball . ”
+2036	2039	2041	2041	Lydia	12	“ Oh , ”
+2045	2065	2041	2041	Lydia	12	“ I am not afraid ; for though I _ am _ the youngest , I ’m the tallest . ”

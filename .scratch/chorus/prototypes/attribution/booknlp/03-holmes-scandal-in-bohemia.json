@@ -1,0 +1,539 @@
+{
+ "seconds": 22.4,
+ "characters": [
+  {
+   "id": 0,
+   "count": 86,
+   "gender": "he/him/his",
+   "proper": [],
+   "common": [],
+   "pronoun": [
+    [
+     "I",
+     31
+    ],
+    [
+     "you",
+     25
+    ],
+    [
+     "my",
+     10
+    ],
+    [
+     "me",
+     6
+    ]
+   ]
+  },
+  {
+   "id": 11,
+   "count": 68,
+   "gender": "he/him/his",
+   "proper": [
+    [
+     "Holmes",
+     6
+    ],
+    [
+     "Sherlock Holmes",
+     1
+    ]
+   ],
+   "common": [],
+   "pronoun": [
+    [
+     "his",
+     26
+    ],
+    [
+     "he",
+     9
+    ],
+    [
+     "I",
+     9
+    ],
+    [
+     "He",
+     7
+    ]
+   ]
+  },
+  {
+   "id": 44,
+   "count": 16,
+   "gender": "he/him/his",
+   "proper": [],
+   "common": [],
+   "pronoun": [
+    [
+     "he",
+     3
+    ],
+    [
+     "your",
+     3
+    ],
+    [
+     "you",
+     2
+    ],
+    [
+     "my",
+     2
+    ]
+   ]
+  },
+  {
+   "id": 43,
+   "count": 10,
+   "gender": "he/him/his",
+   "proper": [],
+   "common": [],
+   "pronoun": [
+    [
+     "my",
+     3
+    ],
+    [
+     "I",
+     2
+    ],
+    [
+     "He",
+     1
+    ],
+    [
+     "himself",
+     1
+    ]
+   ]
+  },
+  {
+   "id": 52,
+   "count": 6,
+   "gender": "he/him/his",
+   "proper": [],
+   "common": [
+    [
+     "a gentleman",
+     1
+    ]
+   ],
+   "pronoun": [
+    [
+     "his",
+     3
+    ],
+    [
+     "he",
+     1
+    ],
+    [
+     "him",
+     1
+    ]
+   ]
+  },
+  {
+   "id": 18,
+   "count": 4,
+   "gender": "she/her",
+   "proper": [],
+   "common": [],
+   "pronoun": [
+    [
+     "she",
+     2
+    ],
+    [
+     "her",
+     2
+    ]
+   ]
+  },
+  {
+   "id": 64,
+   "count": 4,
+   "gender": null,
+   "proper": [],
+   "common": [],
+   "pronoun": [
+    [
+     "our",
+     2
+    ],
+    [
+     "us",
+     1
+    ],
+    [
+     "we",
+     1
+    ]
+   ]
+  },
+  {
+   "id": 29,
+   "count": 3,
+   "gender": "he/him/his",
+   "proper": [],
+   "common": [
+    [
+     "the man who first finds himself master of his own establishment",
+     1
+    ]
+   ],
+   "pronoun": [
+    [
+     "himself",
+     1
+    ],
+    [
+     "his",
+     1
+    ]
+   ]
+  },
+  {
+   "id": 12,
+   "count": 2,
+   "gender": "he/him/his",
+   "proper": [
+    [
+     "Irene Adler",
+     2
+    ]
+   ],
+   "common": [],
+   "pronoun": []
+  },
+  {
+   "id": 28,
+   "count": 2,
+   "gender": null,
+   "proper": [],
+   "common": [],
+   "pronoun": [
+    [
+     "us",
+     1
+    ],
+    [
+     "our",
+     1
+    ]
+   ]
+  },
+  {
+   "id": 14,
+   "count": 2,
+   "gender": "he/him/his",
+   "proper": [
+    [
+     "Watson",
+     2
+    ]
+   ],
+   "common": [],
+   "pronoun": []
+  },
+  {
+   "id": 50,
+   "count": 2,
+   "gender": "she/her",
+   "proper": [],
+   "common": [
+    [
+     "my wife",
+     1
+    ]
+   ],
+   "pronoun": [
+    [
+     "her",
+     1
+    ]
+   ]
+  },
+  {
+   "id": 63,
+   "count": 2,
+   "gender": "he/him/his",
+   "proper": [],
+   "common": [
+    [
+     "the maker",
+     1
+    ]
+   ],
+   "pronoun": [
+    [
+     "his",
+     1
+    ]
+   ]
+  },
+  {
+   "id": 69,
+   "count": 2,
+   "gender": null,
+   "proper": [],
+   "common": [
+    [
+     "my boy",
+     1
+    ]
+   ],
+   "pronoun": [
+    [
+     "you",
+     1
+    ]
+   ]
+  }
+ ],
+ "quotes": {
+  "4": {
+   "char_id": 11,
+   "mention": "he",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "6": {
+   "char_id": 11,
+   "mention": "he",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "7": {
+   "char_id": 0,
+   "mention": "I",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "9": {
+   "char_id": 11,
+   "mention": "he",
+   "mention_type": "PRON",
+   "same_paragraph": false
+  },
+  "10": {
+   "char_id": 11,
+   "mention": "he",
+   "mention_type": "PRON",
+   "same_paragraph": false
+  },
+  "11": {
+   "char_id": 11,
+   "mention": "he",
+   "mention_type": "PRON",
+   "same_paragraph": false
+  },
+  "12": {
+   "char_id": 0,
+   "mention": "I",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "14": {
+   "char_id": 0,
+   "mention": "I",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "16": {
+   "char_id": 43,
+   "mention": "he",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "18": {
+   "char_id": 43,
+   "mention": "he",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "20": {
+   "char_id": 0,
+   "mention": "I",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "22": {
+   "char_id": 0,
+   "mention": "I",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "23": {
+   "char_id": 44,
+   "mention": "he",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "25": {
+   "char_id": 44,
+   "mention": "himself",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "26": {
+   "char_id": 0,
+   "mention": "I",
+   "mention_type": "PRON",
+   "same_paragraph": false
+  },
+  "27": {
+   "char_id": 44,
+   "mention": "himself",
+   "mention_type": "PRON",
+   "same_paragraph": false
+  },
+  "28": {
+   "char_id": 0,
+   "mention": "I",
+   "mention_type": "PRON",
+   "same_paragraph": false
+  },
+  "29": {
+   "char_id": 44,
+   "mention": "himself",
+   "mention_type": "PRON",
+   "same_paragraph": false
+  },
+  "30": {
+   "char_id": 0,
+   "mention": "I",
+   "mention_type": "PRON",
+   "same_paragraph": false
+  },
+  "31": {
+   "char_id": 44,
+   "mention": "He",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "33": {
+   "char_id": 44,
+   "mention": "he",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "35": {
+   "char_id": 44,
+   "mention": "he",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "37": {
+   "char_id": 0,
+   "mention": "I",
+   "mention_type": "PRON",
+   "same_paragraph": false
+  },
+  "39": {
+   "char_id": 0,
+   "mention": "I",
+   "mention_type": "PRON",
+   "same_paragraph": false
+  },
+  "40": {
+   "char_id": 0,
+   "mention": "I",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "42": {
+   "char_id": 0,
+   "mention": "I",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "43": {
+   "char_id": 11,
+   "mention": "Holmes",
+   "mention_type": "PROP",
+   "same_paragraph": false
+  },
+  "45": {
+   "char_id": 0,
+   "mention": "I",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "47": {
+   "char_id": 0,
+   "mention": "I",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "48": {
+   "char_id": 11,
+   "mention": "Holmes",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "50": {
+   "char_id": 11,
+   "mention": "Holmes",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "52": {
+   "char_id": 0,
+   "mention": "I",
+   "mention_type": "PRON",
+   "same_paragraph": false
+  },
+  "54": {
+   "char_id": 0,
+   "mention": "I",
+   "mention_type": "PRON",
+   "same_paragraph": false
+  },
+  "56": {
+   "char_id": 0,
+   "mention": "I",
+   "mention_type": "PRON",
+   "same_paragraph": false
+  },
+  "58": {
+   "char_id": 0,
+   "mention": "I",
+   "mention_type": "PRON",
+   "same_paragraph": false
+  },
+  "60": {
+   "char_id": 0,
+   "mention": "I",
+   "mention_type": "PRON",
+   "same_paragraph": false
+  },
+  "62": {
+   "char_id": 11,
+   "mention": "Holmes",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "64": {
+   "char_id": 0,
+   "mention": "I",
+   "mention_type": "PRON",
+   "same_paragraph": false
+  },
+  "65": {
+   "char_id": 11,
+   "mention": "He",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "67": {
+   "char_id": 11,
+   "mention": "He",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  }
+ }
+}

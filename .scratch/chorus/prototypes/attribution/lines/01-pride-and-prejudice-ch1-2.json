@@ -1,0 +1,570 @@
+{
+ "passage": "01-pride-and-prejudice-ch1-2",
+ "title": "Pride and Prejudice, Chapters 1-2 - Jane Austen",
+ "lines": [
+  {
+   "para": 0,
+   "kind": "narration",
+   "text": "It is a truth universally acknowledged, that a single man in possession of a good fortune must be in want of a wife.",
+   "id": 0
+  },
+  {
+   "para": 1,
+   "kind": "narration",
+   "text": "However little known the feelings or views of such a man may be on his first entering a neighbourhood, this truth is so well fixed in the minds of the surrounding families, that he is considered as the rightful property of some one or other of their daughters.",
+   "id": 1
+  },
+  {
+   "para": 2,
+   "kind": "quote",
+   "text": "“My dear Mr. Bennet,”",
+   "id": 2
+  },
+  {
+   "para": 2,
+   "kind": "narration",
+   "text": "said his lady to him one day,",
+   "id": 3
+  },
+  {
+   "para": 2,
+   "kind": "quote",
+   "text": "“have you heard that Netherfield Park is let at last?”",
+   "id": 4
+  },
+  {
+   "para": 3,
+   "kind": "narration",
+   "text": "Mr. Bennet replied that he had not.",
+   "id": 5
+  },
+  {
+   "para": 4,
+   "kind": "quote",
+   "text": "“But it is,”",
+   "id": 6
+  },
+  {
+   "para": 4,
+   "kind": "narration",
+   "text": "returned she;",
+   "id": 7
+  },
+  {
+   "para": 4,
+   "kind": "quote",
+   "text": "“for Mrs. Long has just been here, and she told me all about it.”",
+   "id": 8
+  },
+  {
+   "para": 5,
+   "kind": "narration",
+   "text": "Mr. Bennet made no answer.",
+   "id": 9
+  },
+  {
+   "para": 6,
+   "kind": "quote",
+   "text": "“Do not you want to know who has taken it?”",
+   "id": 10
+  },
+  {
+   "para": 6,
+   "kind": "narration",
+   "text": "cried his wife, impatiently.",
+   "id": 11
+  },
+  {
+   "para": 7,
+   "kind": "quote",
+   "text": "“_You_ want to tell me, and I have no objection to hearing it.”",
+   "id": 12
+  },
+  {
+   "para": 8,
+   "kind": "narration",
+   "text": "This was invitation enough.",
+   "id": 13
+  },
+  {
+   "para": 9,
+   "kind": "quote",
+   "text": "“Why, my dear, you must know, Mrs. Long says that Netherfield is taken by a young man of large fortune from the north of England; that he came down on Monday in a chaise and four to see the place, and was so much delighted with it that he agreed with Mr. Morris immediately; that he is to take possession before Michaelmas, and some of his servants are to be in the house by the end of next week.”",
+   "id": 14
+  },
+  {
+   "para": 10,
+   "kind": "quote",
+   "text": "“What is his name?”",
+   "id": 15
+  },
+  {
+   "para": 11,
+   "kind": "quote",
+   "text": "“Bingley.”",
+   "id": 16
+  },
+  {
+   "para": 12,
+   "kind": "quote",
+   "text": "“Is he married or single?”",
+   "id": 17
+  },
+  {
+   "para": 13,
+   "kind": "quote",
+   "text": "“Oh, single, my dear, to be sure! A single man of large fortune; four or five thousand a year. What a fine thing for our girls!”",
+   "id": 18
+  },
+  {
+   "para": 14,
+   "kind": "quote",
+   "text": "“How so? how can it affect them?”",
+   "id": 19
+  },
+  {
+   "para": 15,
+   "kind": "quote",
+   "text": "“My dear Mr. Bennet,”",
+   "id": 20
+  },
+  {
+   "para": 15,
+   "kind": "narration",
+   "text": "replied his wife,",
+   "id": 21
+  },
+  {
+   "para": 15,
+   "kind": "quote",
+   "text": "“how can you be so tiresome? You must know that I am thinking of his marrying one of them.”",
+   "id": 22
+  },
+  {
+   "para": 16,
+   "kind": "quote",
+   "text": "“Is that his design in settling here?”",
+   "id": 23
+  },
+  {
+   "para": 17,
+   "kind": "quote",
+   "text": "“Design? Nonsense, how can you talk so! But it is very likely that he _may_ fall in love with one of them, and therefore you must visit him as soon as he comes.”",
+   "id": 24
+  },
+  {
+   "para": 18,
+   "kind": "quote",
+   "text": "“I see no occasion for that. You and the girls may go--or you may send them by themselves, which perhaps will be still better; for as you are as handsome as any of them, Mr. Bingley might like you the best of the party.”",
+   "id": 25
+  },
+  {
+   "para": 19,
+   "kind": "quote",
+   "text": "“My dear, you flatter me. I certainly _have_ had my share of beauty, but I do not pretend to be anything extraordinary now. When a woman has five grown-up daughters, she ought to give over thinking of her own beauty.”",
+   "id": 26
+  },
+  {
+   "para": 20,
+   "kind": "quote",
+   "text": "“In such cases, a woman has not often much beauty to think of.”",
+   "id": 27
+  },
+  {
+   "para": 21,
+   "kind": "quote",
+   "text": "“But, my dear, you must indeed go and see Mr. Bingley when he comes into the neighbourhood.”",
+   "id": 28
+  },
+  {
+   "para": 22,
+   "kind": "quote",
+   "text": "“It is more than I engage for, I assure you.”",
+   "id": 29
+  },
+  {
+   "para": 23,
+   "kind": "quote",
+   "text": "“But consider your daughters. Only think what an establishment it would be for one of them. Sir William and Lady Lucas are determined to go, merely on that account; for in general, you know, they visit no new comers. Indeed you must go, for it will be impossible for _us_ to visit him, if you do not.”",
+   "id": 30
+  },
+  {
+   "para": 24,
+   "kind": "quote",
+   "text": "“You are over scrupulous, surely. I dare say Mr. Bingley will be very glad to see you; and I will send a few lines by you to assure him of my hearty consent to his marrying whichever he chooses of the girls--though I must throw in a good word for my little Lizzy.”",
+   "id": 31
+  },
+  {
+   "para": 25,
+   "kind": "quote",
+   "text": "“I desire you will do no such thing. Lizzy is not a bit better than the others: and I am sure she is not half so handsome as Jane, nor half so good-humoured as Lydia. But you are always giving _her_ the preference.”",
+   "id": 32
+  },
+  {
+   "para": 26,
+   "kind": "quote",
+   "text": "“They have none of them much to recommend them,”",
+   "id": 33
+  },
+  {
+   "para": 26,
+   "kind": "narration",
+   "text": "replied he:",
+   "id": 34
+  },
+  {
+   "para": 26,
+   "kind": "quote",
+   "text": "“they are all silly and ignorant like other girls; but Lizzy has something more of quickness than her sisters.”",
+   "id": 35
+  },
+  {
+   "para": 27,
+   "kind": "quote",
+   "text": "“Mr. Bennet, how can you abuse your own children in such a way? You take delight in vexing me. You have no compassion on my poor nerves.”",
+   "id": 36
+  },
+  {
+   "para": 28,
+   "kind": "quote",
+   "text": "“You mistake me, my dear. I have a high respect for your nerves. They are my old friends. I have heard you mention them with consideration these twenty years at least.”",
+   "id": 37
+  },
+  {
+   "para": 29,
+   "kind": "quote",
+   "text": "“Ah, you do not know what I suffer.”",
+   "id": 38
+  },
+  {
+   "para": 30,
+   "kind": "quote",
+   "text": "“But I hope you will get over it, and live to see many young men of four thousand a year come into the neighbourhood.”",
+   "id": 39
+  },
+  {
+   "para": 31,
+   "kind": "quote",
+   "text": "“It will be no use to us, if twenty such should come, since you will not visit them.”",
+   "id": 40
+  },
+  {
+   "para": 32,
+   "kind": "quote",
+   "text": "“Depend upon it, my dear, that when there are twenty, I will visit them all.”",
+   "id": 41
+  },
+  {
+   "para": 33,
+   "kind": "narration",
+   "text": "Mr. Bennet was so odd a mixture of quick parts, sarcastic humour, reserve, and caprice, that the experience of three-and-twenty years had been insufficient to make his wife understand his character. _Her_ mind was less difficult to develope. She was a woman of mean understanding, little information, and uncertain temper. When she was discontented, she fancied herself nervous. The business of her life was to get her daughters married: its solace was visiting and news.",
+   "id": 42
+  },
+  {
+   "para": 34,
+   "kind": "narration",
+   "text": "CHAPTER II.",
+   "id": 43
+  },
+  {
+   "para": 35,
+   "kind": "narration",
+   "text": "Mr. Bennet was among the earliest of those who waited on Mr. Bingley. He had always intended to visit him, though to the last always assuring his wife that he should not go; and till the evening after the visit was paid she had no knowledge of it. It was then disclosed in the following manner. Observing his second daughter employed in trimming a hat, he suddenly addressed her with,--",
+   "id": 44
+  },
+  {
+   "para": 36,
+   "kind": "quote",
+   "text": "“I hope Mr. Bingley will like it, Lizzy.”",
+   "id": 45
+  },
+  {
+   "para": 37,
+   "kind": "quote",
+   "text": "“We are not in a way to know _what_ Mr. Bingley likes,”",
+   "id": 46
+  },
+  {
+   "para": 37,
+   "kind": "narration",
+   "text": "said her mother, resentfully,",
+   "id": 47
+  },
+  {
+   "para": 37,
+   "kind": "quote",
+   "text": "“since we are not to visit.”",
+   "id": 48
+  },
+  {
+   "para": 38,
+   "kind": "quote",
+   "text": "“But you forget, mamma,”",
+   "id": 49
+  },
+  {
+   "para": 38,
+   "kind": "narration",
+   "text": "said Elizabeth,",
+   "id": 50
+  },
+  {
+   "para": 38,
+   "kind": "quote",
+   "text": "“that we shall meet him at the assemblies, and that Mrs. Long has promised to introduce him.”",
+   "id": 51
+  },
+  {
+   "para": 39,
+   "kind": "quote",
+   "text": "“I do not believe Mrs. Long will do any such thing. She has two nieces of her own. She is a selfish, hypocritical woman, and I have no opinion of her.”",
+   "id": 52
+  },
+  {
+   "para": 40,
+   "kind": "quote",
+   "text": "“No more have I,”",
+   "id": 53
+  },
+  {
+   "para": 40,
+   "kind": "narration",
+   "text": "said Mr. Bennet;",
+   "id": 54
+  },
+  {
+   "para": 40,
+   "kind": "quote",
+   "text": "“and I am glad to find that you do not depend on her serving you.”",
+   "id": 55
+  },
+  {
+   "para": 41,
+   "kind": "narration",
+   "text": "Mrs. Bennet deigned not to make any reply; but, unable to contain herself, began scolding one of her daughters.",
+   "id": 56
+  },
+  {
+   "para": 42,
+   "kind": "quote",
+   "text": "“Don’t keep coughing so, Kitty, for heaven’s sake! Have a little compassion on my nerves. You tear them to pieces.”",
+   "id": 57
+  },
+  {
+   "para": 43,
+   "kind": "quote",
+   "text": "“Kitty has no discretion in her coughs,”",
+   "id": 58
+  },
+  {
+   "para": 43,
+   "kind": "narration",
+   "text": "said her father;",
+   "id": 59
+  },
+  {
+   "para": 43,
+   "kind": "quote",
+   "text": "“she times them ill.”",
+   "id": 60
+  },
+  {
+   "para": 44,
+   "kind": "quote",
+   "text": "“I do not cough for my own amusement,”",
+   "id": 61
+  },
+  {
+   "para": 44,
+   "kind": "narration",
+   "text": "replied Kitty, fretfully.",
+   "id": 62
+  },
+  {
+   "para": 44,
+   "kind": "quote",
+   "text": "“When is your next ball to be, Lizzy?”",
+   "id": 63
+  },
+  {
+   "para": 45,
+   "kind": "quote",
+   "text": "“To-morrow fortnight.”",
+   "id": 64
+  },
+  {
+   "para": 46,
+   "kind": "quote",
+   "text": "“Ay, so it is,”",
+   "id": 65
+  },
+  {
+   "para": 46,
+   "kind": "narration",
+   "text": "cried her mother,",
+   "id": 66
+  },
+  {
+   "para": 46,
+   "kind": "quote",
+   "text": "“and Mrs. Long does not come back till the day before; so, it will be impossible for her to introduce him, for she will not know him herself.”",
+   "id": 67
+  },
+  {
+   "para": 47,
+   "kind": "quote",
+   "text": "“Then, my dear, you may have the advantage of your friend, and introduce Mr. Bingley to _her_.”",
+   "id": 68
+  },
+  {
+   "para": 48,
+   "kind": "quote",
+   "text": "“Impossible, Mr. Bennet, impossible, when I am not acquainted with him myself; how can you be so teasing?”",
+   "id": 69
+  },
+  {
+   "para": 49,
+   "kind": "quote",
+   "text": "“I honour your circumspection. A fortnight’s acquaintance is certainly very little. One cannot know what a man really is by the end of a fortnight. But if _we_ do not venture, somebody else will; and after all, Mrs. Long and her nieces must stand their chance; and, therefore, as she will think it an act of kindness, if you decline the office, I will take it on myself.”",
+   "id": 70
+  },
+  {
+   "para": 50,
+   "kind": "narration",
+   "text": "The girls stared at their father. Mrs. Bennet said only,",
+   "id": 71
+  },
+  {
+   "para": 50,
+   "kind": "quote",
+   "text": "“Nonsense, nonsense!”",
+   "id": 72
+  },
+  {
+   "para": 51,
+   "kind": "quote",
+   "text": "“What can be the meaning of that emphatic exclamation?”",
+   "id": 73
+  },
+  {
+   "para": 51,
+   "kind": "narration",
+   "text": "cried he.",
+   "id": 74
+  },
+  {
+   "para": 51,
+   "kind": "quote",
+   "text": "“Do you consider the forms of introduction, and the stress that is laid on them, as nonsense? I cannot quite agree with you _there_. What say you, Mary? For you are a young lady of deep reflection, I know, and read great books, and make extracts.”",
+   "id": 75
+  },
+  {
+   "para": 52,
+   "kind": "narration",
+   "text": "Mary wished to say something very sensible, but knew not how.",
+   "id": 76
+  },
+  {
+   "para": 53,
+   "kind": "quote",
+   "text": "“While Mary is adjusting her ideas,”",
+   "id": 77
+  },
+  {
+   "para": 53,
+   "kind": "narration",
+   "text": "he continued,",
+   "id": 78
+  },
+  {
+   "para": 53,
+   "kind": "quote",
+   "text": "“let us return to Mr. Bingley.”",
+   "id": 79
+  },
+  {
+   "para": 54,
+   "kind": "quote",
+   "text": "“I am sick of Mr. Bingley,”",
+   "id": 80
+  },
+  {
+   "para": 54,
+   "kind": "narration",
+   "text": "cried his wife.",
+   "id": 81
+  },
+  {
+   "para": 55,
+   "kind": "quote",
+   "text": "“I am sorry to hear _that_; but why did you not tell me so before? If I had known as much this morning, I certainly would not have called on him. It is very unlucky; but as I have actually paid the visit, we cannot escape the acquaintance now.”",
+   "id": 82
+  },
+  {
+   "para": 56,
+   "kind": "narration",
+   "text": "The astonishment of the ladies was just what he wished--that of Mrs. Bennet perhaps surpassing the rest; though when the first tumult of joy was over, she began to declare that it was what she had expected all the while.",
+   "id": 83
+  },
+  {
+   "para": 57,
+   "kind": "quote",
+   "text": "“How good it was in you, my dear Mr. Bennet! But I knew I should persuade you at last. I was sure you loved your girls too well to neglect such an acquaintance. Well, how pleased I am! And it is such a good joke, too, that you should have gone this morning, and never said a word about it till now.”",
+   "id": 84
+  },
+  {
+   "para": 58,
+   "kind": "quote",
+   "text": "“Now, Kitty, you may cough as much as you choose,”",
+   "id": 85
+  },
+  {
+   "para": 58,
+   "kind": "narration",
+   "text": "said Mr. Bennet; and, as he spoke, he left the room, fatigued with the raptures of his wife.",
+   "id": 86
+  },
+  {
+   "para": 59,
+   "kind": "quote",
+   "text": "“What an excellent father you have, girls,”",
+   "id": 87
+  },
+  {
+   "para": 59,
+   "kind": "narration",
+   "text": "said she, when the door was shut.",
+   "id": 88
+  },
+  {
+   "para": 59,
+   "kind": "quote",
+   "text": "“I do not know how you will ever make him amends for his kindness; or me either, for that matter. At our time of life, it is not so pleasant, I can tell you, to be making new acquaintances every day; but for your sakes we would do anything. Lydia, my love, though you _are_ the youngest, I dare say Mr. Bingley will dance with you at the next ball.”",
+   "id": 89
+  },
+  {
+   "para": 60,
+   "kind": "quote",
+   "text": "“Oh,”",
+   "id": 90
+  },
+  {
+   "para": 60,
+   "kind": "narration",
+   "text": "said Lydia, stoutly,",
+   "id": 91
+  },
+  {
+   "para": 60,
+   "kind": "quote",
+   "text": "“I am not afraid; for though I _am_ the youngest, I’m the tallest.”",
+   "id": 92
+  },
+  {
+   "para": 61,
+   "kind": "narration",
+   "text": "The rest of the evening was spent in conjecturing how soon he would return Mr. Bennet’s visit, and determining when they should ask him to dinner.",
+   "id": 93
+  }
+ ]
+}

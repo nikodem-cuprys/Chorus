@@ -1,0 +1,492 @@
+<!doctype html>
+<!-- PROTOTYPE, throwaway. Ticket 09: how you review and correct the Script.
+     Three variants of the Script review screen, switchable via ?variant=A|B|C and the floating bar at the bottom.
+     Data: the approach B Scripts from ticket 08 (data.js, built by build.py). Nothing is saved; state lives in memory. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Chorus Script review (prototype)</title>
+<style>
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{font:14px/1.45 system-ui,Segoe UI,sans-serif;color:#1c1c1f;background:#f4f3f0}
+button,select,input{font:inherit}
+button{cursor:pointer;border:1px solid #c9c7c1;background:#fff;border-radius:6px;padding:3px 9px}
+button:hover{background:#f0efe9}
+button.primary{background:#23395d;color:#fff;border-color:#23395d}
+button:disabled{opacity:.45;cursor:default}
+select,input[type=text]{border:1px solid #c9c7c1;border-radius:6px;padding:3px 6px;background:#fff;max-width:100%}
+#app{height:100%;display:flex;flex-direction:column}
+.top{display:flex;gap:10px;align-items:center;padding:8px 14px;background:#fff;border-bottom:1px solid #dcdad4;flex-wrap:wrap}
+.top b.logo{font-size:15px}
+.top .pend{margin-left:auto;color:#555}
+.top .pend.has{color:#8a4b00;font-weight:600}
+.cap{padding:6px 14px;background:#fbf6e4;border-bottom:1px solid #e8dfbd;color:#5c5326;font-size:13px}
+.body{flex:1;min-height:0;display:flex}
+.dot{display:inline-block;width:10px;height:10px;border-radius:50%;background:hsl(var(--h) 60% 45%);vertical-align:middle;margin-right:5px}
+.sp-narrator{--h:0}.sp-narrator .dot,.dot.sp-narrator{background:#8b8b8b}
+.sp-unknown .dot,.dot.sp-unknown{background:#fff;border:2px dashed #c0392b}
+.chip{display:inline-block;font-size:11px;padding:0 6px;border-radius:9px;background:#eceae4;color:#444;margin:1px 2px 1px 0;white-space:nowrap}
+.chip button{border:0;background:none;padding:0 0 0 3px;color:#888}
+.flagm{color:#b35c00;font-weight:700;cursor:help}
+.pinm{color:#23395d;font-size:11px;cursor:help}
+.muted{color:#777}
+.small{font-size:12px}
+
+/* ---- A: reading view ---- */
+.A main{flex:1;overflow:auto;padding:22px 0 120px}
+.A .page{max-width:720px;margin:0 auto;background:#fff;padding:28px 44px;border:1px solid #dcdad4;border-radius:4px;font:17px/1.75 Georgia,serif}
+.A .page p{margin:0 0 .9em}
+.A .ln{cursor:pointer;border-radius:3px;padding:1px 0}
+.A .ln:hover{outline:1px solid #bbb}
+.A .ln.q{background:hsl(var(--h) 70% 50% / .13);box-shadow:inset 0 -2px hsl(var(--h) 60% 45%)}
+.A .ln.q.sp-narrator{background:#eee;box-shadow:inset 0 -2px #999}
+.A .ln.q.sp-unknown{background:#fde9e7;box-shadow:inset 0 -2px #c0392b}
+.A .ln.thought{font-style:italic}
+.A .ln.sel{outline:2px solid #23395d}
+.A .ln.dirty{text-decoration:underline wavy #d98200 1px;text-underline-offset:5px}
+.A .who{font:600 10.5px/1 system-ui,sans-serif;color:hsl(var(--h) 60% 30%);vertical-align:super;margin-right:3px;white-space:nowrap}
+.A .sp-narrator .who{color:#666}.A .sp-unknown .who{color:#c0392b}
+.A .scene{font:12px system-ui,sans-serif;color:#555;border-top:1px dashed #bbb;margin:1.4em 0 1em;padding-top:6px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.A aside{width:340px;overflow:auto;background:#fff;border-left:1px solid #dcdad4;padding:12px 12px 120px}
+.castrow{border-bottom:1px solid #eceae4;padding:8px 0}
+.castrow .r1{display:flex;gap:6px;align-items:center}
+.castrow .r1 input{flex:1;min-width:0;font-weight:600}
+.castrow .r2{display:flex;gap:6px;align-items:center;margin-top:5px}
+.castrow .r2 select{flex:1;min-width:0}
+.castrow .cnt{color:#666;font-size:12px;white-space:nowrap}
+
+/* popover (variant A's line editor) */
+.pop{position:fixed;width:370px;max-height:80vh;overflow:auto;background:#fff;border:1px solid #9d9b95;border-radius:10px;box-shadow:0 10px 34px rgba(0,0,0,.25);padding:12px;z-index:20}
+.pop h4{margin:10px 0 4px;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:#777}
+.pop h4:first-of-type{margin-top:2px}
+.pop .quote{font:14px/1.4 Georgia,serif;background:#f6f5f1;padding:6px 8px;border-radius:6px;max-height:110px;overflow:auto}
+.pop .spk{display:flex;flex-wrap:wrap;gap:4px}
+.pop .spk button.on{outline:2px solid #23395d;font-weight:600}
+.pop label{display:block;margin:1px 0}
+.pop .row{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.pop .w{cursor:pointer;border-left:2px solid transparent;padding-left:2px}
+.pop .w:hover{border-left-color:#c0392b;background:#fde9e7}
+.pop .x{float:right;border:0;font-size:16px;line-height:1}
+
+/* ---- B: cast board ---- */
+.B .board{flex:1;display:flex;gap:10px;overflow:auto;padding:12px 12px 90px;align-items:flex-start}
+.B .col{flex:0 0 270px;background:#fff;border:1px solid #dcdad4;border-top:4px solid hsl(var(--h) 60% 45%);border-radius:8px;max-height:100%;display:flex;flex-direction:column}
+.B .col.sp-narrator{border-top-color:#999}.B .col.sp-unknown{border-top:4px dashed #c0392b}
+.B .col.over{outline:3px solid #23395d}
+.B .col header{padding:8px;border-bottom:1px solid #eceae4;cursor:grab}
+.B .col header .r1{display:flex;gap:6px;align-items:center}
+.B .col header .r1 input{flex:1;min-width:0;font-weight:600}
+.B .col header .r2{display:flex;gap:4px;margin-top:5px}
+.B .col header .r2 select{flex:1;min-width:0}
+.B .cards{overflow:auto;padding:6px;display:flex;flex-direction:column;gap:6px;min-height:60px}
+.B .card{border:1px solid #dcdad4;border-radius:6px;padding:6px 6px 6px 26px;position:relative;background:#fcfcfa;cursor:grab}
+.B .card.sel{background:#e8eef9;border-color:#23395d}
+.B .card.dirty{border-left:4px solid #d98200}
+.B .card input[type=checkbox]{position:absolute;left:6px;top:8px}
+.B .card .ct{font:13.5px/1.35 Georgia,serif;cursor:pointer;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.B .card.open .ct{display:block}
+.B .card .ctx{font:12px/1.35 Georgia,serif;color:#777;margin:4px 0}
+.B .card .meta{margin-top:3px;display:flex;gap:4px;flex-wrap:wrap;align-items:center}
+.B .newcol{flex:0 0 200px;padding:10px;border:2px dashed #c9c7c1;border-radius:8px;color:#666}
+.B .selbar{position:fixed;left:14px;bottom:70px;background:#23395d;color:#fff;padding:6px 12px;border-radius:8px;z-index:5}
+.B .selbar button{margin-left:8px}
+
+/* ---- C: question queue ---- */
+.C .list{width:300px;overflow:auto;background:#fff;border-right:1px solid #dcdad4;padding:10px 0 100px}
+.C .list .it{padding:6px 12px;border-left:4px solid transparent;cursor:pointer;font-size:13px}
+.C .list .it.cur{background:#e8eef9;border-left-color:#23395d}
+.C .list .it .t{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-family:Georgia,serif}
+.C .list h5{margin:8px 12px 4px;font-size:11px;text-transform:uppercase;color:#777;letter-spacing:.05em}
+.C .stage{flex:1;overflow:auto;padding:22px 22px 120px}
+.C .q{max-width:760px;margin:0 auto;background:#fff;border:1px solid #dcdad4;border-radius:10px;padding:22px 28px}
+.C .prog{height:6px;background:#e6e4de;border-radius:3px;margin-bottom:14px}
+.C .prog div{height:100%;background:#2e7d4f;border-radius:3px}
+.C .ctxl{font:15px/1.5 Georgia,serif;color:#777;margin:4px 0}
+.C .ctxl b{font:600 11px system-ui,sans-serif;color:#555;margin-right:6px}
+.C .focus{font:20px/1.5 Georgia,serif;margin:12px 0;padding:10px 14px;border-left:5px solid hsl(var(--h) 60% 45%);background:hsl(var(--h) 70% 50% / .09)}
+.C .focus.sp-unknown{border-left-color:#c0392b;background:#fde9e7}.C .focus.sp-narrator{border-left-color:#999;background:#f1f1f1}
+.C .why{color:#8a4b00;margin:6px 0 12px}
+.C .opts{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.C .opts button{padding:7px 12px;font-size:15px}
+.C kbd{font:11px ui-monospace,monospace;background:#eceae4;border:1px solid #c9c7c1;border-radius:4px;padding:0 4px;margin-right:6px;color:#333}
+.C .note{max-width:760px;margin:0 auto 12px;font-size:12px;color:#5c5326;background:#fbf6e4;border:1px dashed #d9cd94;border-radius:6px;padding:6px 10px}
+
+/* shared prototype chrome */
+.log{position:fixed;right:14px;top:92px;bottom:70px;width:360px;background:#fff;border:1px solid #9d9b95;border-radius:10px;box-shadow:0 10px 34px rgba(0,0,0,.2);padding:12px;overflow:auto;z-index:15}
+.log h4{margin:10px 0 4px}
+.log li{margin:2px 0;font-size:13px}
+.switch{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);background:#111;color:#fff;border-radius:999px;padding:6px 8px;display:flex;gap:10px;align-items:center;box-shadow:0 6px 20px rgba(0,0,0,.35);z-index:30;font-weight:600}
+.switch button{background:#333;color:#fff;border:0;border-radius:999px;width:30px;height:30px}
+.switch span{min-width:180px;text-align:center}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script src="data.js"></script>
+<script>
+const D = window.DATA, NARR = 'narrator', UNK = 'unknown';
+const EMOTIONS = ['neutral', 'happy', 'excited', 'amused', 'surprised', 'sad', 'anxious', 'angry', 'disgusted'];
+const LEVELS = ['low', 'medium', 'high'];
+const MOODS = ['calm', 'tense', 'melancholic', 'anxious', 'angry', 'joyful'];
+const VARIANTS = {A: 'Reading view', B: 'Cast board', C: 'Question queue'};
+const CAPTION = {
+  A: 'A. Read the Work as prose and fix what you notice. Click any line to change its Speaker, Emotion or text; Shift-click selects a run. The cast sits on the right.',
+  B: 'B. Fix the cast first. One column per Speaker; drag a line to another column to give it to that Speaker, drag a column header onto another to merge two Characters.',
+  C: 'C. Chorus asks, you answer. Only the lines it is unsure about are shown, one at a time. Number keys pick a Speaker, Enter keeps the guess, S skips.'
+};
+// ~9x real time for Chatterbox on the 1050 Ti (ticket 14), 150 words a minute
+const MIN_PER_WORD = 9 / 150;
+
+let S, undo = [], UI = {variant: 'A', sel: new Set(), pop: null, scope: 'line', open: null, qkey: null, skipped: new Set(), log: false};
+
+const esc = s => String(s).replace(/[&<>"]/g, m => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'}[m]));
+const escRe = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+const L = id => S.lines.find(l => l.id === id);
+const C = id => S.chars.find(c => c.id === id);
+const spName = sp => sp === NARR ? 'Narrator' : sp === UNK ? 'Unknown' : (C(sp) || {name: 'Unknown'}).name;
+const spClass = sp => sp === NARR ? 'sp-narrator' : sp === UNK || !C(sp) ? 'sp-unknown' : '';
+const spStyle = sp => C(sp) ? `style="--h:${C(sp).hue}"` : '';
+const dot = sp => `<span class="dot ${spClass(sp)}" ${spStyle(sp)}></span>`;
+const ex = l => '“' + l.text.replace(/[“”"]/g, '').slice(0, 38).trim() + (l.text.length > 40 ? '…' : '') + '”';
+const spoken = l => l.kind !== 'narration';
+const count = sp => S.lines.filter(l => l.speaker === sp && spoken(l)).length;
+const voiceOf = sp => sp === NARR || sp === UNK || !C(sp) ? (S.narrChar && C(S.narrChar) ? C(S.narrChar).voice : S.narrVoice) : C(sp).voice;
+const sig = l => [voiceOf(l.speaker), l.emotion, l.intensity, l.kind === 'thought' ? 't' : '', l.text].join('|');
+const dirty = () => S.lines.filter(l => S.gen[l.id] !== sig(l));
+const sceneOf = l => [...S.scenes].reverse().find(s => s.para <= l.para) || S.scenes[0];
+
+function load(pi) {
+  const P = D.passages[pi], PRON = /^(you|he|she|her|him|his|i|me|my dear|they|them|it|we|us)$/i;
+  const chars = P.characters.map((c, i) => ({id: 'c' + i, name: c.name, gender: c.gender, age: c.age, hue: (i * 47 + 205) % 360, voice: '', pinned: false,
+    aliases: [...new Set(c.aliases.filter(a => a !== c.name && !PRON.test(a)))]}));
+  const byName = n => {
+    n = (n || '').toLowerCase();
+    const c = chars.find(c => c.name.toLowerCase() === n) || chars.find(c => c.aliases.some(a => a.toLowerCase() === n));
+    return c ? c.id : n === 'narrator' ? NARR : UNK;
+  };
+  const lines = P.lines.map(l => {
+    const b = l.label, base = {id: 'l' + l.id, para: l.para, text: l.text, quote: l.quote, pinned: false, wrong: !!l.wrong};
+    return b ? {...base, speaker: byName(b.speaker), kind: b.kind === 'thought' ? 'thought' : 'speech', emotion: b.emotion, intensity: b.intensity}
+      : {...base, speaker: l.quote ? UNK : NARR, kind: l.quote ? 'speech' : 'narration', emotion: 'neutral', intensity: 'low'};
+  });
+  const scenes = (P.scenes.length ? P.scenes : [{first_paragraph: 0, setting: '', mood: 'calm'}])
+    .map((s, i) => ({id: 's' + i, para: i === 0 ? 0 : s.first_paragraph, setting: s.setting, mood: s.mood}));
+  const nc = P.narrator.person === 'first' ? byName(P.narrator.character) : null;
+  S = {pi, title: P.title, chars, lines, scenes, narrChar: nc && nc !== UNK && nc !== NARR ? nc : null, narrVoice: D.voices.default_narrator, gen: {}, log: [], n: 100000};
+  // auto-cast: by gender, most lines first; minor Characters share Voices (ticket 13)
+  const pool = g => D.voices.voices.filter(v => v.id !== S.narrVoice && (!g || v.gender === g));
+  const seen = {};
+  [...chars].sort((a, b) => count(b.id) - count(a.id)).forEach(c => {
+    const g = c.gender === 'male' || c.gender === 'female' ? c.gender : '', p = pool(g);
+    seen[g] = (seen[g] || 0) + 1; c.voice = p[(seen[g] - 1) % p.length].id;
+  });
+  lines.forEach(l => S.gen[l.id] = sig(l));
+  const iss = issues(), flagged = new Set(iss.filter(i => i.type === 'line').map(i => i.id)), lone = new Set(iss.filter(i => i.type === 'char').map(i => i.id));
+  const wrong = lines.filter(l => l.wrong);
+  S.note = {flagged: flagged.size, questions: iss.length, wrong: wrong.length, caught: wrong.filter(l => flagged.has(l.id) || lone.has(l.speaker)).length};
+  undo = []; UI.sel = new Set(); UI.pop = null; UI.open = null; UI.qkey = null; UI.skipped = new Set();
+}
+
+// What Chorus would ask about. Heuristics only: the model gives no confidence score.
+function issues() {
+  const out = [], narrPara = {}, order = [];
+  S.lines.forEach(l => { if (!order.includes(l.para)) order.push(l.para); if (l.kind === 'narration' && l.text.trim()) narrPara[l.para] = true; });
+  const runAt = {}; let run = 0;
+  order.forEach(p => { const sp = S.lines.some(l => l.para === p && spoken(l)); run = narrPara[p] || !sp ? 0 : run + 1; runAt[p] = run; });
+  S.lines.forEach(l => {
+    if (!spoken(l) || l.pinned || l.ok) return;
+    const why = [], c = C(l.speaker);
+    if (l.speaker === UNK || (!c && l.speaker !== NARR)) why.push('No Speaker was found for this line.');
+    else {
+      if (l.speaker === NARR) why.push('A quoted line given to the Narrator.');
+      if (l.kind === 'thought') why.push('Marked as a thought, not spoken aloud.');
+      if (c && [c.name, ...c.aliases].filter(n => n.length > 2).some(n => new RegExp('\\b' + escRe(n) + '\\b', 'i').test(l.text)))
+        why.push(`The line mentions ${c.name}. It may be said to them, not by them.`);
+      if (runAt[l.para] >= 4) why.push('Deep in an exchange with no “said X” tags, where turn-taking is easy to lose.');
+    }
+    if (why.length) out.push({type: 'line', key: 'line:' + l.id, id: l.id, why});
+  });
+  S.chars.forEach(c => { if (!c.pinned && !c.ok && count(c.id) === 1) out.push({type: 'char', key: 'char:' + c.id, id: c.id, why: [`${c.name} speaks only one line. Possibly an alias of another Character, or not a real Character.`]}); });
+  S.scenes.forEach((s, i) => { if (i && !s.ok && s.setting === S.scenes[i - 1].setting) out.push({type: 'scene', key: 'scene:' + s.id, id: s.id, why: ['This Scene has the same setting as the one before it.']}); });
+  return out;
+}
+
+// ---------- mutations (in memory only) ----------
+function mutate(desc, fn) { undo.push(JSON.stringify(S)); fn(); if (desc) S.log.push(desc); render(); }
+const many = (ids, what) => ids.length === 1 ? `${what} of ${ex(L(ids[0]))}` : `${what} of ${ids.length} lines`;
+function assign(id, sp) {
+  const l = L(id); l.speaker = sp; l.pinned = true;
+  if (sp === NARR && !l.quote) l.kind = 'narration'; else if (l.kind === 'narration') l.kind = 'speech';
+}
+function setSpeaker(ids, sp) { mutate(`${many(ids, 'Speaker')} → ${spName(sp)}`, () => ids.forEach(id => assign(id, sp))); }
+function newSpeaker(ids, name) { mutate(`Added Character ${name}; ${many(ids, 'Speaker')} → ${name}`, () => { const c = addChar(name); ids.forEach(id => assign(id, c)); }); }
+function setField(ids, f, v) { mutate(`${many(ids, f[0].toUpperCase() + f.slice(1))} → ${v}`, () => ids.forEach(id => { const l = L(id); l[f] = v; l.pinned = true; })); }
+function addChar(name) {
+  const c = {id: 'c' + S.n++, name, aliases: [], gender: 'unknown', age: 'adult', hue: (S.chars.length * 47 + 205) % 360, voice: D.voices.voices.find(v => v.id !== S.narrVoice).id, pinned: true};
+  S.chars.push(c); return c.id;
+}
+function mergeChar(from, into) {
+  const a = C(from), b = C(into); if (!a || !b || a === b) return;
+  mutate(`Merged Character ${a.name} into ${b.name} (${count(from)} lines, ${a.name} kept as an alias)`, () => {
+    S.lines.forEach(l => { if (l.speaker === from) l.speaker = into; });
+    b.aliases = [...new Set([...b.aliases, a.name, ...a.aliases])]; b.pinned = true;
+    S.chars = S.chars.filter(c => c !== a); if (S.narrChar === from) S.narrChar = into;
+  });
+}
+function targets(id) {
+  const l = L(id), i = S.lines.indexOf(l);
+  if (UI.scope === 'sel' && UI.sel.size > 1) return [...UI.sel];
+  if (UI.scope === 'on') return S.lines.filter((m, j) => m === l || (j >= i && m.speaker === l.speaker && spoken(m))).map(m => m.id);
+  if (UI.scope === 'all') return S.lines.filter(m => m === l || (m.speaker === l.speaker && spoken(m))).map(m => m.id);
+  return [id];
+}
+
+// ---------- shared bits ----------
+const opts = (list, cur) => list.map(v => `<option${v === cur ? ' selected' : ''}>${esc(v)}</option>`).join('');
+const voiceSel = (act, x, cur) => `<select data-c="${act}" data-x="${x}" title="Voice">${D.voices.voices.map(v =>
+  `<option value="${v.id}"${v.id === cur ? ' selected' : ''}>${v.id} · ${v.gender}, ${v.accent}, ${v.timbre.join(' ')}</option>`).join('')}</select><button data-a="play" data-x="${cur}" title="Play this Voice">▶</button>`;
+const mergeSel = c => `<select data-c="mergeInto" data-x="${c.id}"><option value="">Merge into…</option>${S.chars.filter(o => o !== c).map(o => `<option value="${o.id}">${esc(o.name)}</option>`).join('')}</select>`;
+const aliasChips = c => c.aliases.map(a => `<span class="chip">${esc(a)}<button data-a="rmAlias" data-x="${c.id}" data-y="${esc(a)}" title="Not an alias of ${esc(c.name)}">×</button></span>`).join('');
+const marks = (l, flagged) => (flagged.has(l.id) ? ' <span class="flagm" title="Chorus is unsure about this line">?</span>' : '') +
+  (l.pinned ? ' <span class="pinm" title="Corrected by you. Kept if the Script is analysed again.">📌</span>' : '');
+
+function topbar() {
+  const d = dirty(), words = d.reduce((n, l) => n + l.text.split(/\s+/).length, 0), min = Math.max(1, Math.round(words * MIN_PER_WORD));
+  return `<div class="top"><b class="logo">Chorus · Script review</b><span class="chip">PROTOTYPE</span>
+    <select data-c="work">${D.passages.map((p, i) => `<option value="${i}"${i === S.pi ? ' selected' : ''}>${esc(p.title)}</option>`).join('')}</select>
+    <span class="pend ${d.length ? 'has' : ''}">${d.length ? `${d.length} line${d.length > 1 ? 's' : ''} to re-voice, then re-assemble 1 chapter · about ${min} min on a 1050 Ti` : 'Audio is up to date'}</span>
+    <button data-a="regen" class="primary" ${d.length ? '' : 'disabled'}>Regenerate</button>
+    <button data-a="undo" ${undo.length ? '' : 'disabled'}>Undo</button>
+    <button data-a="toggleLog">Changes (${S.log.length})</button></div>
+    <div class="cap">${CAPTION[UI.variant]}</div>`;
+}
+function logPanel() {
+  if (!UI.log) return '';
+  const d = dirty();
+  return `<div class="log"><button class="x" data-a="toggleLog" style="float:right">×</button><b>State (prototype)</b>
+    <h4>To regenerate (${d.length})</h4><ul>${d.map(l => `<li>${dot(l.speaker)}${esc(spName(l.speaker))}, ${l.emotion}: ${esc(ex(l))}</li>`).join('') || '<li class="muted">nothing</li>'}</ul>
+    <h4>Your corrections (${S.log.length})</h4><ol reversed>${[...S.log].reverse().map(x => `<li>${esc(x)}</li>`).join('')}</ol>
+    <p class="small muted">Lines and Characters you corrected are pinned 📌: a new analysis of the Work must keep them.</p></div>`;
+}
+const switcher = () => `<div class="switch"><button data-a="variant" data-x="-1">←</button><span>${UI.variant} (${VARIANTS[UI.variant]})</span><button data-a="variant" data-x="1">→</button></div>`;
+
+// ---------- A: reading view ----------
+function castRow(c) {
+  return `<div class="castrow"><div class="r1">${dot(c.id)}<input type="text" data-c="rename" data-x="${c.id}" value="${esc(c.name)}"><span class="cnt">${count(c.id)} lines</span>${c.pinned ? '<span class="pinm" title="Corrected by you">📌</span>' : ''}</div>
+    <div class="r2">${voiceSel('voice', c.id, c.voice)}</div><div class="r2">${mergeSel(c)}<button data-a="delChar" data-x="${c.id}" title="Not a Character: its lines become Unknown">Remove</button></div>
+    <div class="small">${aliasChips(c)}</div></div>`;
+}
+function viewA() {
+  const flagged = new Set(issues().filter(i => i.type === 'line').map(i => i.id)), dset = new Set(dirty().map(l => l.id));
+  const paras = [...new Set(S.lines.map(l => l.para))], start = {};
+  S.scenes.forEach((s, i) => { const p = paras.find(p => p >= s.para); if (p !== undefined && !(p in start)) start[p] = i; });
+  let html = '';
+  paras.forEach(p => {
+    if (p in start) { const i = start[p], s = S.scenes[i];
+      html += `<div class="scene"><b>Scene ${i + 1}</b> ${esc(s.setting)} · Mood <select data-c="mood" data-x="${s.id}">${opts(MOODS, s.mood)}</select>${i ? `<button data-a="mergeScene" data-x="${s.id}">Merge with the Scene above</button>` : ''}</div>`; }
+    html += '<p>' + S.lines.filter(l => l.para === p).map(l => {
+      const q = spoken(l) || l.quote;
+      return `<span data-a="line" data-x="${l.id}" ${spStyle(l.speaker)} class="ln ${q ? 'q' : ''} ${l.kind} ${spClass(l.speaker)} ${UI.sel.has(l.id) ? 'sel' : ''} ${dset.has(l.id) ? 'dirty' : ''}">${q ? `<span class="who">${esc(spName(l.speaker))} · ${l.emotion}${marks(l, flagged)}</span>` : (l.pinned ? marks(l, flagged) : '')}${esc(l.text)}</span>`;
+    }).join(' ') + '</p>';
+  });
+  const nv = S.narrChar ? `<span class="muted small">Same Voice as ${esc(spName(S.narrChar))} (first-person Work)</span>` : voiceSel('narrVoice', '', S.narrVoice);
+  return `<div class="body A"><main data-scroll="a-main"><div class="page">${html}</div></main>
+    <aside data-scroll="a-cast"><b>Cast</b> <span class="muted small">applies to the whole Work</span>
+    <div class="castrow"><div class="r1">${dot(NARR)}<b>Narrator</b></div><div class="r2">${nv}</div></div>
+    ${[...S.chars].sort((a, b) => count(b.id) - count(a.id)).map(castRow).join('')}
+    <div class="castrow"><input type="text" data-c="addChar" placeholder="+ New Character, then Enter"></div></aside></div>`;
+}
+function popover() {
+  const p = UI.pop, l = p && L(p.id); if (!l) return '';
+  const i = S.lines.indexOf(l), n = UI.sel.size, name = esc(spName(l.speaker));
+  const on = S.lines.filter((m, j) => j >= i && m.speaker === l.speaker && spoken(m)).length;
+  const scopes = [['line', 'This line only'], n > 1 && ['sel', `The ${n} selected lines`], spoken(l) && ['on', `${name}'s lines from here on (${on})`], spoken(l) && ['all', `All of ${name}'s lines (${count(l.speaker)})`]].filter(Boolean);
+  if (!scopes.some(s => s[0] === UI.scope)) UI.scope = 'line';
+  const words = () => { let out = '', m, re = /\S+/g, first = true; while ((m = re.exec(l.text))) { out += first ? esc(m[0]) + ' ' : `<span class="w" data-a="splitAt" data-x="${l.id}" data-y="${m.index}">${esc(m[0])}</span> `; first = false; } return out; };
+  const x = Math.min(p.x, innerWidth - 390), y = Math.max(8, Math.min(p.y + 14, innerHeight - 480));
+  return `<div class="pop" style="left:${Math.max(8, x)}px;top:${y}px"><button class="x" data-a="closePop">×</button>
+    <h4>Line</h4><div class="quote">${p.split ? words() : esc(l.text)}</div>
+    <div class="row small" style="margin-top:4px">${p.split ? '<span class="muted">Click the word the new line should start with.</span>' : `<button data-a="splitMode" data-x="${l.id}">Split…</button><button data-a="mergeNext" data-x="${l.id}" ${i < S.lines.length - 1 ? '' : 'disabled'}>Join with next line</button>`}</div>
+    <h4>Apply changes to</h4>${scopes.map(s => `<label><input type="radio" name="scope" data-c="scope" value="${s[0]}"${UI.scope === s[0] ? ' checked' : ''}> ${s[1]}</label>`).join('')}
+    ${n > 1 ? `<div class="row small"><button data-a="swap">Swap the two Speakers in the selection</button></div>` : ''}
+    <h4>Speaker</h4><div class="spk">${[NARR, ...S.chars.map(c => c.id), UNK].map(sp => `<button data-a="sp" data-x="${l.id}" data-y="${sp}" class="${sp === l.speaker ? 'on' : ''}">${dot(sp)}${esc(spName(sp))}</button>`).join('')}</div>
+    <input type="text" data-c="newSp" data-x="${l.id}" placeholder="+ New Character, then Enter" style="margin-top:5px;width:100%">
+    ${spoken(l) ? `<h4>Delivery</h4><div class="row">Emotion <select data-c="emo" data-x="${l.id}">${opts(EMOTIONS, l.emotion)}</select>
+      <select data-c="lvl" data-x="${l.id}">${opts(LEVELS, l.intensity)}</select>
+      <select data-c="kind" data-x="${l.id}">${opts(['speech', 'thought'], l.kind)}</select></div>` : ''}</div>`;
+}
+
+// ---------- B: cast board ----------
+function viewB() {
+  const flagged = new Set(issues().filter(i => i.type === 'line').map(i => i.id)), dset = new Set(dirty().map(l => l.id));
+  const card = l => {
+    const i = S.lines.indexOf(l), open = UI.open === l.id, prev = S.lines[i - 1], next = S.lines[i + 1];
+    return `<div class="card ${UI.sel.has(l.id) ? 'sel' : ''} ${dset.has(l.id) ? 'dirty' : ''} ${open ? 'open' : ''}" draggable="true" data-drag="line:${l.id}">
+      <input type="checkbox" data-a="check" data-x="${l.id}" ${UI.sel.has(l.id) ? 'checked' : ''}>
+      ${open && prev ? `<div class="ctx">${esc(spName(prev.speaker))}: ${esc(prev.text.slice(-160))}</div>` : ''}
+      <div class="ct" data-a="card" data-x="${l.id}">${esc(l.text)}</div>
+      ${open && next ? `<div class="ctx">${esc(spName(next.speaker))}: ${esc(next.text.slice(0, 160))}</div>` : ''}
+      <div class="meta">${open ? `<select data-c="emo" data-x="${l.id}">${opts(EMOTIONS, l.emotion)}</select><select data-c="lvl" data-x="${l.id}">${opts(LEVELS, l.intensity)}</select><select data-c="kind" data-x="${l.id}">${opts(['speech', 'thought'], l.kind)}</select>`
+        : `<span class="chip">${l.emotion} · ${l.intensity}</span>${l.kind === 'thought' ? '<span class="chip">thought</span>' : ''}`}${marks(l, flagged)}</div></div>`;
+  };
+  const col = sp => {
+    const c = C(sp), ls = S.lines.filter(l => l.speaker === sp && spoken(l));
+    const head = c ? `<header draggable="true" data-drag="char:${c.id}"><div class="r1"><input type="text" data-c="rename" data-x="${c.id}" value="${esc(c.name)}"><span class="chip">${ls.length}</span>${c.pinned ? '<span class="pinm" title="Corrected by you">📌</span>' : ''}</div>
+        <div class="r2">${voiceSel('voice', c.id, c.voice)}</div><div class="r2">${mergeSel(c)}<button data-a="delChar" data-x="${c.id}" title="Not a Character: its lines become Unknown">Remove</button></div>
+        <div class="small" style="margin-top:4px">${aliasChips(c)}</div></header>`
+      : `<header style="cursor:default"><div class="r1"><b>${sp === NARR ? 'Narrator, quoted lines' : 'Unknown'}</b><span class="chip">${ls.length}</span></div>
+        <div class="small muted">${sp === NARR ? 'Quoted text read by the Narrator. Drag a line here if no Character says it.' : 'Lines with no Speaker. Drag each one to a Character.'}</div>
+        ${sp === NARR ? `<div class="r2">${S.narrChar ? `<span class="muted small">Same Voice as ${esc(spName(S.narrChar))}</span>` : voiceSel('narrVoice', '', S.narrVoice)}</div>` : ''}</header>`;
+    return `<div class="col ${spClass(sp)}" ${spStyle(sp)} data-col="${sp}">${head}<div class="cards" data-scroll="b-${sp}">${ls.map(card).join('')}</div></div>`;
+  };
+  const cols = [UNK, ...[...S.chars].sort((a, b) => count(b.id) - count(a.id)).map(c => c.id), NARR];
+  const n = UI.sel.size;
+  return `<div class="body B"><div class="board" data-scroll="b-board">${cols.map(col).join('')}
+    <div class="newcol"><input type="text" data-c="addChar" placeholder="+ New Character, then Enter"><p class="small">Scenes and line text are not editable in this variant.</p></div></div>
+    ${n ? `<div class="selbar">${n} line${n > 1 ? 's' : ''} selected. Drag one of them to move all.<button data-a="clearSel">Clear</button></div>` : ''}</div>`;
+}
+
+// ---------- C: question queue ----------
+function queue() { const all = issues(); return {all, open: all.filter(i => !UI.skipped.has(i.key))}; }
+function qCurrent() { const q = queue().open; return q.find(i => i.key === UI.qkey) || q[0]; }
+function qOptions(l) {
+  const i = S.lines.indexOf(l), near = [];
+  S.lines.slice(Math.max(0, i - 8), i + 9).forEach(m => { if (spoken(m) && m.speaker !== l.speaker && C(m.speaker) && !near.includes(m.speaker)) near.push(m.speaker); });
+  const rest = [...S.chars].sort((a, b) => count(b.id) - count(a.id)).map(c => c.id).filter(id => id !== l.speaker && !near.includes(id));
+  return [...near, ...(l.speaker === NARR ? [] : [NARR]), ...rest].slice(0, 8);
+}
+function viewC() {
+  const {all, open} = queue(), cur = qCurrent(), total = S.total = Math.max(S.total || 0, all.length), done = total - open.length;
+  const label = i => i.type === 'line' ? ex(L(i.id)) : i.type === 'char' ? 'Character: ' + C(i.id).name : 'Scene: ' + S.scenes.find(s => s.id === i.id).setting;
+  const group = (t, title) => { const g = open.filter(i => i.type === t); return g.length ? `<h5>${title} (${g.length})</h5>` + g.map(i => `<div class="it ${cur && i.key === cur.key ? 'cur' : ''}" data-a="qJump" data-x="${i.key}"><div class="t">${esc(label(i))}</div><div class="muted small">${esc(i.why[0])}</div></div>`).join('') : ''; };
+  let card = `<h2>Nothing left to check.</h2><p>${dirty().length ? 'Press Regenerate to re-voice the lines you changed.' : 'The Script stands as it is.'}</p>`;
+  if (cur && cur.type === 'line') {
+    const l = L(cur.id), i = S.lines.indexOf(l), ctx = m => `<div class="ctxl"><b>${esc(spName(m.speaker))}</b>${esc(m.text.length > 260 ? '…' + m.text.slice(-260) : m.text)}</div>`;
+    const known = l.speaker !== UNK, o = qOptions(l);
+    card = `${S.lines.slice(Math.max(0, i - 3), i).map(ctx).join('')}
+      <div class="focus ${spClass(l.speaker)}" ${spStyle(l.speaker)}>${esc(l.text)}</div>${S.lines.slice(i + 1, i + 3).map(ctx).join('')}
+      <div class="why">${cur.why.map(esc).join(' ')}</div><b>Who says this?</b>
+      <div class="opts">${known ? `<button class="primary" data-a="qKeep"><kbd>Enter</kbd>Keep ${esc(spName(l.speaker))}</button>` : ''}
+      ${o.map((sp, k) => `<button data-a="qPick" data-x="${sp}"><kbd>${k + 1}</kbd>${dot(sp)}${esc(spName(sp))}</button>`).join('')}
+      <input type="text" data-c="qNew" placeholder="Someone else: name, then Enter" style="width:250px"><button data-a="qSkip"><kbd>S</kbd>Skip</button></div>
+      <div class="row muted">Delivery: <select data-c="emo" data-x="${l.id}">${opts(EMOTIONS, l.emotion)}</select> <select data-c="lvl" data-x="${l.id}">${opts(LEVELS, l.intensity)}</select> <select data-c="kind" data-x="${l.id}">${opts(['speech', 'thought'], l.kind)}</select></div>`;
+  } else if (cur && cur.type === 'char') {
+    const c = C(cur.id), l = S.lines.find(m => m.speaker === c.id && spoken(m)), o = S.chars.filter(x => x !== c).slice(0, 8);
+    card = `<div class="focus" style="--h:${c.hue}">${esc(l.text)}</div><div class="why">${esc(cur.why[0])}</div><b>Is ${esc(c.name)} a separate Character?</b>
+      <div class="opts"><button class="primary" data-a="qKeep"><kbd>Enter</kbd>Yes, keep ${esc(c.name)}</button>
+      ${o.map((x, k) => `<button data-a="qMergeChar" data-x="${x.id}"><kbd>${k + 1}</kbd>Same as ${dot(x.id)}${esc(x.name)}</button>`).join('')}
+      <button data-a="delChar" data-x="${c.id}">Not a Character</button><button data-a="qSkip"><kbd>S</kbd>Skip</button></div>`;
+  } else if (cur) {
+    const k = S.scenes.findIndex(s => s.id === cur.id), s = S.scenes[k], first = S.lines.filter(l => l.para >= s.para).slice(0, 2);
+    card = `<div class="ctxl"><b>Scene ${k}</b>${esc(S.scenes[k - 1].setting)} · Mood ${S.scenes[k - 1].mood}</div>
+      <div class="focus sp-narrator">${first.map(l => esc(l.text)).join(' ')}</div><div class="why">Scene ${k + 1} starts here with the same setting (${esc(s.setting)}). Mood changes from ${S.scenes[k - 1].mood} to ${s.mood}.</div>
+      <b>Is this a new Scene?</b><div class="opts"><button class="primary" data-a="qKeep"><kbd>Enter</kbd>Yes, the Mood changes</button><button data-a="qMergeScene"><kbd>1</kbd>No, merge with the Scene before</button><button data-a="qSkip"><kbd>S</kbd>Skip</button></div>`;
+  }
+  const N = S.note;
+  return `<div class="body C"><div class="list" data-scroll="c-list">${group('char', 'Cast')}${group('line', 'Lines')}${group('scene', 'Scenes')}
+    ${UI.skipped.size ? `<h5>Skipped (${UI.skipped.size})</h5><div class="it"><button data-a="qUnskip">Bring them back</button></div>` : ''}</div>
+    <div class="stage" data-scroll="c-stage"><div class="note">Prototype note, not part of the design: for this Work the rules raise ${N.questions} questions (${N.flagged} about lines). Approach B got ${N.wrong} lines wrong against the ticket 08 reference; ${N.caught} of those are among the questions. The other lines are never shown in this variant.</div>
+    <div class="q"><div class="prog"><div style="width:${total ? done / total * 100 : 100}%"></div></div><div class="muted small" style="margin-bottom:8px">${done} of ${total} done</div>${card}</div></div></div>`;
+}
+function qAnswer(fn, desc) { const cur = qCurrent(); if (!cur) return; const q = queue().open, nx = q[q.indexOf(q.find(i => i.key === cur.key)) + 1]; UI.qkey = nx ? nx.key : null; fn(cur, desc); }
+
+// ---------- render and events ----------
+function render() {
+  const sc = {}; document.querySelectorAll('[data-scroll]').forEach(e => sc[e.dataset.scroll] = [e.scrollTop, e.scrollLeft]);
+  document.querySelector('#app').innerHTML = topbar() + ({A: viewA, B: viewB, C: viewC})[UI.variant]() + (UI.variant === 'A' ? popover() : '') + logPanel() + switcher();
+  document.querySelectorAll('[data-scroll]').forEach(e => { const v = sc[e.dataset.scroll]; if (v) { e.scrollTop = v[0]; e.scrollLeft = v[1]; } });
+  try { history.replaceState(null, '', '?variant=' + UI.variant + '&work=' + S.pi); } catch (e) {}
+}
+function setVariant(dir) { const k = Object.keys(VARIANTS); UI.variant = k[(k.indexOf(UI.variant) + dir + k.length) % k.length]; UI.pop = null; UI.sel = new Set(); render(); }
+
+const ACT = {
+  variant: x => setVariant(+x),
+  toggleLog: () => { UI.log = !UI.log; render(); },
+  undo: () => { if (undo.length) { S = JSON.parse(undo.pop()); UI.pop = null; UI.sel = new Set(); render(); } },
+  regen: () => { const n = dirty().length; mutate(`Regenerated ${n} lines and re-assembled the chapter`, () => S.lines.forEach(l => S.gen[l.id] = sig(l))); },
+  play: x => new Audio('../voice-library/library/' + x + '.wav').play(),
+  line: (id, _, e) => {
+    if (e.shiftKey && UI.pop) { const a = S.lines.indexOf(L(UI.pop.id)), b = S.lines.indexOf(L(id)); S.lines.slice(Math.min(a, b), Math.max(a, b) + 1).forEach(l => { if (spoken(l)) UI.sel.add(l.id); }); UI.scope = 'sel'; }
+    else if (e.ctrlKey || e.metaKey) { UI.sel.add(id); UI.scope = 'sel'; UI.pop = UI.pop || {id, x: e.clientX, y: e.clientY}; }
+    else { UI.sel = new Set([id]); UI.pop = {id, x: e.clientX, y: e.clientY}; UI.scope = 'line'; }
+    render();
+  },
+  closePop: () => { UI.pop = null; UI.sel = new Set(); render(); },
+  sp: (id, sp) => setSpeaker(targets(id), sp),
+  swap: () => {
+    const ids = [...UI.sel], two = [...new Set(ids.map(i => L(i).speaker))];
+    if (two.length !== 2) return;
+    mutate(`Swapped ${spName(two[0])} and ${spName(two[1])} in ${ids.length} lines`, () => ids.forEach(i => { const l = L(i); l.speaker = l.speaker === two[0] ? two[1] : two[0]; l.pinned = true; }));
+  },
+  splitMode: () => { UI.pop.split = true; render(); },
+  splitAt: (id, off) => { UI.pop.split = false; mutate(`Split ${ex(L(id))} in two`, () => {
+    const l = L(id), i = S.lines.indexOf(l), b = {...l, id: 'l' + S.n++, text: l.text.slice(+off).trim(), pinned: true};
+    l.text = l.text.slice(0, +off).trim(); l.pinned = true; S.lines.splice(i + 1, 0, b); }); },
+  mergeNext: id => mutate(`Joined ${ex(L(id))} with the next line`, () => { const l = L(id), i = S.lines.indexOf(l), nx = S.lines[i + 1]; l.text += ' ' + nx.text; l.pinned = true; S.lines.splice(i + 1, 1); UI.sel.delete(nx.id); }),
+  mergeScene: id => { const k = S.scenes.findIndex(s => s.id === id); mutate(`Merged Scene ${k + 1} into Scene ${k}`, () => S.scenes.splice(k, 1)); },
+  delChar: id => mutate(`Removed Character ${C(id).name}; its ${count(id)} lines are now Unknown`, () => { S.lines.forEach(l => { if (l.speaker === id) l.speaker = UNK; }); S.chars = S.chars.filter(c => c.id !== id); }),
+  rmAlias: (id, a) => mutate(`“${a}” is no longer an alias of ${C(id).name}`, () => { const c = C(id); c.aliases = c.aliases.filter(x => x !== a); c.pinned = true; }),
+  card: id => { UI.open = UI.open === id ? null : id; render(); },
+  check: id => { UI.sel.has(id) ? UI.sel.delete(id) : UI.sel.add(id); render(); },
+  clearSel: () => { UI.sel = new Set(); render(); },
+  qJump: key => { UI.qkey = key; render(); },
+  qSkip: () => { const cur = qCurrent(); if (cur) { UI.skipped.add(cur.key); UI.qkey = null; render(); } },
+  qUnskip: () => { UI.skipped = new Set(); render(); },
+  qKeep: () => qAnswer(cur => mutate(null, () => { (cur.type === 'line' ? L(cur.id) : cur.type === 'char' ? C(cur.id) : S.scenes.find(s => s.id === cur.id)).ok = true; })),
+  qPick: sp => qAnswer(cur => { if (cur.type === 'line') setSpeaker([cur.id], sp); }),
+  qMergeChar: into => qAnswer(cur => mergeChar(cur.id, into)),
+  qMergeScene: () => qAnswer(cur => ACT.mergeScene(cur.id))
+};
+const CHG = {
+  work: (_, v) => { load(+v); render(); },
+  scope: (_, v) => { UI.scope = v; },
+  emo: (id, v) => setField(UI.variant === 'A' ? targets(id) : [id], 'emotion', v),
+  lvl: (id, v) => setField(UI.variant === 'A' ? targets(id) : [id], 'intensity', v),
+  kind: (id, v) => setField(UI.variant === 'A' ? targets(id) : [id], 'kind', v),
+  mood: (id, v) => mutate(`Mood of Scene “${S.scenes.find(s => s.id === id).setting}” → ${v}`, () => { const s = S.scenes.find(s => s.id === id); s.mood = v; s.ok = true; }),
+  voice: (id, v) => mutate(`Voice of ${C(id).name} → ${v} (${count(id)} lines)`, () => { C(id).voice = v; C(id).pinned = true; }),
+  narrVoice: (_, v) => mutate(`Voice of the Narrator → ${v}`, () => { S.narrVoice = v; }),
+  rename: (id, v) => { if (v.trim()) mutate(`Renamed ${C(id).name} to ${v.trim()}`, () => { const c = C(id); c.aliases = [...new Set([...c.aliases, c.name])]; c.name = v.trim(); c.pinned = true; }); },
+  mergeInto: (id, v) => { if (v) mergeChar(id, v); },
+  addChar: (_, v) => { if (v.trim()) mutate(`Added Character ${v.trim()}`, () => addChar(v.trim())); },
+  newSp: (id, v) => { if (v.trim()) newSpeaker(targets(id), v.trim()); },
+  qNew: (_, v) => { if (v.trim()) qAnswer(cur => { if (cur.type === 'line') newSpeaker([cur.id], v.trim()); }); }
+};
+
+function init() {
+  const q = new URLSearchParams(location.search);
+  if (VARIANTS[q.get('variant')]) UI.variant = q.get('variant');
+  load(Math.min(D.passages.length - 1, +q.get('work') || 0)); render();
+  document.addEventListener('click', e => {
+    const el = e.target.closest('[data-a]');
+    if (el) return ACT[el.dataset.a](el.dataset.x, el.dataset.y, e);
+    if (UI.pop && e.target.closest('main')) ACT.closePop();
+  });
+  document.addEventListener('change', e => { const el = e.target.closest('[data-c]'); if (el) CHG[el.dataset.c](el.dataset.x, el.value); });
+  document.addEventListener('dragstart', e => { const el = e.target.closest('[data-drag]'); if (el) e.dataTransfer.setData('text/plain', el.dataset.drag); });
+  document.addEventListener('dragover', e => { const col = e.target.closest('[data-col]'); if (col) { e.preventDefault(); col.classList.add('over'); } });
+  document.addEventListener('dragleave', e => { const col = e.target.closest('[data-col]'); if (col && !col.contains(e.relatedTarget)) col.classList.remove('over'); });
+  document.addEventListener('drop', e => {
+    const col = e.target.closest('[data-col]'); if (!col) return; e.preventDefault();
+    const [type, id] = e.dataTransfer.getData('text/plain').split(':'), to = col.dataset.col;
+    if (type === 'line') { const ids = UI.sel.has(id) ? [...UI.sel] : [id]; UI.sel = new Set(); setSpeaker(ids, to); }
+    else if (type === 'char' && C(to) && to !== id) mergeChar(id, to); else render();
+  });
+  document.addEventListener('keydown', e => {
+    if (e.target.closest('input,textarea,select,[contenteditable]')) return;
+    if (e.key === 'ArrowLeft') setVariant(-1); else if (e.key === 'ArrowRight') setVariant(1);
+    else if (e.key === 'Escape' && UI.pop) ACT.closePop();
+    else if (e.key === 'z' && (e.ctrlKey || e.metaKey)) ACT.undo();
+    else if (UI.variant === 'C') {
+      const cur = qCurrent(); if (!cur) return;
+      if (e.key === 'Enter') { if (cur.type !== 'line' || L(cur.id).speaker !== UNK) ACT.qKeep(); }
+      else if (e.key === 's' || e.key === 'S') ACT.qSkip();
+      else if (/^[1-9]$/.test(e.key)) { const b = document.querySelectorAll('.C .opts button[data-a^="qPick"],.C .opts button[data-a^="qMerge"]')[+e.key - 1]; if (b) b.click(); }
+    }
+  });
+}
+if (typeof document !== 'undefined') init();
+</script>
+</body>
+</html>

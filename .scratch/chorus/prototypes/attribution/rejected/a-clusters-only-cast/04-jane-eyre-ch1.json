@@ -1,0 +1,319 @@
+{
+ "approach": "a-booknlp-llm",
+ "passage": "04-jane-eyre-ch1",
+ "narrator": {
+  "person": "first",
+  "character": "the narrator"
+ },
+ "characters": [
+  {
+   "name": "John Reed",
+   "aliases": [
+    "John"
+   ],
+   "gender": "male",
+   "age": "unknown",
+   "clusters": [
+    20
+   ]
+  },
+  {
+   "name": "Bessie",
+   "aliases": [],
+   "gender": "female",
+   "age": "unknown",
+   "clusters": [
+    18
+   ]
+  },
+  {
+   "name": "Mrs. Reed",
+   "aliases": [],
+   "gender": "female",
+   "age": "unknown",
+   "clusters": [
+    17
+   ]
+  },
+  {
+   "name": "Eliza",
+   "aliases": [
+    "Lizzy"
+   ],
+   "gender": "female",
+   "age": "unknown",
+   "clusters": [
+    19
+   ]
+  },
+  {
+   "name": "Georgiana Reed",
+   "aliases": [
+    "Georgiana"
+   ],
+   "gender": "female",
+   "age": "unknown",
+   "clusters": [
+    21
+   ]
+  },
+  {
+   "name": "Joan",
+   "aliases": [],
+   "gender": "female",
+   "age": "unknown",
+   "clusters": [
+    29
+   ]
+  },
+  {
+   "name": "Jane",
+   "aliases": [],
+   "gender": "female",
+   "age": "unknown",
+   "clusters": [
+    22
+   ]
+  },
+  {
+   "name": "Bewick",
+   "aliases": [],
+   "gender": "male",
+   "age": "unknown",
+   "clusters": [
+    23
+   ]
+  },
+  {
+   "name": "Jack",
+   "aliases": [
+    "the said Jack"
+   ],
+   "gender": "male",
+   "age": "unknown",
+   "clusters": [
+    30
+   ]
+  },
+  {
+   "name": "Rat",
+   "aliases": [],
+   "gender": "unknown",
+   "age": "unknown",
+   "clusters": [
+    36
+   ]
+  }
+ ],
+ "labels": {
+  "3": {
+   "speaker": "Mrs. Reed",
+   "kind": "speech",
+   "emotion": "disgusted",
+   "intensity": "medium"
+  },
+  "4": {
+   "speaker": "John Reed",
+   "kind": "speech",
+   "emotion": "anxious",
+   "intensity": "low"
+  },
+  "6": {
+   "speaker": "Mrs. Reed",
+   "kind": "speech",
+   "emotion": "disgusted",
+   "intensity": "high"
+  },
+  "10": {
+   "speaker": "Narrator",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "12": {
+   "speaker": "Narrator",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "14": {
+   "speaker": "Narrator",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "22": {
+   "speaker": "John Reed",
+   "kind": "speech",
+   "emotion": "disgusted",
+   "intensity": "medium",
+   "source": "booknlp"
+  },
+  "24": {
+   "speaker": "John Reed",
+   "kind": "speech",
+   "emotion": "anxious",
+   "intensity": "medium",
+   "source": "booknlp"
+  },
+  "26": {
+   "speaker": "John Reed",
+   "kind": "speech",
+   "emotion": "angry",
+   "intensity": "high",
+   "source": "booknlp"
+  },
+  "27": {
+   "speaker": "Narrator",
+   "kind": "thought",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "29": {
+   "speaker": "Eliza",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "31": {
+   "speaker": "Narrator",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "33": {
+   "speaker": "John Reed",
+   "kind": "speech",
+   "emotion": "sad",
+   "intensity": "medium",
+   "source": "booknlp"
+  },
+  "35": {
+   "speaker": "John Reed",
+   "kind": "speech",
+   "emotion": "sad",
+   "intensity": "medium",
+   "source": "booknlp"
+  },
+  "38": {
+   "speaker": "Narrator",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "42": {
+   "speaker": "John Reed",
+   "kind": "speech",
+   "emotion": "angry",
+   "intensity": "high",
+   "source": "booknlp"
+  },
+  "44": {
+   "speaker": "John Reed",
+   "kind": "speech",
+   "emotion": "angry",
+   "intensity": "high",
+   "source": "booknlp"
+  },
+  "46": {
+   "speaker": "John Reed",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "48": {
+   "speaker": "Narrator",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "49": {
+   "speaker": "John Reed",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "51": {
+   "speaker": "John Reed",
+   "kind": "speech",
+   "emotion": "angry",
+   "intensity": "high"
+  },
+  "53": {
+   "speaker": "Narrator",
+   "kind": "speech",
+   "emotion": "angry",
+   "intensity": "high"
+  },
+  "55": {
+   "speaker": "Narrator",
+   "kind": "speech",
+   "emotion": "angry",
+   "intensity": "high"
+  },
+  "57": {
+   "speaker": "John Reed",
+   "kind": "speech",
+   "emotion": "surprised",
+   "intensity": "high"
+  },
+  "59": {
+   "speaker": "John Reed",
+   "kind": "speech",
+   "emotion": "angry",
+   "intensity": "high"
+  },
+  "61": {
+   "speaker": "John Reed",
+   "kind": "speech",
+   "emotion": "angry",
+   "intensity": "high"
+  },
+  "63": {
+   "speaker": "Mrs. Reed",
+   "kind": "speech",
+   "emotion": "happy",
+   "intensity": "medium"
+  },
+  "64": {
+   "speaker": "Mrs. Reed",
+   "kind": "speech",
+   "emotion": "amused",
+   "intensity": "medium"
+  },
+  "66": {
+   "speaker": "Mrs. Reed",
+   "kind": "speech",
+   "emotion": "angry",
+   "intensity": "high"
+  }
+ },
+ "scenes": [
+  {
+   "first_paragraph": 1,
+   "setting": "The drawing-room and adjacent breakfast-room",
+   "mood": "melancholic"
+  },
+  {
+   "first_paragraph": 16,
+   "setting": "The breakfast-room",
+   "mood": "tense"
+  },
+  {
+   "first_paragraph": 25,
+   "setting": "The breakfast-room",
+   "mood": "angry"
+  }
+ ],
+ "anchored": 8,
+ "missing": [],
+ "seconds": 186.4,
+ "booknlp_seconds": 19.9,
+ "stats": {
+  "calls": 5,
+  "seconds": 166.5,
+  "prompt_tokens": 7899,
+  "completion_tokens": 2132
+ }
+}

@@ -1,0 +1,643 @@
+{
+ "seconds": 19.9,
+ "characters": [
+  {
+   "id": 0,
+   "count": 107,
+   "gender": "he/him/his",
+   "proper": [],
+   "common": [],
+   "pronoun": [
+    [
+     "I",
+     58
+    ],
+    [
+     "my",
+     23
+    ],
+    [
+     "me",
+     10
+    ],
+    [
+     "you",
+     9
+    ]
+   ]
+  },
+  {
+   "id": 20,
+   "count": 57,
+   "gender": "he/him/his",
+   "proper": [
+    [
+     "John",
+     5
+    ],
+    [
+     "John Reed",
+     4
+    ]
+   ],
+   "common": [],
+   "pronoun": [
+    [
+     "he",
+     18
+    ],
+    [
+     "his",
+     10
+    ],
+    [
+     "him",
+     10
+    ],
+    [
+     "himself",
+     3
+    ]
+   ]
+  },
+  {
+   "id": 45,
+   "count": 13,
+   "gender": "she/her",
+   "proper": [],
+   "common": [
+    [
+     "their mama",
+     1
+    ]
+   ],
+   "pronoun": [
+    [
+     "she",
+     4
+    ],
+    [
+     "her",
+     3
+    ],
+    [
+     "me",
+     2
+    ],
+    [
+     "I",
+     2
+    ]
+   ]
+  },
+  {
+   "id": 18,
+   "count": 12,
+   "gender": "she/her",
+   "proper": [
+    [
+     "Bessie",
+     5
+    ]
+   ],
+   "common": [],
+   "pronoun": [
+    [
+     "she",
+     4
+    ],
+    [
+     "her",
+     3
+    ]
+   ]
+  },
+  {
+   "id": 17,
+   "count": 11,
+   "gender": "she/her",
+   "proper": [
+    [
+     "Mrs. Reed",
+     5
+    ]
+   ],
+   "common": [],
+   "pronoun": [
+    [
+     "her",
+     4
+    ],
+    [
+     "she",
+     2
+    ]
+   ]
+  },
+  {
+   "id": 83,
+   "count": 10,
+   "gender": "he/him/his",
+   "proper": [],
+   "common": [],
+   "pronoun": [
+    [
+     "him",
+     4
+    ],
+    [
+     "he",
+     3
+    ],
+    [
+     "me",
+     1
+    ],
+    [
+     "I",
+     1
+    ]
+   ]
+  },
+  {
+   "id": 19,
+   "count": 7,
+   "gender": "she/her",
+   "proper": [
+    [
+     "Eliza",
+     5
+    ],
+    [
+     "Lizzy",
+     1
+    ]
+   ],
+   "common": [],
+   "pronoun": [
+    [
+     "her",
+     1
+    ]
+   ]
+  },
+  {
+   "id": 82,
+   "count": 5,
+   "gender": "he/him/his",
+   "proper": [],
+   "common": [],
+   "pronoun": [
+    [
+     "I",
+     1
+    ],
+    [
+     "my",
+     1
+    ],
+    [
+     "me",
+     1
+    ],
+    [
+     "his",
+     1
+    ]
+   ]
+  },
+  {
+   "id": 21,
+   "count": 4,
+   "gender": "she/her",
+   "proper": [
+    [
+     "Georgiana",
+     3
+    ],
+    [
+     "Georgiana Reed",
+     1
+    ]
+   ],
+   "common": [],
+   "pronoun": []
+  },
+  {
+   "id": 100,
+   "count": 4,
+   "gender": null,
+   "proper": [],
+   "common": [
+    [
+     "mama",
+     4
+    ]
+   ],
+   "pronoun": []
+  },
+  {
+   "id": 103,
+   "count": 4,
+   "gender": null,
+   "proper": [],
+   "common": [],
+   "pronoun": [
+    [
+     "our",
+     2
+    ],
+    [
+     "us",
+     1
+    ],
+    [
+     "we",
+     1
+    ]
+   ]
+  },
+  {
+   "id": 112,
+   "count": 4,
+   "gender": null,
+   "proper": [],
+   "common": [
+    [
+     "Wicked and cruel boy",
+     1
+    ]
+   ],
+   "pronoun": [
+    [
+     "you",
+     2
+    ],
+    [
+     "You",
+     1
+    ]
+   ]
+  },
+  {
+   "id": 29,
+   "count": 3,
+   "gender": "she/her",
+   "proper": [
+    [
+     "Joan",
+     1
+    ]
+   ],
+   "common": [],
+   "pronoun": [
+    [
+     "she",
+     1
+    ],
+    [
+     "She",
+     1
+    ]
+   ]
+  },
+  {
+   "id": 22,
+   "count": 2,
+   "gender": "she/her",
+   "proper": [
+    [
+     "Jane",
+     1
+    ]
+   ],
+   "common": [],
+   "pronoun": [
+    [
+     "you",
+     1
+    ]
+   ]
+  },
+  {
+   "id": 93,
+   "count": 2,
+   "gender": "she/her",
+   "proper": [],
+   "common": [
+    [
+     "a child",
+     1
+    ]
+   ],
+   "pronoun": [
+    [
+     "her",
+     1
+    ]
+   ]
+  },
+  {
+   "id": 23,
+   "count": 2,
+   "gender": "he/him/his",
+   "proper": [
+    [
+     "Bewick",
+     2
+    ]
+   ],
+   "common": [],
+   "pronoun": []
+  },
+  {
+   "id": 64,
+   "count": 2,
+   "gender": "he/him/his",
+   "proper": [],
+   "common": [
+    [
+     "The fiend",
+     1
+    ]
+   ],
+   "pronoun": [
+    [
+     "him",
+     1
+    ]
+   ]
+  },
+  {
+   "id": 67,
+   "count": 2,
+   "gender": null,
+   "proper": [],
+   "common": [],
+   "pronoun": [
+    [
+     "us",
+     1
+    ],
+    [
+     "our",
+     1
+    ]
+   ]
+  },
+  {
+   "id": 30,
+   "count": 2,
+   "gender": "he/him/his",
+   "proper": [
+    [
+     "Jack",
+     1
+    ],
+    [
+     "the said Jack",
+     1
+    ]
+   ],
+   "common": [],
+   "pronoun": []
+  },
+  {
+   "id": 80,
+   "count": 2,
+   "gender": "they/them/their",
+   "proper": [],
+   "common": [
+    [
+     "the servants",
+     1
+    ]
+   ],
+   "pronoun": [
+    [
+     "their",
+     1
+    ]
+   ]
+  },
+  {
+   "id": 113,
+   "count": 2,
+   "gender": null,
+   "proper": [],
+   "common": [
+    [
+     "a murderer",
+     2
+    ]
+   ],
+   "pronoun": []
+  },
+  {
+   "id": 116,
+   "count": 2,
+   "gender": "she/her",
+   "proper": [],
+   "common": [],
+   "pronoun": [
+    [
+     "she",
+     1
+    ],
+    [
+     "her",
+     1
+    ]
+   ]
+  },
+  {
+   "id": 36,
+   "count": 2,
+   "gender": "they/them/their",
+   "proper": [
+    [
+     "Rat",
+     2
+    ]
+   ],
+   "common": [],
+   "pronoun": []
+  }
+ ],
+ "quotes": {
+  "3": {
+   "char_id": 45,
+   "mention": "she",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "4": {
+   "char_id": 0,
+   "mention": "I",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "6": {
+   "char_id": 45,
+   "mention": "she",
+   "mention_type": "PRON",
+   "same_paragraph": false
+  },
+  "10": {
+   "char_id": 0,
+   "mention": "I",
+   "mention_type": "PRON",
+   "same_paragraph": false
+  },
+  "12": {
+   "char_id": 0,
+   "mention": "I",
+   "mention_type": "PRON",
+   "same_paragraph": false
+  },
+  "14": {
+   "char_id": 0,
+   "mention": "I",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "22": {
+   "char_id": 20,
+   "mention": "he",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "24": {
+   "char_id": 20,
+   "mention": "he",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "26": {
+   "char_id": 20,
+   "mention": "he",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "27": {
+   "char_id": 0,
+   "mention": "I",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "29": {
+   "char_id": 19,
+   "mention": "her",
+   "mention_type": "PRON",
+   "same_paragraph": false
+  },
+  "31": {
+   "char_id": 0,
+   "mention": "I",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "33": {
+   "char_id": 20,
+   "mention": "he",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "35": {
+   "char_id": 20,
+   "mention": "he",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "38": {
+   "char_id": 32,
+   "mention": "Mr. Miles",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "42": {
+   "char_id": 20,
+   "mention": "he",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "44": {
+   "char_id": 20,
+   "mention": "he",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "46": {
+   "char_id": 20,
+   "mention": "he",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "48": {
+   "char_id": 0,
+   "mention": "my",
+   "mention_type": "PRON",
+   "same_paragraph": false
+  },
+  "49": {
+   "char_id": 0,
+   "mention": "my",
+   "mention_type": "PRON",
+   "same_paragraph": false
+  },
+  "51": {
+   "char_id": 82,
+   "mention": "his",
+   "mention_type": "PRON",
+   "same_paragraph": false
+  },
+  "53": {
+   "char_id": 0,
+   "mention": "I",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "55": {
+   "char_id": 0,
+   "mention": "I",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "57": {
+   "char_id": 83,
+   "mention": "he",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "59": {
+   "char_id": 83,
+   "mention": "he",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "61": {
+   "char_id": 83,
+   "mention": "he",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "63": {
+   "char_id": 17,
+   "mention": "she",
+   "mention_type": "PRON",
+   "same_paragraph": false
+  },
+  "64": {
+   "char_id": 0,
+   "mention": "I",
+   "mention_type": "PRON",
+   "same_paragraph": false
+  },
+  "66": {
+   "char_id": 17,
+   "mention": "Mrs. Reed",
+   "mention_type": "PROP",
+   "same_paragraph": false
+  }
+ }
+}

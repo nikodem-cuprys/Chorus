@@ -1,0 +1,1171 @@
+{
+ "seconds": 28.0,
+ "characters": [
+  {
+   "id": 3,
+   "count": 65,
+   "gender": "he/him/his",
+   "proper": [
+    [
+     "Mr. Bennet",
+     12
+    ]
+   ],
+   "common": [],
+   "pronoun": [
+    [
+     "you",
+     17
+    ],
+    [
+     "I",
+     10
+    ],
+    [
+     "his",
+     6
+    ],
+    [
+     "he",
+     5
+    ]
+   ]
+  },
+  {
+   "id": 24,
+   "count": 39,
+   "gender": "she/her",
+   "proper": [],
+   "common": [
+    [
+     "his wife",
+     6
+    ]
+   ],
+   "pronoun": [
+    [
+     "I",
+     14
+    ],
+    [
+     "me",
+     4
+    ],
+    [
+     "my",
+     4
+    ],
+    [
+     "she",
+     4
+    ]
+   ]
+  },
+  {
+   "id": 48,
+   "count": 25,
+   "gender": null,
+   "proper": [],
+   "common": [
+    [
+     "my dear",
+     7
+    ],
+    [
+     "My dear",
+     3
+    ]
+   ],
+   "pronoun": [
+    [
+     "you",
+     12
+    ],
+    [
+     "your",
+     2
+    ],
+    [
+     "You",
+     1
+    ]
+   ]
+  },
+  {
+   "id": 13,
+   "count": 22,
+   "gender": "she/her",
+   "proper": [
+    [
+     "Mrs. Bennet",
+     3
+    ]
+   ],
+   "common": [],
+   "pronoun": [
+    [
+     "I",
+     8
+    ],
+    [
+     "my",
+     3
+    ],
+    [
+     "you",
+     2
+    ],
+    [
+     "she",
+     2
+    ]
+   ]
+  },
+  {
+   "id": 7,
+   "count": 20,
+   "gender": "he/him/his",
+   "proper": [
+    [
+     "Mr. Bingley",
+     10
+    ],
+    [
+     "Bingley",
+     1
+    ]
+   ],
+   "common": [],
+   "pronoun": [
+    [
+     "him",
+     6
+    ],
+    [
+     "he",
+     2
+    ],
+    [
+     "his",
+     1
+    ]
+   ]
+  },
+  {
+   "id": 4,
+   "count": 17,
+   "gender": "she/her",
+   "proper": [
+    [
+     "Mrs. Long",
+     6
+    ]
+   ],
+   "common": [],
+   "pronoun": [
+    [
+     "her",
+     5
+    ],
+    [
+     "she",
+     3
+    ],
+    [
+     "She",
+     2
+    ],
+    [
+     "herself",
+     1
+    ]
+   ]
+  },
+  {
+   "id": 40,
+   "count": 17,
+   "gender": "he/him/his",
+   "proper": [],
+   "common": [
+    [
+     "their father",
+     1
+    ]
+   ],
+   "pronoun": [
+    [
+     "you",
+     8
+    ],
+    [
+     "he",
+     3
+    ],
+    [
+     "I",
+     2
+    ],
+    [
+     "your",
+     2
+    ]
+   ]
+  },
+  {
+   "id": 51,
+   "count": 12,
+   "gender": "he/him/his",
+   "proper": [],
+   "common": [
+    [
+     "a young man of large fortune",
+     1
+    ]
+   ],
+   "pronoun": [
+    [
+     "he",
+     6
+    ],
+    [
+     "his",
+     4
+    ],
+    [
+     "him",
+     1
+    ]
+   ]
+  },
+  {
+   "id": 14,
+   "count": 10,
+   "gender": "she/her",
+   "proper": [
+    [
+     "Kitty",
+     4
+    ]
+   ],
+   "common": [],
+   "pronoun": [
+    [
+     "you",
+     2
+    ],
+    [
+     "her",
+     1
+    ],
+    [
+     "she",
+     1
+    ],
+    [
+     "I",
+     1
+    ]
+   ]
+  },
+  {
+   "id": 18,
+   "count": 9,
+   "gender": "he/him/his",
+   "proper": [],
+   "common": [
+    [
+     "such a man",
+     1
+    ]
+   ],
+   "pronoun": [
+    [
+     "his",
+     3
+    ],
+    [
+     "you",
+     2
+    ],
+    [
+     "he",
+     1
+    ],
+    [
+     "him",
+     1
+    ]
+   ]
+  },
+  {
+   "id": 64,
+   "count": 9,
+   "gender": "they/them/their",
+   "proper": [],
+   "common": [
+    [
+     "the girls",
+     2
+    ],
+    [
+     "The girls",
+     1
+    ]
+   ],
+   "pronoun": [
+    [
+     "them",
+     2
+    ],
+    [
+     "their",
+     2
+    ],
+    [
+     "They",
+     1
+    ],
+    [
+     "they",
+     1
+    ]
+   ]
+  },
+  {
+   "id": 10,
+   "count": 9,
+   "gender": "she/her",
+   "proper": [
+    [
+     "Lizzy",
+     5
+    ],
+    [
+     "Elizabeth",
+     1
+    ]
+   ],
+   "common": [],
+   "pronoun": [
+    [
+     "her",
+     2
+    ],
+    [
+     "she",
+     1
+    ]
+   ]
+  },
+  {
+   "id": 27,
+   "count": 9,
+   "gender": "he/him/his",
+   "proper": [],
+   "common": [],
+   "pronoun": [
+    [
+     "I",
+     4
+    ],
+    [
+     "my",
+     3
+    ],
+    [
+     "he",
+     1
+    ],
+    [
+     "me",
+     1
+    ]
+   ]
+  },
+  {
+   "id": 12,
+   "count": 8,
+   "gender": "she/her",
+   "proper": [
+    [
+     "Lydia",
+     3
+    ]
+   ],
+   "common": [],
+   "pronoun": [
+    [
+     "I",
+     3
+    ],
+    [
+     "you",
+     2
+    ]
+   ]
+  },
+  {
+   "id": 60,
+   "count": 7,
+   "gender": "they/them/their",
+   "proper": [],
+   "common": [
+    [
+     "our girls",
+     1
+    ]
+   ],
+   "pronoun": [
+    [
+     "them",
+     5
+    ],
+    [
+     "themselves",
+     1
+    ]
+   ]
+  },
+  {
+   "id": 34,
+   "count": 5,
+   "gender": null,
+   "proper": [],
+   "common": [
+    [
+     "her mother",
+     2
+    ]
+   ],
+   "pronoun": [
+    [
+     "you",
+     1
+    ],
+    [
+     "I",
+     1
+    ],
+    [
+     "myself",
+     1
+    ]
+   ]
+  },
+  {
+   "id": 37,
+   "count": 5,
+   "gender": "he/him/his",
+   "proper": [],
+   "common": [
+    [
+     "her father",
+     1
+    ]
+   ],
+   "pronoun": [
+    [
+     "him",
+     3
+    ],
+    [
+     "your",
+     1
+    ]
+   ]
+  },
+  {
+   "id": 23,
+   "count": 4,
+   "gender": "she/her",
+   "proper": [],
+   "common": [
+    [
+     "his lady",
+     1
+    ]
+   ],
+   "pronoun": [
+    [
+     "My",
+     1
+    ],
+    [
+     "she",
+     1
+    ],
+    [
+     "me",
+     1
+    ]
+   ]
+  },
+  {
+   "id": 67,
+   "count": 4,
+   "gender": "she/her",
+   "proper": [],
+   "common": [
+    [
+     "a woman",
+     2
+    ]
+   ],
+   "pronoun": [
+    [
+     "she",
+     1
+    ],
+    [
+     "her",
+     1
+    ]
+   ]
+  },
+  {
+   "id": 15,
+   "count": 4,
+   "gender": "she/her",
+   "proper": [
+    [
+     "Mary",
+     3
+    ]
+   ],
+   "common": [],
+   "pronoun": [
+    [
+     "her",
+     1
+    ]
+   ]
+  },
+  {
+   "id": 72,
+   "count": 3,
+   "gender": "they/them/their",
+   "proper": [],
+   "common": [
+    [
+     "your daughters",
+     1
+    ]
+   ],
+   "pronoun": [
+    [
+     "them",
+     1
+    ],
+    [
+     "they",
+     1
+    ]
+   ]
+  },
+  {
+   "id": 80,
+   "count": 3,
+   "gender": "they/them/their",
+   "proper": [],
+   "common": [
+    [
+     "your own children",
+     1
+    ]
+   ],
+   "pronoun": [
+    [
+     "They",
+     1
+    ],
+    [
+     "them",
+     1
+    ]
+   ]
+  },
+  {
+   "id": 83,
+   "count": 3,
+   "gender": "they/them/their",
+   "proper": [],
+   "common": [
+    [
+     "many young men of four thousand a year",
+     1
+    ]
+   ],
+   "pronoun": [
+    [
+     "them",
+     2
+    ]
+   ]
+  },
+  {
+   "id": 33,
+   "count": 3,
+   "gender": "she/her",
+   "proper": [],
+   "common": [
+    [
+     "his second daughter",
+     1
+    ]
+   ],
+   "pronoun": [
+    [
+     "her",
+     2
+    ]
+   ]
+  },
+  {
+   "id": 87,
+   "count": 3,
+   "gender": null,
+   "proper": [],
+   "common": [],
+   "pronoun": [
+    [
+     "we",
+     2
+    ],
+    [
+     "We",
+     1
+    ]
+   ]
+  },
+  {
+   "id": 35,
+   "count": 3,
+   "gender": "she/her",
+   "proper": [],
+   "common": [
+    [
+     "one of her daughters",
+     1
+    ]
+   ],
+   "pronoun": [
+    [
+     "her",
+     2
+    ]
+   ]
+  },
+  {
+   "id": 20,
+   "count": 2,
+   "gender": "they/them/their",
+   "proper": [],
+   "common": [
+    [
+     "the surrounding families",
+     1
+    ]
+   ],
+   "pronoun": [
+    [
+     "their",
+     1
+    ]
+   ]
+  },
+  {
+   "id": 63,
+   "count": 2,
+   "gender": null,
+   "proper": [],
+   "common": [
+    [
+     "one of them",
+     2
+    ]
+   ],
+   "pronoun": []
+  },
+  {
+   "id": 30,
+   "count": 2,
+   "gender": null,
+   "proper": [],
+   "common": [
+    [
+     "her daughters",
+     2
+    ]
+   ],
+   "pronoun": []
+  },
+  {
+   "id": 92,
+   "count": 2,
+   "gender": "they/them/their",
+   "proper": [],
+   "common": [],
+   "pronoun": [
+    [
+     "them",
+     2
+    ]
+   ]
+  },
+  {
+   "id": 94,
+   "count": 2,
+   "gender": "she/her",
+   "proper": [],
+   "common": [
+    [
+     "your friend",
+     1
+    ]
+   ],
+   "pronoun": [
+    [
+     "her",
+     1
+    ]
+   ]
+  },
+  {
+   "id": 102,
+   "count": 2,
+   "gender": null,
+   "proper": [],
+   "common": [],
+   "pronoun": [
+    [
+     "us",
+     1
+    ],
+    [
+     "we",
+     1
+    ]
+   ]
+  },
+  {
+   "id": 107,
+   "count": 2,
+   "gender": null,
+   "proper": [],
+   "common": [],
+   "pronoun": [
+    [
+     "our",
+     1
+    ],
+    [
+     "we",
+     1
+    ]
+   ]
+  },
+  {
+   "id": 46,
+   "count": 2,
+   "gender": "he/him/his",
+   "proper": [],
+   "common": [],
+   "pronoun": [
+    [
+     "he",
+     1
+    ],
+    [
+     "him",
+     1
+    ]
+   ]
+  }
+ ],
+ "quotes": {
+  "2": {
+   "char_id": 23,
+   "mention": "his lady",
+   "mention_type": "NOM",
+   "same_paragraph": true
+  },
+  "4": {
+   "char_id": 23,
+   "mention": "his lady",
+   "mention_type": "NOM",
+   "same_paragraph": true
+  },
+  "6": {
+   "char_id": 23,
+   "mention": "she",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "8": {
+   "char_id": 23,
+   "mention": "she",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "10": {
+   "char_id": 24,
+   "mention": "his wife",
+   "mention_type": "NOM",
+   "same_paragraph": true
+  },
+  "12": {
+   "char_id": 3,
+   "mention": "Mr. Bennet",
+   "mention_type": "PROP",
+   "same_paragraph": false
+  },
+  "14": {
+   "char_id": 3,
+   "mention": "Mr. Bennet",
+   "mention_type": "PROP",
+   "same_paragraph": false
+  },
+  "15": {
+   "char_id": 3,
+   "mention": "Mr. Bennet",
+   "mention_type": "PROP",
+   "same_paragraph": false
+  },
+  "16": {
+   "char_id": 3,
+   "mention": "Mr. Bennet",
+   "mention_type": "PROP",
+   "same_paragraph": false
+  },
+  "17": {
+   "char_id": 3,
+   "mention": "Mr. Bennet",
+   "mention_type": "PROP",
+   "same_paragraph": false
+  },
+  "18": {
+   "char_id": 3,
+   "mention": "Mr. Bennet",
+   "mention_type": "PROP",
+   "same_paragraph": false
+  },
+  "19": {
+   "char_id": 3,
+   "mention": "Mr. Bennet",
+   "mention_type": "PROP",
+   "same_paragraph": false
+  },
+  "20": {
+   "char_id": 24,
+   "mention": "his wife",
+   "mention_type": "NOM",
+   "same_paragraph": true
+  },
+  "22": {
+   "char_id": 24,
+   "mention": "his wife",
+   "mention_type": "NOM",
+   "same_paragraph": true
+  },
+  "23": {
+   "char_id": 3,
+   "mention": "Mr. Bennet",
+   "mention_type": "PROP",
+   "same_paragraph": false
+  },
+  "24": {
+   "char_id": 24,
+   "mention": "his wife",
+   "mention_type": "NOM",
+   "same_paragraph": false
+  },
+  "25": {
+   "char_id": 3,
+   "mention": "Mr. Bennet",
+   "mention_type": "PROP",
+   "same_paragraph": false
+  },
+  "26": {
+   "char_id": 24,
+   "mention": "his wife",
+   "mention_type": "NOM",
+   "same_paragraph": false
+  },
+  "27": {
+   "char_id": 3,
+   "mention": "Mr. Bennet",
+   "mention_type": "PROP",
+   "same_paragraph": false
+  },
+  "28": {
+   "char_id": 24,
+   "mention": "his wife",
+   "mention_type": "NOM",
+   "same_paragraph": false
+  },
+  "29": {
+   "char_id": 3,
+   "mention": "Mr. Bennet",
+   "mention_type": "PROP",
+   "same_paragraph": false
+  },
+  "30": {
+   "char_id": 24,
+   "mention": "his wife",
+   "mention_type": "NOM",
+   "same_paragraph": false
+  },
+  "31": {
+   "char_id": 3,
+   "mention": "Mr. Bennet",
+   "mention_type": "PROP",
+   "same_paragraph": false
+  },
+  "32": {
+   "char_id": 24,
+   "mention": "his wife",
+   "mention_type": "NOM",
+   "same_paragraph": false
+  },
+  "33": {
+   "char_id": 27,
+   "mention": "he",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "35": {
+   "char_id": 27,
+   "mention": "he",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "36": {
+   "char_id": 24,
+   "mention": "his wife",
+   "mention_type": "NOM",
+   "same_paragraph": false
+  },
+  "37": {
+   "char_id": 27,
+   "mention": "he",
+   "mention_type": "PRON",
+   "same_paragraph": false
+  },
+  "38": {
+   "char_id": 24,
+   "mention": "his wife",
+   "mention_type": "NOM",
+   "same_paragraph": false
+  },
+  "39": {
+   "char_id": 27,
+   "mention": "he",
+   "mention_type": "PRON",
+   "same_paragraph": false
+  },
+  "40": {
+   "char_id": 24,
+   "mention": "his wife",
+   "mention_type": "NOM",
+   "same_paragraph": false
+  },
+  "41": {
+   "char_id": 27,
+   "mention": "he",
+   "mention_type": "PRON",
+   "same_paragraph": false
+  },
+  "45": {
+   "char_id": 3,
+   "mention": "he",
+   "mention_type": "PRON",
+   "same_paragraph": false
+  },
+  "46": {
+   "char_id": 34,
+   "mention": "her mother",
+   "mention_type": "NOM",
+   "same_paragraph": true
+  },
+  "48": {
+   "char_id": 34,
+   "mention": "her mother",
+   "mention_type": "NOM",
+   "same_paragraph": true
+  },
+  "49": {
+   "char_id": 10,
+   "mention": "Elizabeth",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "51": {
+   "char_id": 10,
+   "mention": "Elizabeth",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "52": {
+   "char_id": 13,
+   "mention": "Mrs. Bennet",
+   "mention_type": "PROP",
+   "same_paragraph": false
+  },
+  "53": {
+   "char_id": 3,
+   "mention": "Mr. Bennet",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "55": {
+   "char_id": 3,
+   "mention": "Mr. Bennet",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "57": {
+   "char_id": 13,
+   "mention": "Mrs. Bennet",
+   "mention_type": "PROP",
+   "same_paragraph": false
+  },
+  "58": {
+   "char_id": 37,
+   "mention": "her father",
+   "mention_type": "NOM",
+   "same_paragraph": true
+  },
+  "60": {
+   "char_id": 37,
+   "mention": "her father",
+   "mention_type": "NOM",
+   "same_paragraph": true
+  },
+  "61": {
+   "char_id": 14,
+   "mention": "Kitty",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "63": {
+   "char_id": 14,
+   "mention": "Kitty",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "64": {
+   "char_id": 13,
+   "mention": "Mrs. Bennet",
+   "mention_type": "PROP",
+   "same_paragraph": false
+  },
+  "65": {
+   "char_id": 34,
+   "mention": "her mother",
+   "mention_type": "NOM",
+   "same_paragraph": true
+  },
+  "67": {
+   "char_id": 34,
+   "mention": "her mother",
+   "mention_type": "NOM",
+   "same_paragraph": true
+  },
+  "68": {
+   "char_id": 13,
+   "mention": "Mrs. Bennet",
+   "mention_type": "PROP",
+   "same_paragraph": false
+  },
+  "69": {
+   "char_id": 34,
+   "mention": "her mother",
+   "mention_type": "NOM",
+   "same_paragraph": false
+  },
+  "70": {
+   "char_id": 13,
+   "mention": "Mrs. Bennet",
+   "mention_type": "PROP",
+   "same_paragraph": false
+  },
+  "72": {
+   "char_id": 13,
+   "mention": "Mrs. Bennet",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "73": {
+   "char_id": 40,
+   "mention": "he",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "75": {
+   "char_id": 40,
+   "mention": "he",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "77": {
+   "char_id": 40,
+   "mention": "he",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "79": {
+   "char_id": 40,
+   "mention": "he",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "80": {
+   "char_id": 24,
+   "mention": "his wife",
+   "mention_type": "NOM",
+   "same_paragraph": true
+  },
+  "82": {
+   "char_id": 24,
+   "mention": "his wife",
+   "mention_type": "NOM",
+   "same_paragraph": false
+  },
+  "84": {
+   "char_id": 13,
+   "mention": "she",
+   "mention_type": "PRON",
+   "same_paragraph": false
+  },
+  "85": {
+   "char_id": 3,
+   "mention": "Mr. Bennet",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "87": {
+   "char_id": 24,
+   "mention": "she",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "89": {
+   "char_id": 24,
+   "mention": "she",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "90": {
+   "char_id": 12,
+   "mention": "Lydia",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "92": {
+   "char_id": 12,
+   "mention": "Lydia",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  }
+ }
+}

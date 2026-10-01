@@ -1,0 +1,1416 @@
+{
+ "passage": "02-alice-mad-tea-party",
+ "title": "Alice's Adventures in Wonderland, Chapter VII: A Mad Tea-Party - Lewis Carroll",
+ "lines": [
+  {
+   "para": 0,
+   "kind": "narration",
+   "text": "There was a table set out under a tree in front of the house, and the March Hare and the Hatter were having tea at it: a Dormouse was sitting between them, fast asleep, and the other two were using it as a cushion, resting their elbows on it, and talking over its head.",
+   "id": 0
+  },
+  {
+   "para": 0,
+   "kind": "quote",
+   "text": "“Very uncomfortable for the Dormouse,”",
+   "id": 1
+  },
+  {
+   "para": 0,
+   "kind": "narration",
+   "text": "thought Alice;",
+   "id": 2
+  },
+  {
+   "para": 0,
+   "kind": "quote",
+   "text": "“only, as it’s asleep, I suppose it doesn’t mind.”",
+   "id": 3
+  },
+  {
+   "para": 1,
+   "kind": "narration",
+   "text": "The table was a large one, but the three were all crowded together at one corner of it:",
+   "id": 4
+  },
+  {
+   "para": 1,
+   "kind": "quote",
+   "text": "“No room! No room!”",
+   "id": 5
+  },
+  {
+   "para": 1,
+   "kind": "narration",
+   "text": "they cried out when they saw Alice coming.",
+   "id": 6
+  },
+  {
+   "para": 1,
+   "kind": "quote",
+   "text": "“There’s _plenty_ of room!”",
+   "id": 7
+  },
+  {
+   "para": 1,
+   "kind": "narration",
+   "text": "said Alice indignantly, and she sat down in a large arm-chair at one end of the table.",
+   "id": 8
+  },
+  {
+   "para": 2,
+   "kind": "quote",
+   "text": "“Have some wine,”",
+   "id": 9
+  },
+  {
+   "para": 2,
+   "kind": "narration",
+   "text": "the March Hare said in an encouraging tone.",
+   "id": 10
+  },
+  {
+   "para": 3,
+   "kind": "narration",
+   "text": "Alice looked all round the table, but there was nothing on it but tea.",
+   "id": 11
+  },
+  {
+   "para": 3,
+   "kind": "quote",
+   "text": "“I don’t see any wine,”",
+   "id": 12
+  },
+  {
+   "para": 3,
+   "kind": "narration",
+   "text": "she remarked.",
+   "id": 13
+  },
+  {
+   "para": 4,
+   "kind": "quote",
+   "text": "“There isn’t any,”",
+   "id": 14
+  },
+  {
+   "para": 4,
+   "kind": "narration",
+   "text": "said the March Hare.",
+   "id": 15
+  },
+  {
+   "para": 5,
+   "kind": "quote",
+   "text": "“Then it wasn’t very civil of you to offer it,”",
+   "id": 16
+  },
+  {
+   "para": 5,
+   "kind": "narration",
+   "text": "said Alice angrily.",
+   "id": 17
+  },
+  {
+   "para": 6,
+   "kind": "quote",
+   "text": "“It wasn’t very civil of you to sit down without being invited,”",
+   "id": 18
+  },
+  {
+   "para": 6,
+   "kind": "narration",
+   "text": "said the March Hare.",
+   "id": 19
+  },
+  {
+   "para": 7,
+   "kind": "quote",
+   "text": "“I didn’t know it was _your_ table,”",
+   "id": 20
+  },
+  {
+   "para": 7,
+   "kind": "narration",
+   "text": "said Alice;",
+   "id": 21
+  },
+  {
+   "para": 7,
+   "kind": "quote",
+   "text": "“it’s laid for a great many more than three.”",
+   "id": 22
+  },
+  {
+   "para": 8,
+   "kind": "quote",
+   "text": "“Your hair wants cutting,”",
+   "id": 23
+  },
+  {
+   "para": 8,
+   "kind": "narration",
+   "text": "said the Hatter. He had been looking at Alice for some time with great curiosity, and this was his first speech.",
+   "id": 24
+  },
+  {
+   "para": 9,
+   "kind": "quote",
+   "text": "“You should learn not to make personal remarks,”",
+   "id": 25
+  },
+  {
+   "para": 9,
+   "kind": "narration",
+   "text": "Alice said with some severity;",
+   "id": 26
+  },
+  {
+   "para": 9,
+   "kind": "quote",
+   "text": "“it’s very rude.”",
+   "id": 27
+  },
+  {
+   "para": 10,
+   "kind": "narration",
+   "text": "The Hatter opened his eyes very wide on hearing this; but all he _said_ was,",
+   "id": 28
+  },
+  {
+   "para": 10,
+   "kind": "quote",
+   "text": "“Why is a raven like a writing-desk?”",
+   "id": 29
+  },
+  {
+   "para": 11,
+   "kind": "quote",
+   "text": "“Come, we shall have some fun now!”",
+   "id": 30
+  },
+  {
+   "para": 11,
+   "kind": "narration",
+   "text": "thought Alice.",
+   "id": 31
+  },
+  {
+   "para": 11,
+   "kind": "quote",
+   "text": "“I’m glad they’ve begun asking riddles.—I believe I can guess that,”",
+   "id": 32
+  },
+  {
+   "para": 11,
+   "kind": "narration",
+   "text": "she added aloud.",
+   "id": 33
+  },
+  {
+   "para": 12,
+   "kind": "quote",
+   "text": "“Do you mean that you think you can find out the answer to it?”",
+   "id": 34
+  },
+  {
+   "para": 12,
+   "kind": "narration",
+   "text": "said the March Hare.",
+   "id": 35
+  },
+  {
+   "para": 13,
+   "kind": "quote",
+   "text": "“Exactly so,”",
+   "id": 36
+  },
+  {
+   "para": 13,
+   "kind": "narration",
+   "text": "said Alice.",
+   "id": 37
+  },
+  {
+   "para": 14,
+   "kind": "quote",
+   "text": "“Then you should say what you mean,”",
+   "id": 38
+  },
+  {
+   "para": 14,
+   "kind": "narration",
+   "text": "the March Hare went on.",
+   "id": 39
+  },
+  {
+   "para": 15,
+   "kind": "quote",
+   "text": "“I do,”",
+   "id": 40
+  },
+  {
+   "para": 15,
+   "kind": "narration",
+   "text": "Alice hastily replied;",
+   "id": 41
+  },
+  {
+   "para": 15,
+   "kind": "quote",
+   "text": "“at least—at least I mean what I say—that’s the same thing, you know.”",
+   "id": 42
+  },
+  {
+   "para": 16,
+   "kind": "quote",
+   "text": "“Not the same thing a bit!”",
+   "id": 43
+  },
+  {
+   "para": 16,
+   "kind": "narration",
+   "text": "said the Hatter.",
+   "id": 44
+  },
+  {
+   "para": 16,
+   "kind": "quote",
+   "text": "“You might just as well say that ‘I see what I eat’ is the same thing as ‘I eat what I see’!”",
+   "id": 45
+  },
+  {
+   "para": 17,
+   "kind": "quote",
+   "text": "“You might just as well say,”",
+   "id": 46
+  },
+  {
+   "para": 17,
+   "kind": "narration",
+   "text": "added the March Hare,",
+   "id": 47
+  },
+  {
+   "para": 17,
+   "kind": "quote",
+   "text": "“that ‘I like what I get’ is the same thing as ‘I get what I like’!”",
+   "id": 48
+  },
+  {
+   "para": 18,
+   "kind": "quote",
+   "text": "“You might just as well say,”",
+   "id": 49
+  },
+  {
+   "para": 18,
+   "kind": "narration",
+   "text": "added the Dormouse, who seemed to be talking in his sleep,",
+   "id": 50
+  },
+  {
+   "para": 18,
+   "kind": "quote",
+   "text": "“that ‘I breathe when I sleep’ is the same thing as ‘I sleep when I breathe’!”",
+   "id": 51
+  },
+  {
+   "para": 19,
+   "kind": "quote",
+   "text": "“It _is_ the same thing with you,”",
+   "id": 52
+  },
+  {
+   "para": 19,
+   "kind": "narration",
+   "text": "said the Hatter, and here the conversation dropped, and the party sat silent for a minute, while Alice thought over all she could remember about ravens and writing-desks, which wasn’t much.",
+   "id": 53
+  },
+  {
+   "para": 20,
+   "kind": "narration",
+   "text": "The Hatter was the first to break the silence.",
+   "id": 54
+  },
+  {
+   "para": 20,
+   "kind": "quote",
+   "text": "“What day of the month is it?”",
+   "id": 55
+  },
+  {
+   "para": 20,
+   "kind": "narration",
+   "text": "he said, turning to Alice: he had taken his watch out of his pocket, and was looking at it uneasily, shaking it every now and then, and holding it to his ear.",
+   "id": 56
+  },
+  {
+   "para": 21,
+   "kind": "narration",
+   "text": "Alice considered a little, and then said",
+   "id": 57
+  },
+  {
+   "para": 21,
+   "kind": "quote",
+   "text": "“The fourth.”",
+   "id": 58
+  },
+  {
+   "para": 22,
+   "kind": "quote",
+   "text": "“Two days wrong!”",
+   "id": 59
+  },
+  {
+   "para": 22,
+   "kind": "narration",
+   "text": "sighed the Hatter.",
+   "id": 60
+  },
+  {
+   "para": 22,
+   "kind": "quote",
+   "text": "“I told you butter wouldn’t suit the works!”",
+   "id": 61
+  },
+  {
+   "para": 22,
+   "kind": "narration",
+   "text": "he added looking angrily at the March Hare.",
+   "id": 62
+  },
+  {
+   "para": 23,
+   "kind": "quote",
+   "text": "“It was the _best_ butter,”",
+   "id": 63
+  },
+  {
+   "para": 23,
+   "kind": "narration",
+   "text": "the March Hare meekly replied.",
+   "id": 64
+  },
+  {
+   "para": 24,
+   "kind": "quote",
+   "text": "“Yes, but some crumbs must have got in as well,”",
+   "id": 65
+  },
+  {
+   "para": 24,
+   "kind": "narration",
+   "text": "the Hatter grumbled:",
+   "id": 66
+  },
+  {
+   "para": 24,
+   "kind": "quote",
+   "text": "“you shouldn’t have put it in with the bread-knife.”",
+   "id": 67
+  },
+  {
+   "para": 25,
+   "kind": "narration",
+   "text": "The March Hare took the watch and looked at it gloomily: then he dipped it into his cup of tea, and looked at it again: but he could think of nothing better to say than his first remark,",
+   "id": 68
+  },
+  {
+   "para": 25,
+   "kind": "quote",
+   "text": "“It was the _best_ butter, you know.”",
+   "id": 69
+  },
+  {
+   "para": 26,
+   "kind": "narration",
+   "text": "Alice had been looking over his shoulder with some curiosity.",
+   "id": 70
+  },
+  {
+   "para": 26,
+   "kind": "quote",
+   "text": "“What a funny watch!”",
+   "id": 71
+  },
+  {
+   "para": 26,
+   "kind": "narration",
+   "text": "she remarked.",
+   "id": 72
+  },
+  {
+   "para": 26,
+   "kind": "quote",
+   "text": "“It tells the day of the month, and doesn’t tell what o’clock it is!”",
+   "id": 73
+  },
+  {
+   "para": 27,
+   "kind": "quote",
+   "text": "“Why should it?”",
+   "id": 74
+  },
+  {
+   "para": 27,
+   "kind": "narration",
+   "text": "muttered the Hatter.",
+   "id": 75
+  },
+  {
+   "para": 27,
+   "kind": "quote",
+   "text": "“Does _your_ watch tell you what year it is?”",
+   "id": 76
+  },
+  {
+   "para": 28,
+   "kind": "quote",
+   "text": "“Of course not,”",
+   "id": 77
+  },
+  {
+   "para": 28,
+   "kind": "narration",
+   "text": "Alice replied very readily:",
+   "id": 78
+  },
+  {
+   "para": 28,
+   "kind": "quote",
+   "text": "“but that’s because it stays the same year for such a long time together.”",
+   "id": 79
+  },
+  {
+   "para": 29,
+   "kind": "quote",
+   "text": "“Which is just the case with _mine_,”",
+   "id": 80
+  },
+  {
+   "para": 29,
+   "kind": "narration",
+   "text": "said the Hatter.",
+   "id": 81
+  },
+  {
+   "para": 30,
+   "kind": "narration",
+   "text": "Alice felt dreadfully puzzled, The Hatter’s remark seemed to have no sort of meaning in it, and yet it was certainly English.",
+   "id": 82
+  },
+  {
+   "para": 30,
+   "kind": "quote",
+   "text": "“I don’t quite understand you,”",
+   "id": 83
+  },
+  {
+   "para": 30,
+   "kind": "narration",
+   "text": "she said, as politely as she could.",
+   "id": 84
+  },
+  {
+   "para": 31,
+   "kind": "quote",
+   "text": "“The Dormouse is asleep again,”",
+   "id": 85
+  },
+  {
+   "para": 31,
+   "kind": "narration",
+   "text": "said the Hatter, and he poured a little hot tea upon its nose.",
+   "id": 86
+  },
+  {
+   "para": 32,
+   "kind": "narration",
+   "text": "The Dormouse shook its head impatiently, and said, without opening its eyes,",
+   "id": 87
+  },
+  {
+   "para": 32,
+   "kind": "quote",
+   "text": "“Of course, of course; just what I was going to remark myself.”",
+   "id": 88
+  },
+  {
+   "para": 33,
+   "kind": "quote",
+   "text": "“Have you guessed the riddle yet?”",
+   "id": 89
+  },
+  {
+   "para": 33,
+   "kind": "narration",
+   "text": "the Hatter said, turning to Alice again.",
+   "id": 90
+  },
+  {
+   "para": 34,
+   "kind": "quote",
+   "text": "“No, I give it up,”",
+   "id": 91
+  },
+  {
+   "para": 34,
+   "kind": "narration",
+   "text": "Alice replied:",
+   "id": 92
+  },
+  {
+   "para": 34,
+   "kind": "quote",
+   "text": "“what’s the answer?”",
+   "id": 93
+  },
+  {
+   "para": 35,
+   "kind": "quote",
+   "text": "“I haven’t the slightest idea,”",
+   "id": 94
+  },
+  {
+   "para": 35,
+   "kind": "narration",
+   "text": "said the Hatter.",
+   "id": 95
+  },
+  {
+   "para": 36,
+   "kind": "quote",
+   "text": "“Nor I,”",
+   "id": 96
+  },
+  {
+   "para": 36,
+   "kind": "narration",
+   "text": "said the March Hare.",
+   "id": 97
+  },
+  {
+   "para": 37,
+   "kind": "narration",
+   "text": "Alice sighed wearily.",
+   "id": 98
+  },
+  {
+   "para": 37,
+   "kind": "quote",
+   "text": "“I think you might do something better with the time,”",
+   "id": 99
+  },
+  {
+   "para": 37,
+   "kind": "narration",
+   "text": "she said,",
+   "id": 100
+  },
+  {
+   "para": 37,
+   "kind": "quote",
+   "text": "“than waste it in asking riddles that have no answers.”",
+   "id": 101
+  },
+  {
+   "para": 38,
+   "kind": "quote",
+   "text": "“If you knew Time as well as I do,”",
+   "id": 102
+  },
+  {
+   "para": 38,
+   "kind": "narration",
+   "text": "said the Hatter,",
+   "id": 103
+  },
+  {
+   "para": 38,
+   "kind": "quote",
+   "text": "“you wouldn’t talk about wasting _it_. It’s _him_.”",
+   "id": 104
+  },
+  {
+   "para": 39,
+   "kind": "quote",
+   "text": "“I don’t know what you mean,”",
+   "id": 105
+  },
+  {
+   "para": 39,
+   "kind": "narration",
+   "text": "said Alice.",
+   "id": 106
+  },
+  {
+   "para": 40,
+   "kind": "quote",
+   "text": "“Of course you don’t!”",
+   "id": 107
+  },
+  {
+   "para": 40,
+   "kind": "narration",
+   "text": "the Hatter said, tossing his head contemptuously.",
+   "id": 108
+  },
+  {
+   "para": 40,
+   "kind": "quote",
+   "text": "“I dare say you never even spoke to Time!”",
+   "id": 109
+  },
+  {
+   "para": 41,
+   "kind": "quote",
+   "text": "“Perhaps not,”",
+   "id": 110
+  },
+  {
+   "para": 41,
+   "kind": "narration",
+   "text": "Alice cautiously replied:",
+   "id": 111
+  },
+  {
+   "para": 41,
+   "kind": "quote",
+   "text": "“but I know I have to beat time when I learn music.”",
+   "id": 112
+  },
+  {
+   "para": 42,
+   "kind": "quote",
+   "text": "“Ah! that accounts for it,”",
+   "id": 113
+  },
+  {
+   "para": 42,
+   "kind": "narration",
+   "text": "said the Hatter.",
+   "id": 114
+  },
+  {
+   "para": 42,
+   "kind": "quote",
+   "text": "“He won’t stand beating. Now, if you only kept on good terms with him, he’d do almost anything you liked with the clock. For instance, suppose it were nine o’clock in the morning, just time to begin lessons: you’d only have to whisper a hint to Time, and round goes the clock in a twinkling! Half-past one, time for dinner!”",
+   "id": 115
+  },
+  {
+   "para": 43,
+   "kind": "narration",
+   "text": "(",
+   "id": 116
+  },
+  {
+   "para": 43,
+   "kind": "quote",
+   "text": "“I only wish it was,”",
+   "id": 117
+  },
+  {
+   "para": 43,
+   "kind": "narration",
+   "text": "the March Hare said to itself in a whisper.)",
+   "id": 118
+  },
+  {
+   "para": 44,
+   "kind": "quote",
+   "text": "“That would be grand, certainly,”",
+   "id": 119
+  },
+  {
+   "para": 44,
+   "kind": "narration",
+   "text": "said Alice thoughtfully:",
+   "id": 120
+  },
+  {
+   "para": 44,
+   "kind": "quote",
+   "text": "“but then—I shouldn’t be hungry for it, you know.”",
+   "id": 121
+  },
+  {
+   "para": 45,
+   "kind": "quote",
+   "text": "“Not at first, perhaps,”",
+   "id": 122
+  },
+  {
+   "para": 45,
+   "kind": "narration",
+   "text": "said the Hatter:",
+   "id": 123
+  },
+  {
+   "para": 45,
+   "kind": "quote",
+   "text": "“but you could keep it to half-past one as long as you liked.”",
+   "id": 124
+  },
+  {
+   "para": 46,
+   "kind": "quote",
+   "text": "“Is that the way _you_ manage?”",
+   "id": 125
+  },
+  {
+   "para": 46,
+   "kind": "narration",
+   "text": "Alice asked.",
+   "id": 126
+  },
+  {
+   "para": 47,
+   "kind": "narration",
+   "text": "The Hatter shook his head mournfully.",
+   "id": 127
+  },
+  {
+   "para": 47,
+   "kind": "quote",
+   "text": "“Not I!”",
+   "id": 128
+  },
+  {
+   "para": 47,
+   "kind": "narration",
+   "text": "he replied.",
+   "id": 129
+  },
+  {
+   "para": 47,
+   "kind": "quote",
+   "text": "“We quarrelled last March—just before _he_ went mad, you know—”",
+   "id": 130
+  },
+  {
+   "para": 47,
+   "kind": "narration",
+   "text": "(pointing with his tea spoon at the March Hare,)",
+   "id": 131
+  },
+  {
+   "para": 47,
+   "kind": "quote",
+   "text": "“—it was at the great concert given by the Queen of Hearts, and I had to sing",
+   "id": 132
+  },
+  {
+   "para": 48,
+   "kind": "narration",
+   "text": "‘Twinkle, twinkle, little bat! How I wonder what you’re at!’",
+   "id": 133
+  },
+  {
+   "para": 49,
+   "kind": "narration",
+   "text": "You know the song, perhaps?”",
+   "id": 134
+  },
+  {
+   "para": 50,
+   "kind": "quote",
+   "text": "“I’ve heard something like it,”",
+   "id": 135
+  },
+  {
+   "para": 50,
+   "kind": "narration",
+   "text": "said Alice.",
+   "id": 136
+  },
+  {
+   "para": 51,
+   "kind": "quote",
+   "text": "“It goes on, you know,”",
+   "id": 137
+  },
+  {
+   "para": 51,
+   "kind": "narration",
+   "text": "the Hatter continued,",
+   "id": 138
+  },
+  {
+   "para": 51,
+   "kind": "quote",
+   "text": "“in this way:—",
+   "id": 139
+  },
+  {
+   "para": 52,
+   "kind": "narration",
+   "text": "‘Up above the world you fly, Like a tea-tray in the sky. Twinkle, twinkle—’”",
+   "id": 140
+  },
+  {
+   "para": 53,
+   "kind": "narration",
+   "text": "Here the Dormouse shook itself, and began singing in its sleep",
+   "id": 141
+  },
+  {
+   "para": 53,
+   "kind": "quote",
+   "text": "“_Twinkle, twinkle, twinkle, twinkle_—”",
+   "id": 142
+  },
+  {
+   "para": 53,
+   "kind": "narration",
+   "text": "and went on so long that they had to pinch it to make it stop.",
+   "id": 143
+  },
+  {
+   "para": 54,
+   "kind": "quote",
+   "text": "“Well, I’d hardly finished the first verse,”",
+   "id": 144
+  },
+  {
+   "para": 54,
+   "kind": "narration",
+   "text": "said the Hatter,",
+   "id": 145
+  },
+  {
+   "para": 54,
+   "kind": "quote",
+   "text": "“when the Queen jumped up and bawled out, ‘He’s murdering the time! Off with his head!’”",
+   "id": 146
+  },
+  {
+   "para": 55,
+   "kind": "quote",
+   "text": "“How dreadfully savage!”",
+   "id": 147
+  },
+  {
+   "para": 55,
+   "kind": "narration",
+   "text": "exclaimed Alice.",
+   "id": 148
+  },
+  {
+   "para": 56,
+   "kind": "quote",
+   "text": "“And ever since that,”",
+   "id": 149
+  },
+  {
+   "para": 56,
+   "kind": "narration",
+   "text": "the Hatter went on in a mournful tone,",
+   "id": 150
+  },
+  {
+   "para": 56,
+   "kind": "quote",
+   "text": "“he won’t do a thing I ask! It’s always six o’clock now.”",
+   "id": 151
+  },
+  {
+   "para": 57,
+   "kind": "narration",
+   "text": "A bright idea came into Alice’s head.",
+   "id": 152
+  },
+  {
+   "para": 57,
+   "kind": "quote",
+   "text": "“Is that the reason so many tea-things are put out here?”",
+   "id": 153
+  },
+  {
+   "para": 57,
+   "kind": "narration",
+   "text": "she asked.",
+   "id": 154
+  },
+  {
+   "para": 58,
+   "kind": "quote",
+   "text": "“Yes, that’s it,”",
+   "id": 155
+  },
+  {
+   "para": 58,
+   "kind": "narration",
+   "text": "said the Hatter with a sigh:",
+   "id": 156
+  },
+  {
+   "para": 58,
+   "kind": "quote",
+   "text": "“it’s always tea-time, and we’ve no time to wash the things between whiles.”",
+   "id": 157
+  },
+  {
+   "para": 59,
+   "kind": "quote",
+   "text": "“Then you keep moving round, I suppose?”",
+   "id": 158
+  },
+  {
+   "para": 59,
+   "kind": "narration",
+   "text": "said Alice.",
+   "id": 159
+  },
+  {
+   "para": 60,
+   "kind": "quote",
+   "text": "“Exactly so,”",
+   "id": 160
+  },
+  {
+   "para": 60,
+   "kind": "narration",
+   "text": "said the Hatter:",
+   "id": 161
+  },
+  {
+   "para": 60,
+   "kind": "quote",
+   "text": "“as the things get used up.”",
+   "id": 162
+  },
+  {
+   "para": 61,
+   "kind": "quote",
+   "text": "“But what happens when you come to the beginning again?”",
+   "id": 163
+  },
+  {
+   "para": 61,
+   "kind": "narration",
+   "text": "Alice ventured to ask.",
+   "id": 164
+  },
+  {
+   "para": 62,
+   "kind": "quote",
+   "text": "“Suppose we change the subject,”",
+   "id": 165
+  },
+  {
+   "para": 62,
+   "kind": "narration",
+   "text": "the March Hare interrupted, yawning.",
+   "id": 166
+  },
+  {
+   "para": 62,
+   "kind": "quote",
+   "text": "“I’m getting tired of this. I vote the young lady tells us a story.”",
+   "id": 167
+  },
+  {
+   "para": 63,
+   "kind": "quote",
+   "text": "“I’m afraid I don’t know one,”",
+   "id": 168
+  },
+  {
+   "para": 63,
+   "kind": "narration",
+   "text": "said Alice, rather alarmed at the proposal.",
+   "id": 169
+  },
+  {
+   "para": 64,
+   "kind": "quote",
+   "text": "“Then the Dormouse shall!”",
+   "id": 170
+  },
+  {
+   "para": 64,
+   "kind": "narration",
+   "text": "they both cried.",
+   "id": 171
+  },
+  {
+   "para": 64,
+   "kind": "quote",
+   "text": "“Wake up, Dormouse!”",
+   "id": 172
+  },
+  {
+   "para": 64,
+   "kind": "narration",
+   "text": "And they pinched it on both sides at once.",
+   "id": 173
+  },
+  {
+   "para": 65,
+   "kind": "narration",
+   "text": "The Dormouse slowly opened his eyes.",
+   "id": 174
+  },
+  {
+   "para": 65,
+   "kind": "quote",
+   "text": "“I wasn’t asleep,”",
+   "id": 175
+  },
+  {
+   "para": 65,
+   "kind": "narration",
+   "text": "he said in a hoarse, feeble voice:",
+   "id": 176
+  },
+  {
+   "para": 65,
+   "kind": "quote",
+   "text": "“I heard every word you fellows were saying.”",
+   "id": 177
+  },
+  {
+   "para": 66,
+   "kind": "quote",
+   "text": "“Tell us a story!”",
+   "id": 178
+  },
+  {
+   "para": 66,
+   "kind": "narration",
+   "text": "said the March Hare.",
+   "id": 179
+  },
+  {
+   "para": 67,
+   "kind": "quote",
+   "text": "“Yes, please do!”",
+   "id": 180
+  },
+  {
+   "para": 67,
+   "kind": "narration",
+   "text": "pleaded Alice.",
+   "id": 181
+  },
+  {
+   "para": 68,
+   "kind": "quote",
+   "text": "“And be quick about it,”",
+   "id": 182
+  },
+  {
+   "para": 68,
+   "kind": "narration",
+   "text": "added the Hatter,",
+   "id": 183
+  },
+  {
+   "para": 68,
+   "kind": "quote",
+   "text": "“or you’ll be asleep again before it’s done.”",
+   "id": 184
+  },
+  {
+   "para": 69,
+   "kind": "quote",
+   "text": "“Once upon a time there were three little sisters,”",
+   "id": 185
+  },
+  {
+   "para": 69,
+   "kind": "narration",
+   "text": "the Dormouse began in a great hurry;",
+   "id": 186
+  },
+  {
+   "para": 69,
+   "kind": "quote",
+   "text": "“and their names were Elsie, Lacie, and Tillie; and they lived at the bottom of a well—”",
+   "id": 187
+  },
+  {
+   "para": 70,
+   "kind": "quote",
+   "text": "“What did they live on?”",
+   "id": 188
+  },
+  {
+   "para": 70,
+   "kind": "narration",
+   "text": "said Alice, who always took a great interest in questions of eating and drinking.",
+   "id": 189
+  },
+  {
+   "para": 71,
+   "kind": "quote",
+   "text": "“They lived on treacle,”",
+   "id": 190
+  },
+  {
+   "para": 71,
+   "kind": "narration",
+   "text": "said the Dormouse, after thinking a minute or two.",
+   "id": 191
+  },
+  {
+   "para": 72,
+   "kind": "quote",
+   "text": "“They couldn’t have done that, you know,”",
+   "id": 192
+  },
+  {
+   "para": 72,
+   "kind": "narration",
+   "text": "Alice gently remarked;",
+   "id": 193
+  },
+  {
+   "para": 72,
+   "kind": "quote",
+   "text": "“they’d have been ill.”",
+   "id": 194
+  },
+  {
+   "para": 73,
+   "kind": "quote",
+   "text": "“So they were,”",
+   "id": 195
+  },
+  {
+   "para": 73,
+   "kind": "narration",
+   "text": "said the Dormouse;",
+   "id": 196
+  },
+  {
+   "para": 73,
+   "kind": "quote",
+   "text": "“_very_ ill.”",
+   "id": 197
+  },
+  {
+   "para": 74,
+   "kind": "narration",
+   "text": "Alice tried to fancy to herself what such an extraordinary way of living would be like, but it puzzled her too much, so she went on:",
+   "id": 198
+  },
+  {
+   "para": 74,
+   "kind": "quote",
+   "text": "“But why did they live at the bottom of a well?”",
+   "id": 199
+  },
+  {
+   "para": 75,
+   "kind": "quote",
+   "text": "“Take some more tea,”",
+   "id": 200
+  },
+  {
+   "para": 75,
+   "kind": "narration",
+   "text": "the March Hare said to Alice, very earnestly.",
+   "id": 201
+  },
+  {
+   "para": 76,
+   "kind": "quote",
+   "text": "“I’ve had nothing yet,”",
+   "id": 202
+  },
+  {
+   "para": 76,
+   "kind": "narration",
+   "text": "Alice replied in an offended tone,",
+   "id": 203
+  },
+  {
+   "para": 76,
+   "kind": "quote",
+   "text": "“so I can’t take more.”",
+   "id": 204
+  },
+  {
+   "para": 77,
+   "kind": "quote",
+   "text": "“You mean you can’t take _less_,”",
+   "id": 205
+  },
+  {
+   "para": 77,
+   "kind": "narration",
+   "text": "said the Hatter:",
+   "id": 206
+  },
+  {
+   "para": 77,
+   "kind": "quote",
+   "text": "“it’s very easy to take _more_ than nothing.”",
+   "id": 207
+  },
+  {
+   "para": 78,
+   "kind": "quote",
+   "text": "“Nobody asked _your_ opinion,”",
+   "id": 208
+  },
+  {
+   "para": 78,
+   "kind": "narration",
+   "text": "said Alice.",
+   "id": 209
+  },
+  {
+   "para": 79,
+   "kind": "quote",
+   "text": "“Who’s making personal remarks now?”",
+   "id": 210
+  },
+  {
+   "para": 79,
+   "kind": "narration",
+   "text": "the Hatter asked triumphantly.",
+   "id": 211
+  },
+  {
+   "para": 80,
+   "kind": "narration",
+   "text": "Alice did not quite know what to say to this: so she helped herself to some tea and bread-and-butter, and then turned to the Dormouse, and repeated her question.",
+   "id": 212
+  },
+  {
+   "para": 80,
+   "kind": "quote",
+   "text": "“Why did they live at the bottom of a well?”",
+   "id": 213
+  },
+  {
+   "para": 81,
+   "kind": "narration",
+   "text": "The Dormouse again took a minute or two to think about it, and then said,",
+   "id": 214
+  },
+  {
+   "para": 81,
+   "kind": "quote",
+   "text": "“It was a treacle-well.”",
+   "id": 215
+  },
+  {
+   "para": 82,
+   "kind": "quote",
+   "text": "“There’s no such thing!”",
+   "id": 216
+  },
+  {
+   "para": 82,
+   "kind": "narration",
+   "text": "Alice was beginning very angrily, but the Hatter and the March Hare went",
+   "id": 217
+  },
+  {
+   "para": 82,
+   "kind": "quote",
+   "text": "“Sh! sh!”",
+   "id": 218
+  },
+  {
+   "para": 82,
+   "kind": "narration",
+   "text": "and the Dormouse sulkily remarked,",
+   "id": 219
+  },
+  {
+   "para": 82,
+   "kind": "quote",
+   "text": "“If you can’t be civil, you’d better finish the story for yourself.”",
+   "id": 220
+  },
+  {
+   "para": 83,
+   "kind": "quote",
+   "text": "“No, please go on!”",
+   "id": 221
+  },
+  {
+   "para": 83,
+   "kind": "narration",
+   "text": "Alice said very humbly;",
+   "id": 222
+  },
+  {
+   "para": 83,
+   "kind": "quote",
+   "text": "“I won’t interrupt again. I dare say there may be _one_.”",
+   "id": 223
+  },
+  {
+   "para": 84,
+   "kind": "quote",
+   "text": "“One, indeed!”",
+   "id": 224
+  },
+  {
+   "para": 84,
+   "kind": "narration",
+   "text": "said the Dormouse indignantly. However, he consented to go on.",
+   "id": 225
+  },
+  {
+   "para": 84,
+   "kind": "quote",
+   "text": "“And so these three little sisters—they were learning to draw, you know—”",
+   "id": 226
+  },
+  {
+   "para": 85,
+   "kind": "quote",
+   "text": "“What did they draw?”",
+   "id": 227
+  },
+  {
+   "para": 85,
+   "kind": "narration",
+   "text": "said Alice, quite forgetting her promise.",
+   "id": 228
+  },
+  {
+   "para": 86,
+   "kind": "quote",
+   "text": "“Treacle,”",
+   "id": 229
+  },
+  {
+   "para": 86,
+   "kind": "narration",
+   "text": "said the Dormouse, without considering at all this time.",
+   "id": 230
+  },
+  {
+   "para": 87,
+   "kind": "quote",
+   "text": "“I want a clean cup,”",
+   "id": 231
+  },
+  {
+   "para": 87,
+   "kind": "narration",
+   "text": "interrupted the Hatter:",
+   "id": 232
+  },
+  {
+   "para": 87,
+   "kind": "quote",
+   "text": "“let’s all move one place on.”",
+   "id": 233
+  },
+  {
+   "para": 88,
+   "kind": "narration",
+   "text": "He moved on as he spoke, and the Dormouse followed him: the March Hare moved into the Dormouse’s place, and Alice rather unwillingly took the place of the March Hare. The Hatter was the only one who got any advantage from the change: and Alice was a good deal worse off than before, as the March Hare had just upset the milk-jug into his plate.",
+   "id": 234
+  }
+ ]
+}

@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+*.log
+
+# Prototype environments, caches and model weights: tens of GB, all re-creatable
+.scratch/**/envs/
+.scratch/**/hf-cache/
+.scratch/**/uv-cache/
+*.safetensors
+*.pth
+*.pt
+
+# Generated audio, except the 12 built-in Voice library clips
+*.wav
+!.scratch/chorus/prototypes/voice-library/library/*.wav

@@ -1,0 +1,12 @@
+{
+  "narration": {
+    "text": "It is a truth universally acknowledged, that a single man in possession of a good fortune must be in want of a wife.",
+    "exaggeration": 0.5,
+    "cfg_weight": 0.5
+  },
+  "dialogue": {
+    "text": "No! I will not go back there. You promised me it was over, and now you ask me to pretend that nothing happened?",
+    "exaggeration": 0.9,
+    "cfg_weight": 0.4
+  }
+}

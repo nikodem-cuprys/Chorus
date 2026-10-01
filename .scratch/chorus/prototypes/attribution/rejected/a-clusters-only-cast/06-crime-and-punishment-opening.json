@@ -1,0 +1,182 @@
+{
+ "approach": "a-booknlp-llm",
+ "passage": "06-crime-and-punishment-opening",
+ "narrator": {
+  "person": "first",
+  "character": "the narrator"
+ },
+ "characters": [
+  {
+   "name": "the young man",
+   "aliases": [],
+   "gender": "male",
+   "age": "young adult",
+   "clusters": [
+    14,
+    5,
+    88,
+    42,
+    68
+   ]
+  },
+  {
+   "name": "the old woman",
+   "aliases": [],
+   "gender": "female",
+   "age": "elderly",
+   "clusters": [
+    73
+   ]
+  },
+  {
+   "name": "the landlady",
+   "aliases": [],
+   "gender": "female",
+   "age": "unknown",
+   "clusters": [
+    7
+   ]
+  },
+  {
+   "name": "the drunken man",
+   "aliases": [],
+   "gender": "male",
+   "age": "adult",
+   "clusters": [
+    42
+   ]
+  },
+  {
+   "name": "the German clerk",
+   "aliases": [],
+   "gender": "male",
+   "age": "adult",
+   "clusters": [
+    68
+   ]
+  },
+  {
+   "name": "the men",
+   "aliases": [],
+   "gender": "male",
+   "age": "adult",
+   "clusters": [
+    89
+   ]
+  },
+  {
+   "name": "the people",
+   "aliases": [],
+   "gender": "unknown",
+   "age": "unknown",
+   "clusters": [
+    95
+   ]
+  },
+  {
+   "name": "the girls",
+   "aliases": [],
+   "gender": "female",
+   "age": "young adult",
+   "clusters": [
+    56
+   ]
+  },
+  {
+   "name": "the door-keepers",
+   "aliases": [],
+   "gender": "unknown",
+   "age": "unknown",
+   "clusters": [
+    60
+   ]
+  }
+ ],
+ "labels": {
+  "4": {
+   "speaker": "the young man",
+   "kind": "thought",
+   "emotion": "amused",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "6": {
+   "speaker": "the young man",
+   "kind": "thought",
+   "emotion": "disgusted",
+   "intensity": "medium",
+   "source": "booknlp"
+  },
+  "9": {
+   "speaker": "the drunken man",
+   "kind": "speech",
+   "emotion": "angry",
+   "intensity": "high",
+   "source": "booknlp"
+  },
+  "11": {
+   "speaker": "the young man",
+   "kind": "thought",
+   "emotion": "anxious",
+   "intensity": "medium",
+   "source": "booknlp"
+  },
+  "13": {
+   "speaker": "the young man",
+   "kind": "thought",
+   "emotion": "disgusted",
+   "intensity": "high",
+   "source": "booknlp"
+  },
+  "15": {
+   "speaker": "the young man",
+   "kind": "thought",
+   "emotion": "disgusted",
+   "intensity": "medium",
+   "source": "booknlp"
+  },
+  "17": {
+   "speaker": "the young man",
+   "kind": "thought",
+   "emotion": "excited",
+   "intensity": "high",
+   "source": "booknlp"
+  },
+  "20": {
+   "speaker": "the young man",
+   "kind": "thought",
+   "emotion": "disgusted",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "22": {
+   "speaker": "the young man",
+   "kind": "thought",
+   "emotion": "sad",
+   "intensity": "low",
+   "source": "booknlp"
+  }
+ },
+ "scenes": [
+  {
+   "first_paragraph": 1,
+   "setting": "A hot, crowded street in Petersburg",
+   "mood": "anxious"
+  },
+  {
+   "first_paragraph": 6,
+   "setting": "A dark, narrow back staircase",
+   "mood": "tense"
+  }
+ ],
+ "anchored": 9,
+ "missing": [],
+ "seconds": 118.5,
+ "booknlp_seconds": 15.7,
+ "stats": {
+  "calls": 5,
+  "seconds": 102.8,
+  "prompt_tokens": 6418,
+  "completion_tokens": 1069
+ }
+}

@@ -1,0 +1,291 @@
+{
+ "approach": "a-booknlp-llm",
+ "passage": "05-metamorphosis-opening",
+ "narrator": {
+  "person": "first",
+  "character": "Gregor Samsa"
+ },
+ "characters": [
+  {
+   "name": "Gregor Samsa",
+   "aliases": [
+    "Gregor",
+    "Samsa"
+   ],
+   "gender": "male",
+   "age": "unknown",
+   "clusters": [
+    1
+   ]
+  },
+  {
+   "name": "the boss",
+   "aliases": [
+    "his boss"
+   ],
+   "gender": "male",
+   "age": "unknown",
+   "clusters": [
+    52,
+    11
+   ]
+  },
+  {
+   "name": "the office assistant",
+   "aliases": [],
+   "gender": "male",
+   "age": "unknown",
+   "clusters": [
+    12
+   ]
+  },
+  {
+   "name": "Gregor's father",
+   "aliases": [
+    "his father"
+   ],
+   "gender": "male",
+   "age": "unknown",
+   "clusters": [
+    34
+   ]
+  },
+  {
+   "name": "Gregor's sister",
+   "aliases": [],
+   "gender": "female",
+   "age": "unknown",
+   "clusters": [
+    35
+   ]
+  },
+  {
+   "name": "a lady",
+   "aliases": [],
+   "gender": "female",
+   "age": "unknown",
+   "clusters": [
+    7
+   ]
+  },
+  {
+   "name": "Gregor's mother",
+   "aliases": [
+    "his mother",
+    "mother"
+   ],
+   "gender": "female",
+   "age": "unknown",
+   "clusters": [
+    28,
+    58
+   ]
+  },
+  {
+   "name": "Gregor's parents",
+   "aliases": [],
+   "gender": "unknown",
+   "age": "unknown",
+   "clusters": [
+    51
+   ]
+  },
+  {
+   "name": "the doctor",
+   "aliases": [],
+   "gender": "unknown",
+   "age": "unknown",
+   "clusters": [
+    24
+   ]
+  },
+  {
+   "name": "the hearer",
+   "aliases": [],
+   "gender": "male",
+   "age": "unknown",
+   "clusters": [
+    29
+   ]
+  },
+  {
+   "name": "the other members of the family",
+   "aliases": [],
+   "gender": "unknown",
+   "age": "unknown",
+   "clusters": [
+    31
+   ]
+  },
+  {
+   "name": "anyone",
+   "aliases": [],
+   "gender": "unknown",
+   "age": "unknown",
+   "clusters": [
+    46
+   ]
+  },
+  {
+   "name": "these gentlemen",
+   "aliases": [],
+   "gender": "unknown",
+   "age": "unknown",
+   "clusters": [
+    49
+   ]
+  }
+ ],
+ "labels": {
+  "1": {
+   "speaker": "Gregor Samsa",
+   "kind": "thought",
+   "emotion": "disgusted",
+   "intensity": "high",
+   "source": "booknlp"
+  },
+  "4": {
+   "speaker": "Gregor Samsa",
+   "kind": "thought",
+   "emotion": "sad",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "6": {
+   "speaker": "Gregor Samsa",
+   "kind": "thought",
+   "emotion": "disgusted",
+   "intensity": "high",
+   "source": "booknlp"
+  },
+  "8": {
+   "speaker": "Gregor Samsa",
+   "kind": "thought",
+   "emotion": "disgusted",
+   "intensity": "high",
+   "source": "booknlp"
+  },
+  "11": {
+   "speaker": "Gregor Samsa",
+   "kind": "thought",
+   "emotion": "disgusted",
+   "intensity": "high",
+   "source": "booknlp"
+  },
+  "13": {
+   "speaker": "Gregor Samsa",
+   "kind": "thought",
+   "emotion": "disgusted",
+   "intensity": "high",
+   "source": "booknlp"
+  },
+  "15": {
+   "speaker": "Gregor Samsa",
+   "kind": "thought",
+   "emotion": "surprised",
+   "intensity": "high"
+  },
+  "18": {
+   "speaker": "Gregor Samsa",
+   "kind": "thought",
+   "emotion": "disgusted",
+   "intensity": "medium"
+  },
+  "20": {
+   "speaker": "Gregor's mother",
+   "kind": "speech",
+   "emotion": "anxious",
+   "intensity": "low"
+  },
+  "22": {
+   "speaker": "Gregor Samsa",
+   "kind": "speech",
+   "emotion": "disgusted",
+   "intensity": "medium",
+   "source": "booknlp"
+  },
+  "24": {
+   "speaker": "Gregor's father",
+   "kind": "speech",
+   "emotion": "anxious",
+   "intensity": "medium",
+   "source": "booknlp"
+  },
+  "26": {
+   "speaker": "Gregor's father",
+   "kind": "speech",
+   "emotion": "anxious",
+   "intensity": "medium",
+   "source": "booknlp"
+  },
+  "28": {
+   "speaker": "Gregor's father",
+   "kind": "speech",
+   "emotion": "angry",
+   "intensity": "high",
+   "source": "booknlp"
+  },
+  "30": {
+   "speaker": "Gregor's sister",
+   "kind": "speech",
+   "emotion": "anxious",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "32": {
+   "speaker": "Gregor Samsa",
+   "kind": "speech",
+   "emotion": "anxious",
+   "intensity": "medium",
+   "source": "booknlp"
+  },
+  "34": {
+   "speaker": "Gregor's sister",
+   "kind": "speech",
+   "emotion": "anxious",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "38": {
+   "speaker": "Gregor Samsa",
+   "kind": "thought",
+   "emotion": "disgusted",
+   "intensity": "high",
+   "source": "booknlp"
+  },
+  "40": {
+   "speaker": "Gregor Samsa",
+   "kind": "thought",
+   "emotion": "disgusted",
+   "intensity": "high",
+   "source": "booknlp"
+  }
+ },
+ "scenes": [
+  {
+   "first_paragraph": 1,
+   "setting": "Gregor's bedroom",
+   "mood": "tense"
+  },
+  {
+   "first_paragraph": 3,
+   "setting": "Gregor's bedroom",
+   "mood": "melancholic"
+  },
+  {
+   "first_paragraph": 5,
+   "setting": "Gregor's bedroom",
+   "mood": "anxious"
+  }
+ ],
+ "anchored": 15,
+ "missing": [],
+ "seconds": 177.6,
+ "booknlp_seconds": 16.7,
+ "stats": {
+  "calls": 5,
+  "seconds": 160.9,
+  "prompt_tokens": 6498,
+  "completion_tokens": 2172
+ }
+}

@@ -1,0 +1,1041 @@
+{
+ "gold": {
+  "01-pride-and-prejudice-ch1-2": {
+   "2": [
+    "Mrs. Bennet"
+   ],
+   "4": [
+    "Mrs. Bennet"
+   ],
+   "6": [
+    "Mrs. Bennet"
+   ],
+   "8": [
+    "Mrs. Bennet"
+   ],
+   "10": [
+    "Mrs. Bennet"
+   ],
+   "14": [
+    "Mrs. Bennet"
+   ],
+   "16": [
+    "Mrs. Bennet"
+   ],
+   "18": [
+    "Mrs. Bennet"
+   ],
+   "20": [
+    "Mrs. Bennet"
+   ],
+   "22": [
+    "Mrs. Bennet"
+   ],
+   "24": [
+    "Mrs. Bennet"
+   ],
+   "26": [
+    "Mrs. Bennet"
+   ],
+   "28": [
+    "Mrs. Bennet"
+   ],
+   "30": [
+    "Mrs. Bennet"
+   ],
+   "32": [
+    "Mrs. Bennet"
+   ],
+   "36": [
+    "Mrs. Bennet"
+   ],
+   "38": [
+    "Mrs. Bennet"
+   ],
+   "40": [
+    "Mrs. Bennet"
+   ],
+   "46": [
+    "Mrs. Bennet"
+   ],
+   "48": [
+    "Mrs. Bennet"
+   ],
+   "52": [
+    "Mrs. Bennet"
+   ],
+   "57": [
+    "Mrs. Bennet"
+   ],
+   "65": [
+    "Mrs. Bennet"
+   ],
+   "67": [
+    "Mrs. Bennet"
+   ],
+   "69": [
+    "Mrs. Bennet"
+   ],
+   "72": [
+    "Mrs. Bennet"
+   ],
+   "80": [
+    "Mrs. Bennet"
+   ],
+   "84": [
+    "Mrs. Bennet"
+   ],
+   "87": [
+    "Mrs. Bennet"
+   ],
+   "89": [
+    "Mrs. Bennet"
+   ],
+   "12": [
+    "Mr. Bennet"
+   ],
+   "15": [
+    "Mr. Bennet"
+   ],
+   "17": [
+    "Mr. Bennet"
+   ],
+   "19": [
+    "Mr. Bennet"
+   ],
+   "23": [
+    "Mr. Bennet"
+   ],
+   "25": [
+    "Mr. Bennet"
+   ],
+   "27": [
+    "Mr. Bennet"
+   ],
+   "29": [
+    "Mr. Bennet"
+   ],
+   "31": [
+    "Mr. Bennet"
+   ],
+   "33": [
+    "Mr. Bennet"
+   ],
+   "35": [
+    "Mr. Bennet"
+   ],
+   "37": [
+    "Mr. Bennet"
+   ],
+   "39": [
+    "Mr. Bennet"
+   ],
+   "41": [
+    "Mr. Bennet"
+   ],
+   "45": [
+    "Mr. Bennet"
+   ],
+   "53": [
+    "Mr. Bennet"
+   ],
+   "55": [
+    "Mr. Bennet"
+   ],
+   "58": [
+    "Mr. Bennet"
+   ],
+   "60": [
+    "Mr. Bennet"
+   ],
+   "68": [
+    "Mr. Bennet"
+   ],
+   "70": [
+    "Mr. Bennet"
+   ],
+   "73": [
+    "Mr. Bennet"
+   ],
+   "75": [
+    "Mr. Bennet"
+   ],
+   "77": [
+    "Mr. Bennet"
+   ],
+   "79": [
+    "Mr. Bennet"
+   ],
+   "82": [
+    "Mr. Bennet"
+   ],
+   "85": [
+    "Mr. Bennet"
+   ],
+   "49": [
+    "Lizzy"
+   ],
+   "51": [
+    "Lizzy"
+   ],
+   "64": [
+    "Lizzy"
+   ],
+   "61": [
+    "Kitty"
+   ],
+   "63": [
+    "Kitty",
+    "Mr. Bennet"
+   ],
+   "90": [
+    "Lydia"
+   ],
+   "92": [
+    "Lydia"
+   ]
+  },
+  "02-alice-mad-tea-party": {
+   "1": [
+    "Alice"
+   ],
+   "3": [
+    "Alice"
+   ],
+   "7": [
+    "Alice"
+   ],
+   "12": [
+    "Alice"
+   ],
+   "16": [
+    "Alice"
+   ],
+   "20": [
+    "Alice"
+   ],
+   "22": [
+    "Alice"
+   ],
+   "25": [
+    "Alice"
+   ],
+   "27": [
+    "Alice"
+   ],
+   "30": [
+    "Alice"
+   ],
+   "32": [
+    "Alice"
+   ],
+   "36": [
+    "Alice"
+   ],
+   "40": [
+    "Alice"
+   ],
+   "42": [
+    "Alice"
+   ],
+   "58": [
+    "Alice"
+   ],
+   "71": [
+    "Alice"
+   ],
+   "73": [
+    "Alice"
+   ],
+   "77": [
+    "Alice"
+   ],
+   "79": [
+    "Alice"
+   ],
+   "83": [
+    "Alice"
+   ],
+   "91": [
+    "Alice"
+   ],
+   "93": [
+    "Alice"
+   ],
+   "99": [
+    "Alice"
+   ],
+   "101": [
+    "Alice"
+   ],
+   "105": [
+    "Alice"
+   ],
+   "110": [
+    "Alice"
+   ],
+   "112": [
+    "Alice"
+   ],
+   "119": [
+    "Alice"
+   ],
+   "121": [
+    "Alice"
+   ],
+   "125": [
+    "Alice"
+   ],
+   "135": [
+    "Alice"
+   ],
+   "147": [
+    "Alice"
+   ],
+   "153": [
+    "Alice"
+   ],
+   "158": [
+    "Alice"
+   ],
+   "163": [
+    "Alice"
+   ],
+   "168": [
+    "Alice"
+   ],
+   "180": [
+    "Alice"
+   ],
+   "188": [
+    "Alice"
+   ],
+   "192": [
+    "Alice"
+   ],
+   "194": [
+    "Alice"
+   ],
+   "199": [
+    "Alice"
+   ],
+   "202": [
+    "Alice"
+   ],
+   "204": [
+    "Alice"
+   ],
+   "208": [
+    "Alice"
+   ],
+   "213": [
+    "Alice"
+   ],
+   "216": [
+    "Alice"
+   ],
+   "221": [
+    "Alice"
+   ],
+   "223": [
+    "Alice"
+   ],
+   "227": [
+    "Alice"
+   ],
+   "9": [
+    "March Hare"
+   ],
+   "14": [
+    "March Hare"
+   ],
+   "18": [
+    "March Hare"
+   ],
+   "34": [
+    "March Hare"
+   ],
+   "38": [
+    "March Hare"
+   ],
+   "46": [
+    "March Hare"
+   ],
+   "48": [
+    "March Hare"
+   ],
+   "63": [
+    "March Hare"
+   ],
+   "69": [
+    "March Hare"
+   ],
+   "96": [
+    "March Hare"
+   ],
+   "117": [
+    "March Hare"
+   ],
+   "165": [
+    "March Hare"
+   ],
+   "167": [
+    "March Hare"
+   ],
+   "178": [
+    "March Hare"
+   ],
+   "200": [
+    "March Hare"
+   ],
+   "23": [
+    "Hatter"
+   ],
+   "29": [
+    "Hatter"
+   ],
+   "43": [
+    "Hatter"
+   ],
+   "45": [
+    "Hatter"
+   ],
+   "52": [
+    "Hatter"
+   ],
+   "55": [
+    "Hatter"
+   ],
+   "59": [
+    "Hatter"
+   ],
+   "61": [
+    "Hatter"
+   ],
+   "65": [
+    "Hatter"
+   ],
+   "67": [
+    "Hatter"
+   ],
+   "74": [
+    "Hatter"
+   ],
+   "76": [
+    "Hatter"
+   ],
+   "80": [
+    "Hatter"
+   ],
+   "85": [
+    "Hatter"
+   ],
+   "89": [
+    "Hatter"
+   ],
+   "94": [
+    "Hatter"
+   ],
+   "102": [
+    "Hatter"
+   ],
+   "104": [
+    "Hatter"
+   ],
+   "107": [
+    "Hatter"
+   ],
+   "109": [
+    "Hatter"
+   ],
+   "113": [
+    "Hatter"
+   ],
+   "115": [
+    "Hatter"
+   ],
+   "122": [
+    "Hatter"
+   ],
+   "124": [
+    "Hatter"
+   ],
+   "128": [
+    "Hatter"
+   ],
+   "130": [
+    "Hatter"
+   ],
+   "132": [
+    "Hatter"
+   ],
+   "137": [
+    "Hatter"
+   ],
+   "139": [
+    "Hatter"
+   ],
+   "144": [
+    "Hatter"
+   ],
+   "146": [
+    "Hatter"
+   ],
+   "149": [
+    "Hatter"
+   ],
+   "151": [
+    "Hatter"
+   ],
+   "155": [
+    "Hatter"
+   ],
+   "157": [
+    "Hatter"
+   ],
+   "160": [
+    "Hatter"
+   ],
+   "162": [
+    "Hatter"
+   ],
+   "182": [
+    "Hatter"
+   ],
+   "184": [
+    "Hatter"
+   ],
+   "205": [
+    "Hatter"
+   ],
+   "207": [
+    "Hatter"
+   ],
+   "210": [
+    "Hatter"
+   ],
+   "231": [
+    "Hatter"
+   ],
+   "233": [
+    "Hatter"
+   ],
+   "49": [
+    "Dormouse"
+   ],
+   "51": [
+    "Dormouse"
+   ],
+   "88": [
+    "Dormouse"
+   ],
+   "142": [
+    "Dormouse"
+   ],
+   "175": [
+    "Dormouse"
+   ],
+   "177": [
+    "Dormouse"
+   ],
+   "185": [
+    "Dormouse"
+   ],
+   "187": [
+    "Dormouse"
+   ],
+   "190": [
+    "Dormouse"
+   ],
+   "195": [
+    "Dormouse"
+   ],
+   "197": [
+    "Dormouse"
+   ],
+   "215": [
+    "Dormouse"
+   ],
+   "220": [
+    "Dormouse"
+   ],
+   "224": [
+    "Dormouse"
+   ],
+   "226": [
+    "Dormouse"
+   ],
+   "229": [
+    "Dormouse"
+   ],
+   "5": [
+    "March Hare",
+    "Hatter",
+    "Dormouse",
+    "Group"
+   ],
+   "170": [
+    "March Hare",
+    "Hatter",
+    "Group"
+   ],
+   "172": [
+    "March Hare",
+    "Hatter",
+    "Group"
+   ],
+   "218": [
+    "March Hare",
+    "Hatter",
+    "Group"
+   ]
+  },
+  "03-holmes-scandal-in-bohemia": {
+   "4": [
+    "Holmes"
+   ],
+   "6": [
+    "Holmes"
+   ],
+   "9": [
+    "Holmes"
+   ],
+   "11": [
+    "Holmes"
+   ],
+   "16": [
+    "Holmes"
+   ],
+   "18": [
+    "Holmes"
+   ],
+   "23": [
+    "Holmes"
+   ],
+   "25": [
+    "Holmes"
+   ],
+   "27": [
+    "Holmes"
+   ],
+   "29": [
+    "Holmes"
+   ],
+   "31": [
+    "Holmes"
+   ],
+   "33": [
+    "Holmes"
+   ],
+   "35": [
+    "Holmes"
+   ],
+   "43": [
+    "Holmes"
+   ],
+   "48": [
+    "Holmes"
+   ],
+   "50": [
+    "Holmes"
+   ],
+   "62": [
+    "Holmes"
+   ],
+   "65": [
+    "Holmes"
+   ],
+   "67": [
+    "Holmes"
+   ],
+   "7": [
+    "Watson"
+   ],
+   "10": [
+    "Watson"
+   ],
+   "12": [
+    "Watson"
+   ],
+   "14": [
+    "Watson"
+   ],
+   "20": [
+    "Watson"
+   ],
+   "22": [
+    "Watson"
+   ],
+   "26": [
+    "Watson"
+   ],
+   "28": [
+    "Watson"
+   ],
+   "30": [
+    "Watson"
+   ],
+   "40": [
+    "Watson"
+   ],
+   "42": [
+    "Watson"
+   ],
+   "45": [
+    "Watson"
+   ],
+   "47": [
+    "Watson"
+   ],
+   "64": [
+    "Watson"
+   ],
+   "37": [
+    "Watson",
+    "Narrator"
+   ],
+   "39": [
+    "Watson",
+    "Narrator"
+   ],
+   "52": [
+    "Narrator",
+    "Watson"
+   ],
+   "54": [
+    "Narrator",
+    "Watson"
+   ],
+   "56": [
+    "Narrator",
+    "Watson"
+   ],
+   "58": [
+    "Narrator",
+    "Watson"
+   ],
+   "60": [
+    "Narrator",
+    "Watson"
+   ]
+  },
+  "04-jane-eyre-ch1": {
+   "3": [
+    "Mrs. Reed",
+    "Narrator"
+   ],
+   "6": [
+    "Mrs. Reed"
+   ],
+   "66": [
+    "Mrs. Reed"
+   ],
+   "4": [
+    "Jane"
+   ],
+   "27": [
+    "Jane"
+   ],
+   "31": [
+    "Jane"
+   ],
+   "48": [
+    "Jane"
+   ],
+   "53": [
+    "Jane"
+   ],
+   "55": [
+    "Jane"
+   ],
+   "10": [
+    "Narrator",
+    "Jane"
+   ],
+   "12": [
+    "Narrator",
+    "Jane"
+   ],
+   "14": [
+    "Narrator",
+    "Jane"
+   ],
+   "38": [
+    "Narrator",
+    "Jane",
+    "Mrs. Reed"
+   ],
+   "22": [
+    "John"
+   ],
+   "24": [
+    "John"
+   ],
+   "26": [
+    "John"
+   ],
+   "33": [
+    "John"
+   ],
+   "35": [
+    "John"
+   ],
+   "42": [
+    "John"
+   ],
+   "44": [
+    "John"
+   ],
+   "46": [
+    "John"
+   ],
+   "49": [
+    "John"
+   ],
+   "51": [
+    "John"
+   ],
+   "57": [
+    "John"
+   ],
+   "59": [
+    "John"
+   ],
+   "61": [
+    "John"
+   ],
+   "29": [
+    "Eliza"
+   ],
+   "63": [
+    "Bessie",
+    "Abbot"
+   ],
+   "64": [
+    "Bessie",
+    "Abbot"
+   ]
+  },
+  "05-metamorphosis-opening": {
+   "1": [
+    "Gregor"
+   ],
+   "4": [
+    "Gregor"
+   ],
+   "6": [
+    "Gregor"
+   ],
+   "8": [
+    "Gregor"
+   ],
+   "11": [
+    "Gregor"
+   ],
+   "13": [
+    "Gregor"
+   ],
+   "15": [
+    "Gregor"
+   ],
+   "22": [
+    "Gregor"
+   ],
+   "32": [
+    "Gregor"
+   ],
+   "38": [
+    "Gregor"
+   ],
+   "40": [
+    "Gregor"
+   ],
+   "18": [
+    "Mother"
+   ],
+   "20": [
+    "Mother"
+   ],
+   "24": [
+    "Father"
+   ],
+   "26": [
+    "Father"
+   ],
+   "28": [
+    "Father"
+   ],
+   "30": [
+    "Sister"
+   ],
+   "34": [
+    "Sister"
+   ]
+  },
+  "06-crime-and-punishment-opening": {
+   "4": [
+    "Young man"
+   ],
+   "6": [
+    "Young man"
+   ],
+   "11": [
+    "Young man"
+   ],
+   "13": [
+    "Young man"
+   ],
+   "20": [
+    "Young man"
+   ],
+   "22": [
+    "Young man"
+   ],
+   "9": [
+    "Drunken man"
+   ],
+   "15": [
+    "Narrator",
+    "Young man"
+   ],
+   "17": [
+    "Narrator",
+    "Young man"
+   ]
+  }
+ },
+ "results": {
+  "01-pride-and-prejudice-ch1-2": {
+   "a-booknlp-llm": {
+    "quotes": 64,
+    "wrong": {
+     "31": "Mrs. Bennet",
+     "32": "Mr. Bennet",
+     "41": "Mrs. Bennet",
+     "45": "Lizzy",
+     "57": "Kitty",
+     "69": "Lizzy"
+    }
+   },
+   "b-llm-only": {
+    "quotes": 64,
+    "wrong": {
+     "31": "Mrs. Bennet",
+     "32": "Mr. Bennet",
+     "41": "Mrs. Bennet",
+     "45": "Lizzy",
+     "57": "Kitty",
+     "69": "Lizzy"
+    }
+   }
+  },
+  "02-alice-mad-tea-party": {
+   "a-booknlp-llm": {
+    "quotes": 128,
+    "wrong": {
+     "69": "Hatter",
+     "107": "(no label)",
+     "109": "(no label)",
+     "147": "(no label)",
+     "170": "Unknown",
+     "172": "Unknown",
+     "218": "Dormouse",
+     "226": "Hatter"
+    }
+   },
+   "b-llm-only": {
+    "quotes": 128,
+    "wrong": {
+     "1": "Narrator",
+     "5": "Narrator",
+     "7": "March Hare"
+    }
+   }
+  },
+  "03-holmes-scandal-in-bohemia": {
+   "a-booknlp-llm": {
+    "quotes": 40,
+    "wrong": {
+     "16": "Watson",
+     "18": "Watson",
+     "37": "Holmes",
+     "39": "Holmes"
+    }
+   },
+   "b-llm-only": {
+    "quotes": 40,
+    "wrong": {
+     "43": "Watson"
+    }
+   }
+  },
+  "04-jane-eyre-ch1": {
+   "a-booknlp-llm": {
+    "quotes": 29,
+    "wrong": {
+     "61": "Jane",
+     "63": "Mrs. Reed",
+     "64": "Mrs. Reed"
+    }
+   },
+   "b-llm-only": {
+    "quotes": 29,
+    "wrong": {
+     "61": "Jane",
+     "63": "Mrs. Reed",
+     "64": "Mrs. Reed"
+    }
+   }
+  },
+  "05-metamorphosis-opening": {
+   "a-booknlp-llm": {
+    "quotes": 18,
+    "wrong": {
+     "18": "Unknown",
+     "20": "Unknown",
+     "24": "Gregor",
+     "26": "Gregor",
+     "28": "Gregor",
+     "30": "Gregor",
+     "34": "Gregor"
+    }
+   },
+   "b-llm-only": {
+    "quotes": 18,
+    "wrong": {
+     "18": "Unknown",
+     "20": "Unknown",
+     "24": "Unknown",
+     "26": "Unknown",
+     "28": "Unknown",
+     "30": "Unknown",
+     "34": "Unknown"
+    }
+   }
+  },
+  "06-crime-and-punishment-opening": {
+   "a-booknlp-llm": {
+    "quotes": 9,
+    "wrong": {
+     "9": "Young man"
+    }
+   },
+   "b-llm-only": {
+    "quotes": 9,
+    "wrong": {
+     "9": "Young man"
+    }
+   }
+  }
+ },
+ "total": {
+  "a-booknlp-llm": [
+   259,
+   288
+  ],
+  "b-llm-only": [
+   267,
+   288
+  ]
+ }
+}

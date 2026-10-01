@@ -1,0 +1,125 @@
+{
+ "approach": "a-booknlp-llm",
+ "passage": "06-crime-and-punishment-opening",
+ "narrator": {
+  "person": "third",
+  "character": ""
+ },
+ "characters": [
+  {
+   "name": "the young man",
+   "aliases": [
+    "German hatter (referenced in shout)",
+    "character",
+    "my dear (implied in monologue)",
+    "the most trivial detail (referenced in thought)",
+    "he",
+    "the visitor",
+    "the old woman's visitor"
+   ],
+   "gender": "male",
+   "age": "young adult"
+  },
+  {
+   "name": "the old woman",
+   "aliases": [
+    "the old woman",
+    "she",
+    "her",
+    "a diminutive, withered up old woman of sixty",
+    "the German's family member (implied)",
+    "the flat's tenant"
+   ],
+   "gender": "female",
+   "age": "elderly"
+  }
+ ],
+ "labels": {
+  "4": {
+   "speaker": "the young man",
+   "kind": "thought",
+   "emotion": "disgusted",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "6": {
+   "speaker": "the young man",
+   "kind": "thought",
+   "emotion": "anxious",
+   "intensity": "medium",
+   "source": "booknlp"
+  },
+  "9": {
+   "speaker": "the young man",
+   "kind": "speech",
+   "emotion": "surprised",
+   "intensity": "high",
+   "source": "booknlp"
+  },
+  "11": {
+   "speaker": "the young man",
+   "kind": "thought",
+   "emotion": "anxious",
+   "intensity": "high",
+   "source": "booknlp"
+  },
+  "13": {
+   "speaker": "the young man",
+   "kind": "thought",
+   "emotion": "anxious",
+   "intensity": "high",
+   "source": "booknlp"
+  },
+  "15": {
+   "speaker": "the young man",
+   "kind": "thought",
+   "emotion": "disgusted",
+   "intensity": "medium",
+   "source": "booknlp"
+  },
+  "17": {
+   "speaker": "the young man",
+   "kind": "thought",
+   "emotion": "excited",
+   "intensity": "high",
+   "source": "booknlp"
+  },
+  "20": {
+   "speaker": "the young man",
+   "kind": "thought",
+   "emotion": "disgusted",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "22": {
+   "speaker": "the young man",
+   "kind": "thought",
+   "emotion": "sad",
+   "intensity": "low",
+   "source": "booknlp"
+  }
+ },
+ "scenes": [
+  {
+   "first_paragraph": 1,
+   "setting": "A hot, crowded street in Petersburg",
+   "mood": "anxious"
+  },
+  {
+   "first_paragraph": 6,
+   "setting": "A dark, narrow back staircase",
+   "mood": "tense"
+  }
+ ],
+ "missing": [],
+ "anchored": 9,
+ "added_characters": [],
+ "booknlp_seconds": 15.7,
+ "seconds": 131.3,
+ "stats": {
+  "calls": 8,
+  "seconds": 115.6,
+  "prompt_tokens": 9487,
+  "completion_tokens": 906
+ }
+}

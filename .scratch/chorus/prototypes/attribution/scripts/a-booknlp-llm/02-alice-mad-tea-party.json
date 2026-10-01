@@ -1,0 +1,988 @@
+{
+ "approach": "a-booknlp-llm",
+ "passage": "02-alice-mad-tea-party",
+ "narrator": {
+  "person": "third",
+  "character": ""
+ },
+ "characters": [
+  {
+   "name": "Alice",
+   "aliases": [
+    "Alice"
+   ],
+   "gender": "female",
+   "age": "child"
+  },
+  {
+   "name": "March Hare",
+   "aliases": [
+    "the March Hare",
+    "Hare"
+   ],
+   "gender": "male",
+   "age": "adult"
+  },
+  {
+   "name": "Hatter",
+   "aliases": [
+    "the Hatter",
+    "Hatter"
+   ],
+   "gender": "male",
+   "age": "adult"
+  },
+  {
+   "name": "Dormouse",
+   "aliases": [
+    "the Dormouse",
+    "Dormouse"
+   ],
+   "gender": "male",
+   "age": "child"
+  },
+  {
+   "name": "Queen of Hearts",
+   "aliases": [
+    "the Queen of Hearts"
+   ],
+   "gender": "female",
+   "age": "adult"
+  },
+  {
+   "name": "Time",
+   "aliases": [
+    "Time"
+   ],
+   "gender": "male",
+   "age": "adult"
+  },
+  {
+   "name": "Elsie",
+   "aliases": [
+    "Elsie"
+   ],
+   "gender": "female",
+   "age": "child"
+  },
+  {
+   "name": "Lacie",
+   "aliases": [
+    "Lacie"
+   ],
+   "gender": "female",
+   "age": "child"
+  },
+  {
+   "name": "Tillie",
+   "aliases": [
+    "Tillie"
+   ],
+   "gender": "female",
+   "age": "child"
+  }
+ ],
+ "labels": {
+  "1": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "3": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "5": {
+   "speaker": "March Hare",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "7": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "9": {
+   "speaker": "March Hare",
+   "kind": "thought",
+   "emotion": "neutral",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "12": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "anxious",
+   "intensity": "high",
+   "source": "booknlp"
+  },
+  "14": {
+   "speaker": "March Hare",
+   "kind": "speech",
+   "emotion": "angry",
+   "intensity": "medium",
+   "source": "booknlp"
+  },
+  "16": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "18": {
+   "speaker": "March Hare",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "20": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "22": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "23": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "25": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "27": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "29": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "30": {
+   "speaker": "Alice",
+   "kind": "thought",
+   "emotion": "neutral",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "32": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "34": {
+   "speaker": "March Hare",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "36": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "38": {
+   "speaker": "March Hare",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "40": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "42": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "43": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "45": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "46": {
+   "speaker": "March Hare",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "48": {
+   "speaker": "March Hare",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "49": {
+   "speaker": "Dormouse",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "51": {
+   "speaker": "Dormouse",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "52": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "55": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "58": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "59": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "61": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "63": {
+   "speaker": "March Hare",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "65": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "67": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "69": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "71": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "73": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "74": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "76": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "77": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "79": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "80": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "83": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "85": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "88": {
+   "speaker": "Dormouse",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "89": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "91": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "93": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "94": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "96": {
+   "speaker": "March Hare",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "99": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "101": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "102": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "104": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "105": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "110": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "anxious",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "112": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "disgusted",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "113": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "amused",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "115": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "excited",
+   "intensity": "medium",
+   "source": "booknlp"
+  },
+  "117": {
+   "speaker": "March Hare",
+   "kind": "thought",
+   "emotion": "anxious",
+   "intensity": "low"
+  },
+  "119": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "amused",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "121": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "anxious",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "122": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "amused",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "124": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "excited",
+   "intensity": "medium",
+   "source": "booknlp"
+  },
+  "125": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "anxious",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "128": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "sad",
+   "intensity": "medium",
+   "source": "booknlp"
+  },
+  "130": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "sad",
+   "intensity": "medium",
+   "source": "booknlp"
+  },
+  "132": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "sad",
+   "intensity": "medium",
+   "source": "booknlp"
+  },
+  "135": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "amused",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "137": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "excited",
+   "intensity": "medium",
+   "source": "booknlp"
+  },
+  "139": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "excited",
+   "intensity": "medium",
+   "source": "booknlp"
+  },
+  "142": {
+   "speaker": "Dormouse",
+   "kind": "speech",
+   "emotion": "disgusted",
+   "intensity": "low"
+  },
+  "144": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "amused",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "146": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "excited",
+   "intensity": "medium",
+   "source": "booknlp"
+  },
+  "149": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "sad",
+   "intensity": "medium",
+   "source": "booknlp"
+  },
+  "151": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "sad",
+   "intensity": "medium",
+   "source": "booknlp"
+  },
+  "153": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "amused",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "155": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "sad",
+   "intensity": "medium",
+   "source": "booknlp"
+  },
+  "157": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "sad",
+   "intensity": "medium",
+   "source": "booknlp"
+  },
+  "158": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "anxious",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "160": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "amused",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "162": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "excited",
+   "intensity": "medium",
+   "source": "booknlp"
+  },
+  "163": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "anxious",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "165": {
+   "speaker": "March Hare",
+   "kind": "speech",
+   "emotion": "anxious",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "167": {
+   "speaker": "March Hare",
+   "kind": "speech",
+   "emotion": "anxious",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "168": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "anxious",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "170": {
+   "speaker": "Unknown",
+   "kind": "speech",
+   "emotion": "excited",
+   "intensity": "medium"
+  },
+  "172": {
+   "speaker": "Unknown",
+   "kind": "speech",
+   "emotion": "excited",
+   "intensity": "medium"
+  },
+  "175": {
+   "speaker": "Dormouse",
+   "kind": "speech",
+   "emotion": "anxious",
+   "intensity": "low"
+  },
+  "177": {
+   "speaker": "Dormouse",
+   "kind": "speech",
+   "emotion": "anxious",
+   "intensity": "low"
+  },
+  "178": {
+   "speaker": "March Hare",
+   "kind": "speech",
+   "emotion": "anxious",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "180": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "anxious",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "182": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "anxious",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "184": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "anxious",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "185": {
+   "speaker": "Dormouse",
+   "kind": "speech",
+   "emotion": "excited",
+   "intensity": "medium",
+   "source": "booknlp"
+  },
+  "187": {
+   "speaker": "Dormouse",
+   "kind": "speech",
+   "emotion": "excited",
+   "intensity": "medium",
+   "source": "booknlp"
+  },
+  "188": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "anxious",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "190": {
+   "speaker": "Dormouse",
+   "kind": "speech",
+   "emotion": "excited",
+   "intensity": "medium",
+   "source": "booknlp"
+  },
+  "192": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "anxious",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "194": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "anxious",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "195": {
+   "speaker": "Dormouse",
+   "kind": "speech",
+   "emotion": "excited",
+   "intensity": "medium",
+   "source": "booknlp"
+  },
+  "197": {
+   "speaker": "Dormouse",
+   "kind": "speech",
+   "emotion": "excited",
+   "intensity": "medium",
+   "source": "booknlp"
+  },
+  "199": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "anxious",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "200": {
+   "speaker": "March Hare",
+   "kind": "speech",
+   "emotion": "anxious",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "202": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "anxious",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "204": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "anxious",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "205": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "anxious",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "207": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "anxious",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "208": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "anxious",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "210": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "anxious",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "213": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "anxious",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "215": {
+   "speaker": "Dormouse",
+   "kind": "speech",
+   "emotion": "excited",
+   "intensity": "medium",
+   "source": "booknlp"
+  },
+  "216": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "anxious",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "218": {
+   "speaker": "Dormouse",
+   "kind": "speech",
+   "emotion": "anxious",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "220": {
+   "speaker": "Dormouse",
+   "kind": "speech",
+   "emotion": "anxious",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "221": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "anxious",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "223": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "anxious",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "224": {
+   "speaker": "Dormouse",
+   "kind": "speech",
+   "emotion": "excited",
+   "intensity": "medium",
+   "source": "booknlp"
+  },
+  "226": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "excited",
+   "intensity": "medium",
+   "source": "booknlp"
+  },
+  "227": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "anxious",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "229": {
+   "speaker": "Dormouse",
+   "kind": "speech",
+   "emotion": "excited",
+   "intensity": "medium",
+   "source": "booknlp"
+  },
+  "231": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "anxious",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "233": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "anxious",
+   "intensity": "low",
+   "source": "booknlp"
+  }
+ },
+ "scenes": [
+  {
+   "first_paragraph": 1,
+   "setting": "Tea party under a tree",
+   "mood": "anxious"
+  },
+  {
+   "first_paragraph": 21,
+   "setting": "Tea party under a tree",
+   "mood": "melancholic"
+  },
+  {
+   "first_paragraph": 65,
+   "setting": "Tea party under a tree",
+   "mood": "tense"
+  }
+ ],
+ "missing": [
+  107,
+  109,
+  147
+ ],
+ "anchored": 122,
+ "added_characters": [],
+ "booknlp_seconds": 45.6,
+ "seconds": 579.6,
+ "stats": {
+  "calls": 7,
+  "seconds": 533.9,
+  "prompt_tokens": 11587,
+  "completion_tokens": 8497
+ }
+}

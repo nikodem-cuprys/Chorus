@@ -1,0 +1,303 @@
+{
+ "seconds": 15.7,
+ "characters": [
+  {
+   "id": 14,
+   "count": 106,
+   "gender": "he/him/his",
+   "proper": [],
+   "common": [
+    [
+     "the young man",
+     5
+    ],
+    [
+     "The young man",
+     3
+    ]
+   ],
+   "pronoun": [
+    [
+     "he",
+     34
+    ],
+    [
+     "his",
+     16
+    ],
+    [
+     "I",
+     14
+    ],
+    [
+     "him",
+     12
+    ]
+   ]
+  },
+  {
+   "id": 73,
+   "count": 15,
+   "gender": "she/her",
+   "proper": [],
+   "common": [
+    [
+     "the old woman",
+     3
+    ],
+    [
+     "The old woman",
+     2
+    ]
+   ],
+   "pronoun": [
+    [
+     "her",
+     6
+    ],
+    [
+     "she",
+     2
+    ],
+    [
+     "She",
+     1
+    ],
+    [
+     "Her",
+     1
+    ]
+   ]
+  },
+  {
+   "id": 5,
+   "count": 9,
+   "gender": "he/him/his",
+   "proper": [],
+   "common": [
+    [
+     "a young man",
+     1
+    ]
+   ],
+   "pronoun": [
+    [
+     "he",
+     4
+    ],
+    [
+     "He",
+     1
+    ],
+    [
+     "his",
+     1
+    ],
+    [
+     "His",
+     1
+    ]
+   ]
+  },
+  {
+   "id": 7,
+   "count": 6,
+   "gender": "she/her",
+   "proper": [],
+   "common": [
+    [
+     "his landlady",
+     3
+    ]
+   ],
+   "pronoun": [
+    [
+     "her",
+     3
+    ]
+   ]
+  },
+  {
+   "id": 88,
+   "count": 2,
+   "gender": "he/him/his",
+   "proper": [],
+   "common": [
+    [
+     "a man",
+     1
+    ]
+   ],
+   "pronoun": [
+    [
+     "he",
+     1
+    ]
+   ]
+  },
+  {
+   "id": 89,
+   "count": 2,
+   "gender": "they/them/their",
+   "proper": [],
+   "common": [
+    [
+     "men",
+     1
+    ]
+   ],
+   "pronoun": [
+    [
+     "they",
+     1
+    ]
+   ]
+  },
+  {
+   "id": 42,
+   "count": 2,
+   "gender": "he/him/his",
+   "proper": [],
+   "common": [
+    [
+     "a drunken man who , for some unknown reason , was being taken somewhere in a huge waggon dragged by a heavy dray horse",
+     1
+    ]
+   ],
+   "pronoun": [
+    [
+     "his",
+     1
+    ]
+   ]
+  },
+  {
+   "id": 95,
+   "count": 2,
+   "gender": "they/them/their",
+   "proper": [],
+   "common": [
+    [
+     "people",
+     1
+    ]
+   ],
+   "pronoun": [
+    [
+     "them",
+     1
+    ]
+   ]
+  },
+  {
+   "id": 56,
+   "count": 2,
+   "gender": "they/them/their",
+   "proper": [],
+   "common": [
+    [
+     "girls",
+     1
+    ]
+   ],
+   "pronoun": [
+    [
+     "they",
+     1
+    ]
+   ]
+  },
+  {
+   "id": 60,
+   "count": 2,
+   "gender": "they/them/their",
+   "proper": [],
+   "common": [
+    [
+     "Three or four door - keepers",
+     1
+    ]
+   ],
+   "pronoun": [
+    [
+     "them",
+     1
+    ]
+   ]
+  },
+  {
+   "id": 68,
+   "count": 2,
+   "gender": "he/him/his",
+   "proper": [],
+   "common": [
+    [
+     "a German clerk in the civil service",
+     1
+    ]
+   ],
+   "pronoun": [
+    [
+     "his",
+     1
+    ]
+   ]
+  }
+ ],
+ "quotes": {
+  "4": {
+   "char_id": 14,
+   "mention": "he",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "6": {
+   "char_id": 14,
+   "mention": "he",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "9": {
+   "char_id": 42,
+   "mention": "his",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "11": {
+   "char_id": 14,
+   "mention": "he",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "13": {
+   "char_id": 14,
+   "mention": "he",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "15": {
+   "char_id": 14,
+   "mention": "his",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "17": {
+   "char_id": 14,
+   "mention": "his",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "20": {
+   "char_id": 14,
+   "mention": "he",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "22": {
+   "char_id": 14,
+   "mention": "he",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  }
+ }
+}

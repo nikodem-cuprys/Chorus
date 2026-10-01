@@ -1,0 +1,178 @@
+{
+ "approach": "a-booknlp-llm",
+ "passage": "05-metamorphosis-opening",
+ "narrator": {
+  "person": "third",
+  "character": ""
+ },
+ "characters": [
+  {
+   "name": "Gregor Samsa",
+   "aliases": [
+    "Gregor",
+    "Samsa",
+    "the salesman",
+    "my dear (implied by context of parents)",
+    "travelling salesman",
+    "subordinate",
+    "employee",
+    "son"
+   ],
+   "gender": "male",
+   "age": "adult"
+  }
+ ],
+ "labels": {
+  "1": {
+   "speaker": "Gregor Samsa",
+   "kind": "thought",
+   "emotion": "disgusted",
+   "intensity": "high",
+   "source": "booknlp"
+  },
+  "4": {
+   "speaker": "Gregor Samsa",
+   "kind": "thought",
+   "emotion": "sad",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "6": {
+   "speaker": "Gregor Samsa",
+   "kind": "thought",
+   "emotion": "happy",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "8": {
+   "speaker": "Gregor Samsa",
+   "kind": "thought",
+   "emotion": "angry",
+   "intensity": "high",
+   "source": "booknlp"
+  },
+  "11": {
+   "speaker": "Gregor Samsa",
+   "kind": "thought",
+   "emotion": "disgusted",
+   "intensity": "medium",
+   "source": "booknlp"
+  },
+  "13": {
+   "speaker": "Gregor Samsa",
+   "kind": "thought",
+   "emotion": "disgusted",
+   "intensity": "medium",
+   "source": "booknlp"
+  },
+  "15": {
+   "speaker": "Gregor Samsa",
+   "kind": "thought",
+   "emotion": "surprised",
+   "intensity": "high"
+  },
+  "18": {
+   "speaker": "Unknown",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "20": {
+   "speaker": "Unknown",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "22": {
+   "speaker": "Gregor Samsa",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "24": {
+   "speaker": "Gregor Samsa",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "medium",
+   "source": "booknlp"
+  },
+  "26": {
+   "speaker": "Gregor Samsa",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "medium",
+   "source": "booknlp"
+  },
+  "28": {
+   "speaker": "Gregor Samsa",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "high",
+   "source": "booknlp"
+  },
+  "30": {
+   "speaker": "Gregor Samsa",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "32": {
+   "speaker": "Gregor Samsa",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "34": {
+   "speaker": "Gregor Samsa",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "38": {
+   "speaker": "Gregor Samsa",
+   "kind": "thought",
+   "emotion": "disgusted",
+   "intensity": "high",
+   "source": "booknlp"
+  },
+  "40": {
+   "speaker": "Gregor Samsa",
+   "kind": "thought",
+   "emotion": "disgusted",
+   "intensity": "high",
+   "source": "booknlp"
+  }
+ },
+ "scenes": [
+  {
+   "first_paragraph": 1,
+   "setting": "Gregor's bedroom",
+   "mood": "tense"
+  },
+  {
+   "first_paragraph": 3,
+   "setting": "Gregor's bedroom",
+   "mood": "melancholic"
+  },
+  {
+   "first_paragraph": 5,
+   "setting": "Gregor's bedroom",
+   "mood": "anxious"
+  }
+ ],
+ "missing": [],
+ "anchored": 15,
+ "added_characters": [],
+ "booknlp_seconds": 16.7,
+ "seconds": 160.8,
+ "stats": {
+  "calls": 9,
+  "seconds": 144.1,
+  "prompt_tokens": 10445,
+  "completion_tokens": 1388
+ }
+}

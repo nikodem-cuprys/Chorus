@@ -1,0 +1,81 @@
+{
+  "model": "qwen3-tts-0.6b",
+  "device_note": "GPU fp32, SDPA; no emotion control (text only); narrator cloned in x-vector-only mode",
+  "torch": "2.8.0+cu126",
+  "gpu": "NVIDIA GeForce GTX 1050 Ti",
+  "lines": [
+    {
+      "id": "01",
+      "speaker": "narrator",
+      "emotion": "neutral",
+      "gen_s": 68.0,
+      "audio_s": 8.2,
+      "rtf": 8.33
+    },
+    {
+      "id": "02",
+      "speaker": "mrs_bennet",
+      "emotion": "excited",
+      "gen_s": 39.2,
+      "audio_s": 3.6,
+      "rtf": 10.9
+    },
+    {
+      "id": "03",
+      "speaker": "mr_bennet",
+      "emotion": "dry",
+      "gen_s": 37.6,
+      "audio_s": 3.4,
+      "rtf": 10.92
+    },
+    {
+      "id": "04",
+      "speaker": "mrs_bennet",
+      "emotion": "excited",
+      "gen_s": 66.3,
+      "audio_s": 6.1,
+      "rtf": 10.9
+    },
+    {
+      "id": "05",
+      "speaker": "narrator",
+      "emotion": "sad",
+      "gen_s": 48.2,
+      "audio_s": 9.0,
+      "rtf": 5.38
+    },
+    {
+      "id": "06",
+      "speaker": "john_reed",
+      "emotion": "angry",
+      "gen_s": 93.1,
+      "audio_s": 8.4,
+      "rtf": 11.08
+    },
+    {
+      "id": "07",
+      "speaker": "narrator",
+      "emotion": "afraid",
+      "gen_s": 42.9,
+      "audio_s": 9.0,
+      "rtf": 4.79
+    },
+    {
+      "id": "08",
+      "speaker": "jane",
+      "emotion": "furious",
+      "gen_s": 60.3,
+      "audio_s": 5.2,
+      "rtf": 11.59
+    }
+  ],
+  "load_s": 1957.1,
+  "vram_after_load_mib": 4141,
+  "torch_peak_alloc_mib": 6097,
+  "torch_peak_reserved_mib": 9994,
+  "card_idle_mib_at_start": 0,
+  "card_peak_mib": 3926,
+  "total_gen_s": 455.6,
+  "total_audio_s": 52.9,
+  "mean_rtf": 8.61
+}

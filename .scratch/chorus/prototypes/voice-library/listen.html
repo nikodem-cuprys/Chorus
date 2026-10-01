@@ -1,0 +1,406 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>Choose the 12 Voices</title>
+<style>
+:root{--bg:#fafaf8;--fg:#1d1d1b;--muted:#6b6b66;--card:#fff;--line:#e2e1dc;--accent:#3b5bdb;--pick:#2b8a3e;--bad:#c92a2a}
+@media (prefers-color-scheme:dark){:root{--bg:#161615;--fg:#ecebe6;--muted:#9c9b95;--card:#20201e;--line:#34332f;--accent:#91a7ff;--pick:#69db7c;--bad:#ff8787}}
+body{background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,sans-serif;margin:0 auto;max-width:1100px;padding:16px 16px 120px}
+.voice{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px 16px;margin:12px 0}
+.voice.kept{border-color:var(--pick)}h3{margin:4px 0}.meta,.label{color:var(--muted);font-size:13px}
+.tag{font-size:12px;font-weight:400;border:1px solid var(--line);border-radius:10px;padding:1px 8px;margin-left:6px}.tag.pick{color:var(--pick);border-color:var(--pick)}
+.players{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}audio{width:100%}
+.controls{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:8px;font-size:14px}.keep{font-weight:600}.words label{color:var(--muted)}
+#bar{position:fixed;left:0;right:0;bottom:0;background:var(--card);border-top:1px solid var(--line);padding:10px 16px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+button{font:inherit;padding:6px 12px}textarea{width:100%;height:160px;font:12px/1.4 monospace}.bad{color:var(--bad)}.text{font-style:italic}
+</style></head><body>
+<h1>Choose the 12 built-in Voices</h1>
+<p>PROTOTYPE for ticket 15. Every English Kokoro voice (28), cloned through Chatterbox 500M (torch 2.14.0+cu126).
+Twelve are pre-ticked: 6 women and 6 men chosen so that they sound as different from each other as possible, by Chatterbox's own
+measure of each voice. Untick and tick until the 12 are the ones you like, tick which suit the Narrator, pick the default Narrator,
+fix the age and timbre words by ear, then press <b>Copy my choices</b> and paste the result to Claude.</p>
+<p class="text">Narration: It is a truth universally acknowledged, that a single man in possession of a good fortune must be in want of a wife.</p>
+<p class="text">Dialogue: No! I will not go back there. You promised me it was over, and now you ask me to pretend that nothing happened?</p>
+<p class="meta">Reference clip text: The house stood at the end of a long gravel road, behind a row of old chestnut trees. Every morning the post arrived at nine, and every evening the lamps were lit before the sun went down.<br>Timbre words are pre-ticked from measurements (low/high pitch, dark/bright,
+measured/brisk pace); warm, soft, gruff and crisp can only be judged by ear. Nothing is saved if you reload the page.</p>
+<h2>Women (15)</h2><section class="voice" data-voice="af_alloy" data-gender="female" data-accent="American">
+<h3>af_alloy <span class="tag">American</span> <span class="tag">Kokoro grade C</span><span class="tag pick">shortlisted</span></h3>
+<p class="meta">pitch 145 Hz · brightness 2024 Hz · 2.93 words/s · most similar: af_kore (distance 0.16)</p>
+<div class="players">
+<div><div class="label">Narration (cloned)</div><audio controls preload="none" src="out/af_alloy/narration.wav"></audio></div>
+<div><div class="label">Dialogue, angry (cloned)</div><audio controls preload="none" src="out/af_alloy/dialogue.wav"></audio></div>
+<div><div class="label">Kokoro reference clip</div><audio controls preload="none" src="refs/af_alloy.wav"></audio></div>
+</div>
+<div class="controls">
+<label class="keep"><input type="checkbox" class="k" checked> Keep in the 12</label>
+<label><input type="checkbox" class="ns"> Suits the Narrator</label>
+<label><input type="radio" name="narrator" class="nd"> Default Narrator</label>
+<label>Age <select class="age"><option>adult</option><option>young adult</option></select></label>
+</div><div class="controls words">Timbre: <label><input type="checkbox" class="tw" value="low" checked>low</label><label><input type="checkbox" class="tw" value="high">high</label><label><input type="checkbox" class="tw" value="bright">bright</label><label><input type="checkbox" class="tw" value="dark" checked>dark</label><label><input type="checkbox" class="tw" value="brisk">brisk</label><label><input type="checkbox" class="tw" value="measured" checked>measured</label><label><input type="checkbox" class="tw" value="warm">warm</label><label><input type="checkbox" class="tw" value="soft">soft</label><label><input type="checkbox" class="tw" value="gruff">gruff</label><label><input type="checkbox" class="tw" value="crisp">crisp</label></div></section><section class="voice" data-voice="af_aoede" data-gender="female" data-accent="American">
+<h3>af_aoede <span class="tag">American</span> <span class="tag">Kokoro grade C+</span><span class="tag pick">shortlisted</span></h3>
+<p class="meta">pitch 202 Hz · brightness 2127 Hz · 3.12 words/s · most similar: af_kore (distance 0.24)</p>
+<div class="players">
+<div><div class="label">Narration (cloned)</div><audio controls preload="none" src="out/af_aoede/narration.wav"></audio></div>
+<div><div class="label">Dialogue, angry (cloned)</div><audio controls preload="none" src="out/af_aoede/dialogue.wav"></audio></div>
+<div><div class="label">Kokoro reference clip</div><audio controls preload="none" src="refs/af_aoede.wav"></audio></div>
+</div>
+<div class="controls">
+<label class="keep"><input type="checkbox" class="k" checked> Keep in the 12</label>
+<label><input type="checkbox" class="ns" checked> Suits the Narrator</label>
+<label><input type="radio" name="narrator" class="nd"> Default Narrator</label>
+<label>Age <select class="age"><option>adult</option><option>young adult</option></select></label>
+</div><div class="controls words">Timbre: <label><input type="checkbox" class="tw" value="low">low</label><label><input type="checkbox" class="tw" value="high">high</label><label><input type="checkbox" class="tw" value="bright">bright</label><label><input type="checkbox" class="tw" value="dark" checked>dark</label><label><input type="checkbox" class="tw" value="brisk">brisk</label><label><input type="checkbox" class="tw" value="measured">measured</label><label><input type="checkbox" class="tw" value="warm">warm</label><label><input type="checkbox" class="tw" value="soft">soft</label><label><input type="checkbox" class="tw" value="gruff">gruff</label><label><input type="checkbox" class="tw" value="crisp">crisp</label></div></section><section class="voice" data-voice="af_bella" data-gender="female" data-accent="American">
+<h3>af_bella <span class="tag">American</span> <span class="tag">Kokoro grade A-</span><span class="tag pick">shortlisted</span></h3>
+<p class="meta">pitch 215 Hz · brightness 2351 Hz · 2.64 words/s · most similar: af_heart (distance 0.12)</p>
+<div class="players">
+<div><div class="label">Narration (cloned)</div><audio controls preload="none" src="out/af_bella/narration.wav"></audio></div>
+<div><div class="label">Dialogue, angry (cloned)</div><audio controls preload="none" src="out/af_bella/dialogue.wav"></audio></div>
+<div><div class="label">Kokoro reference clip</div><audio controls preload="none" src="refs/af_bella.wav"></audio></div>
+</div>
+<div class="controls">
+<label class="keep"><input type="checkbox" class="k" checked> Keep in the 12</label>
+<label><input type="checkbox" class="ns" checked> Suits the Narrator</label>
+<label><input type="radio" name="narrator" class="nd" checked> Default Narrator</label>
+<label>Age <select class="age"><option>adult</option><option>young adult</option></select></label>
+</div><div class="controls words">Timbre: <label><input type="checkbox" class="tw" value="low">low</label><label><input type="checkbox" class="tw" value="high" checked>high</label><label><input type="checkbox" class="tw" value="bright">bright</label><label><input type="checkbox" class="tw" value="dark">dark</label><label><input type="checkbox" class="tw" value="brisk">brisk</label><label><input type="checkbox" class="tw" value="measured" checked>measured</label><label><input type="checkbox" class="tw" value="warm">warm</label><label><input type="checkbox" class="tw" value="soft">soft</label><label><input type="checkbox" class="tw" value="gruff">gruff</label><label><input type="checkbox" class="tw" value="crisp">crisp</label></div></section><section class="voice" data-voice="af_river" data-gender="female" data-accent="American">
+<h3>af_river <span class="tag">American</span> <span class="tag">Kokoro grade D</span><span class="tag pick">shortlisted</span></h3>
+<p class="meta">pitch 172 Hz · brightness 2933 Hz · 3.48 words/s · most similar: af_aoede (distance 0.26)</p>
+<div class="players">
+<div><div class="label">Narration (cloned)</div><audio controls preload="none" src="out/af_river/narration.wav"></audio></div>
+<div><div class="label">Dialogue, angry (cloned)</div><audio controls preload="none" src="out/af_river/dialogue.wav"></audio></div>
+<div><div class="label">Kokoro reference clip</div><audio controls preload="none" src="refs/af_river.wav"></audio></div>
+</div>
+<div class="controls">
+<label class="keep"><input type="checkbox" class="k" checked> Keep in the 12</label>
+<label><input type="checkbox" class="ns"> Suits the Narrator</label>
+<label><input type="radio" name="narrator" class="nd"> Default Narrator</label>
+<label>Age <select class="age"><option>adult</option><option>young adult</option></select></label>
+</div><div class="controls words">Timbre: <label><input type="checkbox" class="tw" value="low" checked>low</label><label><input type="checkbox" class="tw" value="high">high</label><label><input type="checkbox" class="tw" value="bright" checked>bright</label><label><input type="checkbox" class="tw" value="dark">dark</label><label><input type="checkbox" class="tw" value="brisk" checked>brisk</label><label><input type="checkbox" class="tw" value="measured">measured</label><label><input type="checkbox" class="tw" value="warm">warm</label><label><input type="checkbox" class="tw" value="soft">soft</label><label><input type="checkbox" class="tw" value="gruff">gruff</label><label><input type="checkbox" class="tw" value="crisp">crisp</label></div></section><section class="voice" data-voice="bf_emma" data-gender="female" data-accent="British">
+<h3>bf_emma <span class="tag">British</span> <span class="tag">Kokoro grade B-</span><span class="tag pick">shortlisted</span></h3>
+<p class="meta">pitch 193 Hz · brightness 3069 Hz · 3.16 words/s · most similar: bf_alice (distance 0.25)</p>
+<div class="players">
+<div><div class="label">Narration (cloned)</div><audio controls preload="none" src="out/bf_emma/narration.wav"></audio></div>
+<div><div class="label">Dialogue, angry (cloned)</div><audio controls preload="none" src="out/bf_emma/dialogue.wav"></audio></div>
+<div><div class="label">Kokoro reference clip</div><audio controls preload="none" src="refs/bf_emma.wav"></audio></div>
+</div>
+<div class="controls">
+<label class="keep"><input type="checkbox" class="k" checked> Keep in the 12</label>
+<label><input type="checkbox" class="ns" checked> Suits the Narrator</label>
+<label><input type="radio" name="narrator" class="nd"> Default Narrator</label>
+<label>Age <select class="age"><option>adult</option><option>young adult</option></select></label>
+</div><div class="controls words">Timbre: <label><input type="checkbox" class="tw" value="low">low</label><label><input type="checkbox" class="tw" value="high">high</label><label><input type="checkbox" class="tw" value="bright" checked>bright</label><label><input type="checkbox" class="tw" value="dark">dark</label><label><input type="checkbox" class="tw" value="brisk">brisk</label><label><input type="checkbox" class="tw" value="measured">measured</label><label><input type="checkbox" class="tw" value="warm">warm</label><label><input type="checkbox" class="tw" value="soft">soft</label><label><input type="checkbox" class="tw" value="gruff">gruff</label><label><input type="checkbox" class="tw" value="crisp">crisp</label></div></section><section class="voice" data-voice="bf_isabella" data-gender="female" data-accent="British">
+<h3>bf_isabella <span class="tag">British</span> <span class="tag">Kokoro grade C</span><span class="tag pick">shortlisted</span></h3>
+<p class="meta">pitch 214 Hz · brightness 2743 Hz · 3.38 words/s · most similar: af_nicole (distance 0.24)</p>
+<div class="players">
+<div><div class="label">Narration (cloned)</div><audio controls preload="none" src="out/bf_isabella/narration.wav"></audio></div>
+<div><div class="label">Dialogue, angry (cloned)</div><audio controls preload="none" src="out/bf_isabella/dialogue.wav"></audio></div>
+<div><div class="label">Kokoro reference clip</div><audio controls preload="none" src="refs/bf_isabella.wav"></audio></div>
+</div>
+<div class="controls">
+<label class="keep"><input type="checkbox" class="k" checked> Keep in the 12</label>
+<label><input type="checkbox" class="ns"> Suits the Narrator</label>
+<label><input type="radio" name="narrator" class="nd"> Default Narrator</label>
+<label>Age <select class="age"><option>adult</option><option>young adult</option></select></label>
+</div><div class="controls words">Timbre: <label><input type="checkbox" class="tw" value="low">low</label><label><input type="checkbox" class="tw" value="high" checked>high</label><label><input type="checkbox" class="tw" value="bright" checked>bright</label><label><input type="checkbox" class="tw" value="dark">dark</label><label><input type="checkbox" class="tw" value="brisk" checked>brisk</label><label><input type="checkbox" class="tw" value="measured">measured</label><label><input type="checkbox" class="tw" value="warm">warm</label><label><input type="checkbox" class="tw" value="soft">soft</label><label><input type="checkbox" class="tw" value="gruff">gruff</label><label><input type="checkbox" class="tw" value="crisp">crisp</label></div></section><section class="voice" data-voice="af_heart" data-gender="female" data-accent="American">
+<h3>af_heart <span class="tag">American</span> <span class="tag">Kokoro grade A</span></h3>
+<p class="meta">pitch 207 Hz · brightness 2516 Hz · 3.32 words/s · most similar: af_nova (distance 0.12)</p>
+<div class="players">
+<div><div class="label">Narration (cloned)</div><audio controls preload="none" src="out/af_heart/narration.wav"></audio></div>
+<div><div class="label">Dialogue, angry (cloned)</div><audio controls preload="none" src="out/af_heart/dialogue.wav"></audio></div>
+<div><div class="label">Kokoro reference clip</div><audio controls preload="none" src="refs/af_heart.wav"></audio></div>
+</div>
+<div class="controls">
+<label class="keep"><input type="checkbox" class="k"> Keep in the 12</label>
+<label><input type="checkbox" class="ns"> Suits the Narrator</label>
+<label><input type="radio" name="narrator" class="nd"> Default Narrator</label>
+<label>Age <select class="age"><option>adult</option><option>young adult</option></select></label>
+</div><div class="controls words">Timbre: <label><input type="checkbox" class="tw" value="low">low</label><label><input type="checkbox" class="tw" value="high" checked>high</label><label><input type="checkbox" class="tw" value="bright">bright</label><label><input type="checkbox" class="tw" value="dark">dark</label><label><input type="checkbox" class="tw" value="brisk">brisk</label><label><input type="checkbox" class="tw" value="measured">measured</label><label><input type="checkbox" class="tw" value="warm">warm</label><label><input type="checkbox" class="tw" value="soft">soft</label><label><input type="checkbox" class="tw" value="gruff">gruff</label><label><input type="checkbox" class="tw" value="crisp">crisp</label></div></section><section class="voice" data-voice="af_jessica" data-gender="female" data-accent="American">
+<h3>af_jessica <span class="tag">American</span> <span class="tag">Kokoro grade D</span></h3>
+<p class="meta">pitch 220 Hz · brightness 2666 Hz · 3.34 words/s · most similar: af_heart (distance 0.17)</p>
+<div class="players">
+<div><div class="label">Narration (cloned)</div><audio controls preload="none" src="out/af_jessica/narration.wav"></audio></div>
+<div><div class="label">Dialogue, angry (cloned)</div><audio controls preload="none" src="out/af_jessica/dialogue.wav"></audio></div>
+<div><div class="label">Kokoro reference clip</div><audio controls preload="none" src="refs/af_jessica.wav"></audio></div>
+</div>
+<div class="controls">
+<label class="keep"><input type="checkbox" class="k"> Keep in the 12</label>
+<label><input type="checkbox" class="ns"> Suits the Narrator</label>
+<label><input type="radio" name="narrator" class="nd"> Default Narrator</label>
+<label>Age <select class="age"><option>adult</option><option>young adult</option></select></label>
+</div><div class="controls words">Timbre: <label><input type="checkbox" class="tw" value="low">low</label><label><input type="checkbox" class="tw" value="high" checked>high</label><label><input type="checkbox" class="tw" value="bright">bright</label><label><input type="checkbox" class="tw" value="dark">dark</label><label><input type="checkbox" class="tw" value="brisk" checked>brisk</label><label><input type="checkbox" class="tw" value="measured">measured</label><label><input type="checkbox" class="tw" value="warm">warm</label><label><input type="checkbox" class="tw" value="soft">soft</label><label><input type="checkbox" class="tw" value="gruff">gruff</label><label><input type="checkbox" class="tw" value="crisp">crisp</label></div></section><section class="voice" data-voice="af_kore" data-gender="female" data-accent="American">
+<h3>af_kore <span class="tag">American</span> <span class="tag">Kokoro grade C+</span></h3>
+<p class="meta">pitch 157 Hz · brightness 2236 Hz · 2.83 words/s · most similar: af_sarah (distance 0.14)</p>
+<div class="players">
+<div><div class="label">Narration (cloned)</div><audio controls preload="none" src="out/af_kore/narration.wav"></audio></div>
+<div><div class="label">Dialogue, angry (cloned)</div><audio controls preload="none" src="out/af_kore/dialogue.wav"></audio></div>
+<div><div class="label">Kokoro reference clip</div><audio controls preload="none" src="refs/af_kore.wav"></audio></div>
+</div>
+<div class="controls">
+<label class="keep"><input type="checkbox" class="k"> Keep in the 12</label>
+<label><input type="checkbox" class="ns"> Suits the Narrator</label>
+<label><input type="radio" name="narrator" class="nd"> Default Narrator</label>
+<label>Age <select class="age"><option>adult</option><option>young adult</option></select></label>
+</div><div class="controls words">Timbre: <label><input type="checkbox" class="tw" value="low" checked>low</label><label><input type="checkbox" class="tw" value="high">high</label><label><input type="checkbox" class="tw" value="bright">bright</label><label><input type="checkbox" class="tw" value="dark" checked>dark</label><label><input type="checkbox" class="tw" value="brisk">brisk</label><label><input type="checkbox" class="tw" value="measured" checked>measured</label><label><input type="checkbox" class="tw" value="warm">warm</label><label><input type="checkbox" class="tw" value="soft">soft</label><label><input type="checkbox" class="tw" value="gruff">gruff</label><label><input type="checkbox" class="tw" value="crisp">crisp</label></div></section><section class="voice" data-voice="af_nicole" data-gender="female" data-accent="American">
+<h3>af_nicole <span class="tag">American</span> <span class="tag">Kokoro grade B-</span></h3>
+<p class="meta">pitch 187 Hz · brightness 2555 Hz · 2.64 words/s · most similar: bf_isabella (distance 0.24)</p>
+<div class="players">
+<div><div class="label">Narration (cloned)</div><audio controls preload="none" src="out/af_nicole/narration.wav"></audio></div>
+<div><div class="label">Dialogue, angry (cloned)</div><audio controls preload="none" src="out/af_nicole/dialogue.wav"></audio></div>
+<div><div class="label">Kokoro reference clip</div><audio controls preload="none" src="refs/af_nicole.wav"></audio></div>
+</div>
+<div class="controls">
+<label class="keep"><input type="checkbox" class="k"> Keep in the 12</label>
+<label><input type="checkbox" class="ns"> Suits the Narrator</label>
+<label><input type="radio" name="narrator" class="nd"> Default Narrator</label>
+<label>Age <select class="age"><option>adult</option><option>young adult</option></select></label>
+</div><div class="controls words">Timbre: <label><input type="checkbox" class="tw" value="low">low</label><label><input type="checkbox" class="tw" value="high">high</label><label><input type="checkbox" class="tw" value="bright">bright</label><label><input type="checkbox" class="tw" value="dark">dark</label><label><input type="checkbox" class="tw" value="brisk">brisk</label><label><input type="checkbox" class="tw" value="measured" checked>measured</label><label><input type="checkbox" class="tw" value="warm">warm</label><label><input type="checkbox" class="tw" value="soft">soft</label><label><input type="checkbox" class="tw" value="gruff">gruff</label><label><input type="checkbox" class="tw" value="crisp">crisp</label></div></section><section class="voice" data-voice="af_nova" data-gender="female" data-accent="American">
+<h3>af_nova <span class="tag">American</span> <span class="tag">Kokoro grade C</span></h3>
+<p class="meta">pitch 176 Hz · brightness 2266 Hz · 2.7 words/s · most similar: af_heart (distance 0.12)</p>
+<div class="players">
+<div><div class="label">Narration (cloned)</div><audio controls preload="none" src="out/af_nova/narration.wav"></audio></div>
+<div><div class="label">Dialogue, angry (cloned)</div><audio controls preload="none" src="out/af_nova/dialogue.wav"></audio></div>
+<div><div class="label">Kokoro reference clip</div><audio controls preload="none" src="refs/af_nova.wav"></audio></div>
+</div>
+<div class="controls">
+<label class="keep"><input type="checkbox" class="k"> Keep in the 12</label>
+<label><input type="checkbox" class="ns"> Suits the Narrator</label>
+<label><input type="radio" name="narrator" class="nd"> Default Narrator</label>
+<label>Age <select class="age"><option>adult</option><option>young adult</option></select></label>
+</div><div class="controls words">Timbre: <label><input type="checkbox" class="tw" value="low" checked>low</label><label><input type="checkbox" class="tw" value="high">high</label><label><input type="checkbox" class="tw" value="bright">bright</label><label><input type="checkbox" class="tw" value="dark" checked>dark</label><label><input type="checkbox" class="tw" value="brisk">brisk</label><label><input type="checkbox" class="tw" value="measured" checked>measured</label><label><input type="checkbox" class="tw" value="warm">warm</label><label><input type="checkbox" class="tw" value="soft">soft</label><label><input type="checkbox" class="tw" value="gruff">gruff</label><label><input type="checkbox" class="tw" value="crisp">crisp</label></div></section><section class="voice" data-voice="af_sarah" data-gender="female" data-accent="American">
+<h3>af_sarah <span class="tag">American</span> <span class="tag">Kokoro grade C+</span></h3>
+<p class="meta">pitch 199 Hz · brightness 2680 Hz · 3.34 words/s · most similar: af_kore (distance 0.14)</p>
+<div class="players">
+<div><div class="label">Narration (cloned)</div><audio controls preload="none" src="out/af_sarah/narration.wav"></audio></div>
+<div><div class="label">Dialogue, angry (cloned)</div><audio controls preload="none" src="out/af_sarah/dialogue.wav"></audio></div>
+<div><div class="label">Kokoro reference clip</div><audio controls preload="none" src="refs/af_sarah.wav"></audio></div>
+</div>
+<div class="controls">
+<label class="keep"><input type="checkbox" class="k"> Keep in the 12</label>
+<label><input type="checkbox" class="ns"> Suits the Narrator</label>
+<label><input type="radio" name="narrator" class="nd"> Default Narrator</label>
+<label>Age <select class="age"><option>adult</option><option>young adult</option></select></label>
+</div><div class="controls words">Timbre: <label><input type="checkbox" class="tw" value="low">low</label><label><input type="checkbox" class="tw" value="high">high</label><label><input type="checkbox" class="tw" value="bright">bright</label><label><input type="checkbox" class="tw" value="dark">dark</label><label><input type="checkbox" class="tw" value="brisk" checked>brisk</label><label><input type="checkbox" class="tw" value="measured">measured</label><label><input type="checkbox" class="tw" value="warm">warm</label><label><input type="checkbox" class="tw" value="soft">soft</label><label><input type="checkbox" class="tw" value="gruff">gruff</label><label><input type="checkbox" class="tw" value="crisp">crisp</label></div></section><section class="voice" data-voice="af_sky" data-gender="female" data-accent="American">
+<h3>af_sky <span class="tag">American</span> <span class="tag">Kokoro grade C-</span></h3>
+<p class="meta">pitch 167 Hz · brightness 2160 Hz · 3.53 words/s · most similar: af_alloy (distance 0.17)</p>
+<div class="players">
+<div><div class="label">Narration (cloned)</div><audio controls preload="none" src="out/af_sky/narration.wav"></audio></div>
+<div><div class="label">Dialogue, angry (cloned)</div><audio controls preload="none" src="out/af_sky/dialogue.wav"></audio></div>
+<div><div class="label">Kokoro reference clip</div><audio controls preload="none" src="refs/af_sky.wav"></audio></div>
+</div>
+<div class="controls">
+<label class="keep"><input type="checkbox" class="k"> Keep in the 12</label>
+<label><input type="checkbox" class="ns"> Suits the Narrator</label>
+<label><input type="radio" name="narrator" class="nd"> Default Narrator</label>
+<label>Age <select class="age"><option>adult</option><option>young adult</option></select></label>
+</div><div class="controls words">Timbre: <label><input type="checkbox" class="tw" value="low" checked>low</label><label><input type="checkbox" class="tw" value="high">high</label><label><input type="checkbox" class="tw" value="bright">bright</label><label><input type="checkbox" class="tw" value="dark" checked>dark</label><label><input type="checkbox" class="tw" value="brisk" checked>brisk</label><label><input type="checkbox" class="tw" value="measured">measured</label><label><input type="checkbox" class="tw" value="warm">warm</label><label><input type="checkbox" class="tw" value="soft">soft</label><label><input type="checkbox" class="tw" value="gruff">gruff</label><label><input type="checkbox" class="tw" value="crisp">crisp</label></div></section><section class="voice" data-voice="bf_alice" data-gender="female" data-accent="British">
+<h3>bf_alice <span class="tag">British</span> <span class="tag">Kokoro grade D</span></h3>
+<p class="meta">pitch 204 Hz · brightness 2877 Hz · 3.25 words/s · most similar: bf_lily (distance 0.18)</p>
+<div class="players">
+<div><div class="label">Narration (cloned)</div><audio controls preload="none" src="out/bf_alice/narration.wav"></audio></div>
+<div><div class="label">Dialogue, angry (cloned)</div><audio controls preload="none" src="out/bf_alice/dialogue.wav"></audio></div>
+<div><div class="label">Kokoro reference clip</div><audio controls preload="none" src="refs/bf_alice.wav"></audio></div>
+</div>
+<div class="controls">
+<label class="keep"><input type="checkbox" class="k"> Keep in the 12</label>
+<label><input type="checkbox" class="ns"> Suits the Narrator</label>
+<label><input type="radio" name="narrator" class="nd"> Default Narrator</label>
+<label>Age <select class="age"><option>adult</option><option>young adult</option></select></label>
+</div><div class="controls words">Timbre: <label><input type="checkbox" class="tw" value="low">low</label><label><input type="checkbox" class="tw" value="high">high</label><label><input type="checkbox" class="tw" value="bright" checked>bright</label><label><input type="checkbox" class="tw" value="dark">dark</label><label><input type="checkbox" class="tw" value="brisk">brisk</label><label><input type="checkbox" class="tw" value="measured">measured</label><label><input type="checkbox" class="tw" value="warm">warm</label><label><input type="checkbox" class="tw" value="soft">soft</label><label><input type="checkbox" class="tw" value="gruff">gruff</label><label><input type="checkbox" class="tw" value="crisp">crisp</label></div></section><section class="voice" data-voice="bf_lily" data-gender="female" data-accent="British">
+<h3>bf_lily <span class="tag">British</span> <span class="tag">Kokoro grade D</span></h3>
+<p class="meta">pitch 207 Hz · brightness 2793 Hz · 3.64 words/s · most similar: bf_alice (distance 0.18)</p>
+<div class="players">
+<div><div class="label">Narration (cloned)</div><audio controls preload="none" src="out/bf_lily/narration.wav"></audio></div>
+<div><div class="label">Dialogue, angry (cloned)</div><audio controls preload="none" src="out/bf_lily/dialogue.wav"></audio></div>
+<div><div class="label">Kokoro reference clip</div><audio controls preload="none" src="refs/bf_lily.wav"></audio></div>
+</div>
+<div class="controls">
+<label class="keep"><input type="checkbox" class="k"> Keep in the 12</label>
+<label><input type="checkbox" class="ns"> Suits the Narrator</label>
+<label><input type="radio" name="narrator" class="nd"> Default Narrator</label>
+<label>Age <select class="age"><option>adult</option><option>young adult</option></select></label>
+</div><div class="controls words">Timbre: <label><input type="checkbox" class="tw" value="low">low</label><label><input type="checkbox" class="tw" value="high" checked>high</label><label><input type="checkbox" class="tw" value="bright" checked>bright</label><label><input type="checkbox" class="tw" value="dark">dark</label><label><input type="checkbox" class="tw" value="brisk" checked>brisk</label><label><input type="checkbox" class="tw" value="measured">measured</label><label><input type="checkbox" class="tw" value="warm">warm</label><label><input type="checkbox" class="tw" value="soft">soft</label><label><input type="checkbox" class="tw" value="gruff">gruff</label><label><input type="checkbox" class="tw" value="crisp">crisp</label></div></section><h2>Men (13)</h2><section class="voice" data-voice="am_eric" data-gender="male" data-accent="American">
+<h3>am_eric <span class="tag">American</span> <span class="tag">Kokoro grade D</span><span class="tag pick">shortlisted</span></h3>
+<p class="meta">pitch 166 Hz · brightness 2213 Hz · 2.95 words/s · most similar: am_liam (distance 0.24)</p>
+<div class="players">
+<div><div class="label">Narration (cloned)</div><audio controls preload="none" src="out/am_eric/narration.wav"></audio></div>
+<div><div class="label">Dialogue, angry (cloned)</div><audio controls preload="none" src="out/am_eric/dialogue.wav"></audio></div>
+<div><div class="label">Kokoro reference clip</div><audio controls preload="none" src="refs/am_eric.wav"></audio></div>
+</div>
+<div class="controls">
+<label class="keep"><input type="checkbox" class="k" checked> Keep in the 12</label>
+<label><input type="checkbox" class="ns"> Suits the Narrator</label>
+<label><input type="radio" name="narrator" class="nd"> Default Narrator</label>
+<label>Age <select class="age"><option>adult</option><option>young adult</option></select></label>
+</div><div class="controls words">Timbre: <label><input type="checkbox" class="tw" value="low">low</label><label><input type="checkbox" class="tw" value="high" checked>high</label><label><input type="checkbox" class="tw" value="bright">bright</label><label><input type="checkbox" class="tw" value="dark" checked>dark</label><label><input type="checkbox" class="tw" value="brisk">brisk</label><label><input type="checkbox" class="tw" value="measured" checked>measured</label><label><input type="checkbox" class="tw" value="warm">warm</label><label><input type="checkbox" class="tw" value="soft">soft</label><label><input type="checkbox" class="tw" value="gruff">gruff</label><label><input type="checkbox" class="tw" value="crisp">crisp</label></div></section><section class="voice" data-voice="am_fenrir" data-gender="male" data-accent="American">
+<h3>am_fenrir <span class="tag">American</span> <span class="tag">Kokoro grade C+</span><span class="tag pick">shortlisted</span></h3>
+<p class="meta">pitch 146 Hz · brightness 2462 Hz · 3.09 words/s · most similar: am_puck (distance 0.10)</p>
+<div class="players">
+<div><div class="label">Narration (cloned)</div><audio controls preload="none" src="out/am_fenrir/narration.wav"></audio></div>
+<div><div class="label">Dialogue, angry (cloned)</div><audio controls preload="none" src="out/am_fenrir/dialogue.wav"></audio></div>
+<div><div class="label">Kokoro reference clip</div><audio controls preload="none" src="refs/am_fenrir.wav"></audio></div>
+</div>
+<div class="controls">
+<label class="keep"><input type="checkbox" class="k" checked> Keep in the 12</label>
+<label><input type="checkbox" class="ns" checked> Suits the Narrator</label>
+<label><input type="radio" name="narrator" class="nd"> Default Narrator</label>
+<label>Age <select class="age"><option>adult</option><option>young adult</option></select></label>
+</div><div class="controls words">Timbre: <label><input type="checkbox" class="tw" value="low">low</label><label><input type="checkbox" class="tw" value="high" checked>high</label><label><input type="checkbox" class="tw" value="bright">bright</label><label><input type="checkbox" class="tw" value="dark">dark</label><label><input type="checkbox" class="tw" value="brisk">brisk</label><label><input type="checkbox" class="tw" value="measured">measured</label><label><input type="checkbox" class="tw" value="warm">warm</label><label><input type="checkbox" class="tw" value="soft">soft</label><label><input type="checkbox" class="tw" value="gruff">gruff</label><label><input type="checkbox" class="tw" value="crisp">crisp</label></div></section><section class="voice" data-voice="am_michael" data-gender="male" data-accent="American">
+<h3>am_michael <span class="tag">American</span> <span class="tag">Kokoro grade C+</span><span class="tag pick">shortlisted</span></h3>
+<p class="meta">pitch 127 Hz · brightness 2592 Hz · 2.8 words/s · most similar: am_onyx (distance 0.23)</p>
+<div class="players">
+<div><div class="label">Narration (cloned)</div><audio controls preload="none" src="out/am_michael/narration.wav"></audio></div>
+<div><div class="label">Dialogue, angry (cloned)</div><audio controls preload="none" src="out/am_michael/dialogue.wav"></audio></div>
+<div><div class="label">Kokoro reference clip</div><audio controls preload="none" src="refs/am_michael.wav"></audio></div>
+</div>
+<div class="controls">
+<label class="keep"><input type="checkbox" class="k" checked> Keep in the 12</label>
+<label><input type="checkbox" class="ns" checked> Suits the Narrator</label>
+<label><input type="radio" name="narrator" class="nd"> Default Narrator</label>
+<label>Age <select class="age"><option>adult</option><option>young adult</option></select></label>
+</div><div class="controls words">Timbre: <label><input type="checkbox" class="tw" value="low">low</label><label><input type="checkbox" class="tw" value="high">high</label><label><input type="checkbox" class="tw" value="bright" checked>bright</label><label><input type="checkbox" class="tw" value="dark">dark</label><label><input type="checkbox" class="tw" value="brisk">brisk</label><label><input type="checkbox" class="tw" value="measured" checked>measured</label><label><input type="checkbox" class="tw" value="warm">warm</label><label><input type="checkbox" class="tw" value="soft">soft</label><label><input type="checkbox" class="tw" value="gruff">gruff</label><label><input type="checkbox" class="tw" value="crisp">crisp</label></div></section><section class="voice" data-voice="bm_daniel" data-gender="male" data-accent="British">
+<h3>bm_daniel <span class="tag">British</span> <span class="tag">Kokoro grade D</span><span class="tag pick">shortlisted</span></h3>
+<p class="meta">pitch 125 Hz · brightness 2567 Hz · 3.53 words/s · most similar: bm_george (distance 0.15)</p>
+<div class="players">
+<div><div class="label">Narration (cloned)</div><audio controls preload="none" src="out/bm_daniel/narration.wav"></audio></div>
+<div><div class="label">Dialogue, angry (cloned)</div><audio controls preload="none" src="out/bm_daniel/dialogue.wav"></audio></div>
+<div><div class="label">Kokoro reference clip</div><audio controls preload="none" src="refs/bm_daniel.wav"></audio></div>
+</div>
+<div class="controls">
+<label class="keep"><input type="checkbox" class="k" checked> Keep in the 12</label>
+<label><input type="checkbox" class="ns"> Suits the Narrator</label>
+<label><input type="radio" name="narrator" class="nd"> Default Narrator</label>
+<label>Age <select class="age"><option>adult</option><option>young adult</option></select></label>
+</div><div class="controls words">Timbre: <label><input type="checkbox" class="tw" value="low">low</label><label><input type="checkbox" class="tw" value="high">high</label><label><input type="checkbox" class="tw" value="bright" checked>bright</label><label><input type="checkbox" class="tw" value="dark">dark</label><label><input type="checkbox" class="tw" value="brisk" checked>brisk</label><label><input type="checkbox" class="tw" value="measured">measured</label><label><input type="checkbox" class="tw" value="warm">warm</label><label><input type="checkbox" class="tw" value="soft">soft</label><label><input type="checkbox" class="tw" value="gruff">gruff</label><label><input type="checkbox" class="tw" value="crisp">crisp</label></div></section><section class="voice" data-voice="bm_fable" data-gender="male" data-accent="British">
+<h3>bm_fable <span class="tag">British</span> <span class="tag">Kokoro grade C</span><span class="tag pick">shortlisted</span></h3>
+<p class="meta">pitch 109 Hz · brightness 2212 Hz · 3.81 words/s · most similar: am_echo (distance 0.15)</p>
+<div class="players">
+<div><div class="label">Narration (cloned)</div><audio controls preload="none" src="out/bm_fable/narration.wav"></audio></div>
+<div><div class="label">Dialogue, angry (cloned)</div><audio controls preload="none" src="out/bm_fable/dialogue.wav"></audio></div>
+<div><div class="label">Kokoro reference clip</div><audio controls preload="none" src="refs/bm_fable.wav"></audio></div>
+</div>
+<div class="controls">
+<label class="keep"><input type="checkbox" class="k" checked> Keep in the 12</label>
+<label><input type="checkbox" class="ns"> Suits the Narrator</label>
+<label><input type="radio" name="narrator" class="nd"> Default Narrator</label>
+<label>Age <select class="age"><option>adult</option><option>young adult</option></select></label>
+</div><div class="controls words">Timbre: <label><input type="checkbox" class="tw" value="low" checked>low</label><label><input type="checkbox" class="tw" value="high">high</label><label><input type="checkbox" class="tw" value="bright">bright</label><label><input type="checkbox" class="tw" value="dark" checked>dark</label><label><input type="checkbox" class="tw" value="brisk" checked>brisk</label><label><input type="checkbox" class="tw" value="measured">measured</label><label><input type="checkbox" class="tw" value="warm">warm</label><label><input type="checkbox" class="tw" value="soft">soft</label><label><input type="checkbox" class="tw" value="gruff">gruff</label><label><input type="checkbox" class="tw" value="crisp">crisp</label></div></section><section class="voice" data-voice="bm_lewis" data-gender="male" data-accent="British">
+<h3>bm_lewis <span class="tag">British</span> <span class="tag">Kokoro grade D+</span><span class="tag pick">shortlisted</span></h3>
+<p class="meta">pitch 118 Hz · brightness 2361 Hz · 3.14 words/s · most similar: am_santa (distance 0.22)</p>
+<div class="players">
+<div><div class="label">Narration (cloned)</div><audio controls preload="none" src="out/bm_lewis/narration.wav"></audio></div>
+<div><div class="label">Dialogue, angry (cloned)</div><audio controls preload="none" src="out/bm_lewis/dialogue.wav"></audio></div>
+<div><div class="label">Kokoro reference clip</div><audio controls preload="none" src="refs/bm_lewis.wav"></audio></div>
+</div>
+<div class="controls">
+<label class="keep"><input type="checkbox" class="k" checked> Keep in the 12</label>
+<label><input type="checkbox" class="ns"> Suits the Narrator</label>
+<label><input type="radio" name="narrator" class="nd"> Default Narrator</label>
+<label>Age <select class="age"><option>adult</option><option>young adult</option></select></label>
+</div><div class="controls words">Timbre: <label><input type="checkbox" class="tw" value="low" checked>low</label><label><input type="checkbox" class="tw" value="high">high</label><label><input type="checkbox" class="tw" value="bright">bright</label><label><input type="checkbox" class="tw" value="dark">dark</label><label><input type="checkbox" class="tw" value="brisk">brisk</label><label><input type="checkbox" class="tw" value="measured">measured</label><label><input type="checkbox" class="tw" value="warm">warm</label><label><input type="checkbox" class="tw" value="soft">soft</label><label><input type="checkbox" class="tw" value="gruff">gruff</label><label><input type="checkbox" class="tw" value="crisp">crisp</label></div></section><section class="voice" data-voice="am_adam" data-gender="male" data-accent="American">
+<h3>am_adam <span class="tag">American</span> <span class="tag">Kokoro grade F+</span></h3>
+<p class="meta">pitch 120 Hz · brightness 2423 Hz · 3.3 words/s · most similar: am_liam (distance 0.23)</p>
+<div class="players">
+<div><div class="label">Narration (cloned)</div><audio controls preload="none" src="out/am_adam/narration.wav"></audio></div>
+<div><div class="label">Dialogue, angry (cloned)</div><audio controls preload="none" src="out/am_adam/dialogue.wav"></audio></div>
+<div><div class="label">Kokoro reference clip</div><audio controls preload="none" src="refs/am_adam.wav"></audio></div>
+</div>
+<div class="controls">
+<label class="keep"><input type="checkbox" class="k"> Keep in the 12</label>
+<label><input type="checkbox" class="ns"> Suits the Narrator</label>
+<label><input type="radio" name="narrator" class="nd"> Default Narrator</label>
+<label>Age <select class="age"><option>adult</option><option>young adult</option></select></label>
+</div><div class="controls words">Timbre: <label><input type="checkbox" class="tw" value="low">low</label><label><input type="checkbox" class="tw" value="high">high</label><label><input type="checkbox" class="tw" value="bright">bright</label><label><input type="checkbox" class="tw" value="dark">dark</label><label><input type="checkbox" class="tw" value="brisk" checked>brisk</label><label><input type="checkbox" class="tw" value="measured">measured</label><label><input type="checkbox" class="tw" value="warm">warm</label><label><input type="checkbox" class="tw" value="soft">soft</label><label><input type="checkbox" class="tw" value="gruff">gruff</label><label><input type="checkbox" class="tw" value="crisp">crisp</label></div></section><section class="voice" data-voice="am_echo" data-gender="male" data-accent="American">
+<h3>am_echo <span class="tag">American</span> <span class="tag">Kokoro grade D</span></h3>
+<p class="meta">pitch 118 Hz · brightness 2174 Hz · 3.21 words/s · most similar: bm_fable (distance 0.15)</p>
+<div class="players">
+<div><div class="label">Narration (cloned)</div><audio controls preload="none" src="out/am_echo/narration.wav"></audio></div>
+<div><div class="label">Dialogue, angry (cloned)</div><audio controls preload="none" src="out/am_echo/dialogue.wav"></audio></div>
+<div><div class="label">Kokoro reference clip</div><audio controls preload="none" src="refs/am_echo.wav"></audio></div>
+</div>
+<div class="controls">
+<label class="keep"><input type="checkbox" class="k"> Keep in the 12</label>
+<label><input type="checkbox" class="ns"> Suits the Narrator</label>
+<label><input type="radio" name="narrator" class="nd"> Default Narrator</label>
+<label>Age <select class="age"><option>adult</option><option>young adult</option></select></label>
+</div><div class="controls words">Timbre: <label><input type="checkbox" class="tw" value="low" checked>low</label><label><input type="checkbox" class="tw" value="high">high</label><label><input type="checkbox" class="tw" value="bright">bright</label><label><input type="checkbox" class="tw" value="dark" checked>dark</label><label><input type="checkbox" class="tw" value="brisk">brisk</label><label><input type="checkbox" class="tw" value="measured">measured</label><label><input type="checkbox" class="tw" value="warm">warm</label><label><input type="checkbox" class="tw" value="soft">soft</label><label><input type="checkbox" class="tw" value="gruff">gruff</label><label><input type="checkbox" class="tw" value="crisp">crisp</label></div></section><section class="voice" data-voice="am_liam" data-gender="male" data-accent="American">
+<h3>am_liam <span class="tag">American</span> <span class="tag">Kokoro grade D</span></h3>
+<p class="meta">pitch 121 Hz · brightness 2520 Hz · 3.06 words/s · most similar: am_adam (distance 0.23)</p>
+<div class="players">
+<div><div class="label">Narration (cloned)</div><audio controls preload="none" src="out/am_liam/narration.wav"></audio></div>
+<div><div class="label">Dialogue, angry (cloned)</div><audio controls preload="none" src="out/am_liam/dialogue.wav"></audio></div>
+<div><div class="label">Kokoro reference clip</div><audio controls preload="none" src="refs/am_liam.wav"></audio></div>
+</div>
+<div class="controls">
+<label class="keep"><input type="checkbox" class="k"> Keep in the 12</label>
+<label><input type="checkbox" class="ns"> Suits the Narrator</label>
+<label><input type="radio" name="narrator" class="nd"> Default Narrator</label>
+<label>Age <select class="age"><option>adult</option><option>young adult</option></select></label>
+</div><div class="controls words">Timbre: <label><input type="checkbox" class="tw" value="low">low</label><label><input type="checkbox" class="tw" value="high">high</label><label><input type="checkbox" class="tw" value="bright" checked>bright</label><label><input type="checkbox" class="tw" value="dark">dark</label><label><input type="checkbox" class="tw" value="brisk">brisk</label><label><input type="checkbox" class="tw" value="measured">measured</label><label><input type="checkbox" class="tw" value="warm">warm</label><label><input type="checkbox" class="tw" value="soft">soft</label><label><input type="checkbox" class="tw" value="gruff">gruff</label><label><input type="checkbox" class="tw" value="crisp">crisp</label></div></section><section class="voice" data-voice="am_onyx" data-gender="male" data-accent="American">
+<h3>am_onyx <span class="tag">American</span> <span class="tag">Kokoro grade D</span></h3>
+<p class="meta">pitch 94 Hz · brightness 1713 Hz · 3.04 words/s · most similar: am_michael (distance 0.23)</p>
+<div class="players">
+<div><div class="label">Narration (cloned)</div><audio controls preload="none" src="out/am_onyx/narration.wav"></audio></div>
+<div><div class="label">Dialogue, angry (cloned)</div><audio controls preload="none" src="out/am_onyx/dialogue.wav"></audio></div>
+<div><div class="label">Kokoro reference clip</div><audio controls preload="none" src="refs/am_onyx.wav"></audio></div>
+</div>
+<div class="controls">
+<label class="keep"><input type="checkbox" class="k"> Keep in the 12</label>
+<label><input type="checkbox" class="ns"> Suits the Narrator</label>
+<label><input type="radio" name="narrator" class="nd"> Default Narrator</label>
+<label>Age <select class="age"><option>adult</option><option>young adult</option></select></label>
+</div><div class="controls words">Timbre: <label><input type="checkbox" class="tw" value="low" checked>low</label><label><input type="checkbox" class="tw" value="high">high</label><label><input type="checkbox" class="tw" value="bright">bright</label><label><input type="checkbox" class="tw" value="dark" checked>dark</label><label><input type="checkbox" class="tw" value="brisk">brisk</label><label><input type="checkbox" class="tw" value="measured" checked>measured</label><label><input type="checkbox" class="tw" value="warm">warm</label><label><input type="checkbox" class="tw" value="soft">soft</label><label><input type="checkbox" class="tw" value="gruff">gruff</label><label><input type="checkbox" class="tw" value="crisp">crisp</label></div></section><section class="voice" data-voice="am_puck" data-gender="male" data-accent="American">
+<h3>am_puck <span class="tag">American</span> <span class="tag">Kokoro grade C+</span></h3>
+<p class="meta">pitch 109 Hz · brightness 2221 Hz · 3.34 words/s · most similar: am_fenrir (distance 0.10)</p>
+<div class="players">
+<div><div class="label">Narration (cloned)</div><audio controls preload="none" src="out/am_puck/narration.wav"></audio></div>
+<div><div class="label">Dialogue, angry (cloned)</div><audio controls preload="none" src="out/am_puck/dialogue.wav"></audio></div>
+<div><div class="label">Kokoro reference clip</div><audio controls preload="none" src="refs/am_puck.wav"></audio></div>
+</div>
+<div class="controls">
+<label class="keep"><input type="checkbox" class="k"> Keep in the 12</label>
+<label><input type="checkbox" class="ns"> Suits the Narrator</label>
+<label><input type="radio" name="narrator" class="nd"> Default Narrator</label>
+<label>Age <select class="age"><option>adult</option><option>young adult</option></select></label>
+</div><div class="controls words">Timbre: <label><input type="checkbox" class="tw" value="low" checked>low</label><label><input type="checkbox" class="tw" value="high">high</label><label><input type="checkbox" class="tw" value="bright">bright</label><label><input type="checkbox" class="tw" value="dark">dark</label><label><input type="checkbox" class="tw" value="brisk" checked>brisk</label><label><input type="checkbox" class="tw" value="measured">measured</label><label><input type="checkbox" class="tw" value="warm">warm</label><label><input type="checkbox" class="tw" value="soft">soft</label><label><input type="checkbox" class="tw" value="gruff">gruff</label><label><input type="checkbox" class="tw" value="crisp">crisp</label></div></section><section class="voice" data-voice="am_santa" data-gender="male" data-accent="American">
+<h3>am_santa <span class="tag">American</span> <span class="tag">Kokoro grade D-</span></h3>
+<p class="meta">pitch 146 Hz · brightness 2348 Hz · 2.89 words/s · most similar: bm_lewis (distance 0.22)</p>
+<div class="players">
+<div><div class="label">Narration (cloned)</div><audio controls preload="none" src="out/am_santa/narration.wav"></audio></div>
+<div><div class="label">Dialogue, angry (cloned)</div><audio controls preload="none" src="out/am_santa/dialogue.wav"></audio></div>
+<div><div class="label">Kokoro reference clip</div><audio controls preload="none" src="refs/am_santa.wav"></audio></div>
+</div>
+<div class="controls">
+<label class="keep"><input type="checkbox" class="k"> Keep in the 12</label>
+<label><input type="checkbox" class="ns"> Suits the Narrator</label>
+<label><input type="radio" name="narrator" class="nd"> Default Narrator</label>
+<label>Age <select class="age"><option>adult</option><option>young adult</option></select></label>
+</div><div class="controls words">Timbre: <label><input type="checkbox" class="tw" value="low">low</label><label><input type="checkbox" class="tw" value="high" checked>high</label><label><input type="checkbox" class="tw" value="bright">bright</label><label><input type="checkbox" class="tw" value="dark">dark</label><label><input type="checkbox" class="tw" value="brisk">brisk</label><label><input type="checkbox" class="tw" value="measured" checked>measured</label><label><input type="checkbox" class="tw" value="warm">warm</label><label><input type="checkbox" class="tw" value="soft">soft</label><label><input type="checkbox" class="tw" value="gruff">gruff</label><label><input type="checkbox" class="tw" value="crisp">crisp</label></div></section><section class="voice" data-voice="bm_george" data-gender="male" data-accent="British">
+<h3>bm_george <span class="tag">British</span> <span class="tag">Kokoro grade C</span></h3>
+<p class="meta">pitch 137 Hz · brightness 2727 Hz · 3.12 words/s · most similar: bm_daniel (distance 0.15)</p>
+<div class="players">
+<div><div class="label">Narration (cloned)</div><audio controls preload="none" src="out/bm_george/narration.wav"></audio></div>
+<div><div class="label">Dialogue, angry (cloned)</div><audio controls preload="none" src="out/bm_george/dialogue.wav"></audio></div>
+<div><div class="label">Kokoro reference clip</div><audio controls preload="none" src="refs/bm_george.wav"></audio></div>
+</div>
+<div class="controls">
+<label class="keep"><input type="checkbox" class="k"> Keep in the 12</label>
+<label><input type="checkbox" class="ns"> Suits the Narrator</label>
+<label><input type="radio" name="narrator" class="nd"> Default Narrator</label>
+<label>Age <select class="age"><option>adult</option><option>young adult</option></select></label>
+</div><div class="controls words">Timbre: <label><input type="checkbox" class="tw" value="low">low</label><label><input type="checkbox" class="tw" value="high" checked>high</label><label><input type="checkbox" class="tw" value="bright" checked>bright</label><label><input type="checkbox" class="tw" value="dark">dark</label><label><input type="checkbox" class="tw" value="brisk">brisk</label><label><input type="checkbox" class="tw" value="measured">measured</label><label><input type="checkbox" class="tw" value="warm">warm</label><label><input type="checkbox" class="tw" value="soft">soft</label><label><input type="checkbox" class="tw" value="gruff">gruff</label><label><input type="checkbox" class="tw" value="crisp">crisp</label></div></section>
+<div id="result"></div>
+<div id="bar"><span id="count"></span><button id="copy">Copy my choices</button><span id="msg" class="meta"></span></div>
+<script>
+const cards=[...document.querySelectorAll('.voice')];
+function state(){return cards.filter(c=>c.querySelector('.k').checked).map(c=>({voice:c.dataset.voice,gender:c.dataset.gender,
+ accent:c.dataset.accent,age:c.querySelector('.age').value,timbre:[...c.querySelectorAll('.tw:checked')].map(x=>x.value),
+ narrator_ok:c.querySelector('.ns').checked,default_narrator:c.querySelector('.nd').checked}));}
+function refresh(){cards.forEach(c=>c.classList.toggle('kept',c.querySelector('.k').checked));const s=state();
+ const f=s.filter(v=>v.gender=='female').length,m=s.length-f,d=s.filter(v=>v.default_narrator).length;
+ document.getElementById('count').innerHTML='Kept: <b>'+s.length+'</b> ('+f+' women, '+m+' men)'+
+ (s.length!=12?' <span class="bad">need 12</span>':'')+(d!=1?' <span class="bad">the default Narrator must be one of the kept Voices</span>':'');}
+document.addEventListener('change',refresh);refresh();
+document.getElementById('copy').onclick=()=>{const t=JSON.stringify(state(),null,1);
+ document.getElementById('result').innerHTML='<h2>Your choices</h2><textarea readonly></textarea>';
+ const ta=document.querySelector('textarea');ta.value=t;ta.scrollIntoView();
+ (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>document.getElementById('msg').textContent='Copied to clipboard.',
+ ()=>document.getElementById('msg').textContent='Select the text above and copy it.');};
+</script></body></html>

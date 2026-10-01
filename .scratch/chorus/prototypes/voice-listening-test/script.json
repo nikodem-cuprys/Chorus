@@ -1,0 +1,38 @@
+{
+  "_note": "PROTOTYPE, throwaway. One mini Script rendered by every candidate voice model. Text is from samples/passages (public domain).",
+  "speakers": {
+    "narrator": {"ref": "refs/narrator_librivox.wav", "desc": "Narrator, cloned from a LibriVox reader (Annie Coleman, public domain)"},
+    "mrs_bennet": {"ref": "refs/mrs_bennet_kokoro.wav", "desc": "Mrs Bennet: excitable middle-aged woman (Kokoro bf_emma reference)"},
+    "mr_bennet": {"ref": "refs/mr_bennet_kokoro.wav", "desc": "Mr Bennet: dry older man (Kokoro bm_george reference)"},
+    "john_reed": {"ref": "refs/john_reed_kokoro.wav", "desc": "John Reed: bullying teenage boy (Kokoro am_puck reference)"},
+    "jane": {"ref": "refs/jane_kokoro.wav", "desc": "Young Jane: girl, frightened then furious (Kokoro bf_isabella reference)"}
+  },
+  "emotions": {
+    "_vector_order": ["happy", "angry", "sad", "afraid", "disgusted", "melancholic", "surprised", "calm"],
+    "neutral":  {"exaggeration": 0.5, "cfg_weight": 0.5, "vector": [0, 0, 0, 0, 0, 0, 0, 0.6]},
+    "excited":  {"exaggeration": 0.8, "cfg_weight": 0.4, "vector": [0.7, 0, 0, 0, 0, 0, 0.3, 0]},
+    "dry":      {"exaggeration": 0.35, "cfg_weight": 0.5, "vector": [0, 0, 0, 0, 0.2, 0, 0, 0.6]},
+    "angry":    {"exaggeration": 1.0, "cfg_weight": 0.3, "vector": [0, 0.8, 0, 0, 0.2, 0, 0, 0]},
+    "afraid":   {"exaggeration": 0.8, "cfg_weight": 0.4, "vector": [0, 0, 0, 0.8, 0, 0, 0.2, 0]},
+    "furious":  {"exaggeration": 1.2, "cfg_weight": 0.3, "vector": [0, 0.9, 0.1, 0, 0, 0, 0, 0]},
+    "sad":      {"exaggeration": 0.4, "cfg_weight": 0.5, "vector": [0, 0, 0.5, 0, 0, 0.5, 0, 0]}
+  },
+  "lines": [
+    {"id": "01", "speaker": "narrator", "emotion": "neutral",
+     "text": "It is a truth universally acknowledged, that a single man in possession of a good fortune must be in want of a wife."},
+    {"id": "02", "speaker": "mrs_bennet", "emotion": "excited",
+     "text": "My dear Mr. Bennet, have you heard that Netherfield Park is let at last?"},
+    {"id": "03", "speaker": "mr_bennet", "emotion": "dry",
+     "text": "You want to tell me, and I have no objection to hearing it."},
+    {"id": "04", "speaker": "mrs_bennet", "emotion": "excited",
+     "text": "Why, my dear, you must know, Mrs. Long says that Netherfield is taken by a young man of large fortune from the north of England!"},
+    {"id": "05", "speaker": "narrator", "emotion": "sad",
+     "text": "Dreadful to me was the coming home in the raw twilight, with nipped fingers and toes, and a heart saddened by the chidings of Bessie, the nurse."},
+    {"id": "06", "speaker": "john_reed", "emotion": "angry",
+     "text": "You have no business to take our books; you are a dependent, mama says; you have no money; you ought to beg, and not to live here with gentlemen's children like us."},
+    {"id": "07", "speaker": "narrator", "emotion": "afraid",
+     "text": "I did not see him lift the book, but I saw him in act to hurl it, and I instinctively started aside with a cry of alarm."},
+    {"id": "08", "speaker": "jane", "emotion": "furious",
+     "text": "Wicked and cruel boy! You are like a murderer, you are like a slave-driver, you are like the Roman emperors!"}
+  ]
+}

@@ -1,0 +1,1140 @@
+{
+ "seconds": 45.6,
+ "characters": [
+  {
+   "id": 5,
+   "count": 118,
+   "gender": "she/her",
+   "proper": [
+    [
+     "Alice",
+     43
+    ],
+    [
+     "Elsie",
+     1
+    ]
+   ],
+   "common": [],
+   "pronoun": [
+    [
+     "you",
+     27
+    ],
+    [
+     "I",
+     24
+    ],
+    [
+     "she",
+     11
+    ],
+    [
+     "You",
+     4
+    ]
+   ]
+  },
+  {
+   "id": 3,
+   "count": 71,
+   "gender": "he/him/his",
+   "proper": [
+    [
+     "the Hatter",
+     19
+    ],
+    [
+     "The Hatter",
+     5
+    ]
+   ],
+   "common": [],
+   "pronoun": [
+    [
+     "I",
+     12
+    ],
+    [
+     "his",
+     11
+    ],
+    [
+     "he",
+     10
+    ],
+    [
+     "you",
+     9
+    ]
+   ]
+  },
+  {
+   "id": 4,
+   "count": 24,
+   "gender": "they/them/their",
+   "proper": [
+    [
+     "the Dormouse",
+     11
+    ],
+    [
+     "The Dormouse",
+     3
+    ],
+    [
+     "Dormouse",
+     1
+    ]
+   ],
+   "common": [],
+   "pronoun": [
+    [
+     "I",
+     5
+    ],
+    [
+     "its",
+     2
+    ],
+    [
+     "myself",
+     1
+    ],
+    [
+     "you",
+     1
+    ]
+   ]
+  },
+  {
+   "id": 2,
+   "count": 23,
+   "gender": "he/him/his",
+   "proper": [
+    [
+     "the March Hare",
+     13
+    ],
+    [
+     "Hare",
+     1
+    ]
+   ],
+   "common": [],
+   "pronoun": [
+    [
+     "I",
+     7
+    ],
+    [
+     "you",
+     1
+    ],
+    [
+     "You",
+     1
+    ]
+   ]
+  },
+  {
+   "id": 20,
+   "count": 13,
+   "gender": "he/him/his",
+   "proper": [],
+   "common": [
+    [
+     "the Hatter",
+     6
+    ]
+   ],
+   "pronoun": [
+    [
+     "I",
+     2
+    ],
+    [
+     "he",
+     2
+    ],
+    [
+     "his",
+     1
+    ],
+    [
+     "He",
+     1
+    ]
+   ]
+  },
+  {
+   "id": 51,
+   "count": 9,
+   "gender": "they/them/their",
+   "proper": [],
+   "common": [
+    [
+     "three little sisters",
+     1
+    ]
+   ],
+   "pronoun": [
+    [
+     "they",
+     5
+    ],
+    [
+     "They",
+     2
+    ],
+    [
+     "their",
+     1
+    ]
+   ]
+  },
+  {
+   "id": 17,
+   "count": 6,
+   "gender": "he/him/his",
+   "proper": [],
+   "common": [
+    [
+     "the March Hare",
+     4
+    ]
+   ],
+   "pronoun": [
+    [
+     "you",
+     1
+    ],
+    [
+     "his",
+     1
+    ]
+   ]
+  },
+  {
+   "id": 27,
+   "count": 5,
+   "gender": "they/them/their",
+   "proper": [],
+   "common": [],
+   "pronoun": [
+    [
+     "we",
+     2
+    ],
+    [
+     "us",
+     2
+    ],
+    [
+     "they",
+     1
+    ]
+   ]
+  },
+  {
+   "id": 45,
+   "count": 4,
+   "gender": "he/him/his",
+   "proper": [],
+   "common": [],
+   "pronoun": [
+    [
+     "him",
+     2
+    ],
+    [
+     "He",
+     1
+    ],
+    [
+     "he",
+     1
+    ]
+   ]
+  },
+  {
+   "id": 30,
+   "count": 4,
+   "gender": "he/him/his",
+   "proper": [],
+   "common": [],
+   "pronoun": [
+    [
+     "I",
+     2
+    ],
+    [
+     "his",
+     1
+    ],
+    [
+     "he",
+     1
+    ]
+   ]
+  },
+  {
+   "id": 16,
+   "count": 3,
+   "gender": "they/them/their",
+   "proper": [],
+   "common": [
+    [
+     "the three",
+     1
+    ]
+   ],
+   "pronoun": [
+    [
+     "they",
+     2
+    ]
+   ]
+  },
+  {
+   "id": 44,
+   "count": 3,
+   "gender": null,
+   "proper": [],
+   "common": [
+    [
+     "the Dormouse",
+     2
+    ],
+    [
+     "The Dormouse",
+     1
+    ]
+   ],
+   "pronoun": []
+  },
+  {
+   "id": 29,
+   "count": 3,
+   "gender": "they/them/their",
+   "proper": [],
+   "common": [],
+   "pronoun": [
+    [
+     "they",
+     2
+    ],
+    [
+     "you",
+     1
+    ]
+   ]
+  },
+  {
+   "id": 55,
+   "count": 3,
+   "gender": "they/them/their",
+   "proper": [],
+   "common": [
+    [
+     "these three little sisters",
+     1
+    ]
+   ],
+   "pronoun": [
+    [
+     "they",
+     2
+    ]
+   ]
+  },
+  {
+   "id": 15,
+   "count": 2,
+   "gender": "they/them/their",
+   "proper": [],
+   "common": [
+    [
+     "the other two",
+     1
+    ]
+   ],
+   "pronoun": [
+    [
+     "their",
+     1
+    ]
+   ]
+  }
+ ],
+ "quotes": {
+  "1": {
+   "char_id": 5,
+   "mention": "Alice",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "3": {
+   "char_id": 5,
+   "mention": "Alice",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "5": {
+   "char_id": 16,
+   "mention": "they",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "7": {
+   "char_id": 5,
+   "mention": "Alice",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "9": {
+   "char_id": 17,
+   "mention": "the March Hare",
+   "mention_type": "NOM",
+   "same_paragraph": true
+  },
+  "12": {
+   "char_id": 5,
+   "mention": "she",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "14": {
+   "char_id": 2,
+   "mention": "the March Hare",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "16": {
+   "char_id": 5,
+   "mention": "Alice",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "18": {
+   "char_id": 2,
+   "mention": "the March Hare",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "20": {
+   "char_id": 5,
+   "mention": "Alice",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "22": {
+   "char_id": 5,
+   "mention": "Alice",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "23": {
+   "char_id": 3,
+   "mention": "the Hatter",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "25": {
+   "char_id": 5,
+   "mention": "Alice",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "27": {
+   "char_id": 5,
+   "mention": "Alice",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "29": {
+   "char_id": 3,
+   "mention": "he",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "30": {
+   "char_id": 5,
+   "mention": "Alice",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "32": {
+   "char_id": 5,
+   "mention": "she",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "34": {
+   "char_id": 2,
+   "mention": "the March Hare",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "36": {
+   "char_id": 5,
+   "mention": "Alice",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "38": {
+   "char_id": 2,
+   "mention": "the March Hare",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "40": {
+   "char_id": 5,
+   "mention": "Alice",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "42": {
+   "char_id": 5,
+   "mention": "Alice",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "43": {
+   "char_id": 3,
+   "mention": "the Hatter",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "45": {
+   "char_id": 3,
+   "mention": "the Hatter",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "46": {
+   "char_id": 2,
+   "mention": "the March Hare",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "48": {
+   "char_id": 2,
+   "mention": "the March Hare",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "49": {
+   "char_id": 4,
+   "mention": "the Dormouse",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "51": {
+   "char_id": 4,
+   "mention": "the Dormouse",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "52": {
+   "char_id": 3,
+   "mention": "the Hatter",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "55": {
+   "char_id": 3,
+   "mention": "he",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "58": {
+   "char_id": 5,
+   "mention": "Alice",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "59": {
+   "char_id": 3,
+   "mention": "the Hatter",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "61": {
+   "char_id": 3,
+   "mention": "he",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "63": {
+   "char_id": 2,
+   "mention": "the March Hare",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "65": {
+   "char_id": 3,
+   "mention": "the Hatter",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "67": {
+   "char_id": 3,
+   "mention": "the Hatter",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "69": {
+   "char_id": 3,
+   "mention": "he",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "71": {
+   "char_id": 5,
+   "mention": "she",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "73": {
+   "char_id": 5,
+   "mention": "she",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "74": {
+   "char_id": 20,
+   "mention": "the Hatter",
+   "mention_type": "NOM",
+   "same_paragraph": true
+  },
+  "76": {
+   "char_id": 20,
+   "mention": "the Hatter",
+   "mention_type": "NOM",
+   "same_paragraph": true
+  },
+  "77": {
+   "char_id": 5,
+   "mention": "Alice",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "79": {
+   "char_id": 5,
+   "mention": "Alice",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "80": {
+   "char_id": 20,
+   "mention": "the Hatter",
+   "mention_type": "NOM",
+   "same_paragraph": true
+  },
+  "83": {
+   "char_id": 5,
+   "mention": "she",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "85": {
+   "char_id": 3,
+   "mention": "he",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "88": {
+   "char_id": 4,
+   "mention": "The Dormouse",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "89": {
+   "char_id": 3,
+   "mention": "the Hatter",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "91": {
+   "char_id": 5,
+   "mention": "Alice",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "93": {
+   "char_id": 5,
+   "mention": "Alice",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "94": {
+   "char_id": 3,
+   "mention": "the Hatter",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "96": {
+   "char_id": 2,
+   "mention": "the March Hare",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "99": {
+   "char_id": 5,
+   "mention": "she",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "101": {
+   "char_id": 5,
+   "mention": "she",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "102": {
+   "char_id": 3,
+   "mention": "the Hatter",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "104": {
+   "char_id": 3,
+   "mention": "the Hatter",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "105": {
+   "char_id": 5,
+   "mention": "Alice",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "107": {
+   "char_id": 20,
+   "mention": "the Hatter",
+   "mention_type": "NOM",
+   "same_paragraph": true
+  },
+  "109": {
+   "char_id": 20,
+   "mention": "his",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "110": {
+   "char_id": 5,
+   "mention": "Alice",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "112": {
+   "char_id": 5,
+   "mention": "Alice",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "113": {
+   "char_id": 3,
+   "mention": "the Hatter",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "115": {
+   "char_id": 3,
+   "mention": "the Hatter",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "117": {
+   "char_id": 3,
+   "mention": "the Hatter",
+   "mention_type": "PROP",
+   "same_paragraph": false
+  },
+  "119": {
+   "char_id": 5,
+   "mention": "Alice",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "121": {
+   "char_id": 5,
+   "mention": "Alice",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "122": {
+   "char_id": 3,
+   "mention": "the Hatter",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "124": {
+   "char_id": 3,
+   "mention": "the Hatter",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "125": {
+   "char_id": 5,
+   "mention": "Alice",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "128": {
+   "char_id": 3,
+   "mention": "he",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "130": {
+   "char_id": 3,
+   "mention": "he",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "132": {
+   "char_id": 3,
+   "mention": "he",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "135": {
+   "char_id": 5,
+   "mention": "Alice",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "137": {
+   "char_id": 3,
+   "mention": "the Hatter",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "139": {
+   "char_id": 3,
+   "mention": "the Hatter",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "142": {
+   "char_id": 3,
+   "mention": "the Hatter",
+   "mention_type": "PROP",
+   "same_paragraph": false
+  },
+  "144": {
+   "char_id": 3,
+   "mention": "the Hatter",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "146": {
+   "char_id": 3,
+   "mention": "the Hatter",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "147": {
+   "char_id": 5,
+   "mention": "Alice",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "149": {
+   "char_id": 3,
+   "mention": "the Hatter",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "151": {
+   "char_id": 3,
+   "mention": "the Hatter",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "153": {
+   "char_id": 5,
+   "mention": "she",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "155": {
+   "char_id": 3,
+   "mention": "the Hatter",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "157": {
+   "char_id": 3,
+   "mention": "the Hatter",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "158": {
+   "char_id": 5,
+   "mention": "Alice",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "160": {
+   "char_id": 20,
+   "mention": "the Hatter",
+   "mention_type": "NOM",
+   "same_paragraph": true
+  },
+  "162": {
+   "char_id": 20,
+   "mention": "the Hatter",
+   "mention_type": "NOM",
+   "same_paragraph": true
+  },
+  "163": {
+   "char_id": 5,
+   "mention": "Alice",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "165": {
+   "char_id": 2,
+   "mention": "the March Hare",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "167": {
+   "char_id": 2,
+   "mention": "the March Hare",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "168": {
+   "char_id": 5,
+   "mention": "Alice",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "170": {
+   "char_id": 29,
+   "mention": "they",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "172": {
+   "char_id": 29,
+   "mention": "they",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "175": {
+   "char_id": 30,
+   "mention": "he",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "177": {
+   "char_id": 30,
+   "mention": "he",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "178": {
+   "char_id": 2,
+   "mention": "the March Hare",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "180": {
+   "char_id": 5,
+   "mention": "Alice",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "182": {
+   "char_id": 3,
+   "mention": "the Hatter",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "184": {
+   "char_id": 3,
+   "mention": "the Hatter",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "185": {
+   "char_id": 44,
+   "mention": "the Dormouse",
+   "mention_type": "NOM",
+   "same_paragraph": true
+  },
+  "187": {
+   "char_id": 44,
+   "mention": "the Dormouse",
+   "mention_type": "NOM",
+   "same_paragraph": true
+  },
+  "188": {
+   "char_id": 5,
+   "mention": "Alice",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "190": {
+   "char_id": 4,
+   "mention": "the Dormouse",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "192": {
+   "char_id": 5,
+   "mention": "Alice",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "194": {
+   "char_id": 5,
+   "mention": "Alice",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "195": {
+   "char_id": 4,
+   "mention": "the Dormouse",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "197": {
+   "char_id": 4,
+   "mention": "the Dormouse",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "199": {
+   "char_id": 5,
+   "mention": "she",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "200": {
+   "char_id": 17,
+   "mention": "the March Hare",
+   "mention_type": "NOM",
+   "same_paragraph": true
+  },
+  "202": {
+   "char_id": 5,
+   "mention": "Alice",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "204": {
+   "char_id": 5,
+   "mention": "Alice",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "205": {
+   "char_id": 3,
+   "mention": "the Hatter",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "207": {
+   "char_id": 3,
+   "mention": "the Hatter",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "208": {
+   "char_id": 5,
+   "mention": "Alice",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "210": {
+   "char_id": 20,
+   "mention": "the Hatter",
+   "mention_type": "NOM",
+   "same_paragraph": true
+  },
+  "213": {
+   "char_id": 5,
+   "mention": "she",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "215": {
+   "char_id": 4,
+   "mention": "The Dormouse",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "216": {
+   "char_id": 5,
+   "mention": "Alice",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "218": {
+   "char_id": 4,
+   "mention": "the Dormouse",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "220": {
+   "char_id": 4,
+   "mention": "the Dormouse",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "221": {
+   "char_id": 5,
+   "mention": "Alice",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "223": {
+   "char_id": 5,
+   "mention": "Alice",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "224": {
+   "char_id": 4,
+   "mention": "the Dormouse",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "226": {
+   "char_id": 20,
+   "mention": "he",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "227": {
+   "char_id": 5,
+   "mention": "Alice",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "229": {
+   "char_id": 4,
+   "mention": "the Dormouse",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "231": {
+   "char_id": 20,
+   "mention": "the Hatter",
+   "mention_type": "NOM",
+   "same_paragraph": true
+  },
+  "233": {
+   "char_id": 20,
+   "mention": "the Hatter",
+   "mention_type": "NOM",
+   "same_paragraph": true
+  }
+ }
+}

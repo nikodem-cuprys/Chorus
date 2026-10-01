@@ -1,0 +1,477 @@
+{
+ "seconds": 16.7,
+ "characters": [
+  {
+   "id": 1,
+   "count": 140,
+   "gender": "he/him/his",
+   "proper": [
+    [
+     "Gregor",
+     18
+    ],
+    [
+     "Gregor Samsa",
+     1
+    ],
+    [
+     "Samsa",
+     1
+    ]
+   ],
+   "common": [],
+   "pronoun": [
+    [
+     "he",
+     39
+    ],
+    [
+     "his",
+     29
+    ],
+    [
+     "I",
+     18
+    ],
+    [
+     "himself",
+     8
+    ]
+   ]
+  },
+  {
+   "id": 8,
+   "count": 11,
+   "gender": "he/him/his",
+   "proper": [],
+   "common": [],
+   "pronoun": [
+    [
+     "he",
+     9
+    ],
+    [
+     "He",
+     1
+    ],
+    [
+     "his",
+     1
+    ]
+   ]
+  },
+  {
+   "id": 52,
+   "count": 9,
+   "gender": "he/him/his",
+   "proper": [],
+   "common": [
+    [
+     "the boss",
+     3
+    ]
+   ],
+   "pronoun": [
+    [
+     "him",
+     4
+    ],
+    [
+     "He",
+     1
+    ],
+    [
+     "his",
+     1
+    ]
+   ]
+  },
+  {
+   "id": 34,
+   "count": 7,
+   "gender": "he/him/his",
+   "proper": [],
+   "common": [
+    [
+     "his father",
+     1
+    ],
+    [
+     "His father",
+     1
+    ]
+   ],
+   "pronoun": [
+    [
+     "his",
+     3
+    ],
+    [
+     "he",
+     2
+    ]
+   ]
+  },
+  {
+   "id": 12,
+   "count": 6,
+   "gender": "he/him/his",
+   "proper": [],
+   "common": [
+    [
+     "the office assistant",
+     1
+    ],
+    [
+     "The office assistant",
+     1
+    ]
+   ],
+   "pronoun": [
+    [
+     "he",
+     3
+    ],
+    [
+     "his",
+     1
+    ]
+   ]
+  },
+  {
+   "id": 42,
+   "count": 4,
+   "gender": null,
+   "proper": [],
+   "common": [],
+   "pronoun": [
+    [
+     "you",
+     2
+    ],
+    [
+     "your",
+     1
+    ],
+    [
+     "You",
+     1
+    ]
+   ]
+  },
+  {
+   "id": 53,
+   "count": 3,
+   "gender": null,
+   "proper": [],
+   "common": [],
+   "pronoun": [
+    [
+     "your",
+     2
+    ],
+    [
+     "you",
+     1
+    ]
+   ]
+  },
+  {
+   "id": 11,
+   "count": 3,
+   "gender": "he/him/his",
+   "proper": [],
+   "common": [
+    [
+     "his boss",
+     1
+    ],
+    [
+     "His boss",
+     1
+    ]
+   ],
+   "pronoun": [
+    [
+     "his",
+     1
+    ]
+   ]
+  },
+  {
+   "id": 35,
+   "count": 3,
+   "gender": null,
+   "proper": [],
+   "common": [
+    [
+     "his sister",
+     2
+    ]
+   ],
+   "pronoun": [
+    [
+     "I",
+     1
+    ]
+   ]
+  },
+  {
+   "id": 7,
+   "count": 2,
+   "gender": "she/her",
+   "proper": [],
+   "common": [
+    [
+     "a lady fitted out with a fur hat",
+     1
+    ]
+   ],
+   "pronoun": [
+    [
+     "her",
+     1
+    ]
+   ]
+  },
+  {
+   "id": 46,
+   "count": 2,
+   "gender": "they/them/their",
+   "proper": [],
+   "common": [
+    [
+     "anyone",
+     1
+    ]
+   ],
+   "pronoun": [
+    [
+     "them",
+     1
+    ]
+   ]
+  },
+  {
+   "id": 49,
+   "count": 2,
+   "gender": "they/them/their",
+   "proper": [],
+   "common": [
+    [
+     "these gentlemen",
+     1
+    ]
+   ],
+   "pronoun": [
+    [
+     "their",
+     1
+    ]
+   ]
+  },
+  {
+   "id": 51,
+   "count": 2,
+   "gender": null,
+   "proper": [],
+   "common": [
+    [
+     "my parents",
+     2
+    ]
+   ],
+   "pronoun": []
+  },
+  {
+   "id": 24,
+   "count": 2,
+   "gender": null,
+   "proper": [],
+   "common": [
+    [
+     "the doctor",
+     2
+    ]
+   ],
+   "pronoun": []
+  },
+  {
+   "id": 28,
+   "count": 2,
+   "gender": null,
+   "proper": [],
+   "common": [
+    [
+     "his mother",
+     2
+    ]
+   ],
+   "pronoun": []
+  },
+  {
+   "id": 29,
+   "count": 2,
+   "gender": "he/him/his",
+   "proper": [],
+   "common": [
+    [
+     "the hearer",
+     1
+    ]
+   ],
+   "pronoun": [
+    [
+     "he",
+     1
+    ]
+   ]
+  },
+  {
+   "id": 58,
+   "count": 2,
+   "gender": null,
+   "proper": [],
+   "common": [
+    [
+     "mother",
+     1
+    ]
+   ],
+   "pronoun": [
+    [
+     "you",
+     1
+    ]
+   ]
+  },
+  {
+   "id": 31,
+   "count": 2,
+   "gender": "they/them/their",
+   "proper": [],
+   "common": [
+    [
+     "the other members of the family",
+     1
+    ]
+   ],
+   "pronoun": [
+    [
+     "their",
+     1
+    ]
+   ]
+  }
+ ],
+ "quotes": {
+  "1": {
+   "char_id": 1,
+   "mention": "he",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "4": {
+   "char_id": 1,
+   "mention": "he",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "6": {
+   "char_id": 1,
+   "mention": "he",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "8": {
+   "char_id": 1,
+   "mention": "he",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "11": {
+   "char_id": 1,
+   "mention": "He",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "13": {
+   "char_id": 1,
+   "mention": "he",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "15": {
+   "char_id": 8,
+   "mention": "he",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "18": {
+   "char_id": 27,
+   "mention": "somebody",
+   "mention_type": "NOM",
+   "same_paragraph": true
+  },
+  "20": {
+   "char_id": 27,
+   "mention": "somebody",
+   "mention_type": "NOM",
+   "same_paragraph": true
+  },
+  "22": {
+   "char_id": 1,
+   "mention": "himself",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "24": {
+   "char_id": 34,
+   "mention": "he",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "26": {
+   "char_id": 34,
+   "mention": "he",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "28": {
+   "char_id": 34,
+   "mention": "he",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  },
+  "30": {
+   "char_id": 35,
+   "mention": "his sister",
+   "mention_type": "NOM",
+   "same_paragraph": true
+  },
+  "32": {
+   "char_id": 1,
+   "mention": "Gregor",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "34": {
+   "char_id": 35,
+   "mention": "his sister",
+   "mention_type": "NOM",
+   "same_paragraph": true
+  },
+  "38": {
+   "char_id": 1,
+   "mention": "Gregor",
+   "mention_type": "PROP",
+   "same_paragraph": true
+  },
+  "40": {
+   "char_id": 1,
+   "mention": "himself",
+   "mention_type": "PRON",
+   "same_paragraph": true
+  }
+ }
+}

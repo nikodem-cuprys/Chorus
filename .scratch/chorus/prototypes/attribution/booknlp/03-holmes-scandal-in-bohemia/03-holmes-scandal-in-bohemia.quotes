@@ -1,0 +1,41 @@
+quote_start	quote_end	mention_start	mention_end	mention_phrase	char_id	quote
+778	783	784	784	he	11	“ Wedlock suits you , ”
+787	808	784	784	he	11	“ I think , Watson , that you have put on seven and a half pounds since I saw you . ”
+809	812	813	813	I	0	“ Seven ! ”
+816	858	763	763	he	11	“ Indeed , I should have thought a little more . Just a trifle more , I fancy , Watson . And in practice again , I observe . You did not tell me that you intended to go into harness . ”
+859	867	763	763	he	11	“ Then , how do you know ? ”
+868	903	763	763	he	11	“ I see it , I deduce it . How do I know that you have been getting yourself very wet lately , and that you have a most clumsy and careless servant girl ? ”
+904	909	911	911	I	0	“ My dear Holmes , ”
+913	1001	911	911	I	0	“ this is too much . You would certainly have been burned , had you lived a few centuries ago . It is true that I had a country walk on Thursday and came home in a dreadful mess , but as I have changed my clothes I ca n’t imagine how you deduce it . As to Mary Jane , she is incorrigible , and my wife has given her notice , but there , again , I fail to see how you work it out . ”
+1015	1021	1023	1023	he	43	“ It is simplicity itself , ”
+1025	1189	1023	1023	he	43	“ my eyes tell me that on the inside of your left shoe , just where the firelight strikes it , the leather is scored by six almost parallel cuts . Obviously they have been caused by someone who has very carelessly scraped round the edges of the sole in order to remove crusted mud from it . Hence , you see , my double deduction that you had been out in vile weather , and that you had a particularly malignant boot - slitting specimen of the London slavey . As to your practice , if a gentleman walks into my rooms smelling of iodoform , with a black mark of nitrate of silver upon his right forefinger , and a bulge on the right side of his top - hat to show where he has secreted his stethoscope , I must be dull , indeed , if I do not pronounce him to be an active member of the medical profession . ”
+1207	1216	1217	1217	I	0	“ When I hear you give your reasons , ”
+1220	1270	1217	1217	I	0	“ the thing always appears to me to be so ridiculously simple that I could easily do it myself , though at each successive instance of your reasoning I am baffled until you explain your process . And yet I believe that my eyes are as good as yours . ”
+1271	1275	1276	1276	he	44	“ Quite so , ”
+1291	1325	1285	1285	himself	44	“ You see , but you do not observe . The distinction is clear . For example , you have frequently seen the steps which lead up from the hall to this room . ”
+1326	1329	1217	1217	I	0	“ Frequently . ”
+1330	1334	1285	1285	himself	44	“ How often ? ”
+1335	1343	1217	1217	I	0	“ Well , some hundreds of times . ”
+1344	1351	1285	1285	himself	44	“ Then how many are there ? ”
+1352	1361	1217	1217	I	0	“ How many ? I do n’t know . ”
+1362	1437	1438	1438	He	44	“ Quite so ! You have not observed . And yet you have seen . That is just my point . Now , I know that there are seventeen steps , because I have both seen and observed . By the way , since you are interested in these little problems , and since you are good enough to chronicle one or two of my trifling experiences , you may be interested in this . ”
+1459	1467	1469	1469	he	44	“ It came by the last post , ”
+1471	1476	1469	1469	he	44	“ Read it aloud . ”
+1489	1506	1217	1217	I	0	“ There will call upon you to - night , at a quarter to eight o’clock , ”
+1510	1595	1217	1217	I	0	“ a gentleman who desires to consult you upon a matter of the very deepest moment . Your recent services to one of the royal houses of Europe have shown that you are one who may safely be trusted with matters which are of an importance which can hardly be exaggerated . This account of you we have from all quarters received . Be in your chamber then at that hour , and do not take it amiss if your visitor wear a mask . ”
+1596	1603	1604	1604	I	0	“ This is indeed a mystery , ”
+1607	1616	1604	1604	I	0	“ What do you imagine that it means ? ”
+1617	1665	1738	1738	Holmes	11	“ I have no data yet . It is a capital mistake to theorise before one has data . Insensibly one begins to twist facts to suit theories , instead of theories to suit facts . But the note itself . What do you deduce from it ? ”
+1681	1693	1694	1694	I	0	“ The man who wrote it was presumably well to do , ”
+1705	1726	1694	1694	I	0	“ Such paper could not be bought under half a crown a packet . It is peculiarly strong and stiff . ”
+1727	1736	1738	1738	Holmes	11	“ Peculiar — that is the very word , ”
+1740	1757	1738	1738	Holmes	11	“ It is not an English paper at all . Hold it up to the light . ”
+1766	1768	1694	1694	I	0	“ E ”
+1772	1775	1694	1694	I	0	“ g , ”
+1777	1780	1694	1694	I	0	“ P , ”
+1784	1786	1694	1694	I	0	“ G ”
+1790	1792	1694	1694	I	0	“ t ”
+1801	1809	1811	1811	Holmes	11	“ What do you make of that ? ”
+1813	1829	1694	1694	I	0	“ The name of the maker , no doubt ; or his monogram , rather . ”
+1830	1898	1899	1899	He	11	“ Not at all . The ‘ G ’ with the small ‘ t ’ stands for ‘ Gesellschaft , ’ which is the German for ‘ Company . ’ It is a customary contraction like our ‘ Co. ’ ‘ P , ’ of course , stands for ‘ Papier . ’ Now for the ‘ Eg . ’ Let us glance at our Continental Gazetteer . ”
+1910	1977	1899	1899	He	11	“ Eglow , Eglonitz — here we are , Egria . It is in a German - speaking country — in Bohemia , not far from Carlsbad . ‘ Remarkable as being the scene of the death of Wallenstein , and for its numerous glass - factories and paper - mills . ’ Ha , ha , my boy , what do you make of that ? ”

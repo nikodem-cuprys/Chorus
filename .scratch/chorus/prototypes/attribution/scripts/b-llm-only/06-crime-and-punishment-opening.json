@@ -1,0 +1,113 @@
+{
+ "approach": "b-llm-only",
+ "passage": "06-crime-and-punishment-opening",
+ "narrator": {
+  "person": "third",
+  "character": ""
+ },
+ "characters": [
+  {
+   "name": "the young man",
+   "aliases": [
+    "German hatter (referenced in shout)",
+    "character",
+    "my dear (implied in monologue)",
+    "the most trivial detail (referenced in thought)",
+    "he",
+    "the visitor",
+    "the old woman's visitor"
+   ],
+   "gender": "male",
+   "age": "young adult"
+  },
+  {
+   "name": "the old woman",
+   "aliases": [
+    "the old woman",
+    "she",
+    "her",
+    "a diminutive, withered up old woman of sixty",
+    "the German's family member (implied)",
+    "the flat's tenant"
+   ],
+   "gender": "female",
+   "age": "elderly"
+  }
+ ],
+ "labels": {
+  "4": {
+   "speaker": "the young man",
+   "kind": "thought",
+   "emotion": "disgusted",
+   "intensity": "low"
+  },
+  "6": {
+   "speaker": "the young man",
+   "kind": "thought",
+   "emotion": "anxious",
+   "intensity": "medium"
+  },
+  "9": {
+   "speaker": "the young man",
+   "kind": "speech",
+   "emotion": "surprised",
+   "intensity": "high"
+  },
+  "11": {
+   "speaker": "the young man",
+   "kind": "thought",
+   "emotion": "anxious",
+   "intensity": "high"
+  },
+  "13": {
+   "speaker": "the young man",
+   "kind": "thought",
+   "emotion": "anxious",
+   "intensity": "high"
+  },
+  "15": {
+   "speaker": "the young man",
+   "kind": "thought",
+   "emotion": "disgusted",
+   "intensity": "medium"
+  },
+  "17": {
+   "speaker": "the young man",
+   "kind": "thought",
+   "emotion": "excited",
+   "intensity": "high"
+  },
+  "20": {
+   "speaker": "the young man",
+   "kind": "thought",
+   "emotion": "disgusted",
+   "intensity": "low"
+  },
+  "22": {
+   "speaker": "the young man",
+   "kind": "thought",
+   "emotion": "sad",
+   "intensity": "low"
+  }
+ },
+ "scenes": [
+  {
+   "first_paragraph": 1,
+   "setting": "A hot, crowded street in Petersburg",
+   "mood": "anxious"
+  },
+  {
+   "first_paragraph": 6,
+   "setting": "A dark, narrow back staircase",
+   "mood": "tense"
+  }
+ ],
+ "missing": [],
+ "seconds": 106.1,
+ "stats": {
+  "calls": 7,
+  "seconds": 106.1,
+  "prompt_tokens": 8540,
+  "completion_tokens": 881
+ }
+}

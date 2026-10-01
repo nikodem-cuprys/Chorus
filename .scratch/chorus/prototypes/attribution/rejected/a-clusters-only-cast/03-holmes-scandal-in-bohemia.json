@@ -1,0 +1,339 @@
+{
+ "approach": "a-booknlp-llm",
+ "passage": "03-holmes-scandal-in-bohemia",
+ "narrator": {
+  "person": "first",
+  "character": "the narrator"
+ },
+ "characters": [
+  {
+   "name": "Sherlock Holmes",
+   "aliases": [
+    "Holmes"
+   ],
+   "gender": "male",
+   "age": "unknown",
+   "clusters": [
+    11,
+    12,
+    14,
+    29,
+    52,
+    63
+   ]
+  },
+  {
+   "name": "Irene Adler",
+   "aliases": [],
+   "gender": "female",
+   "age": "unknown",
+   "clusters": [
+    12
+   ]
+  },
+  {
+   "name": "Watson",
+   "aliases": [],
+   "gender": "male",
+   "age": "unknown",
+   "clusters": [
+    14
+   ]
+  },
+  {
+   "name": "the narrator's wife",
+   "aliases": [],
+   "gender": "female",
+   "age": "unknown",
+   "clusters": [
+    50
+   ]
+  }
+ ],
+ "labels": {
+  "4": {
+   "speaker": "Sherlock Holmes",
+   "kind": "speech",
+   "emotion": "amused",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "6": {
+   "speaker": "Sherlock Holmes",
+   "kind": "speech",
+   "emotion": "amused",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "7": {
+   "speaker": "Watson",
+   "kind": "speech",
+   "emotion": "surprised",
+   "intensity": "medium"
+  },
+  "9": {
+   "speaker": "Sherlock Holmes",
+   "kind": "speech",
+   "emotion": "amused",
+   "intensity": "low"
+  },
+  "10": {
+   "speaker": "Watson",
+   "kind": "speech",
+   "emotion": "surprised",
+   "intensity": "medium"
+  },
+  "11": {
+   "speaker": "Sherlock Holmes",
+   "kind": "speech",
+   "emotion": "amused",
+   "intensity": "low"
+  },
+  "12": {
+   "speaker": "Watson",
+   "kind": "speech",
+   "emotion": "amused",
+   "intensity": "medium"
+  },
+  "14": {
+   "speaker": "Watson",
+   "kind": "speech",
+   "emotion": "amused",
+   "intensity": "medium"
+  },
+  "16": {
+   "speaker": "Sherlock Holmes",
+   "kind": "speech",
+   "emotion": "amused",
+   "intensity": "low"
+  },
+  "18": {
+   "speaker": "Sherlock Holmes",
+   "kind": "speech",
+   "emotion": "amused",
+   "intensity": "medium"
+  },
+  "20": {
+   "speaker": "Watson",
+   "kind": "speech",
+   "emotion": "amused",
+   "intensity": "low"
+  },
+  "22": {
+   "speaker": "Watson",
+   "kind": "speech",
+   "emotion": "amused",
+   "intensity": "medium"
+  },
+  "23": {
+   "speaker": "Sherlock Holmes",
+   "kind": "speech",
+   "emotion": "amused",
+   "intensity": "low"
+  },
+  "25": {
+   "speaker": "Sherlock Holmes",
+   "kind": "speech",
+   "emotion": "amused",
+   "intensity": "low"
+  },
+  "26": {
+   "speaker": "Watson",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "27": {
+   "speaker": "Sherlock Holmes",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "28": {
+   "speaker": "Watson",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "29": {
+   "speaker": "Sherlock Holmes",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "30": {
+   "speaker": "Watson",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "31": {
+   "speaker": "Sherlock Holmes",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "medium"
+  },
+  "33": {
+   "speaker": "Sherlock Holmes",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "35": {
+   "speaker": "Sherlock Holmes",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "37": {
+   "speaker": "Unknown",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "39": {
+   "speaker": "Unknown",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "medium"
+  },
+  "40": {
+   "speaker": "Watson",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "42": {
+   "speaker": "Watson",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "43": {
+   "speaker": "Sherlock Holmes",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "medium"
+  },
+  "45": {
+   "speaker": "Watson",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "47": {
+   "speaker": "Watson",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "48": {
+   "speaker": "Sherlock Holmes",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "50": {
+   "speaker": "Sherlock Holmes",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "52": {
+   "speaker": "Unknown",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "54": {
+   "speaker": "Unknown",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "56": {
+   "speaker": "Unknown",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "58": {
+   "speaker": "Unknown",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "60": {
+   "speaker": "Unknown",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "62": {
+   "speaker": "Sherlock Holmes",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low",
+   "source": "booknlp"
+  },
+  "64": {
+   "speaker": "Watson",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "65": {
+   "speaker": "Sherlock Holmes",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "medium",
+   "source": "booknlp"
+  },
+  "67": {
+   "speaker": "Sherlock Holmes",
+   "kind": "speech",
+   "emotion": "amused",
+   "intensity": "medium",
+   "source": "booknlp"
+  }
+ },
+ "scenes": [
+  {
+   "first_paragraph": 0,
+   "setting": "Holmes's study",
+   "mood": "melancholic"
+  },
+  {
+   "first_paragraph": 1,
+   "setting": "Baker Street",
+   "mood": "melancholic"
+  },
+  {
+   "first_paragraph": 2,
+   "setting": "Baker Street",
+   "mood": "anxious"
+  },
+  {
+   "first_paragraph": 3,
+   "setting": "Holmes's study",
+   "mood": "calm"
+  },
+  {
+   "first_paragraph": 4,
+   "setting": "Holmes's study",
+   "mood": "calm"
+  }
+ ],
+ "anchored": 7,
+ "missing": [],
+ "seconds": 194.0,
+ "booknlp_seconds": 22.4,
+ "stats": {
+  "calls": 4,
+  "seconds": 171.6,
+  "prompt_tokens": 5885,
+  "completion_tokens": 2453
+ }
+}
