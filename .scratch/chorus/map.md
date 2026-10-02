@@ -50,19 +50,9 @@ A build-ready spec for Chorus (in `docs/spec/`): product scope, architecture, th
 
 - **llama.cpp server in the container:** ticket 11 runs llama.cpp's server for the whole analysis stage, but build b11318 hung after one or two requests on Windows (ticket 08). Still to check in the Linux container; the fallback is llama-cpp-python.
 
-- **Which lines the review queue asks about:** the model gives no confidence score; four simple rules covered 14 of approach B's 21 wrong lines on the samples at the cost of 70 questions. Open: better rules, or a second model pass that scores its own doubt.
-- **What a correction regenerates:** assumed, not confirmed: only lines whose Voice, Emotion, intensity or text changed are re-voiced, then the chapter is re-assembled. Also unconfirmed: in a first-person Work the Narrator uses the narrating Character's Voice.
-
 - **Voice model memory:** Chatterbox 500M needs ~3.7 GB and only runs on a shared 1050 Ti by spilling into Windows system memory. The architecture (ticket 11) assumes it can be cut to fit. Still to measure in Docker/WSL2: half-precision weights with FP32 compute, and loading the model's two halves one at a time. If neither works, choose between accepting the spill (Linux has no such fallback) and requiring a card with no desktop on it.
 
-- **YouTube dashboard:** what the final-milestone dashboard shows beyond upload status; which YouTube statistics, and the extra YouTube permission they need (not researched).
-- **Library and player:** what the in-app Library holds and how listening works (progress, chapters, bookmarks, regeneration history).
-- **Mood in delivery:** how Scene Mood becomes audible without music: narrator pacing, pauses, delivery style. Depends on what the chosen voice model can control. Research says scene boundaries are hard to detect, so Mood will be coarse.
-- **Emotion label set:** the fixed list of Emotions a Script uses; should follow what the chosen voice model can express (settles after the listening test).
-- **Pronunciation:** names and invented words (fantasy, fanfic); a per-Work pronunciation lexicon.
-- **Voice consistency:** keeping a Character's Voice stable across a long Work and across regeneration; aliases and nicknames of one Character.
-- **Special text:** AO3 author notes, italic inner thoughts, letters and text messages, footnotes, epigraphs, chapter titles.
-- **Long jobs:** resume after a crash or reboot, progress reporting, and what "regenerate one line" means for already-assembled audio.
+- **YouTube dashboard contents:** what the final-milestone dashboard shows beyond upload status; waits on the facts from [YouTube statistics available to the Publishing dashboard](issues/23-youtube-statistics.md).
 - **More languages:** how language-specific dialogue conventions and voice models plug in after English. Research: BookNLP is English-only, and a per-language quote splitter (em-dash dialogue, guillemets) must be built.
 - **Milestones:** the build-order breakdown of the final spec.
 
