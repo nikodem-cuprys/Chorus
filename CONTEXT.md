@@ -21,7 +21,7 @@ Whoever voices a given line: the Narrator or a Character.
 _Avoid_: Voice (a Voice is what a Speaker sounds like)
 
 **Narrator**:
-The Speaker for all text that is not a Character's direct speech.
+The Speaker for all voiced text that is not a Character's speech, thought or letter.
 
 **Character**:
 A person in the Work who speaks at least one line of dialogue.
