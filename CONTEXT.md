@@ -32,15 +32,11 @@ Deciding which Speaker says each line.
 _Avoid_: Speaker detection, diarization
 
 **Scene**:
-A continuous stretch of a chapter with one setting and one Mood.
-
-**Mood**:
-The emotional atmosphere of a Scene (e.g. tense, calm, melancholic).
-_Avoid_: Tone, atmosphere
+A continuous stretch of a chapter with one setting.
 
 **Emotion**:
-How a Speaker feels while saying one line. It sets how that line is delivered.
-_Avoid_: Sentiment, feeling
+How a Character feels while saying one line. It sets how that line is delivered. The Narrator's lines have no Emotion and are always delivered neutrally.
+_Avoid_: Sentiment, feeling, Mood (a Scene has no emotional label)
 
 **Script**:
 The analysed Work: every line with its Speaker, Emotion and Scene. It can be corrected before or after audio is generated.
@@ -53,7 +49,7 @@ A synthetic voice assigned to a Speaker.
 _Avoid_: Speaker, model
 
 **Audio drama**:
-The generated audio of a Work: a Narrator and distinct Character Voices speaking with Emotion. It has no sound effects.
+The generated audio of a Work: a neutral Narrator and distinct Character Voices speaking with Emotion. It has no sound effects.
 _Avoid_: Audiobook, podcast, rendering
 
 **Library**:

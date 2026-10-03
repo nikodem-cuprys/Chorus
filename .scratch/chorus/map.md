@@ -8,7 +8,7 @@ A build-ready spec for Chorus (in `docs/spec/`): product scope, architecture, th
 
 ## Notes
 
-- **Domain:** see `CONTEXT.md` for the glossary (Source, Work, Speaker, Speaker attribution, Scene, Mood, Emotion, Script, Voice, Audio drama, Library, Publishing, YouTube export). Use these terms.
+- **Domain:** see `CONTEXT.md` for the glossary (Source, Work, Speaker, Speaker attribution, Scene, Emotion, Script, Voice, Audio drama, Library, Publishing, YouTube export). Use these terms.
 - **Skills:** grilling tickets call `grilling` + `domain-modeling`; prototype tickets call `prototype`; research tickets call `research`.
 - **Standing constraints (from charting):**
   - Self-hosted, single user, used through a browser; shipped as Docker with NVIDIA GPU support, on Windows (WSL2) and Linux.
@@ -46,6 +46,7 @@ A build-ready spec for Chorus (in `docs/spec/`): product scope, architecture, th
 - [Policy on permission to publish other authors' works and consent for cloned voices](issues/10-permissions-and-consent-policy.md): Chorus informs and never blocks. One warning ever about the author's permission at the first YouTube export or Publishing; no question when cloning a voice; an AO3 commercial-use line on every YouTube export and Publishing of an AO3 Work; the synthetic-content flag is on by default, switchable per Work, and forced on when a cloned Voice is not the user's own (asked once per Voice at Publishing); Chatterbox's watermark stays on by default with one global switch to turn it off; a short responsible-use note in the README.
 - [Architecture and tech stack, including GPU sharing between the language and voice models](issues/11-architecture-and-stack.md): MIT; FastAPI backend, React + TypeScript frontend; PostgreSQL plus one FLAC file per line; Celery on Redis with a one-slot GPU queue and a second queue for everything else; each GPU stage is a child process that exits (analyse the whole Work, then voice it); llama.cpp server per analysis stage; engines behind interfaces; Docker Compose with web, worker, Redis and PostgreSQL from one Chorus image, models downloaded on first run; no login on localhost; server-sent events; a plain YouTube module.
 - [The Emotion list and how Chatterbox voices each Emotion](issues/16-emotion-label-set.md): nine Emotions (neutral, happy, excited, amused, angry, sad, afraid, anxious, surprised; disgusted removed) with two intensities, normal and strong; `exaggeration` never above 0.9, since everything from 1.0 up was too aggressive or lost the Voice. Lines use a fixed seed stored per line, which reproduces the same take. Settings in `prototypes/emotion-settings/emotions.json`.
+- [How a Scene's Mood is heard without music](issues/17-mood-without-music.md): Mood is dropped from the Script; by ear every Mood version sounded calm. The Narrator is always neutral, only Character lines carry an Emotion, and pauses are one fixed set of lengths. A Scene is now just a stretch with one setting.
 
 ## Not yet specified
 
@@ -53,6 +54,7 @@ A build-ready spec for Chorus (in `docs/spec/`): product scope, architecture, th
 
 - **Voice model memory:** Chatterbox 500M needs ~3.7 GB and only runs on a shared 1050 Ti by spilling into Windows system memory. The architecture (ticket 11) assumes it can be cut to fit. Still to measure in Docker/WSL2: half-precision weights with FP32 compute, and loading the model's two halves one at a time. If neither works, choose between accepting the spill (Linux has no such fallback) and requiring a card with no desktop on it.
 
+- **What a Scene is for:** with Mood dropped (ticket 17), a Scene carries only a setting and nothing decided so far uses it in the audio. Still to decide whether the Script keeps Scenes, and if so what they do (review grouping, a longer pause at a Scene change).
 - **YouTube dashboard contents:** what the final-milestone dashboard shows beyond upload status; waits on the facts from [YouTube statistics available to the Publishing dashboard](issues/23-youtube-statistics.md).
 - **More languages:** how language-specific dialogue conventions and voice models plug in after English. Research: BookNLP is English-only, and a per-language quote splitter (em-dash dialogue, guillemets) must be built.
 - **Milestones:** the build-order breakdown of the final spec.
