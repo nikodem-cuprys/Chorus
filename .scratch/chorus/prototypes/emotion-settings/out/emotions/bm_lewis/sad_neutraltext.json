@@ -1,0 +1,1 @@
+{"part": "emotions", "voice": "bm_lewis", "key": "sad_neutraltext", "emotion": "sad", "intensity": "high", "text": "The carriage will be at the door at nine, and we shall leave the moment it arrives.", "ex": 0.3, "cfg": 0.3, "seed": 0, "control": true, "gen_s": 44.9, "audio_s": 5.28, "words_per_s": 3.22, "speaker_sim": 0.931}

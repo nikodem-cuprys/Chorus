@@ -1,0 +1,1 @@
+{"part": "emotions", "voice": "af_bella", "key": "angry_neutraltext", "emotion": "angry", "intensity": "high", "text": "The carriage will be at the door at nine, and we shall leave the moment it arrives.", "ex": 1.4, "cfg": 0.25, "seed": 0, "control": true, "gen_s": 42.7, "audio_s": 5.2, "words_per_s": 3.27, "speaker_sim": 0.909}
