@@ -48,6 +48,10 @@ _Avoid_: Screenplay, transcript
 A synthetic voice assigned to a Speaker.
 _Avoid_: Speaker, model
 
+**Respelling**:
+A replacement spelling for one word of a Work, written as one ordinary-looking word, that the voice model reads instead of the original so the word is said correctly. It never changes the Script's text.
+_Avoid_: Phonetic spelling, phonemes, alias
+
 **Audio drama**:
 The generated audio of a Work: a neutral Narrator and distinct Character Voices speaking with Emotion. It has no sound effects.
 _Avoid_: Audiobook, podcast, rendering

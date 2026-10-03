@@ -8,7 +8,7 @@ A build-ready spec for Chorus (in `docs/spec/`): product scope, architecture, th
 
 ## Notes
 
-- **Domain:** see `CONTEXT.md` for the glossary (Source, Work, Speaker, Speaker attribution, Scene, Emotion, Script, Voice, Audio drama, Library, Publishing, YouTube export). Use these terms.
+- **Domain:** see `CONTEXT.md` for the glossary (Source, Work, Speaker, Speaker attribution, Scene, Emotion, Script, Voice, Respelling, Audio drama, Library, Publishing, YouTube export). Use these terms.
 - **Skills:** grilling tickets call `grilling` + `domain-modeling`; prototype tickets call `prototype`; research tickets call `research`.
 - **Standing constraints (from charting):**
   - Self-hosted, single user, used through a browser; shipped as Docker with NVIDIA GPU support, on Windows (WSL2) and Linux.
@@ -48,6 +48,7 @@ A build-ready spec for Chorus (in `docs/spec/`): product scope, architecture, th
 - [The Emotion list and how Chatterbox voices each Emotion](issues/16-emotion-label-set.md): nine Emotions (neutral, happy, excited, amused, angry, sad, afraid, anxious, surprised; disgusted removed) with two intensities, normal and strong; `exaggeration` never above 0.9, since everything from 1.0 up was too aggressive or lost the Voice. Lines use a fixed seed stored per line, which reproduces the same take. Settings in `prototypes/emotion-settings/emotions.json`.
 - [How a Scene's Mood is heard without music](issues/17-mood-without-music.md): Mood is dropped from the Script; by ear every Mood version sounded calm. The Narrator is always neutral, only Character lines carry an Emotion, and pauses are one fixed set of lengths. A Scene is now just a stretch with one setting.
 - [Which lines the review queue asks about](issues/18-review-queue-rules.md): five text rules plus a blind second labelling run in smaller chunks; a line is asked about when a rule fires or the two runs disagree. 40 questions catch 19 of the 21 wrong lines on the samples (ticket 09's rules: 61 and 14), for about 70% more analysis time. Asking the model to rate its own labels does not work (279 of 288 rated "sure").
+- [Pronouncing names and invented words](issues/19-pronunciation-lexicon.md): a one-word Respelling works (it fixed 2 of 3 problem names; hyphens make things worse) but 7 of 10 hard names were already right and a Respelling can damage a good one, so nothing is respelled automatically. One pronunciation list per Work: Chorus lists Character names and non-dictionary words as candidates, the user types a Respelling and tries it before saving, in a panel beside the cast; a change re-voices every line containing the word.
 
 ## Not yet specified
 
