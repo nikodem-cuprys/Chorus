@@ -8,7 +8,7 @@ A build-ready spec for Chorus (in `docs/spec/`): product scope, architecture, th
 
 ## Notes
 
-- **Domain:** see `CONTEXT.md` for the glossary (Source, Work, Speaker, Speaker attribution, Scene, Emotion, Script, Voice, Respelling, Audio drama, Library, Publishing, YouTube export). Use these terms.
+- **Domain:** see `CONTEXT.md` for the glossary (Source, Work, Speaker, Narrating Character, Speaker attribution, Scene, Emotion, Script, Voice, Respelling, Audio drama, Library, Publishing, YouTube export). Use these terms.
 - **Skills:** grilling tickets call `grilling` + `domain-modeling`; prototype tickets call `prototype`; research tickets call `research`.
 - **Standing constraints (from charting):**
   - Self-hosted, single user, used through a browser; shipped as Docker with NVIDIA GPU support, on Windows (WSL2) and Linux.
@@ -49,6 +49,7 @@ A build-ready spec for Chorus (in `docs/spec/`): product scope, architecture, th
 - [How a Scene's Mood is heard without music](issues/17-mood-without-music.md): Mood is dropped from the Script; by ear every Mood version sounded calm. The Narrator is always neutral, only Character lines carry an Emotion, and pauses are one fixed set of lengths. A Scene is now just a stretch with one setting.
 - [Which lines the review queue asks about](issues/18-review-queue-rules.md): five text rules plus a blind second labelling run in smaller chunks; a line is asked about when a rule fires or the two runs disagree. 40 questions catch 19 of the 21 wrong lines on the samples (ticket 09's rules: 61 and 14), for about 70% more analysis time. Asking the model to rate its own labels does not work (279 of 288 rated "sure").
 - [Pronouncing names and invented words](issues/19-pronunciation-lexicon.md): a one-word Respelling works (it fixed 2 of 3 problem names; hyphens make things worse) but 7 of 10 hard names were already right and a Respelling can damage a good one, so nothing is respelled automatically. One pronunciation list per Work: Chorus lists Character names and non-dictionary words as candidates, the user types a Respelling and tries it before saving, in a panel beside the cast; a change re-voices every line containing the word.
+- [What a correction re-voices, and who narrates a first-person Work](issues/20-what-a-correction-revoices.md): only lines whose Voice, Emotion, intensity or text changed are re-voiced, on Regenerate, keeping their seed; a "New take" button picks a new one; old audio plays meanwhile, marked. Each chapter has a Narrating Character (or none) whose auto-cast Voice the Narrator shares. Corrections never restart a running job; exports finish and are flagged outdated; jobs pause, resume and cancel without losing finished lines, resume by themselves after a crash, and show chapter, line count, percentage and time left.
 
 ## Not yet specified
 

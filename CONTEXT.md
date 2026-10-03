@@ -27,6 +27,10 @@ The Speaker for all text that is not a Character's direct speech.
 A person in the Work who speaks at least one line of dialogue.
 _Avoid_: Role, persona
 
+**Narrating Character**:
+The Character who tells a chapter in the first person. The Narrator shares that Character's Voice for the chapter. A chapter told in the third person has none.
+_Avoid_: First-person narrator, POV character
+
 **Speaker attribution**:
 Deciding which Speaker says each line.
 _Avoid_: Speaker detection, diarization
