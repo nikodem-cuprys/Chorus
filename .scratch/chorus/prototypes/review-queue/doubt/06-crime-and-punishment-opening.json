@@ -1,0 +1,48 @@
+{
+ "passage": "06-crime-and-punishment-opening",
+ "lines": {
+  "4": {
+   "speaker": "the young man",
+   "verdict": "sure"
+  },
+  "6": {
+   "speaker": "the young man",
+   "verdict": "sure"
+  },
+  "9": {
+   "speaker": "the young man",
+   "verdict": "wrong"
+  },
+  "11": {
+   "speaker": "the young man",
+   "verdict": "sure"
+  },
+  "13": {
+   "speaker": "the young man",
+   "verdict": "sure"
+  },
+  "15": {
+   "speaker": "the young man",
+   "verdict": "sure"
+  },
+  "17": {
+   "speaker": "the young man",
+   "verdict": "sure"
+  },
+  "20": {
+   "speaker": "the young man",
+   "verdict": "sure"
+  },
+  "22": {
+   "speaker": "the young man",
+   "verdict": "sure"
+  }
+ },
+ "seconds": 42.5,
+ "stats": {
+  "calls": 3,
+  "seconds": 42.5,
+  "prompt_tokens": 3543,
+  "completion_tokens": 342
+ }
+}

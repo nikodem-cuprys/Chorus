@@ -1,0 +1,268 @@
+{
+ "passage": "01-pride-and-prejudice-ch1-2",
+ "lines": {
+  "2": {
+   "speaker": "Mrs. Bennet",
+   "verdict": "sure"
+  },
+  "4": {
+   "speaker": "Mrs. Bennet",
+   "verdict": "sure"
+  },
+  "6": {
+   "speaker": "Mrs. Bennet",
+   "verdict": "sure"
+  },
+  "8": {
+   "speaker": "Mrs. Bennet",
+   "verdict": "sure"
+  },
+  "10": {
+   "speaker": "Mrs. Bennet",
+   "verdict": "sure"
+  },
+  "12": {
+   "speaker": "Mr. Bennet",
+   "verdict": "sure"
+  },
+  "14": {
+   "speaker": "Mrs. Bennet",
+   "verdict": "sure"
+  },
+  "15": {
+   "speaker": "Mr. Bennet",
+   "verdict": "sure"
+  },
+  "16": {
+   "speaker": "Mrs. Bennet",
+   "verdict": "sure"
+  },
+  "17": {
+   "speaker": "Mr. Bennet",
+   "verdict": "sure"
+  },
+  "18": {
+   "speaker": "Mrs. Bennet",
+   "verdict": "sure"
+  },
+  "19": {
+   "speaker": "Mr. Bennet",
+   "verdict": "sure"
+  },
+  "20": {
+   "speaker": "Mrs. Bennet",
+   "verdict": "sure"
+  },
+  "22": {
+   "speaker": "Mrs. Bennet",
+   "verdict": "sure"
+  },
+  "23": {
+   "speaker": "Mr. Bennet",
+   "verdict": "sure"
+  },
+  "24": {
+   "speaker": "Mrs. Bennet",
+   "verdict": "sure"
+  },
+  "25": {
+   "speaker": "Mr. Bennet",
+   "verdict": "sure"
+  },
+  "26": {
+   "speaker": "Mrs. Bennet",
+   "verdict": "sure"
+  },
+  "27": {
+   "speaker": "Mr. Bennet",
+   "verdict": "sure"
+  },
+  "28": {
+   "speaker": "Mrs. Bennet",
+   "verdict": "sure"
+  },
+  "29": {
+   "speaker": "Mr. Bennet",
+   "verdict": "sure"
+  },
+  "30": {
+   "speaker": "Mrs. Bennet",
+   "verdict": "sure"
+  },
+  "31": {
+   "speaker": "Mrs. Bennet",
+   "verdict": "sure"
+  },
+  "32": {
+   "speaker": "Mr. Bennet",
+   "verdict": "sure"
+  },
+  "33": {
+   "speaker": "Mr. Bennet",
+   "verdict": "sure"
+  },
+  "35": {
+   "speaker": "Mr. Bennet",
+   "verdict": "sure"
+  },
+  "36": {
+   "speaker": "Mrs. Bennet",
+   "verdict": "sure"
+  },
+  "37": {
+   "speaker": "Mr. Bennet",
+   "verdict": "sure"
+  },
+  "38": {
+   "speaker": "Mrs. Bennet",
+   "verdict": "sure"
+  },
+  "39": {
+   "speaker": "Mr. Bennet",
+   "verdict": "sure"
+  },
+  "40": {
+   "speaker": "Mrs. Bennet",
+   "verdict": "sure"
+  },
+  "41": {
+   "speaker": "Mrs. Bennet",
+   "verdict": "sure"
+  },
+  "45": {
+   "speaker": "Lizzy",
+   "verdict": "sure"
+  },
+  "46": {
+   "speaker": "Mrs. Bennet",
+   "verdict": "sure"
+  },
+  "48": {
+   "speaker": "Mrs. Bennet",
+   "verdict": "sure"
+  },
+  "49": {
+   "speaker": "Lizzy",
+   "verdict": "sure"
+  },
+  "51": {
+   "speaker": "Lizzy",
+   "verdict": "sure"
+  },
+  "52": {
+   "speaker": "Mrs. Bennet",
+   "verdict": "sure"
+  },
+  "53": {
+   "speaker": "Mr. Bennet",
+   "verdict": "sure"
+  },
+  "55": {
+   "speaker": "Mr. Bennet",
+   "verdict": "sure"
+  },
+  "57": {
+   "speaker": "Kitty",
+   "verdict": "sure"
+  },
+  "58": {
+   "speaker": "Mr. Bennet",
+   "verdict": "sure"
+  },
+  "60": {
+   "speaker": "Mr. Bennet",
+   "verdict": "sure"
+  },
+  "61": {
+   "speaker": "Kitty",
+   "verdict": "sure"
+  },
+  "63": {
+   "speaker": "Kitty",
+   "verdict": "sure"
+  },
+  "64": {
+   "speaker": "Lizzy",
+   "verdict": "sure"
+  },
+  "65": {
+   "speaker": "Mrs. Bennet",
+   "verdict": "sure"
+  },
+  "67": {
+   "speaker": "Mrs. Bennet",
+   "verdict": "sure"
+  },
+  "68": {
+   "speaker": "Mr. Bennet",
+   "verdict": "sure"
+  },
+  "69": {
+   "speaker": "Lizzy",
+   "verdict": "sure"
+  },
+  "70": {
+   "speaker": "Mr. Bennet",
+   "verdict": "sure"
+  },
+  "72": {
+   "speaker": "Mrs. Bennet",
+   "verdict": "sure"
+  },
+  "73": {
+   "speaker": "Mr. Bennet",
+   "verdict": "sure"
+  },
+  "75": {
+   "speaker": "Mr. Bennet",
+   "verdict": "sure"
+  },
+  "77": {
+   "speaker": "Mr. Bennet",
+   "verdict": "sure"
+  },
+  "79": {
+   "speaker": "Mr. Bennet",
+   "verdict": "sure"
+  },
+  "80": {
+   "speaker": "Mrs. Bennet",
+   "verdict": "sure"
+  },
+  "82": {
+   "speaker": "Mr. Bennet",
+   "verdict": "sure"
+  },
+  "84": {
+   "speaker": "Mrs. Bennet",
+   "verdict": "sure"
+  },
+  "85": {
+   "speaker": "Mr. Bennet",
+   "verdict": "sure"
+  },
+  "87": {
+   "speaker": "Mrs. Bennet",
+   "verdict": "sure"
+  },
+  "89": {
+   "speaker": "Mrs. Bennet",
+   "verdict": "sure"
+  },
+  "90": {
+   "speaker": "Lydia",
+   "verdict": "sure"
+  },
+  "92": {
+   "speaker": "Lydia",
+   "verdict": "sure"
+  }
+ },
+ "seconds": 146.2,
+ "stats": {
+  "calls": 2,
+  "seconds": 146.2,
+  "prompt_tokens": 4077,
+  "completion_tokens": 1921
+ }
+}

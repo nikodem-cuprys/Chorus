@@ -1,0 +1,128 @@
+{
+ "passage": "04-jane-eyre-ch1",
+ "lines": {
+  "3": {
+   "speaker": "Mrs. Reed",
+   "verdict": "sure"
+  },
+  "4": {
+   "speaker": "Jane",
+   "verdict": "sure"
+  },
+  "6": {
+   "speaker": "Mrs. Reed",
+   "verdict": "sure"
+  },
+  "10": {
+   "speaker": "Narrator",
+   "verdict": "sure"
+  },
+  "12": {
+   "speaker": "Narrator",
+   "verdict": "sure"
+  },
+  "14": {
+   "speaker": "Narrator",
+   "verdict": "sure"
+  },
+  "22": {
+   "speaker": "John Reed",
+   "verdict": "sure"
+  },
+  "24": {
+   "speaker": "John Reed",
+   "verdict": "sure"
+  },
+  "26": {
+   "speaker": "John Reed",
+   "verdict": "sure"
+  },
+  "27": {
+   "speaker": "Jane",
+   "verdict": "sure"
+  },
+  "29": {
+   "speaker": "Eliza Reed",
+   "verdict": "sure"
+  },
+  "31": {
+   "speaker": "Jane",
+   "verdict": "sure"
+  },
+  "33": {
+   "speaker": "John Reed",
+   "verdict": "sure"
+  },
+  "35": {
+   "speaker": "John Reed",
+   "verdict": "sure"
+  },
+  "38": {
+   "speaker": "Narrator",
+   "verdict": "sure"
+  },
+  "42": {
+   "speaker": "John Reed",
+   "verdict": "sure"
+  },
+  "44": {
+   "speaker": "John Reed",
+   "verdict": "sure"
+  },
+  "46": {
+   "speaker": "John Reed",
+   "verdict": "sure"
+  },
+  "48": {
+   "speaker": "Jane",
+   "verdict": "sure"
+  },
+  "49": {
+   "speaker": "John Reed",
+   "verdict": "sure"
+  },
+  "51": {
+   "speaker": "John Reed",
+   "verdict": "sure"
+  },
+  "53": {
+   "speaker": "Jane",
+   "verdict": "sure"
+  },
+  "55": {
+   "speaker": "Jane",
+   "verdict": "sure"
+  },
+  "57": {
+   "speaker": "John Reed",
+   "verdict": "sure"
+  },
+  "59": {
+   "speaker": "John Reed",
+   "verdict": "sure"
+  },
+  "61": {
+   "speaker": "Jane",
+   "verdict": "sure"
+  },
+  "63": {
+   "speaker": "Mrs. Reed",
+   "verdict": "sure"
+  },
+  "64": {
+   "speaker": "Mrs. Reed",
+   "verdict": "sure"
+  },
+  "66": {
+   "speaker": "Mrs. Reed",
+   "verdict": "sure"
+  }
+ },
+ "seconds": 84.3,
+ "stats": {
+  "calls": 3,
+  "seconds": 84.3,
+  "prompt_tokens": 4400,
+  "completion_tokens": 992
+ }
+}

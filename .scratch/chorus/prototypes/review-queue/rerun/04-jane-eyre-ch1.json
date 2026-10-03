@@ -1,0 +1,180 @@
+{
+ "passage": "04-jane-eyre-ch1",
+ "labels": {
+  "3": {
+   "speaker": "Mrs. Reed",
+   "kind": "speech",
+   "emotion": "disgusted",
+   "intensity": "medium"
+  },
+  "4": {
+   "speaker": "Jane",
+   "kind": "speech",
+   "emotion": "anxious",
+   "intensity": "low"
+  },
+  "6": {
+   "speaker": "Mrs. Reed",
+   "kind": "speech",
+   "emotion": "disgusted",
+   "intensity": "high"
+  },
+  "10": {
+   "speaker": "Jane",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "12": {
+   "speaker": "Jane",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "14": {
+   "speaker": "Narrator",
+   "kind": "speech",
+   "emotion": "surprised",
+   "intensity": "low"
+  },
+  "22": {
+   "speaker": "John Reed",
+   "kind": "speech",
+   "emotion": "angry",
+   "intensity": "medium"
+  },
+  "24": {
+   "speaker": "John Reed",
+   "kind": "speech",
+   "emotion": "angry",
+   "intensity": "medium"
+  },
+  "26": {
+   "speaker": "John Reed",
+   "kind": "speech",
+   "emotion": "angry",
+   "intensity": "medium"
+  },
+  "27": {
+   "speaker": "Narrator",
+   "kind": "thought",
+   "emotion": "anxious",
+   "intensity": "medium"
+  },
+  "29": {
+   "speaker": "Eliza Reed",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "31": {
+   "speaker": "Narrator",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "33": {
+   "speaker": "John Reed",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "35": {
+   "speaker": "John Reed",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "38": {
+   "speaker": "Narrator",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "42": {
+   "speaker": "John Reed",
+   "kind": "speech",
+   "emotion": "angry",
+   "intensity": "high"
+  },
+  "44": {
+   "speaker": "John Reed",
+   "kind": "speech",
+   "emotion": "angry",
+   "intensity": "high"
+  },
+  "46": {
+   "speaker": "John Reed",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "48": {
+   "speaker": "Jane",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "49": {
+   "speaker": "John Reed",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "51": {
+   "speaker": "John Reed",
+   "kind": "speech",
+   "emotion": "angry",
+   "intensity": "high"
+  },
+  "53": {
+   "speaker": "Jane",
+   "kind": "speech",
+   "emotion": "happy",
+   "intensity": "low"
+  },
+  "55": {
+   "speaker": "Jane",
+   "kind": "speech",
+   "emotion": "angry",
+   "intensity": "high"
+  },
+  "57": {
+   "speaker": "John Reed",
+   "kind": "speech",
+   "emotion": "surprised",
+   "intensity": "medium"
+  },
+  "59": {
+   "speaker": "John Reed",
+   "kind": "speech",
+   "emotion": "angry",
+   "intensity": "high"
+  },
+  "61": {
+   "speaker": "John Reed",
+   "kind": "speech",
+   "emotion": "angry",
+   "intensity": "high"
+  },
+  "63": {
+   "speaker": "Mrs. Reed",
+   "kind": "speech",
+   "emotion": "surprised",
+   "intensity": "medium"
+  },
+  "64": {
+   "speaker": "Mrs. Reed",
+   "kind": "speech",
+   "emotion": "surprised",
+   "intensity": "medium"
+  },
+  "66": {
+   "speaker": "Mrs. Reed",
+   "kind": "speech",
+   "emotion": "angry",
+   "intensity": "high"
+  }
+ },
+ "seconds": 111.2
+}

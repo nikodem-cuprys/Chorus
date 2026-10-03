@@ -1,0 +1,84 @@
+{
+ "passage": "05-metamorphosis-opening",
+ "lines": {
+  "1": {
+   "speaker": "Gregor Samsa",
+   "verdict": "sure"
+  },
+  "4": {
+   "speaker": "Gregor Samsa",
+   "verdict": "sure"
+  },
+  "6": {
+   "speaker": "Gregor Samsa",
+   "verdict": "sure"
+  },
+  "8": {
+   "speaker": "Gregor Samsa",
+   "verdict": "sure"
+  },
+  "11": {
+   "speaker": "Gregor Samsa",
+   "verdict": "sure"
+  },
+  "13": {
+   "speaker": "Gregor Samsa",
+   "verdict": "sure"
+  },
+  "15": {
+   "speaker": "Gregor Samsa",
+   "verdict": "sure"
+  },
+  "18": {
+   "speaker": "Unknown",
+   "verdict": "sure"
+  },
+  "20": {
+   "speaker": "Unknown",
+   "verdict": "sure"
+  },
+  "22": {
+   "speaker": "Gregor Samsa",
+   "verdict": "sure"
+  },
+  "24": {
+   "speaker": "Unknown",
+   "verdict": "sure"
+  },
+  "26": {
+   "speaker": "Unknown",
+   "verdict": "sure"
+  },
+  "28": {
+   "speaker": "Unknown",
+   "verdict": "sure"
+  },
+  "30": {
+   "speaker": "Unknown",
+   "verdict": "sure"
+  },
+  "32": {
+   "speaker": "Gregor Samsa",
+   "verdict": "sure"
+  },
+  "34": {
+   "speaker": "Unknown",
+   "verdict": "sure"
+  },
+  "38": {
+   "speaker": "Gregor Samsa",
+   "verdict": "sure"
+  },
+  "40": {
+   "speaker": "Gregor Samsa",
+   "verdict": "sure"
+  }
+ },
+ "seconds": 58.2,
+ "stats": {
+  "calls": 3,
+  "seconds": 58.2,
+  "prompt_tokens": 3284,
+  "completion_tokens": 655
+ }
+}

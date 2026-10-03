@@ -1,0 +1,114 @@
+{
+ "passage": "05-metamorphosis-opening",
+ "labels": {
+  "1": {
+   "speaker": "Gregor Samsa",
+   "kind": "thought",
+   "emotion": "disgusted",
+   "intensity": "high"
+  },
+  "4": {
+   "speaker": "Gregor Samsa",
+   "kind": "thought",
+   "emotion": "sad",
+   "intensity": "low"
+  },
+  "6": {
+   "speaker": "Gregor Samsa",
+   "kind": "thought",
+   "emotion": "happy",
+   "intensity": "low"
+  },
+  "8": {
+   "speaker": "Gregor Samsa",
+   "kind": "thought",
+   "emotion": "angry",
+   "intensity": "high"
+  },
+  "11": {
+   "speaker": "Gregor Samsa",
+   "kind": "speech",
+   "emotion": "disgusted",
+   "intensity": "low"
+  },
+  "13": {
+   "speaker": "Gregor Samsa",
+   "kind": "thought",
+   "emotion": "disgusted",
+   "intensity": "medium"
+  },
+  "15": {
+   "speaker": "Gregor Samsa",
+   "kind": "thought",
+   "emotion": "surprised",
+   "intensity": "high"
+  },
+  "18": {
+   "speaker": "Narrator",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "20": {
+   "speaker": "Gregor Samsa",
+   "kind": "speech",
+   "emotion": "surprised",
+   "intensity": "medium"
+  },
+  "22": {
+   "speaker": "Gregor Samsa",
+   "kind": "speech",
+   "emotion": "anxious",
+   "intensity": "low"
+  },
+  "24": {
+   "speaker": "Gregor Samsa",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "26": {
+   "speaker": "Gregor Samsa",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "28": {
+   "speaker": "Gregor Samsa",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "medium"
+  },
+  "30": {
+   "speaker": "Gregor Samsa",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "32": {
+   "speaker": "Gregor Samsa",
+   "kind": "speech",
+   "emotion": "anxious",
+   "intensity": "medium"
+  },
+  "34": {
+   "speaker": "Gregor Samsa",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "38": {
+   "speaker": "Gregor Samsa",
+   "kind": "thought",
+   "emotion": "disgusted",
+   "intensity": "high"
+  },
+  "40": {
+   "speaker": "Gregor Samsa",
+   "kind": "thought",
+   "emotion": "disgusted",
+   "intensity": "high"
+  }
+ },
+ "seconds": 81.2
+}

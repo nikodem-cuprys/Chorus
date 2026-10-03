@@ -1,0 +1,246 @@
+{
+ "passage": "03-holmes-scandal-in-bohemia",
+ "labels": {
+  "4": {
+   "speaker": "Sherlock Holmes",
+   "kind": "speech",
+   "emotion": "amused",
+   "intensity": "low"
+  },
+  "6": {
+   "speaker": "Sherlock Holmes",
+   "kind": "speech",
+   "emotion": "amused",
+   "intensity": "low"
+  },
+  "7": {
+   "speaker": "Watson",
+   "kind": "speech",
+   "emotion": "surprised",
+   "intensity": "low"
+  },
+  "9": {
+   "speaker": "Sherlock Holmes",
+   "kind": "speech",
+   "emotion": "amused",
+   "intensity": "low"
+  },
+  "10": {
+   "speaker": "Watson",
+   "kind": "speech",
+   "emotion": "surprised",
+   "intensity": "low"
+  },
+  "11": {
+   "speaker": "Sherlock Holmes",
+   "kind": "speech",
+   "emotion": "amused",
+   "intensity": "medium"
+  },
+  "12": {
+   "speaker": "Watson",
+   "kind": "speech",
+   "emotion": "amused",
+   "intensity": "medium"
+  },
+  "14": {
+   "speaker": "Watson",
+   "kind": "speech",
+   "emotion": "amused",
+   "intensity": "medium"
+  },
+  "16": {
+   "speaker": "Sherlock Holmes",
+   "kind": "speech",
+   "emotion": "amused",
+   "intensity": "medium"
+  },
+  "18": {
+   "speaker": "Sherlock Holmes",
+   "kind": "speech",
+   "emotion": "amused",
+   "intensity": "medium"
+  },
+  "20": {
+   "speaker": "Watson",
+   "kind": "speech",
+   "emotion": "amused",
+   "intensity": "low"
+  },
+  "22": {
+   "speaker": "Watson",
+   "kind": "speech",
+   "emotion": "amused",
+   "intensity": "medium"
+  },
+  "23": {
+   "speaker": "Sherlock Holmes",
+   "kind": "speech",
+   "emotion": "amused",
+   "intensity": "low"
+  },
+  "25": {
+   "speaker": "Sherlock Holmes",
+   "kind": "speech",
+   "emotion": "sad",
+   "intensity": "medium"
+  },
+  "26": {
+   "speaker": "Watson",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "27": {
+   "speaker": "Sherlock Holmes",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "28": {
+   "speaker": "Watson",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "29": {
+   "speaker": "Sherlock Holmes",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "30": {
+   "speaker": "Watson",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "31": {
+   "speaker": "Sherlock Holmes",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "33": {
+   "speaker": "Sherlock Holmes",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "35": {
+   "speaker": "Sherlock Holmes",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "37": {
+   "speaker": "Sherlock Holmes",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "39": {
+   "speaker": "Sherlock Holmes",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "40": {
+   "speaker": "Watson",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "42": {
+   "speaker": "Watson",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "43": {
+   "speaker": "Sherlock Holmes",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "45": {
+   "speaker": "Watson",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "47": {
+   "speaker": "Watson",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "48": {
+   "speaker": "Sherlock Holmes",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "50": {
+   "speaker": "Sherlock Holmes",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "52": {
+   "speaker": "Narrator",
+   "kind": "thought",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "54": {
+   "speaker": "Narrator",
+   "kind": "thought",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "56": {
+   "speaker": "Narrator",
+   "kind": "thought",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "58": {
+   "speaker": "Narrator",
+   "kind": "thought",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "60": {
+   "speaker": "Narrator",
+   "kind": "thought",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "62": {
+   "speaker": "Sherlock Holmes",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "64": {
+   "speaker": "Watson",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "65": {
+   "speaker": "Sherlock Holmes",
+   "kind": "speech",
+   "emotion": "amused",
+   "intensity": "medium"
+  },
+  "67": {
+   "speaker": "Sherlock Holmes",
+   "kind": "speech",
+   "emotion": "amused",
+   "intensity": "high"
+  }
+ },
+ "seconds": 133.2
+}

@@ -1,0 +1,172 @@
+{
+ "passage": "03-holmes-scandal-in-bohemia",
+ "lines": {
+  "4": {
+   "speaker": "Sherlock Holmes",
+   "verdict": "sure"
+  },
+  "6": {
+   "speaker": "Sherlock Holmes",
+   "verdict": "sure"
+  },
+  "7": {
+   "speaker": "Watson",
+   "verdict": "sure"
+  },
+  "9": {
+   "speaker": "Sherlock Holmes",
+   "verdict": "sure"
+  },
+  "10": {
+   "speaker": "Watson",
+   "verdict": "sure"
+  },
+  "11": {
+   "speaker": "Sherlock Holmes",
+   "verdict": "sure"
+  },
+  "12": {
+   "speaker": "Watson",
+   "verdict": "sure"
+  },
+  "14": {
+   "speaker": "Watson",
+   "verdict": "sure"
+  },
+  "16": {
+   "speaker": "Sherlock Holmes",
+   "verdict": "sure"
+  },
+  "18": {
+   "speaker": "Sherlock Holmes",
+   "verdict": "sure"
+  },
+  "20": {
+   "speaker": "Watson",
+   "verdict": "sure"
+  },
+  "22": {
+   "speaker": "Watson",
+   "verdict": "sure"
+  },
+  "23": {
+   "speaker": "Sherlock Holmes",
+   "verdict": "sure"
+  },
+  "25": {
+   "speaker": "Sherlock Holmes",
+   "verdict": "sure"
+  },
+  "26": {
+   "speaker": "Watson",
+   "verdict": "sure"
+  },
+  "27": {
+   "speaker": "Sherlock Holmes",
+   "verdict": "sure"
+  },
+  "28": {
+   "speaker": "Watson",
+   "verdict": "sure"
+  },
+  "29": {
+   "speaker": "Sherlock Holmes",
+   "verdict": "sure"
+  },
+  "30": {
+   "speaker": "Watson",
+   "verdict": "sure"
+  },
+  "31": {
+   "speaker": "Sherlock Holmes",
+   "verdict": "sure"
+  },
+  "33": {
+   "speaker": "Sherlock Holmes",
+   "verdict": "sure"
+  },
+  "35": {
+   "speaker": "Sherlock Holmes",
+   "verdict": "sure"
+  },
+  "37": {
+   "speaker": "Narrator",
+   "verdict": "wrong"
+  },
+  "39": {
+   "speaker": "Narrator",
+   "verdict": "wrong"
+  },
+  "40": {
+   "speaker": "Watson",
+   "verdict": "sure"
+  },
+  "42": {
+   "speaker": "Watson",
+   "verdict": "sure"
+  },
+  "43": {
+   "speaker": "Watson",
+   "verdict": "sure"
+  },
+  "45": {
+   "speaker": "Watson",
+   "verdict": "sure"
+  },
+  "47": {
+   "speaker": "Watson",
+   "verdict": "sure"
+  },
+  "48": {
+   "speaker": "Sherlock Holmes",
+   "verdict": "sure"
+  },
+  "50": {
+   "speaker": "Sherlock Holmes",
+   "verdict": "sure"
+  },
+  "52": {
+   "speaker": "Narrator",
+   "verdict": "wrong"
+  },
+  "54": {
+   "speaker": "Narrator",
+   "verdict": "wrong"
+  },
+  "56": {
+   "speaker": "Narrator",
+   "verdict": "wrong"
+  },
+  "58": {
+   "speaker": "Narrator",
+   "verdict": "wrong"
+  },
+  "60": {
+   "speaker": "Narrator",
+   "verdict": "wrong"
+  },
+  "62": {
+   "speaker": "Sherlock Holmes",
+   "verdict": "sure"
+  },
+  "64": {
+   "speaker": "Watson",
+   "verdict": "sure"
+  },
+  "65": {
+   "speaker": "Sherlock Holmes",
+   "verdict": "sure"
+  },
+  "67": {
+   "speaker": "Sherlock Holmes",
+   "verdict": "sure"
+  }
+ },
+ "seconds": 106.6,
+ "stats": {
+  "calls": 2,
+  "seconds": 106.6,
+  "prompt_tokens": 3316,
+  "completion_tokens": 1360
+ }
+}
