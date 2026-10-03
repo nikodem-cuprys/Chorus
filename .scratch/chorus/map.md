@@ -8,7 +8,7 @@ A build-ready spec for Chorus (in `docs/spec/`): product scope, architecture, th
 
 ## Notes
 
-- **Domain:** see `CONTEXT.md` for the glossary (Source, Work, Speaker, Narrating Character, Speaker attribution, Scene, Emotion, Script, Voice, Respelling, Audio drama, Library, Publishing, YouTube export). Use these terms.
+- **Domain:** see `CONTEXT.md` for the glossary (Source, Work, Speaker, Narrating Character, Speaker attribution, Section break, Emotion, Script, Voice, Respelling, Audio drama, Library, Publishing, YouTube export). Use these terms.
 - **Skills:** grilling tickets call `grilling` + `domain-modeling`; prototype tickets call `prototype`; research tickets call `research`.
 - **Standing constraints (from charting):**
   - Self-hosted, single user, used through a browser; shipped as Docker with NVIDIA GPU support, on Windows (WSL2) and Linux.
@@ -53,6 +53,7 @@ A build-ready spec for Chorus (in `docs/spec/`): product scope, architecture, th
 - [How special kinds of text are voiced](issues/21-special-text.md): author notes, summaries and footnotes are skipped by default and can be switched on per Work; the Narrator reads the Work title once, chapter titles and epigraphs; a section break is the longest pause; thoughts are voiced by the Character with Emotion but never at strong intensity; a letter is read by its writer if a known Character, else the Narrator; verse is spoken line by line. Switches are per Work with global defaults, and any passage can be marked not voiced or have its kind changed.
 - [The Library and how listening works in Chorus](issues/22-library-and-player.md): the Library is a cover grid with search and sort; each Work has a page with its chapters, job, exports, YouTube links and switches. Exports go to a host folder and survive deleting the Work; Update from Source keeps unchanged chapters. The reading view is the player: the spoken line is highlighted and a click plays from any line; position saved per Work as a line; bookmarks with a note; each line keeps its previous take; the player works on a phone, review does not.
 - [YouTube statistics available to the Publishing dashboard](issues/23-youtube-statistics.md): live per-video counters (views, likes, dislikes, comments) and upload/processing status from the Data API; watch time, retention, daily series and playlist figures from the Analytics API, 48 to 72 hours late. One extra scope, `yt-analytics.readonly`; Publishing needs `youtube`, not `youtube.upload`. Quota is no concern when ids are batched. Videos locked private show almost nothing, so statistics only mean something for an audited project or hand-uploaded public videos.
+- [What a Scene is for](issues/26-what-a-scene-is-for.md): nothing, so Scenes are dropped: the analysis stops producing them, review stops asking about them, and the term leaves the glossary. The only structure below a chapter is the Section break, heard as the longest pause; the user can add or remove one in the reading view, which re-assembles the chapter without re-voicing.
 
 ## Not yet specified
 

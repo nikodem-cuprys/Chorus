@@ -14,6 +14,10 @@ _Avoid_: Input, upload, document
 The text of a book or story after import, split into chapters, independent of the format it came from.
 _Avoid_: Book, text, story
 
+**Section break**:
+A break inside a chapter, marked in the Source or set by the user, heard as a long pause. It is the only structure below a chapter.
+_Avoid_: Scene, scene break
+
 ### Analysis
 
 **Speaker**:
@@ -35,15 +39,12 @@ _Avoid_: First-person narrator, POV character
 Deciding which Speaker says each line.
 _Avoid_: Speaker detection, diarization
 
-**Scene**:
-A continuous stretch of a chapter with one setting.
-
 **Emotion**:
 How a Character feels while saying one line. It sets how that line is delivered. The Narrator's lines have no Emotion and are always delivered neutrally.
-_Avoid_: Sentiment, feeling, Mood (a Scene has no emotional label)
+_Avoid_: Sentiment, feeling, Mood
 
 **Script**:
-The analysed Work: every line with its Speaker, Emotion and Scene. It can be corrected before or after audio is generated.
+The analysed Work: every line with its Speaker and Emotion. It can be corrected before or after audio is generated.
 _Avoid_: Screenplay, transcript
 
 ### Output
