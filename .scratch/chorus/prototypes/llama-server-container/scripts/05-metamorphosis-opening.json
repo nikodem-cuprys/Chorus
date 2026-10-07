@@ -1,0 +1,215 @@
+{
+ "passage": "05-metamorphosis-opening",
+ "narrator": {
+  "person": "third",
+  "character": ""
+ },
+ "characters": [
+  {
+   "name": "Gregor Samsa",
+   "aliases": [
+    "Gregor",
+    "Samsa",
+    "the salesman",
+    "my dear (implied by narrator's tone)",
+    "travelling salesman",
+    "boss's subordinate",
+    "one of the parents' children (implied)",
+    "the one who was not there a long time ago (implied)"
+   ],
+   "gender": "male",
+   "age": "adult"
+  },
+  {
+   "name": "Gregor's mother",
+   "aliases": [
+    "mother",
+    "his mother",
+    "the gentle voice"
+   ],
+   "gender": "female",
+   "age": "adult"
+  },
+  {
+   "name": "Gregor's father",
+   "aliases": [
+    "father",
+    "his father"
+   ],
+   "gender": "male",
+   "age": "adult"
+  },
+  {
+   "name": "Gregor's sister",
+   "aliases": [
+    "sister",
+    "his sister"
+   ],
+   "gender": "female",
+   "age": "adult"
+  },
+  {
+   "name": "The office assistant",
+   "aliases": [
+    "the office assistant",
+    "the boss's man",
+    "spineless one",
+    "no understanding one"
+   ],
+   "gender": "male",
+   "age": "adult"
+  },
+  {
+   "name": "The boss",
+   "aliases": [
+    "boss",
+    "the boss's man"
+   ],
+   "gender": "male",
+   "age": "adult"
+  },
+  {
+   "name": "The doctor",
+   "aliases": [
+    "the doctor",
+    "doctor from the medical insurance company"
+   ],
+   "gender": "male",
+   "age": "adult"
+  }
+ ],
+ "labels": {
+  "1": {
+   "speaker": "Gregor Samsa",
+   "kind": "thought",
+   "emotion": "disgusted",
+   "intensity": "high"
+  },
+  "4": {
+   "speaker": "Gregor Samsa",
+   "kind": "thought",
+   "emotion": "sad",
+   "intensity": "low"
+  },
+  "6": {
+   "speaker": "Gregor Samsa",
+   "kind": "thought",
+   "emotion": "excited",
+   "intensity": "high"
+  },
+  "8": {
+   "speaker": "Gregor Samsa",
+   "kind": "thought",
+   "emotion": "angry",
+   "intensity": "high"
+  },
+  "11": {
+   "speaker": "Gregor Samsa",
+   "kind": "thought",
+   "emotion": "disgusted",
+   "intensity": "medium"
+  },
+  "13": {
+   "speaker": "Gregor Samsa",
+   "kind": "thought",
+   "emotion": "disgusted",
+   "intensity": "high"
+  },
+  "15": {
+   "speaker": "Gregor Samsa",
+   "kind": "thought",
+   "emotion": "surprised",
+   "intensity": "high"
+  },
+  "18": {
+   "speaker": "Gregor Samsa",
+   "kind": "thought",
+   "emotion": "disgusted",
+   "intensity": "medium"
+  },
+  "20": {
+   "speaker": "Gregor's mother",
+   "kind": "speech",
+   "emotion": "anxious",
+   "intensity": "low"
+  },
+  "22": {
+   "speaker": "Gregor Samsa",
+   "kind": "speech",
+   "emotion": "disgusted",
+   "intensity": "medium"
+  },
+  "24": {
+   "speaker": "Gregor's father",
+   "kind": "speech",
+   "emotion": "anxious",
+   "intensity": "low"
+  },
+  "26": {
+   "speaker": "Gregor's father",
+   "kind": "speech",
+   "emotion": "anxious",
+   "intensity": "medium"
+  },
+  "28": {
+   "speaker": "Gregor's father",
+   "kind": "speech",
+   "emotion": "angry",
+   "intensity": "high"
+  },
+  "30": {
+   "speaker": "Gregor's sister",
+   "kind": "speech",
+   "emotion": "anxious",
+   "intensity": "low"
+  },
+  "32": {
+   "speaker": "Gregor Samsa",
+   "kind": "speech",
+   "emotion": "disgusted",
+   "intensity": "medium"
+  },
+  "34": {
+   "speaker": "Gregor's sister",
+   "kind": "speech",
+   "emotion": "anxious",
+   "intensity": "low"
+  },
+  "38": {
+   "speaker": "Gregor Samsa",
+   "kind": "thought",
+   "emotion": "disgusted",
+   "intensity": "high"
+  },
+  "40": {
+   "speaker": "Gregor Samsa",
+   "kind": "thought",
+   "emotion": "disgusted",
+   "intensity": "high"
+  }
+ },
+ "scenes": [
+  {
+   "first_paragraph": 1,
+   "setting": "Gregor's cramped bedroom",
+   "mood": "angry"
+  },
+  {
+   "first_paragraph": 5,
+   "setting": "Gregor's bedroom",
+   "mood": "anxious"
+  },
+  {
+   "first_paragraph": 8,
+   "setting": "Gregor's bedroom",
+   "mood": "tense"
+  }
+ ],
+ "seconds": 268.9,
+ "stats": {
+  "calls": 7,
+  "seconds": 268.9,
+  "prompt_tokens": 8630,
+  "completion_tokens": 1849
+ }
+}

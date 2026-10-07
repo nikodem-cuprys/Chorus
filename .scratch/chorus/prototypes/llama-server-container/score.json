@@ -1,0 +1,113 @@
+{
+ "total": {
+  "container": 259,
+  "windows": 267,
+  "quotes": 288
+ },
+ "passages": {
+  "01-pride-and-prejudice-ch1-2": {
+   "quotes": 64,
+   "container": 58,
+   "container_wrong": {
+    "32": "Mr. Bennet",
+    "69": "Lizzy",
+    "31": "Mrs. Bennet",
+    "41": "Mrs. Bennet",
+    "45": "Lizzy",
+    "90": "Mrs. Bennet"
+   },
+   "windows": 58,
+   "windows_wrong": {
+    "32": "Mr. Bennet",
+    "57": "Kitty",
+    "69": "Lizzy",
+    "31": "Mrs. Bennet",
+    "41": "Mrs. Bennet",
+    "45": "Lizzy"
+   }
+  },
+  "02-alice-mad-tea-party": {
+   "quotes": 128,
+   "container": 124,
+   "container_wrong": {
+    "1": "Narrator",
+    "7": "March Hare",
+    "61": "March Hare",
+    "5": "Narrator"
+   },
+   "windows": 125,
+   "windows_wrong": {
+    "1": "Narrator",
+    "7": "March Hare",
+    "5": "Narrator"
+   }
+  },
+  "03-holmes-scandal-in-bohemia": {
+   "quotes": 40,
+   "container": 32,
+   "container_wrong": {
+    "43": "Watson",
+    "37": "Unknown",
+    "39": "Unknown",
+    "52": "Unknown",
+    "54": "Unknown",
+    "56": "Unknown",
+    "58": "Unknown",
+    "60": "Unknown"
+   },
+   "windows": 39,
+   "windows_wrong": {
+    "43": "Watson"
+   }
+  },
+  "04-jane-eyre-ch1": {
+   "quotes": 29,
+   "container": 20,
+   "container_wrong": {
+    "4": "I",
+    "27": "Narrator",
+    "31": "Narrator",
+    "48": "Narrator",
+    "53": "Narrator",
+    "55": "Narrator",
+    "61": "I",
+    "63": "Mrs. Reed",
+    "64": "Mrs. Reed"
+   },
+   "windows": 26,
+   "windows_wrong": {
+    "61": "Jane",
+    "63": "Mrs. Reed",
+    "64": "Mrs. Reed"
+   }
+  },
+  "05-metamorphosis-opening": {
+   "quotes": 18,
+   "container": 17,
+   "container_wrong": {
+    "18": "Gregor Samsa"
+   },
+   "windows": 11,
+   "windows_wrong": {
+    "18": "Unknown",
+    "20": "Unknown",
+    "24": "Unknown",
+    "26": "Unknown",
+    "28": "Unknown",
+    "30": "Unknown",
+    "34": "Unknown"
+   }
+  },
+  "06-crime-and-punishment-opening": {
+   "quotes": 9,
+   "container": 8,
+   "container_wrong": {
+    "9": "the young man"
+   },
+   "windows": 8,
+   "windows_wrong": {
+    "9": "the young man"
+   }
+  }
+ }
+}

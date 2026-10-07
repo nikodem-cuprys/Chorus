@@ -1,0 +1,120 @@
+{
+ "passage": "05-metamorphosis-opening",
+ "labels": {
+  "1": {
+   "speaker": "Gregor Samsa",
+   "kind": "thought",
+   "emotion": "disgusted",
+   "intensity": "high"
+  },
+  "4": {
+   "speaker": "Gregor Samsa",
+   "kind": "thought",
+   "emotion": "sad",
+   "intensity": "low"
+  },
+  "6": {
+   "speaker": "Gregor Samsa",
+   "kind": "thought",
+   "emotion": "happy",
+   "intensity": "low"
+  },
+  "8": {
+   "speaker": "Gregor Samsa",
+   "kind": "thought",
+   "emotion": "angry",
+   "intensity": "high"
+  },
+  "11": {
+   "speaker": "Gregor Samsa",
+   "kind": "thought",
+   "emotion": "disgusted",
+   "intensity": "low"
+  },
+  "13": {
+   "speaker": "Gregor Samsa",
+   "kind": "thought",
+   "emotion": "disgusted",
+   "intensity": "medium"
+  },
+  "15": {
+   "speaker": "Gregor Samsa",
+   "kind": "thought",
+   "emotion": "surprised",
+   "intensity": "medium"
+  },
+  "18": {
+   "speaker": "Narrator",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "20": {
+   "speaker": "Gregor's mother",
+   "kind": "speech",
+   "emotion": "anxious",
+   "intensity": "low"
+  },
+  "22": {
+   "speaker": "Gregor Samsa",
+   "kind": "speech",
+   "emotion": "disgusted",
+   "intensity": "medium"
+  },
+  "24": {
+   "speaker": "Gregor's father",
+   "kind": "speech",
+   "emotion": "anxious",
+   "intensity": "low"
+  },
+  "26": {
+   "speaker": "Gregor's father",
+   "kind": "speech",
+   "emotion": "anxious",
+   "intensity": "low"
+  },
+  "28": {
+   "speaker": "Gregor's father",
+   "kind": "speech",
+   "emotion": "angry",
+   "intensity": "medium"
+  },
+  "30": {
+   "speaker": "Gregor's sister",
+   "kind": "speech",
+   "emotion": "anxious",
+   "intensity": "low"
+  },
+  "32": {
+   "speaker": "Gregor Samsa",
+   "kind": "speech",
+   "emotion": "disgusted",
+   "intensity": "medium"
+  },
+  "34": {
+   "speaker": "Gregor's sister",
+   "kind": "speech",
+   "emotion": "anxious",
+   "intensity": "low"
+  },
+  "38": {
+   "speaker": "Gregor Samsa",
+   "kind": "thought",
+   "emotion": "disgusted",
+   "intensity": "high"
+  },
+  "40": {
+   "speaker": "Gregor Samsa",
+   "kind": "thought",
+   "emotion": "disgusted",
+   "intensity": "high"
+  }
+ },
+ "seconds": 71.4,
+ "stats": {
+  "calls": 4,
+  "seconds": 71.4,
+  "prompt_tokens": 4264,
+  "completion_tokens": 1009
+ }
+}

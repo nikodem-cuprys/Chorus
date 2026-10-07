@@ -1,0 +1,876 @@
+{
+ "passage": "02-alice-mad-tea-party",
+ "narrator": {
+  "person": "third",
+  "character": ""
+ },
+ "characters": [
+  {
+   "name": "Alice",
+   "aliases": [
+    "the young lady",
+    "Alice"
+   ],
+   "gender": "female",
+   "age": "child"
+  },
+  {
+   "name": "March Hare",
+   "aliases": [
+    "the March Hare"
+   ],
+   "gender": "male",
+   "age": "adult"
+  },
+  {
+   "name": "Hatter",
+   "aliases": [
+    "the Hatter"
+   ],
+   "gender": "male",
+   "age": "adult"
+  },
+  {
+   "name": "Dormouse",
+   "aliases": [
+    "the Dormouse"
+   ],
+   "gender": "male",
+   "age": "child"
+  },
+  {
+   "name": "Time",
+   "aliases": [
+    "Time"
+   ],
+   "gender": "unknown",
+   "age": "unknown"
+  },
+  {
+   "name": "Queen of Hearts",
+   "aliases": [
+    "the Queen of Hearts"
+   ],
+   "gender": "unknown",
+   "age": "unknown"
+  },
+  {
+   "name": "Elsie",
+   "aliases": [
+    "Elsie"
+   ],
+   "gender": "unknown",
+   "age": "unknown"
+  },
+  {
+   "name": "Lacie",
+   "aliases": [
+    "Lacie"
+   ],
+   "gender": "unknown",
+   "age": "unknown"
+  },
+  {
+   "name": "Tillie",
+   "aliases": [
+    "Tillie"
+   ],
+   "gender": "unknown",
+   "age": "unknown"
+  }
+ ],
+ "labels": {
+  "1": {
+   "speaker": "Narrator",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "3": {
+   "speaker": "Alice",
+   "kind": "thought",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "5": {
+   "speaker": "Narrator",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "7": {
+   "speaker": "March Hare",
+   "kind": "speech",
+   "emotion": "surprised",
+   "intensity": "high"
+  },
+  "9": {
+   "speaker": "March Hare",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "12": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "14": {
+   "speaker": "March Hare",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "16": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "angry",
+   "intensity": "medium"
+  },
+  "18": {
+   "speaker": "March Hare",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "20": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "22": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "23": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "25": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "medium"
+  },
+  "27": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "29": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "30": {
+   "speaker": "Alice",
+   "kind": "thought",
+   "emotion": "happy",
+   "intensity": "low"
+  },
+  "32": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "34": {
+   "speaker": "March Hare",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "36": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "38": {
+   "speaker": "March Hare",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "40": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "42": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "43": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "45": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "46": {
+   "speaker": "March Hare",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "48": {
+   "speaker": "March Hare",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "49": {
+   "speaker": "Dormouse",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "51": {
+   "speaker": "Dormouse",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "52": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "55": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "58": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "59": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "sad",
+   "intensity": "medium"
+  },
+  "61": {
+   "speaker": "March Hare",
+   "kind": "speech",
+   "emotion": "angry",
+   "intensity": "medium"
+  },
+  "63": {
+   "speaker": "March Hare",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "65": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "67": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "69": {
+   "speaker": "March Hare",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "71": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "73": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "74": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "76": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "77": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "79": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "80": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "83": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "85": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "88": {
+   "speaker": "Dormouse",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "89": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "91": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "93": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "94": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "96": {
+   "speaker": "March Hare",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "99": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "101": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "102": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "104": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "105": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "107": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "109": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "110": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "sad",
+   "intensity": "low"
+  },
+  "112": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "disgusted",
+   "intensity": "low"
+  },
+  "113": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "amused",
+   "intensity": "medium"
+  },
+  "115": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "excited",
+   "intensity": "medium"
+  },
+  "117": {
+   "speaker": "March Hare",
+   "kind": "thought",
+   "emotion": "sad",
+   "intensity": "low"
+  },
+  "119": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "happy",
+   "intensity": "low"
+  },
+  "121": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "sad",
+   "intensity": "low"
+  },
+  "122": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "124": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "125": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "128": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "130": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "132": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "135": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "137": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "139": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "142": {
+   "speaker": "Dormouse",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "144": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "146": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "147": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "sad",
+   "intensity": "low"
+  },
+  "149": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "sad",
+   "intensity": "medium"
+  },
+  "151": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "sad",
+   "intensity": "medium"
+  },
+  "153": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "155": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "sad",
+   "intensity": "medium"
+  },
+  "157": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "sad",
+   "intensity": "medium"
+  },
+  "158": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "160": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "162": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "163": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "165": {
+   "speaker": "March Hare",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "167": {
+   "speaker": "March Hare",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "168": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "sad",
+   "intensity": "low"
+  },
+  "170": {
+   "speaker": "March Hare",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "172": {
+   "speaker": "March Hare",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "175": {
+   "speaker": "Dormouse",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "177": {
+   "speaker": "Dormouse",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "178": {
+   "speaker": "March Hare",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "180": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "182": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "184": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "185": {
+   "speaker": "Dormouse",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "187": {
+   "speaker": "Dormouse",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "188": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "190": {
+   "speaker": "Dormouse",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "192": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "194": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "195": {
+   "speaker": "Dormouse",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "197": {
+   "speaker": "Dormouse",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "199": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "200": {
+   "speaker": "March Hare",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "202": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "204": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "205": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "207": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "208": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "210": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "213": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "215": {
+   "speaker": "Dormouse",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "216": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "218": {
+   "speaker": "March Hare",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "220": {
+   "speaker": "Dormouse",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "221": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "223": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "224": {
+   "speaker": "Dormouse",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "226": {
+   "speaker": "Dormouse",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "227": {
+   "speaker": "Alice",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "229": {
+   "speaker": "Dormouse",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "231": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "233": {
+   "speaker": "Hatter",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  }
+ },
+ "scenes": [
+  {
+   "first_paragraph": 1,
+   "setting": "Tea party under a tree",
+   "mood": "anxious"
+  },
+  {
+   "first_paragraph": 21,
+   "setting": "Tea party under a tree",
+   "mood": "melancholic"
+  },
+  {
+   "first_paragraph": 65,
+   "setting": "Tea party under a tree",
+   "mood": "tense"
+  }
+ ],
+ "seconds": 461.0,
+ "stats": {
+  "calls": 6,
+  "seconds": 461.0,
+  "prompt_tokens": 10938,
+  "completion_tokens": 7162
+ }
+}

@@ -1,0 +1,25 @@
+round 1 01-pride-and-prejudice-ch1-2 | first run 300.1 s, 5 calls | second run 193.2 s, 3 calls | labelled 64 | differ 6 | calls so far 8
+round 1 02-alice-mad-tea-party | first run 461.0 s, 6 calls | second run 375.9 s, 3 calls | labelled 128 | differ 4 | calls so far 17
+round 1 03-holmes-scandal-in-bohemia | first run 186.0 s, 5 calls | second run 127.2 s, 3 calls | labelled 40 | differ 8 | calls so far 25
+round 1 04-jane-eyre-ch1 | first run 197.1 s, 7 calls | second run 134.4 s, 4 calls | labelled 29 | differ 5 | calls so far 36
+round 1 05-metamorphosis-opening | first run 268.9 s, 7 calls | second run 71.4 s, 4 calls | labelled 18 | differ 1 | calls so far 47
+round 1 06-crime-and-punishment-opening | first run 102.7 s, 7 calls | second run 51.3 s, 4 calls | labelled 9 | differ 1 | calls so far 58
+round 2 01-pride-and-prejudice-ch1-2 | first run 337.6 s, 5 calls | second run 202.9 s, 3 calls | labelled 64 | differ 5 | calls so far 66
+round 2 02-alice-mad-tea-party | first run 381.8 s, 6 calls | second run 365.9 s, 3 calls | labelled 127 | differ 4 | calls so far 75
+round 2 03-holmes-scandal-in-bohemia | first run 175.0 s, 5 calls | second run 123.5 s, 3 calls | labelled 40 | differ 8 | calls so far 83
+round 2 04-jane-eyre-ch1 | first run 171.8 s, 7 calls | second run 95.4 s, 4 calls | labelled 29 | differ 5 | calls so far 94
+round 2 05-metamorphosis-opening | first run 131.6 s, 7 calls | second run 66.2 s, 4 calls | labelled 18 | differ 1 | calls so far 105
+round 2 06-crime-and-punishment-opening | first run 81.3 s, 7 calls | second run 38.4 s, 4 calls | labelled 9 | differ 1 | calls so far 116
+round 3 01-pride-and-prejudice-ch1-2 | first run 284.3 s, 5 calls | second run 192.8 s, 3 calls | labelled 64 | differ 5 | calls so far 124
+round 3 02-alice-mad-tea-party | first run 379.3 s, 6 calls | second run 365.3 s, 3 calls | labelled 127 | differ 4 | calls so far 133
+round 3 03-holmes-scandal-in-bohemia | first run 175.3 s, 5 calls | second run 123.4 s, 3 calls | labelled 40 | differ 8 | calls so far 141
+round 3 04-jane-eyre-ch1 | first run 171.1 s, 7 calls | second run 95.1 s, 4 calls | labelled 29 | differ 5 | calls so far 152
+round 3 05-metamorphosis-opening | first run 131.2 s, 7 calls | second run 67.2 s, 4 calls | labelled 18 | differ 1 | calls so far 163
+round 3 06-crime-and-punishment-opening | first run 80.9 s, 7 calls | second run 38.5 s, 4 calls | labelled 9 | differ 1 | calls so far 174
+round 4 01-pride-and-prejudice-ch1-2 | first run 281.6 s, 5 calls | second run 192.6 s, 3 calls | labelled 64 | differ 5 | calls so far 182
+round 4 02-alice-mad-tea-party | first run 376.8 s, 6 calls | second run 364.0 s, 3 calls | labelled 127 | differ 4 | calls so far 191
+round 4 03-holmes-scandal-in-bohemia | first run 174.6 s, 5 calls | second run 123.2 s, 3 calls | labelled 40 | differ 8 | calls so far 199
+round 4 04-jane-eyre-ch1 | first run 168.9 s, 7 calls | second run 94.9 s, 4 calls | labelled 29 | differ 5 | calls so far 210
+round 4 05-metamorphosis-opening | first run 132.4 s, 7 calls | second run 67.5 s, 4 calls | labelled 18 | differ 1 | calls so far 221
+round 4 06-crime-and-punishment-opening | first run 81.0 s, 7 calls | second run 39.3 s, 4 calls | labelled 9 | differ 1 | calls so far 232
+all done | {'calls': 232, 'seconds': 8841.4, 'prompt_tokens': 333304, 'completion_tokens': 134361}

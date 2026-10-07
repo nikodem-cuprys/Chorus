@@ -1,0 +1,303 @@
+{
+ "passage": "04-jane-eyre-ch1",
+ "narrator": {
+  "person": "first",
+  "character": "I"
+ },
+ "characters": [
+  {
+   "name": "I",
+   "aliases": [],
+   "gender": "unknown",
+   "age": "unknown"
+  },
+  {
+   "name": "Jane",
+   "aliases": [
+    "I"
+   ],
+   "gender": "female",
+   "age": "child"
+  },
+  {
+   "name": "Mrs. Reed",
+   "aliases": [
+    "mama",
+    "her mama",
+    "Madam Mope",
+    "Mrs. Reed"
+   ],
+   "gender": "female",
+   "age": "adult"
+  },
+  {
+   "name": "Bessie",
+   "aliases": [
+    "the nurse",
+    "Bessie, the nurse",
+    "Bessie and her maid Abbot"
+   ],
+   "gender": "female",
+   "age": "adult"
+  },
+  {
+   "name": "Eliza",
+   "aliases": [
+    "Eliza Reed",
+    "Eliza",
+    "Lizzy",
+    "Georgy's sister"
+   ],
+   "gender": "female",
+   "age": "child"
+  },
+  {
+   "name": "John",
+   "aliases": [
+    "John Reed",
+    "John",
+    "Jack",
+    "Master Reed",
+    "the boy",
+    "the said Jack",
+    "Master John"
+   ],
+   "gender": "male",
+   "age": "child"
+  },
+  {
+   "name": "Georgiana",
+   "aliases": [
+    "Georgiana Reed",
+    "Georgiana",
+    "Georgy"
+   ],
+   "gender": "female",
+   "age": "child"
+  },
+  {
+   "name": "Joan",
+   "aliases": [
+    "Joan"
+   ],
+   "gender": "female",
+   "age": "child"
+  },
+  {
+   "name": "Mr. Miles",
+   "aliases": [
+    "the master"
+   ],
+   "gender": "male",
+   "age": "adult"
+  },
+  {
+   "name": "Abbot",
+   "aliases": [
+    "her maid Abbot"
+   ],
+   "gender": "female",
+   "age": "adult"
+  }
+ ],
+ "labels": {
+  "3": {
+   "speaker": "Mrs. Reed",
+   "kind": "speech",
+   "emotion": "disgusted",
+   "intensity": "medium"
+  },
+  "4": {
+   "speaker": "I",
+   "kind": "speech",
+   "emotion": "anxious",
+   "intensity": "low"
+  },
+  "6": {
+   "speaker": "Mrs. Reed",
+   "kind": "speech",
+   "emotion": "disgusted",
+   "intensity": "high"
+  },
+  "10": {
+   "speaker": "Narrator",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "12": {
+   "speaker": "Narrator",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "14": {
+   "speaker": "Narrator",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "22": {
+   "speaker": "John",
+   "kind": "speech",
+   "emotion": "disgusted",
+   "intensity": "medium"
+  },
+  "24": {
+   "speaker": "John",
+   "kind": "speech",
+   "emotion": "angry",
+   "intensity": "medium"
+  },
+  "26": {
+   "speaker": "John",
+   "kind": "speech",
+   "emotion": "angry",
+   "intensity": "high"
+  },
+  "27": {
+   "speaker": "Narrator",
+   "kind": "thought",
+   "emotion": "anxious",
+   "intensity": "medium"
+  },
+  "29": {
+   "speaker": "Eliza",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "31": {
+   "speaker": "Narrator",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "33": {
+   "speaker": "John",
+   "kind": "speech",
+   "emotion": "sad",
+   "intensity": "low"
+  },
+  "35": {
+   "speaker": "John",
+   "kind": "speech",
+   "emotion": "sad",
+   "intensity": "low"
+  },
+  "38": {
+   "speaker": "Narrator",
+   "kind": "thought",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "42": {
+   "speaker": "John",
+   "kind": "speech",
+   "emotion": "angry",
+   "intensity": "high"
+  },
+  "44": {
+   "speaker": "John",
+   "kind": "speech",
+   "emotion": "angry",
+   "intensity": "high"
+  },
+  "46": {
+   "speaker": "John",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "48": {
+   "speaker": "Narrator",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "49": {
+   "speaker": "John",
+   "kind": "speech",
+   "emotion": "neutral",
+   "intensity": "low"
+  },
+  "51": {
+   "speaker": "John",
+   "kind": "speech",
+   "emotion": "angry",
+   "intensity": "high"
+  },
+  "53": {
+   "speaker": "Narrator",
+   "kind": "speech",
+   "emotion": "angry",
+   "intensity": "high"
+  },
+  "55": {
+   "speaker": "Narrator",
+   "kind": "speech",
+   "emotion": "angry",
+   "intensity": "high"
+  },
+  "57": {
+   "speaker": "John",
+   "kind": "speech",
+   "emotion": "surprised",
+   "intensity": "high"
+  },
+  "59": {
+   "speaker": "John",
+   "kind": "speech",
+   "emotion": "angry",
+   "intensity": "high"
+  },
+  "61": {
+   "speaker": "I",
+   "kind": "speech",
+   "emotion": "happy",
+   "intensity": "low"
+  },
+  "63": {
+   "speaker": "Mrs. Reed",
+   "kind": "speech",
+   "emotion": "disgusted",
+   "intensity": "medium"
+  },
+  "64": {
+   "speaker": "Mrs. Reed",
+   "kind": "speech",
+   "emotion": "disgusted",
+   "intensity": "medium"
+  },
+  "66": {
+   "speaker": "Mrs. Reed",
+   "kind": "speech",
+   "emotion": "angry",
+   "intensity": "high"
+  }
+ },
+ "scenes": [
+  {
+   "first_paragraph": 1,
+   "setting": "The drawing-room",
+   "mood": "melancholic"
+  },
+  {
+   "first_paragraph": 6,
+   "setting": "The breakfast-room",
+   "mood": "melancholic"
+  },
+  {
+   "first_paragraph": 16,
+   "setting": "The breakfast-room",
+   "mood": "tense"
+  }
+ ],
+ "seconds": 197.1,
+ "stats": {
+  "calls": 7,
+  "seconds": 197.1,
+  "prompt_tokens": 10933,
+  "completion_tokens": 2443
+ }
+}

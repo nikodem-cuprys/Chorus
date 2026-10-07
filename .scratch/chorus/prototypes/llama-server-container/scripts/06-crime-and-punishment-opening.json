@@ -1,0 +1,117 @@
+{
+ "passage": "06-crime-and-punishment-opening",
+ "narrator": {
+  "person": "third",
+  "character": ""
+ },
+ "characters": [
+  {
+   "name": "the young man",
+   "aliases": [
+    "German hatter (referenced in shouted line)",
+    "character",
+    "my dear (referenced in thought)",
+    "he",
+    "visitor",
+    "old woman's visitor"
+   ],
+   "gender": "male",
+   "age": "young adult"
+  },
+  {
+   "name": "the old woman",
+   "aliases": [
+    "old woman",
+    "German clerk's family member",
+    "diminutive, withered up old woman of sixty",
+    "sharp malignant-eyed old woman",
+    "old woman with grizzled hair",
+    "old woman with flannel rag and fur cape",
+    "coughing and groaning old woman",
+    "mistrustful old woman"
+   ],
+   "gender": "female",
+   "age": "elderly"
+  }
+ ],
+ "labels": {
+  "4": {
+   "speaker": "the young man",
+   "kind": "thought",
+   "emotion": "disgusted",
+   "intensity": "low"
+  },
+  "6": {
+   "speaker": "the young man",
+   "kind": "thought",
+   "emotion": "amused",
+   "intensity": "low"
+  },
+  "9": {
+   "speaker": "the young man",
+   "kind": "speech",
+   "emotion": "surprised",
+   "intensity": "high"
+  },
+  "11": {
+   "speaker": "the young man",
+   "kind": "thought",
+   "emotion": "anxious",
+   "intensity": "high"
+  },
+  "13": {
+   "speaker": "the young man",
+   "kind": "thought",
+   "emotion": "anxious",
+   "intensity": "high"
+  },
+  "15": {
+   "speaker": "the young man",
+   "kind": "thought",
+   "emotion": "disgusted",
+   "intensity": "medium"
+  },
+  "17": {
+   "speaker": "the young man",
+   "kind": "thought",
+   "emotion": "excited",
+   "intensity": "high"
+  },
+  "20": {
+   "speaker": "the young man",
+   "kind": "thought",
+   "emotion": "disgusted",
+   "intensity": "low"
+  },
+  "22": {
+   "speaker": "the young man",
+   "kind": "thought",
+   "emotion": "sad",
+   "intensity": "low"
+  }
+ },
+ "scenes": [
+  {
+   "first_paragraph": 1,
+   "setting": "The garret and the kitchen below",
+   "mood": "anxious"
+  },
+  {
+   "first_paragraph": 3,
+   "setting": "The hot street",
+   "mood": "tense"
+  },
+  {
+   "first_paragraph": 9,
+   "setting": "The dark back staircase",
+   "mood": "calm"
+  }
+ ],
+ "seconds": 102.7,
+ "stats": {
+  "calls": 7,
+  "seconds": 102.7,
+  "prompt_tokens": 8565,
+  "completion_tokens": 927
+ }
+}

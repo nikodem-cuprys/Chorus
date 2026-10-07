@@ -1,0 +1,66 @@
+{
+ "passage": "06-crime-and-punishment-opening",
+ "labels": {
+  "4": {
+   "speaker": "the young man",
+   "kind": "thought",
+   "emotion": "disgusted",
+   "intensity": "low"
+  },
+  "6": {
+   "speaker": "the young man",
+   "kind": "thought",
+   "emotion": "anxious",
+   "intensity": "medium"
+  },
+  "9": {
+   "speaker": "the old woman",
+   "kind": "speech",
+   "emotion": "disgusted",
+   "intensity": "high"
+  },
+  "11": {
+   "speaker": "the young man",
+   "kind": "thought",
+   "emotion": "anxious",
+   "intensity": "medium"
+  },
+  "13": {
+   "speaker": "the young man",
+   "kind": "thought",
+   "emotion": "disgusted",
+   "intensity": "high"
+  },
+  "15": {
+   "speaker": "the young man",
+   "kind": "thought",
+   "emotion": "disgusted",
+   "intensity": "high"
+  },
+  "17": {
+   "speaker": "the young man",
+   "kind": "thought",
+   "emotion": "excited",
+   "intensity": "high"
+  },
+  "20": {
+   "speaker": "the young man",
+   "kind": "thought",
+   "emotion": "disgusted",
+   "intensity": "low"
+  },
+  "22": {
+   "speaker": "the young man",
+   "kind": "thought",
+   "emotion": "sad",
+   "intensity": "low"
+  }
+ },
+ "seconds": 51.3,
+ "stats": {
+  "calls": 4,
+  "seconds": 51.3,
+  "prompt_tokens": 4136,
+  "completion_tokens": 519
+ }
+}
