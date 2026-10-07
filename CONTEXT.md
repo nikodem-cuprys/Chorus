@@ -18,6 +18,10 @@ _Avoid_: Book, text, story
 A break inside a chapter, marked in the Source or set by the user, heard as a long pause. It is the only structure below a chapter.
 _Avoid_: Scene, scene break
 
+**Language pack**:
+Everything Chorus needs to handle Works in one language: quotation rules, a voice model and built-in Voices, plus optional word lists and export lines. A Work's language picks its pack.
+_Avoid_: Locale, translation (the interface's own language is separate)
+
 ### Analysis
 
 **Speaker**:
