@@ -1,0 +1,178 @@
+{
+ "no-change": {
+  "name": "no-change",
+  "half": false,
+  "split": false,
+  "cap_mib": 0,
+  "seed": 1234,
+  "torch": "2.14.0+cu126",
+  "cuda": "12.6",
+  "gpu": "NVIDIA GeForce GTX 1050 Ti",
+  "half_stored_mib": 0,
+  "load_s": 38.3,
+  "after_load_mib": 3059,
+  "peak": {
+   "alloc_mib": 3700,
+   "reserved_mib": 4336
+  },
+  "total_gen_s": 168.2,
+  "total_audio_s": 56.2,
+  "x_real_time": 2.99,
+  "host": {
+   "idle": {
+    "nvidia_smi_used_mib": 495,
+    "dedicated_mib": 500,
+    "shared_mib": 56
+   },
+   "peak": {
+    "nvidia_smi_used_mib": 3961,
+    "dedicated_mib": 3969,
+    "shared_mib": 918
+   },
+   "exit_code": 0
+  }
+ },
+ "no-change-capped": {
+  "name": "no-change-capped",
+  "half": false,
+  "split": false,
+  "cap_mib": 3735,
+  "seed": 1234,
+  "torch": "2.14.0+cu126",
+  "cuda": "12.6",
+  "gpu": "NVIDIA GeForce GTX 1050 Ti",
+  "half_stored_mib": 0,
+  "load_s": 18.0,
+  "after_load_mib": 3059,
+  "error": "OutOfMemoryError: CUDA out of memory. Tried to allocate 2.00 MiB. GPU 0 has a total capacity of 4.00 GiB of which 0 bytes is free. Including non-PyTorch memory, this process has 17179869184.00 GiB memory in use. 3.65 GiB allowed; Of the allocated memory 3.56 GiB is allocated by PyTorch, and 83.83 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pyto",
+  "peak_at_error": {
+   "alloc_mib": 3653,
+   "reserved_mib": 3734
+  },
+  "total_gen_s": 38.9,
+  "total_audio_s": 7.6,
+  "x_real_time": 5.12,
+  "host": {
+   "idle": {
+    "nvidia_smi_used_mib": 356,
+    "dedicated_mib": 361,
+    "shared_mib": 50
+   },
+   "peak": {
+    "nvidia_smi_used_mib": 3947,
+    "dedicated_mib": 3952,
+    "shared_mib": 305
+   },
+   "exit_code": 0
+  }
+ },
+ "half": {
+  "name": "half",
+  "half": true,
+  "split": false,
+  "cap_mib": 0,
+  "seed": 1234,
+  "torch": "2.14.0+cu126",
+  "cuda": "12.6",
+  "gpu": "NVIDIA GeForce GTX 1050 Ti",
+  "half_stored_mib": 1478,
+  "load_s": 16.5,
+  "after_load_mib": 1569,
+  "peak": {
+   "alloc_mib": 2262,
+   "reserved_mib": 2874
+  },
+  "total_gen_s": 201.6,
+  "total_audio_s": 56.2,
+  "x_real_time": 3.59,
+  "host": {
+   "idle": {
+    "nvidia_smi_used_mib": 311,
+    "dedicated_mib": 316,
+    "shared_mib": 51
+   },
+   "peak": {
+    "nvidia_smi_used_mib": 3266,
+    "dedicated_mib": 3272,
+    "shared_mib": 111
+   },
+   "exit_code": 0
+  }
+ },
+ "split": {
+  "name": "split",
+  "half": false,
+  "split": true,
+  "cap_mib": 0,
+  "seed": 1234,
+  "torch": "2.14.0+cu126",
+  "cuda": "12.6",
+  "gpu": "NVIDIA GeForce GTX 1050 Ti",
+  "half_stored_mib": 0,
+  "load_s": 15.5,
+  "after_load_mib": 2036,
+  "t3_phase_peak": {
+   "alloc_mib": 2227,
+   "reserved_mib": 2392
+  },
+  "swap_s": 1.2,
+  "s3gen_phase_peak": {
+   "alloc_mib": 1309,
+   "reserved_mib": 1854
+  },
+  "total_gen_s": 124.2,
+  "total_audio_s": 56.2,
+  "x_real_time": 2.21,
+  "host": {
+   "idle": {
+    "nvidia_smi_used_mib": 412,
+    "dedicated_mib": 417,
+    "shared_mib": 40
+   },
+   "peak": {
+    "nvidia_smi_used_mib": 2868,
+    "dedicated_mib": 2873,
+    "shared_mib": 107
+   },
+   "exit_code": 0
+  }
+ },
+ "half-split": {
+  "name": "half-split",
+  "half": true,
+  "split": true,
+  "cap_mib": 0,
+  "seed": 1234,
+  "torch": "2.14.0+cu126",
+  "cuda": "12.6",
+  "gpu": "NVIDIA GeForce GTX 1050 Ti",
+  "half_stored_mib": 1478,
+  "load_s": 29.7,
+  "after_load_mib": 1023,
+  "t3_phase_peak": {
+   "alloc_mib": 1241,
+   "reserved_mib": 1414
+  },
+  "swap_s": 1.0,
+  "s3gen_phase_peak": {
+   "alloc_mib": 834,
+   "reserved_mib": 1394
+  },
+  "total_gen_s": 230.6,
+  "total_audio_s": 56.2,
+  "x_real_time": 4.1,
+  "host": {
+   "idle": {
+    "nvidia_smi_used_mib": 412,
+    "dedicated_mib": 417,
+    "shared_mib": 35
+   },
+   "peak": {
+    "nvidia_smi_used_mib": 1903,
+    "dedicated_mib": 1909,
+    "shared_mib": 104
+   },
+   "exit_code": 0
+  }
+ }
+}

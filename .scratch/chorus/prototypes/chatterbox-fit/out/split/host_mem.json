@@ -1,0 +1,13 @@
+{
+ "idle": {
+  "nvidia_smi_used_mib": 412,
+  "dedicated_mib": 417,
+  "shared_mib": 40
+ },
+ "peak": {
+  "nvidia_smi_used_mib": 2868,
+  "dedicated_mib": 2873,
+  "shared_mib": 107
+ },
+ "exit_code": 0
+}
