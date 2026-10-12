@@ -91,12 +91,13 @@ Everything that differs by language sits in one Language pack per language. A Wo
 | Part of a pack | Required | Without it |
 |---|---|---|
 | Quotation rules for the line splitter: which mark pairs open and close speech, and whether a leading dash starts dialogue | yes | |
+| Sentence rules for splitting long lines before voicing: sentence-end punctuation and an abbreviation list ("Mr.", "Mrs.", "Dr.", "St.") | yes | |
 | The voice model, with its Emotion settings | yes | |
 | Built-in Voices with a default Narrator, labelled as in [05-data-model.md](05-data-model.md#voice) | yes | |
 | Speech-verb list for the queue's "said X" rule | no | that rule is skipped |
 | Dictionary for Respelling candidates | no | only Character names are offered as candidates |
 | Listener-facing export lines (the AI-voice line, the AO3 commercial-use line) | no | the English lines are used |
-| Chapter-heading patterns for TXT and PDF import | not decided (see [08](08-open-questions.md)) | |
+| Chapter-heading patterns for TXT and PDF import: heading words and numbering styles ("Chapter 12", "CHAPTER XII", "Part One") | no | a TXT file is one chapter; a PDF uses only its bookmarks and font sizes |
 
 - Line splitting is rule-based, with the rules from the pack. It is not done by the analysis model.
 - Analysis prompts are always in English, for every Work; only the passage is in the Work's language. Emotion names are internal English ids, translated only in the interface. Packs carry no prompts.

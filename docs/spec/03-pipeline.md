@@ -19,14 +19,14 @@ Every importer produces the same Work, and nothing downstream knows the Source f
 | Source | How |
 |---|---|
 | EPUB 2 and 3 | Chorus's own reader on `zipfile` and `lxml`: `META-INF/container.xml`, then the package's spine for reading order, the navigation document (or the NCX as fallback) for chapter titles and boundaries. Without a usable table of contents: one chapter per spine item, or split at `h1`/`h2`. Images are dropped. |
-| PDF with a text layer | `pdfplumber` for characters with font name, size and position, `pypdf` for bookmarks. Chorus's own code removes repeated headers and footers and page numbers, detects italics from the font name or slant, rebuilds paragraphs from spacing and indents, joins lines across page breaks, and removes hyphens at line ends (keeping a hyphen when the joined word is not in a word list but both halves are). Chapters from the bookmarks, else from headings by font size or heading patterns. Pages without a text layer are rejected (no OCR). |
-| TXT | Chorus's own reader. Chapters are lines that look like chapter headings ("Chapter 12", "CHAPTER XII", "Part One", a lone number); with none, the whole file is one chapter. Runs of blank lines or `***` become Section breaks. |
+| PDF with a text layer | `pdfplumber` for characters with font name, size and position, `pypdf` for bookmarks. Chorus's own code removes repeated headers and footers and page numbers, detects italics from the font name or slant, rebuilds paragraphs from spacing and indents, joins lines across page breaks, and removes hyphens at line ends (keeping a hyphen when the joined word is not in a word list but both halves are). Chapters from the bookmarks, else from headings by font size or the Language pack's heading patterns. Pages without a text layer are rejected (no OCR). |
+| TXT | Chorus's own reader. Encoding: the byte-order mark if there is one, else UTF-8, else detected with `charset-normalizer`; the encoding used is shown among the import warnings. Chapters are lines that match the Language pack's heading patterns ("Chapter 12", "CHAPTER XII", "Part One", a lone number); with none found, or no patterns in the pack, the whole file is one chapter. Runs of blank lines or `***` become Section breaks. |
 | MOBI, AZW3 and anything else Calibre converts (DOCX, FB2, RTF, HTML, ODT…) | Calibre's `ebook-convert` run as a separate process into EPUB, then the EPUB reader. |
 | AO3 by URL (milestone 2) | One user-started request for `GET /works/<id>?view_adult=true&view_full_work=true` with an honest User-Agent naming Chorus, parsed with the same structure AO3's own downloads use (preface, chapters, chapter notes, afterword). `/downloads/` is never used, since robots.txt disallows it. No crawling, search or background refresh. On 429 or 5xx: back off, honour `Retry-After`, retry a few times, then fail with "AO3 is busy, try later or upload the download instead". A work for logged-in users only gets "download it from AO3 (EPUB or HTML) and upload it"; Chorus never asks for AO3 credentials. |
 | AO3 upload (milestone 2) | An AO3 EPUB or HTML download, recognised by its publisher "Archive of Our Own" and its preface/chapters/afterword structure, read with the AO3 parser so the summary, notes and tags are kept as metadata and out of the story text. |
 
 - **Rejected with a clear message:** DRM-protected files (for EPUB, `META-INF/encryption.xml` is present), PDFs with no text layer, and files no reader or Calibre can open.
-- **Language:** from the Source's metadata when it states one (EPUB and AO3 do), otherwise from an offline language detector run on the text. Regional variants count as the base language (`en-GB` is `en`). It is shown on the Work page, where the user can change it. A Work whose language has no Language pack gets a notice that the English pack will be used, and runs anyway; setting the language to English by hand removes the notice.
+- **Language:** from the Source's metadata when it states one (EPUB and AO3 do), otherwise from an offline language detector (`lingua-py`) run on the text. Regional variants count as the base language (`en-GB` is `en`). It is shown on the Work page, where the user can change it. A Work whose language has no Language pack gets a notice that the English pack will be used, and runs anyway; setting the language to English by hand removes the notice.
 - **Changing the language later** runs nothing by itself: the Script and audio are flagged outdated, the user starts a new analysis when ready, pinned corrections survive, and Voices are cast again from the new language's set.
 - **AO3 is remembered:** a Work records that its Source was AO3, for the commercial-use line.
 - **Before milestone 7,** a changed Source (such as an AO3 work with new chapters) is imported again as a new Work.
@@ -35,12 +35,12 @@ Every importer produces the same Work, and nothing downstream knows the Source f
 
 Analysis runs on the GPU queue as one child process with the llama.cpp server (Qwen3.5-4B, 8k context, one slot, thinking off, temperature 0). Model output is constrained by a JSON schema. Prompts are in English for every language. Every finished chunk is saved.
 
-1. **Kinds of text.** Each passage gets its kind from the import structure: narration, chapter title, Work title and author, epigraph, letter (a letter, note or text message set as its own block), verse, footnote, list or table, AO3 summary or author note, and never-voiced material (tags, dedications, copyright pages, Gutenberg boilerplate, images and captions, tables of contents, page furniture). Text that will not be voiced stays in the Script, greyed out in the reading view, and is not analysed for Speaker or Emotion.
+1. **Kinds of text.** Each passage gets its kind from the import structure, and only from markup the Source actually has (EPUB and AO3 structure, footnote links, block quotations, PDF bookmarks and fonts where they are clear). Anything not marked is narration, including unquoted italic passages; the user changes a kind in the reading view (milestone 3). Detecting unmarked kinds is left for later (see [08](08-open-questions.md)). The kinds are: narration, chapter title, Work title and author, epigraph, letter (a letter, note or text message set as its own block), verse, footnote, list or table, AO3 summary or author note, and never-voiced material (tags, dedications, copyright pages, Gutenberg boilerplate, images and captions, tables of contents, page furniture). Text that will not be voiced stays in the Script, greyed out in the reading view, and is not analysed for Speaker or Emotion.
 2. **Line splitting.** Paragraphs are split into lines: each quotation is one line, and the narration between quotations within a paragraph is one line. The quotation marks come from the Language pack. A quotation that continues into the next paragraph must stay one quotation (the prototype's splitter got this wrong for a song inside a speech). A letter read aloud inside quotation marks is ordinary dialogue, not a letter block.
-3. **Character list.** The Work is cut into chunks of whole paragraphs of about 900 words. Chunk by chunk, the model keeps one global list of Characters, each with one canonical name, its aliases, a gender (female, male, unknown) and an age band (child, young adult, adult, elderly, unknown), merging rather than listing anyone twice. It also says whether each chapter is told in the first or third person, and if first person, who the Narrating Character is; that Character is added to the list if missing.
+3. **Character list.** The Work is cut into chunks of whole paragraphs of about 900 words. Chunk by chunk, the model keeps one global list of Characters, each with one canonical name, its aliases, a gender (female, male, unknown) and an age band (child, young adult, adult, elderly, unknown), merging rather than listing anyone twice. For each chunk it also says whether the text is told in the first or third person, and if first person, who the narrating Character is. A chapter takes the majority answer of its chunks as its Narrating Character (or none), so Works whose chapters alternate between narrators are handled. A Narrating Character missing from the list is added. How large the list may grow on a whole novel, and how it is trimmed to fit the prompt, is settled by an early milestone 1 build ticket that runs this pass on a full novel from `.scratch/chorus/samples/raw/` (see [07-milestones.md](07-milestones.md)).
 4. **Speaker attribution and Emotion.** Chunk by chunk, with the Character list and the last 150 words of the previous chunk as context, every quoted line gets a Speaker (a listed Character, the Narrator for a quotation nobody says, such as a quoted word or title, or Unknown), a kind (speech, thought, or written text being read), an Emotion and an intensity. In a first-person chapter, the Narrating Character's own lines get that Character's name, never the Narrator.
-5. **Second labelling run.** Step 4 is run again with the same Character list and prompt, but in chunks of about 600 words, so every line is read in a different context. It is no more accurate on its own; it is there to find disagreements. It adds about 70% to the analysis time.
-6. **Review queue.** A quoted line is put in the question queue when any of these holds:
+5. **Second labelling run (from milestone 3).** Step 4 is run again with the same Character list and prompt, but in chunks of about 600 words, so every line is read in a different context. It is no more accurate on its own; it is there to find disagreements. It adds about 70% to the analysis time. It arrives with the question queue in milestone 3; a Work analysed before then gets its second run the first time the user opens Review.
+6. **Review queue (from milestone 3).** A quoted line is put in the question queue when any of these holds:
    - No Speaker was found (Unknown, or a name not in the Character list).
    - A quoted line was given to the Narrator.
    - The paragraph's own narration says "said X" (from the Language pack's speech-verb list) and the label is someone else.
@@ -53,7 +53,9 @@ Analysis runs on the GPU queue as one child process with the llama.cpp server (Q
 
 **Emotions:** neutral, happy, excited, amused, angry, sad, afraid, anxious, surprised. Two intensities: normal and strong. The Narrator has no Emotion. Thoughts are never strong. A letter is neutral unless the user sets an Emotion.
 
-**Speed:** on the six sample passages (10,621 words) one analysis pass took about 1,250 s and the second run about 890 s in the container, so roughly 0.2 s per word: about 5 to 6 hours for a 100,000-word novel.
+**After analysis:** voicing starts straight away, unless the setting "wait for my review before voicing" (global, and per Work; off by default; from milestone 3) is on. Then the Work stops in the state "ready for review" until the user starts voicing. Works never reviewed carry a small mark either way.
+
+**Speed:** on the six sample passages (10,621 words) one analysis pass took about 1,250 s and the second run about 890 s in the container: about 3.5 hours for a 100,000-word novel without the second run, 5 to 6 hours with it.
 
 **Accuracy to expect:** about 90% of Speakers right (259 to 267 of 288 on the samples, depending on the llama.cpp build). Emotion is often wrong and the prompt is untuned. Known failure cases the reading view must make quick to fix: a Character missing from the list, so their lines become Unknown; turn-taking lost in long untagged exchanges; a line given to the person it addresses; speakers who are only described, never tagged; thoughts and group lines given to the Narrator; an invented Character; a first-person narrator split into two Characters ("I" and "Jane").
 
@@ -63,7 +65,7 @@ Auto-casting runs straight after analysis and uses built-in Voices of the Work's
 
 - **Narrator:** the Language pack's default Narrator Voice (`af_bella` for English). The user can swap it. It is never given to a Character.
 - **Narrating Character:** in a chapter told in the first person, the Narrator and the Narrating Character share one Voice, auto-cast by that Character's traits. The user can separate them in the cast. This is the one exception to the rule above.
-- **Characters:** those with the most lines get unique Voices from the 11 left. The rest share the closest match by labels, avoiding two Characters with the same Voice close together where possible (the unit is not decided; see [08](08-open-questions.md)). Child and elderly Characters get the closest adult Voice of their gender, since no built-in Voice is a child or elderly.
+- **Characters:** those with the most lines get unique Voices from the 11 left. The rest share the closest match by labels. Characters who share a Voice should never both speak in the same chapter; where that is impossible, Chorus picks the pair with the fewest chapters in common. Child and elderly Characters get the closest adult Voice of their gender, since no built-in Voice is a child or elderly. A Character of unknown gender is matched on age band across all 11 Character Voices, preferring the Voice with the fewest lines so far, so minor unnamed speakers spread out instead of piling on one Voice.
 - **Cloned Voices** are never auto-cast; they are used only where the user assigns them.
 
 ## Voicing
@@ -77,7 +79,8 @@ Voicing runs on the GPU queue as one child process with Chatterbox 500M, after a
 - **Settings per line:** a Character line uses its Emotion and intensity, looked up in the voice model's Emotion settings (`exaggeration` and `cfg_weight`). The Narrator always uses neutral (0.5 / 0.5). No setting goes above `exaggeration` 0.9.
 - **Seed:** each line stores its seed. Re-voicing a line reuses it, which reproduces the same take, so only what the user changed changes. A New take picks a new seed.
 - **Watermark:** Chatterbox's watermark is on. A global switch to turn it off arrives in milestone 8; it applies to audio generated afterwards, and existing audio keeps what it was made with.
-- **Output:** one FLAC file per line.
+- **Long lines:** a line is split into sentences using the Language pack's sentence rules; each sentence is voiced with the line's Voice, settings and seed, and the sentences are joined with 0.3 s between them. Short inputs keep the voice model reliable.
+- **Output:** one FLAC file per line (24 kHz, as Chatterbox writes it).
 - **Not voiced:** lines in passages marked not voiced, and kinds whose switch is off.
 
 **Speed:** about 2.2 times real time with the two halves loaded in turn: a 10-hour Audio drama takes about a day.
@@ -87,7 +90,16 @@ Voicing runs on the GPU queue as one child process with Chatterbox 500M, after a
 Each chapter's audio is put together from its line files with ffmpeg, on the non-GPU queue, and cached.
 
 - Each clip's own leading and trailing silence is trimmed first.
-- Pauses come from one fixed set of lengths, tied to nothing in the Script except structure: 0.45 s between lines, 0.75 s at a new paragraph, a long pause after the Work title and author, after a chapter title and after an epigraph's source line, a short pause at each line end of verse, and the longest pause at a Section break. The prototype also used 0.3 s between sentences of one narration passage. Only 0.3, 0.45 and 0.75 s have values; see [08](08-open-questions.md).
+- Pauses come from one fixed set of lengths, kept in one settings file (not per Work) and tied to nothing in the Script except structure. Starting values, all tuned by ear during milestone 1's listening check:
+
+| Where | Start value |
+|---|---|
+| Between sentences of one line | 0.3 s |
+| Between lines | 0.45 s |
+| At a new paragraph | 0.75 s |
+| At each line end of verse | 0.3 s |
+| Long pause: after the Work title and author, a chapter title, an epigraph's source line | 1.5 s |
+| Longest pause: at a Section break | 2.5 s |
 - **What is read, by default:**
 
 | Kind | Default | Who and how | Per-Work switch |
@@ -127,14 +139,23 @@ The user fetches the AO3 page again or gives a new file. Chapters whose text is 
 
 ## MP3 and M4B export
 
-Written to the host's exports folder, one sub-folder per Work, so the files survive deleting the Work. Chapter markers in the M4B come from the assembled chapter lengths. The Work page lists each export with its date, a download button and the outdated flag, and each can be deleted from the list. File layout, bitrates and tags are not decided (see [08](08-open-questions.md)).
+Written to the host's exports folder, one sub-folder per Work, so the files survive deleting the Work. The Work page lists each export with its date, a download button and the outdated flag, and each can be deleted from the list.
+
+| | M4B | MP3 |
+|---|---|---|
+| Files | one per Work | one per chapter, with numbered file names |
+| Audio | AAC, mono, 64 kbps | mono, 96 kbps |
+| Chapters | chapter markers from the assembled chapter lengths | one file per chapter |
+| Tags | title, author, cover | title, author, track number, cover |
+
+Line audio stays 24 kHz FLAC; the YouTube export resamples to 48 kHz.
 
 ## YouTube export (milestone 8)
 
 An export, not Publishing: the user uploads the files by hand in YouTube Studio.
 
 - **Per chapter:** an upload-ready MP4, a description, a thumbnail, and an upload checklist. One video per chapter, meant to be grouped by the user in one playlist per Work; never one long video.
-- **Video:** a still image at 1 fps with the audio as AAC, `-t` set to the audio's length:
+- **Video:** a still image at 1 fps with the audio as 48 kHz AAC, `-t` set to the audio's length:
   `ffmpeg -loop 1 -framerate 1 -i cover.png -i chapter.m4a -map 0:v -map 1:a -c:v libx264 -preset veryfast -tune stillimage -pix_fmt yuv420p -g 60 -c:a copy -t <duration> -movflags +faststart out.mp4`. About 1.4 s per 10 minutes of audio.
 - **Image and thumbnail:** the Work's cover if the Source has one, else a generated title card; the Work title and chapter title are drawn on it. 1280×720 JPEG under 2 MB; the same image is the still frame.
 - **Description:** generated and editable before upload; it ends with a line saying the voices are AI-generated. YouTube's limits apply: title up to 100 characters, description up to 5,000 bytes, no `<` or `>`.

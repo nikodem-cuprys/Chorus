@@ -9,7 +9,7 @@ Pascal support ends with CUDA 12.x, driver branch R580 and PyTorch 2.14, so this
 | Layer | Pin |
 |---|---|
 | Host driver | NVIDIA branch R580 (Windows: 582.28 measured; Linux: 580.x). Never R590 or later. |
-| Base image | `nvidia/cuda:12.6.3-base-ubuntu24.04`, pinned by digest and mirrored (old CUDA tags are deleted from Docker Hub six months after end of life) |
+| Base image | `nvidia/cuda:12.6.3-base-ubuntu24.04`, pinned by digest and mirrored (old CUDA tags are deleted from Docker Hub six months after end of life). The `base` flavour is enough because the torch wheel brings its own CUDA and cuDNN libraries; ticket 25 ran on it, and the M1 image build confirms it. |
 | llama.cpp build stage | llama.cpp's `.devops/cuda.Dockerfile` with `CUDA_VERSION=12.6.3`, `GCC_VERSION=13` (CUDA 12.6.3's compiler rejects gcc 14) and `CUDA_DOCKER_ARCH=61`. Never a `*-cuda13` image. |
 | Python | 3.12 |
 | PyTorch | `torch==2.14.0+cu126` from `https://download.pytorch.org/whl/cu126`. A plain `pip install torch` gives a CUDA 13 wheel that cannot run on Pascal. |
@@ -24,7 +24,7 @@ Pascal support ends with CUDA 12.x, driver branch R580 and PyTorch 2.14, so this
 |---|---|
 | Model | Qwen3.5-4B, GGUF Q4_K_M (2.74 GB file) |
 | Licence | Apache-2.0 |
-| Runtime | llama.cpp server, build b11318 (the build measured in the container), all layers on the card |
+| Runtime | llama.cpp server, pinned to build b11318 (the build measured in the container), all layers on the card. Moving to another build means scoring the sample passages again. |
 | Settings | 8k context, one slot (`-np 1`; more slots divide the context), thinking off, temperature 0, JSON-schema constrained output |
 | Approach | B: LLM-only chunked attribution with a global Character and alias list, plus a blind second labelling run (see [03-pipeline.md](03-pipeline.md#analysis)) |
 
@@ -94,8 +94,10 @@ Timbre words are a fixed list of ten: low, high, bright, dark, brisk, measured, 
 | PDF text, fonts and positions | `pdfplumber` 0.11.10 on `pdfminer.six` | MIT | in-process |
 | PDF bookmarks | `pypdf` 6.19 | BSD-3-Clause | in-process |
 | MOBI, AZW3 and other formats to EPUB | Calibre `ebook-convert` | GPL-3.0 | separate process |
+| TXT encoding detection | `charset-normalizer` | MIT | in-process |
+| Language detection | `lingua-py` | Apache-2.0 | in-process, offline, no model download |
 | AO3 by URL | `httpx` | BSD-3-Clause | in-process |
-| Audio and video assembly | ffmpeg | not checked (see [08](08-open-questions.md)) | separate process |
+| Audio and video assembly | ffmpeg | GPL when built with libx264 | separate process, so the image is an aggregate, as with Calibre |
 
 **Avoided because AGPL:** EbookLib, PyMuPDF. **Avoided because GPL in-process:** `mobi`.
 

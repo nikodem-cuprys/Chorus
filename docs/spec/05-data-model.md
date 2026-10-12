@@ -10,10 +10,10 @@ Entities and what they hold, in PostgreSQL unless noted. Field names are descrip
 - Whether the Source was AO3.
 - Metadata from the Source: summary, tags, series and index, rating and warnings, publisher, publication date.
 - Import warnings.
-- State: importing, analysing, ready for review, voicing, ready to listen, failed (with the reason). A paused job shows as paused.
+- State: importing, analysing, ready for review (only when "wait for my review before voicing" is on), voicing, ready to listen, failed (with the reason). A paused job shows as paused.
 - Whether it has been reviewed, and whether it has been played to the end ("listened").
 - Times added and last opened.
-- Settings: the special-text switches (copied from the global defaults at import), and the synthetic-content flag for Publishing (on by default).
+- Settings: the special-text switches and "wait for my review before voicing" (both copied from the global defaults at import), and the synthetic-content flag for Publishing (on by default).
 - The Narrator's Voice for the Work.
 - The listening position: one line.
 
@@ -39,7 +39,7 @@ The Script is the chapters' lines in order, plus the Character list.
 - Pins: which of its values the user corrected. A pinned value survives a new analysis.
 - Current take and previous take: two audio files, each with the Voice, Emotion, intensity, text and seed it was made with.
 - Waiting for audio: its current take no longer matches its values.
-- Whether it is in the review queue, and which rules put it there.
+- Its Speaker from the second labelling run (milestone 3), whether it is in the review queue, and which rules put it there.
 
 ## Character
 
@@ -88,7 +88,7 @@ Built-in and cloned Voices share one format.
 
 ## Global settings
 
-- Default special-text switches for new Works.
+- Default special-text switches for new Works, and the default for "wait for my review before voicing" (off).
 - Watermark on or off (milestone 8).
 - Interface language.
 - Network password (milestone 5).

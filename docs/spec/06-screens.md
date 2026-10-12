@@ -23,7 +23,7 @@ Reached from the Library. Upload a file, or (milestone 2) paste an AO3 work URL 
 - The running job with pause, resume and cancel, and its progress.
 - Exports with date, download button, outdated flag and delete; buttons to export MP3, M4B and (milestone 8) for YouTube.
 - Pasted YouTube links (milestone 8) and the YouTube section (milestone 9).
-- The Work's settings panel: the special-text switches and the synthetic-content flag (milestone 3 and 9).
+- The Work's settings panel: the special-text switches and "wait for my review before voicing" (milestone 3), and the synthetic-content flag (milestone 9). A Work stopped at "ready for review" shows a button to start voicing.
 - Import failures and warnings.
 - Update from Source (milestone 7) and Delete, with one confirmation naming the Work.
 
@@ -47,7 +47,7 @@ The way into review, and optional like review itself. One question at a time wit
 
 ## Settings
 
-- The defaults for the special-text switches of new Works (milestone 3).
+- The defaults for the special-text switches of new Works, and "wait for my review before voicing" (milestone 3).
 - Interface language (Polish from milestone 5).
 - Network password (milestone 5).
 - Watermark switch (milestone 8).
