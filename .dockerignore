@@ -1,0 +1,14 @@
+**
+!backend/pyproject.toml
+!backend/alembic.ini
+!backend/chorus/**
+!backend/migrations/**
+!frontend/package.json
+!frontend/package-lock.json
+!frontend/index.html
+!frontend/tsconfig.json
+!frontend/vite.config.ts
+!frontend/src/**
+**/__pycache__
+!certs/README.md
+!certs/*.crt

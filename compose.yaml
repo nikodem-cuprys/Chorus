@@ -1,0 +1,71 @@
+name: chorus
+
+x-chorus: &chorus
+  build: .
+  image: chorus:dev
+  environment:
+    CHORUS_DATABASE_URL: postgresql+psycopg://chorus:chorus@postgres:5432/chorus
+    CHORUS_REDIS_URL: redis://redis:6379/0
+    # Set CHORUS_DEV=true to enable /api/dev (dummy jobs for testing).
+    CHORUS_DEV: ${CHORUS_DEV:-false}
+  volumes:
+    - data:/data
+    - models:/models
+    # Exports are ordinary files on the host, one sub-folder per Work.
+    - ${CHORUS_EXPORTS_DIR:-./exports}:/exports
+  restart: unless-stopped
+
+services:
+  web:
+    <<: *chorus
+    command: sh -c "alembic upgrade head && exec uvicorn chorus.app:app --host 0.0.0.0 --port 8000"
+    # Published on localhost only: Chorus has no login (docs/spec/02-architecture.md, Access).
+    ports:
+      - "127.0.0.1:${CHORUS_PORT:-8000}:8000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/api/health')"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  worker:
+    <<: *chorus
+    command: python -m chorus.worker
+    depends_on:
+      # Waits for web, which runs the database migrations.
+      web:
+        condition: service_healthy
+
+  redis:
+    image: redis:7.4-alpine
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  postgres:
+    image: postgres:17
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: chorus
+      POSTGRES_PASSWORD: chorus
+      POSTGRES_DB: chorus
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "chorus"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+volumes:
+  data:
+  models:
+  postgres:

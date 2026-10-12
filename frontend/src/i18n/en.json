@@ -1,0 +1,19 @@
+{
+  "app.name": "Chorus",
+  "library.title": "Library",
+  "library.empty": "No Works yet. Importing arrives in a later build.",
+  "jobs.title": "Jobs",
+  "jobs.empty": "No jobs have run.",
+  "jobs.progress": "{percent}%",
+  "jobs.connection_lost": "Lost the connection to Chorus. Reconnecting…",
+  "job.kind.dev.gpu": "Test job (GPU queue)",
+  "job.kind.dev.other": "Test job",
+  "job.state.queued": "Queued",
+  "job.state.running": "Running",
+  "job.state.paused": "Paused",
+  "job.state.cancelled": "Cancelled",
+  "job.state.failed": "Failed",
+  "job.state.done": "Done",
+  "job.error.unexpected": "Something went wrong: {detail}",
+  "job.error.not_found": "Job {id} does not exist."
+}

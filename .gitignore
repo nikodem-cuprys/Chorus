@@ -13,3 +13,15 @@ __pycache__/
 # Generated audio, except the 12 built-in Voice library clips
 *.wav
 !.scratch/chorus/prototypes/voice-library/library/*.wav
+
+# App build and run artefacts
+.venv/
+node_modules/
+frontend/dist/
+exports/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+
+# Root certificates of one machine (see certs/README.md)
+certs/*.crt

@@ -1,0 +1,57 @@
+"""Entry point of the `worker` service: one Celery worker per queue, each with its own concurrency.
+
+Running the queues as separate workers is what keeps the GPU queue at one task at a time while
+the other queue runs several. If either worker exits, the other is stopped and the service exits,
+so Docker restarts both.
+"""
+
+import signal
+import subprocess
+import sys
+
+from chorus.jobs import CONCURRENCY
+
+
+def main() -> int:
+    workers = [
+        subprocess.Popen(
+            [
+                sys.executable,
+                "-m",
+                "celery",
+                "-A",
+                "chorus.tasks",
+                "worker",
+                "--queues",
+                queue.value,
+                "--concurrency",
+                str(concurrency),
+                "--hostname",
+                f"{queue.value}@%h",
+                "--loglevel",
+                "INFO",
+            ]
+        )
+        for queue, concurrency in CONCURRENCY.items()
+    ]
+
+    def stop(*_: object) -> None:
+        for w in workers:
+            if w.poll() is None:
+                w.terminate()
+
+    signal.signal(signal.SIGTERM, stop)
+    signal.signal(signal.SIGINT, stop)
+
+    # Wait until one worker exits, then stop the rest.
+    while all(w.poll() is None for w in workers):
+        try:
+            workers[0].wait(timeout=1)
+        except subprocess.TimeoutExpired:
+            pass
+    stop()
+    return max(w.wait() for w in workers)
+
+
+if __name__ == "__main__":
+    sys.exit(main())
