@@ -8,6 +8,10 @@ CHORUS_DEV=true docker compose up -d      # also enables /api/dev (dummy jobs)
 docker compose down                       # stop; volumes are kept
 ```
 
+The first build takes a long time: it compiles llama.cpp for the GTX 1050 Ti and downloads about 7 GB of PyTorch and CUDA libraries (the image is about 13.6 GB). Later builds reuse those layers.
+
+The worker checks the GPU stack when it starts (torch on the card, llama-server seeing the card, Calibre, ffmpeg) and the interface shows what failed. To run the check by hand: `docker compose exec worker python -m chorus.healthcheck`.
+
 If the build fails with "certificate verify failed" or "invalid peer certificate", the host's HTTPS traffic is being re-signed by antivirus or a proxy: see [`certs/README.md`](../certs/README.md).
 
 ## Tests

@@ -15,7 +15,7 @@ from pydantic import BaseModel, Field
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
-from chorus import events, tasks  # noqa: F401  (tasks registers every job kind)
+from chorus import events, healthcheck, tasks  # noqa: F401  (tasks registers every job kind)
 from chorus.config import get_settings
 from chorus.db import get_session
 from chorus.jobs import enqueue
@@ -27,6 +27,12 @@ api = APIRouter(prefix="/api")
 @api.get("/health")
 def health() -> dict:
     return {"status": "ok"}
+
+
+@api.get("/system/health")
+def system_health() -> dict:
+    """The worker's startup check; `ok` is null until the worker has run it."""
+    return healthcheck.load() or {"checked_at": None, "ok": None, "checks": []}
 
 
 @api.get("/jobs")

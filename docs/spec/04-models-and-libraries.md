@@ -9,9 +9,10 @@ Pascal support ends with CUDA 12.x, driver branch R580 and PyTorch 2.14, so this
 | Layer | Pin |
 |---|---|
 | Host driver | NVIDIA branch R580 (Windows: 582.28 measured; Linux: 580.x). Never R590 or later. |
-| Base image | `nvidia/cuda:12.6.3-base-ubuntu24.04`, pinned by digest and mirrored (old CUDA tags are deleted from Docker Hub six months after end of life). The `base` flavour is enough because the torch wheel brings its own CUDA and cuDNN libraries; ticket 25 ran on it, and the M1 image build confirms it. |
-| llama.cpp build stage | llama.cpp's `.devops/cuda.Dockerfile` with `CUDA_VERSION=12.6.3`, `GCC_VERSION=13` (CUDA 12.6.3's compiler rejects gcc 14) and `CUDA_DOCKER_ARCH=61`. Never a `*-cuda13` image. |
-| Python | 3.12 |
+| Base image | `nvidia/cuda:12.6.3-base-ubuntu24.04`, pinned by digest (old CUDA tags are deleted from Docker Hub six months after end of life; mirroring them is not set up). The `base` flavour is enough: the torch wheel brings its own CUDA runtime, cuBLAS, cuDNN (9.10) and NCCL, and Chatterbox voices a line in the image (M1 ticket 02). |
+| llama.cpp build stage | b11318, built in the image's Dockerfile with the cmake options of llama.cpp's own `.devops/cuda.Dockerfile` (`GGML_CUDA`, `GGML_BACKEND_DL`, `GGML_CPU_ALL_VARIANTS`) and `CMAKE_CUDA_ARCHITECTURES=61`, on `nvidia/cuda:12.6.3-devel-ubuntu24.04` with Ubuntu 24.04's gcc 13 (CUDA 12.6.3's compiler rejects gcc 14). Never a `*-cuda13` image. At run time `llama-server` loads the CUDA runtime, cuBLAS and NCCL from the torch wheel; without NCCL its CUDA backend does not load and it runs on the CPU without saying so, which the startup check catches. |
+| Python | 3.12 (Ubuntu 24.04's own), in a virtual environment installed with uv |
+| Chatterbox | `chatterbox-tts==0.1.7` installed without its dependencies, which pin torch 2.6 and pull in `gradio` for a demo the library never imports; its library dependencies are listed at the frozen versions in `docker/requirements-gpu.txt` |
 | PyTorch | `torch==2.14.0+cu126` from `https://download.pytorch.org/whl/cu126`. A plain `pip install torch` gives a CUDA 13 wheel that cannot run on Pascal. |
 | torchaudio | `torchaudio==2.11.0+cu126` |
 | Environment | `TORCH_DISABLE_NATIVE_JIT=1` |
@@ -93,11 +94,11 @@ Timbre words are a fixed list of ten: low, high, bright, dark, brisk, measured, 
 | EPUB, XHTML, AO3 HTML | `lxml` with stdlib `zipfile` | BSD-3-Clause | in-process |
 | PDF text, fonts and positions | `pdfplumber` 0.11.10 on `pdfminer.six` | MIT | in-process |
 | PDF bookmarks | `pypdf` 6.19 | BSD-3-Clause | in-process |
-| MOBI, AZW3 and other formats to EPUB | Calibre `ebook-convert` | GPL-3.0 | separate process |
+| MOBI, AZW3 and other formats to EPUB | Calibre `ebook-convert` 7.6.0 (Ubuntu 24.04), headless with `QT_QPA_PLATFORM=offscreen` | GPL-3.0 | separate process |
 | TXT encoding detection | `charset-normalizer` | MIT | in-process |
 | Language detection | `lingua-py` | Apache-2.0 | in-process, offline, no model download |
 | AO3 by URL | `httpx` | BSD-3-Clause | in-process |
-| Audio and video assembly | ffmpeg | GPL when built with libx264 | separate process, so the image is an aggregate, as with Calibre |
+| Audio and video assembly | ffmpeg 6.1.1 (Ubuntu 24.04) | GPL when built with libx264 | separate process, so the image is an aggregate, as with Calibre |
 
 **Avoided because AGPL:** EbookLib, PyMuPDF. **Avoided because GPL in-process:** `mobi`.
 

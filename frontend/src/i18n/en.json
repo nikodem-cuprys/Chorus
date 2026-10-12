@@ -15,5 +15,19 @@
   "job.state.failed": "Failed",
   "job.state.done": "Done",
   "job.error.unexpected": "Something went wrong: {detail}",
-  "job.error.not_found": "Job {id} does not exist."
+  "job.error.not_found": "Job {id} does not exist.",
+  "health.title": "Chorus cannot run on this computer yet",
+  "health.intro": "The startup check found a problem with the graphics card setup or a program Chorus needs:",
+  "health.details": "Details",
+  "health.after_fixing": "After fixing it, restart Chorus (docker compose restart worker) and reload this page.",
+  "health.torch.missing": "PyTorch is not installed in the Chorus image.",
+  "health.torch.wrong_build": "The Chorus image has the wrong PyTorch build ({version}, for CUDA {cuda}). Chorus needs a CUDA 12 build to run on a Pascal card such as the GTX 1050 Ti.",
+  "health.torch.no_gpu": "No NVIDIA graphics card is visible to Chorus. Check the NVIDIA driver (branch R580) and that Docker gives the worker the GPU.",
+  "health.torch.no_kernel": "PyTorch {version} has no code for this graphics card (\"no kernel image is available\"). The image was built with a PyTorch wheel without Pascal support.",
+  "health.torch.failed": "A test calculation on the graphics card failed.",
+  "health.torch.ok": "Graphics card works: {device}",
+  "health.program.missing": "The program {program} is missing from the Chorus image.",
+  "health.program.failed": "The program {program} does not run.",
+  "health.program.ok": "{program} works.",
+  "health.llama.no_gpu": "llama.cpp runs, but cannot see the graphics card, so analysis would run on the CPU. A CUDA library is probably missing from the image."
 }

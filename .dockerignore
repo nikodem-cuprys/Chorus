@@ -12,3 +12,6 @@
 **/__pycache__
 !certs/README.md
 !certs/*.crt
+!docker/requirements-gpu.txt
+!docker/constraints-gpu.txt
+!docker/llama-server.sh

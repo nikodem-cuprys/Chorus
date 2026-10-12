@@ -117,3 +117,20 @@ h2 {
 .job-failed .bar-fill {
   background: var(--error);
 }
+
+.checks {
+  padding-left: 20px;
+}
+
+.check-failed {
+  margin-bottom: 12px;
+}
+
+pre {
+  white-space: pre-wrap;
+  font-size: 0.8rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 8px;
+  border-radius: 6px;
+}

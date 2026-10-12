@@ -3,3 +3,5 @@
 *.mobi binary
 *.azw3 binary
 *.wav binary
+*.sh text eol=lf
+Dockerfile text eol=lf

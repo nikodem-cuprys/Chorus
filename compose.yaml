@@ -36,6 +36,14 @@ services:
   worker:
     <<: *chorus
     command: python -m chorus.worker
+    # The GPU, for analysis and voicing. Only the worker gets it.
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
     depends_on:
       # Waits for web, which runs the database migrations.
       web:

@@ -3,6 +3,10 @@
 Running the queues as separate workers is what keeps the GPU queue at one task at a time while
 the other queue runs several. If either worker exits, the other is stopped and the service exits,
 so Docker restarts both.
+
+Before the workers start, the startup check (chorus.healthcheck) runs in its own process and
+stores its result for the interface. A failed check is reported, not fatal: the workers still
+start, so jobs that do not need what failed can run.
 """
 
 import signal
@@ -13,6 +17,8 @@ from chorus.jobs import CONCURRENCY
 
 
 def main() -> int:
+    subprocess.run([sys.executable, "-m", "chorus.healthcheck", "--store"], check=False)
+
     workers = [
         subprocess.Popen(
             [

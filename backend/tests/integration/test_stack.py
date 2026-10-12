@@ -1,7 +1,7 @@
 """Tests against the running Compose stack, skipped unless CHORUS_STACK_URL is set.
 
-    CHORUS_DEV=true docker compose up -d --build
-    CHORUS_STACK_URL=http://localhost:8000 pytest tests/integration
+CHORUS_DEV=true docker compose up -d --build
+CHORUS_STACK_URL=http://localhost:8000 pytest tests/integration
 """
 
 import json
@@ -97,3 +97,20 @@ def test_the_port_is_published_on_localhost_only():
     for name, service in config["services"].items():
         for port in service.get("ports", []):
             assert port.get("host_ip") == "127.0.0.1", f"{name} publishes {port}"
+
+
+def test_the_startup_check_passes_on_this_machine():
+    """Needs the GPU host: torch on the card, llama-server, Calibre and ffmpeg all work."""
+    with httpx.Client(base_url=URL, timeout=10) as client:
+        deadline = time.monotonic() + 180
+        while time.monotonic() < deadline:
+            health = client.get("/api/system/health").json()
+            if health["ok"] is not None:
+                break
+            time.sleep(2)
+        else:
+            pytest.fail("the worker never stored a startup check")
+    failed = [(c["name"], c["detail"]) for c in health["checks"] if not c["ok"]]
+    assert failed == []
+    names = {c["name"] for c in health["checks"]}
+    assert names == {"torch", "llama-server", "ebook-convert", "ffmpeg"}

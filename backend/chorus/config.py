@@ -19,6 +19,9 @@ class Settings(BaseSettings):
     # The built frontend; served by the backend when the folder exists.
     frontend_dist: Path = Path(__file__).resolve().parent.parent.parent / "frontend" / "dist"
 
+    # llama.cpp's server, built for sm_61 in the image.
+    llama_server: str = "llama-server"
+
     # Enables /api/dev, used to start dummy jobs while there are no real ones.
     dev: bool = False
 
