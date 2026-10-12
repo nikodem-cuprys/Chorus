@@ -61,6 +61,8 @@ A build-ready spec for Chorus (in `docs/spec/`): product scope, architecture, th
 
 - [Milestones: the build order](issues/29-milestones.md): nine milestones. M1 the automatic path for every file format except AO3 (own readers for EPUB, PDF, TXT; the rest through Calibre), with full job control, plain playback, MP3/M4B export, the English Language pack and an English-only message catalogue; done only after the by-ear and memory checks of tickets 24 and 25. Then M2 AO3, M3 review and correction (with recasting, chapter split/merge, previous take), M4 pronunciation, M5 Library and player (phone, network password, Polish), M6 Voice cloning, M7 Update from Source, M8 YouTube export (with the ticket 10 items and watermark switch), M9 Publishing.
 
+- [Write the build-ready spec](issues/30-write-the-spec.md): written in `docs/spec/` (scope, architecture, pipeline, models and libraries, data model, screens, milestones, open questions), stating later decisions only; `CONTEXT.md` gains Line. 29 things found undecided are listed in `docs/spec/08-open-questions.md` instead of decided, most of them needed for M1.
+
 ## Not yet specified
 
 Nothing at present: every item was graduated into tickets 24-30.

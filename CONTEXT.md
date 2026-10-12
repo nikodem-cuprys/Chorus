@@ -39,6 +39,10 @@ _Avoid_: Role, persona
 The Character who tells a chapter in the first person. The Narrator shares that Character's Voice for the chapter. A chapter told in the third person has none.
 _Avoid_: First-person narrator, POV character
 
+**Line**:
+The smallest unit of a Script: one quotation, or one stretch of narration between quotations within a paragraph. Each line has one Speaker and is voiced as one piece of audio.
+_Avoid_: Utterance, segment, sentence
+
 **Speaker attribution**:
 Deciding which Speaker says each line.
 _Avoid_: Speaker detection, diarization
