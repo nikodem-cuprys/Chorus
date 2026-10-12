@@ -7,7 +7,7 @@ Chorus turns a written work into a multi-voice audio drama with emotional delive
 ### Input
 
 **Source**:
-The file or link a work is imported from (PDF, EPUB, MOBI, or an AO3 work).
+The file or link a work is imported from: an ebook, document or plain-text file (EPUB, MOBI, PDF with a text layer, TXT, and other formats Calibre can convert), or an AO3 work.
 _Avoid_: Input, upload, document
 
 **Work**:
