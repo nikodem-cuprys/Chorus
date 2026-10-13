@@ -45,3 +45,7 @@ Left for later:
 - **Dictionary (M4) and export lines (M8):** the loader accepts both, but the English pack has neither. The AO3 line is still open question 9.
 - **Single curly quotes:** `‘ ’` is not a quotation pair, because `’` is also the apostrophe. Ticket 09 should decide this when it builds the line splitter, since British-style books need it.
 - **Timbre words per Voice:** the spec says two or three, but six Voices have one, so the check allows one to three.
+
+## Comments
+
+2026-10-13, ticket 08: checked on the Compose stack (PostgreSQL). The web service starts with the pack loaded, `/api/voices` lists the 12 Voices with `af_bella` as the default Narrator, and clips are served as `audio/wav`.

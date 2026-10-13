@@ -20,6 +20,8 @@ from urllib.parse import unquote
 from lxml import etree, html
 
 from chorus.importing import (
+    GUTENBERG_END,
+    GUTENBERG_START,
     SECTION_BREAK_TEXT,
     Block,
     ImportedWork,
@@ -622,7 +624,33 @@ def _split_off_boilerplate(
     stream: list[Block | Marker],
 ) -> tuple[list[Block], list[Block | Marker], list[Block]]:
     """Project Gutenberg's header and licence, marked by its own ids, are front and back
-    matter whatever the table of contents says."""
+    matter whatever the table of contents says. Without the ids (an EPUB that Calibre made
+    from a MOBI loses them), its START and END lines mark them instead."""
+    stream = list(stream)
+    kinds = {i.kind for i in stream if isinstance(i, Marker)}
+    if "front_end" not in kinds:
+        start = next(
+            (
+                n
+                for n, i in enumerate(stream)
+                if isinstance(i, Block) and GUTENBERG_START.match(i.text.strip())
+            ),
+            None,
+        )
+        if start is not None:
+            stream[start + 1 : start + 1] = [Marker("front_end")]
+            stream.insert(0, Marker("front"))
+    if "back" not in kinds:
+        end = next(
+            (
+                n
+                for n, i in enumerate(stream)
+                if isinstance(i, Block) and GUTENBERG_END.match(i.text.strip())
+            ),
+            None,
+        )
+        if end is not None:
+            stream.insert(end, Marker("back"))
     front: list[Block] = []
     if any(isinstance(i, Marker) and i.kind == "front_end" for i in stream):
         start = next(n for n, i in enumerate(stream) if isinstance(i, Marker) and i.kind == "front")
@@ -630,7 +658,9 @@ def _split_off_boilerplate(
             n for n, i in enumerate(stream) if isinstance(i, Marker) and i.kind == "front_end"
         )
         front = [i for i in stream[start:end] if isinstance(i, Block)]
-        stream = stream[:start] + stream[end + 1 :]
+        # The header's blocks go; places the table of contents points to inside it stay.
+        kept = [i for i in stream[start:end] if isinstance(i, Marker) and i.kind in ("toc", "file")]
+        stream = stream[:start] + kept + stream[end + 1 :]
     back: list[Block] = []
     cut = next(
         (n for n, i in enumerate(stream) if isinstance(i, Marker) and i.kind == "back"), None

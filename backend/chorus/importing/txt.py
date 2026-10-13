@@ -23,6 +23,8 @@ from charset_normalizer import from_bytes
 from lingua import Language
 
 from chorus.importing import (
+    GUTENBERG_END,
+    GUTENBERG_START,
     SECTION_BREAK_TEXT,
     Block,
     ImportedChapter,
@@ -39,10 +41,6 @@ BOMS = [
     (codecs.BOM_UTF16_LE, "utf-16", "UTF-16"),
     (codecs.BOM_UTF16_BE, "utf-16", "UTF-16"),
 ]
-GUTENBERG_START = re.compile(
-    r"^\*\*\*\s*START OF (THE|THIS) PROJECT GUTENBERG EBOOK.*$", re.I | re.M
-)
-GUTENBERG_END = re.compile(r"^\*\*\*\s*END OF (THE|THIS) PROJECT GUTENBERG EBOOK.*$", re.I | re.M)
 GUTENBERG_FIELD = re.compile(r"^(Title|Author|Language):\s*(.+)$", re.M)
 # Lines indented this much, all through a paragraph, are set out (verse), not wrapped prose;
 # some Gutenberg texts indent every prose line by one space.

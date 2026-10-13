@@ -58,3 +58,7 @@ Left for later or noted:
 - **AO3 notes:** chapter notes, the summary and the end notes stay as ordinary blocks inside chapters, front and back matter, until AO3's parser (M2). In M1 they would be voiced as part of a chapter.
 - **Typos in headings:** titles are kept as the Source writes them, including Gutenberg's typo "CHAPTERXXVII.". The Work's state rests at `imported` until ticket 11 chains analysis after import.
 - **Detector memory:** lingua loads lazily and only when metadata has no language, once per worker process.
+
+## Comments
+
+2026-10-13, ticket 08: checked on the Compose stack. The Gutenberg EPUB imports with 61 chapters, a TXT file (Crime and Punishment, 40 chapters) and the two-column PDF import too, and the integration tests pass. The screens have still not been looked at in a browser.

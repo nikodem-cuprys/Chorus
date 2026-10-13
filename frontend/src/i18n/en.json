@@ -57,7 +57,7 @@
   "nav.library": "Library",
   "nav.import": "Import",
   "import.title": "Import",
-  "import.intro": "Upload an EPUB, a PDF with selectable text, or a plain-text (TXT) file. Chorus reads it into a Work you can open from the Library. Other formats arrive in later builds.",
+  "import.intro": "Upload an ebook or document: EPUB, MOBI, AZW3, PDF with selectable text, TXT, DOCX, FB2, RTF, ODT and the other formats Calibre can convert. Chorus reads it into a Work you can open from the Library.",
   "import.choose": "Choose a file",
   "import.start": "Import",
   "import.uploading": "Uploading…",
@@ -96,5 +96,9 @@
   "import.error.scanned_pdf": "This PDF has no text to read: it looks like a scan, made of page images. Scanned PDFs are not supported; use a PDF with selectable text, or another format.",
   "import.warning.pdf_headers_removed": "Running headers or footers were removed on {count} pages.",
   "import.warning.pdf_page_numbers_removed": "Page numbers were removed on {count} pages.",
-  "import.warning.pdf_pages_without_text": "{count} pages have no text (images only) and were skipped."
+  "import.warning.pdf_pages_without_text": "{count} pages have no text (images only) and were skipped.",
+  "import.error.unsupported_format": "Chorus cannot read this kind of file, and neither can Calibre. Try converting it to EPUB first.",
+  "import.error.conversion_failed": "Calibre could not convert this file into an ebook Chorus can read.",
+  "import.error.conversion_timeout": "Converting this file took longer than {minutes} minutes, so it was stopped.",
+  "import.error.converter_missing": "Calibre's ebook-convert is missing from the Chorus image, so this format cannot be converted."
 }

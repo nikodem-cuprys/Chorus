@@ -225,6 +225,31 @@ def test_toc_entries_inside_one_document():
     assert work.chapters[0].blocks[-1].text == "More of the first."
 
 
+def test_gutenberg_lines_without_their_ids_still_mark_the_boilerplate():
+    # As in an EPUB that Calibre made from a MOBI: the header and licence lost their ids.
+    nav = [("Chapter 1", "c1.xhtml"), ("Chapter 2", "c2.xhtml")]
+    work = read(
+        make_epub(
+            {
+                "c1.xhtml": "<p>The Project Gutenberg eBook of Test</p>"
+                "<p>*** START OF THE PROJECT GUTENBERG EBOOK TEST ***</p>"
+                "<h2>Chapter 1</h2><p>First.</p>",
+                "c2.xhtml": "<h2>Chapter 2</h2><p>Second. THE END</p>"
+                "<p>*** END OF THE PROJECT GUTENBERG EBOOK TEST ***</p><p>Licence text.</p>",
+            },
+            nav=nav,
+        )
+    )
+    assert [b.text for b in work.chapters[-1].blocks] == ["Chapter 2", "Second. THE END"]
+    assert [b.text for b in work.back_matter] == [
+        "*** END OF THE PROJECT GUTENBERG EBOOK TEST ***",
+        "Licence text.",
+    ]
+    assert all(b.boilerplate for b in work.back_matter)
+    assert work.front_matter[-1].text == "*** START OF THE PROJECT GUTENBERG EBOOK TEST ***"
+    assert work.front_matter[-1].boilerplate
+
+
 def test_a_part_title_page_joins_the_next_chapter():
     nav = [("Part One", "p1.xhtml"), ("Chapter 1", "c1.xhtml"), ("Chapter 2", "c2.xhtml")]
     work = read(
@@ -351,13 +376,6 @@ def test_a_drm_epub_fails_with_the_drm_message():
         job = client.get("/api/jobs").json()[0]
         assert job["state"] == "failed"
         assert job["error"] == {"key": "import.error.drm", "params": {}}
-
-
-def test_formats_not_read_yet_fail_with_a_message():
-    with TestClient(create_app()) as client:
-        work = upload(client, "notes.odt", b"something")
-        assert work["state"] == "failed"
-        assert work["error"]["key"] == "import.error.unsupported"
 
 
 def test_the_language_detector_fills_in_a_missing_language():

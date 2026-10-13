@@ -135,7 +135,7 @@ def check_llama_server() -> CheckResult:
 
 
 def check_ebook_convert() -> CheckResult:
-    return _program("ebook-convert", ["ebook-convert", "--version"])
+    return _program("ebook-convert", [get_settings().ebook_convert, "--version"])
 
 
 def check_ffmpeg() -> CheckResult:

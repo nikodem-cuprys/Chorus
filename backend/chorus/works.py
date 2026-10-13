@@ -13,6 +13,7 @@ from sqlalchemy.orm import Session
 
 from chorus.config import get_settings
 from chorus.importing import ImportedWork, ImportRejected, base_language, language
+from chorus.importing.calibre import convert_to_epub
 from chorus.importing.epub import read_epub
 from chorus.importing.pdf import read_pdf
 from chorus.importing.txt import read_txt
@@ -20,7 +21,8 @@ from chorus.jobs import JobContext, enqueue, job
 from chorus.languages import ChapterHeadings, get_packs
 from chorus.models import Chapter, Queue, Work, WorkState
 
-# Source kinds by file extension. The Calibre formats arrive in ticket 08.
+# Source kinds Chorus reads itself; any other is named by its extension ("mobi", "docx") and
+# goes through Calibre.
 SOURCE_KINDS = {".epub": "epub", ".txt": "txt", ".pdf": "pdf"}
 
 # The pack whose rules are used when a Work's language has none.
@@ -39,7 +41,8 @@ def pack_language(code: str | None) -> str:
 def start_import(session: Session, filename: str, data: bytes) -> Work:
     """Stores the upload as the Work's Source and puts the import job on the queue."""
     name = PurePath(filename).name or "source"
-    kind = SOURCE_KINDS.get(PurePath(name).suffix.lower(), "other")
+    suffix = PurePath(name).suffix.lower()
+    kind = SOURCE_KINDS.get(suffix) or suffix.lstrip(".")[:20] or "other"
     work = Work(
         title=PurePath(name).stem,
         source_kind=kind,
@@ -85,7 +88,9 @@ def import_work(ctx: JobContext) -> None:
                 lambda done, total: ctx.report(stage="reading", done=done, total=total),
             )
         else:
-            raise ImportRejected("import.error.unsupported", name=work.source_name)
+            ctx.report(stage="converting")
+            epub = convert_to_epub(data, PurePath(work.source_name).suffix)
+            imported = read_epub(epub, headings_for)
         ctx.report(stage="saving")
         _save(session, work, imported)
     except Exception as exc:

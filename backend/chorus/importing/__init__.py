@@ -19,6 +19,12 @@ BLOCK_TYPES = (
 MARKS = ("italic", "bold", "underline", "strike", "small_caps", "superscript")
 # A line of nothing but these marks ("* * *", "⁂") is a Section break.
 SECTION_BREAK_TEXT = re.compile(r"^[\s*•·⁂◆◇~#=_—–-]+$")
+# Project Gutenberg's lines around the book: what comes before START and from END on is its
+# header and licence.
+GUTENBERG_START = re.compile(
+    r"^\*\*\*\s*START OF (THE|THIS) PROJECT GUTENBERG EBOOK.*$", re.I | re.M
+)
+GUTENBERG_END = re.compile(r"^\*\*\*\s*END OF (THE|THIS) PROJECT GUTENBERG EBOOK.*$", re.I | re.M)
 
 
 class ImportRejected(JobFailed):

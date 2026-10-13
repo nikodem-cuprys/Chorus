@@ -21,6 +21,9 @@ class Settings(BaseSettings):
 
     # llama.cpp's server, built for sm_61 in the image.
     llama_server: str = "llama-server"
+    # Calibre's converter, for the formats Chorus has no reader for, and how long it may take.
+    ebook_convert: str = "ebook-convert"
+    calibre_timeout_seconds: int = 600
 
     # Enables /api/dev, used to start dummy jobs while there are no real ones.
     dev: bool = False
