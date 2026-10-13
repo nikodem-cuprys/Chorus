@@ -44,7 +44,7 @@ The milestone 1 items were decided on 2026-10-12 and written into the sections t
 - **The split voice model not heard yet:** the audio was compared by numbers only (waveform differences below -75 dB). M1 is not done until it is checked by ear.
 - **Attribution is not reproducible across builds:** 267 against 259 of 288 with the same prompts and temperature 0. The scores were against Claude's reference labelling, not the user's.
 - **Emotion is often wrong** and the prompt is untuned; Emotion settings were chosen on two of the 12 Voices only, and Respellings were not tested on strong Emotions or on the other ten Voices.
-- **The Character list on a whole novel** has never been tried; an early M1 build ticket measures it, and the way the list is trimmed for the prompt follows from that.
+- **The Character list on a whole novel** is the weakest part of analysis (M1 ticket 03): on Pride and Prejudice it had duplicates (Charlotte and Charlotte Lucas), wrong merges (Mrs. Gardiner filed under Elizabeth, Georgiana under Lady Catherine) and missing people, and those errors go straight into attribution (most of the Gardiners' lines in chapter 43 were wrong). Until review exists (M3), automatic output will carry them.
 - **Speed figures come from short samples:** about 0.2 s per word for analysis and 2.2 times real time for voicing, measured on passages under 2,000 words.
 - **Untested hosts:** no Linux host and no card without a desktop has been measured. Docker Desktop's support for Windows 10 is ending.
 - **Chatterbox 500M being English-only** (with a multilingual sibling as a separate model) was stated from memory in ticket 28 and not checked. It matters for the second Language pack.

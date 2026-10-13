@@ -1,0 +1,877 @@
+{
+ "delta-full": {
+  "right": 57,
+  "quotes": 64,
+  "wrong": {
+   "31": "Mrs. Bennet",
+   "32": "Mr. Bennet",
+   "40": "Mr. Bennet",
+   "41": "Mrs. Bennet",
+   "45": "Lizzy",
+   "69": "Lizzy",
+   "90": "Mrs. Bennet"
+  },
+  "seconds": 207,
+  "chunks": [
+   {
+    "prompt_tokens": 2322,
+    "budget": 5862,
+    "seconds": 103.0,
+    "completion_tokens": 1661,
+    "tokens_per_second": 17.55,
+    "stop": "eos",
+    "truncated": false,
+    "chapter": 1,
+    "quotes": 32,
+    "roster": 54,
+    "roster_tokens": 858,
+    "labelled": 32
+   },
+   {
+    "prompt_tokens": 2520,
+    "budget": 5664,
+    "seconds": 104.3,
+    "completion_tokens": 1673,
+    "tokens_per_second": 17.48,
+    "stop": "eos",
+    "truncated": false,
+    "chapter": 1,
+    "quotes": 32,
+    "roster": 54,
+    "roster_tokens": 858,
+    "labelled": 32
+   }
+  ],
+  "labels": {
+   "2": {
+    "speaker": "Mrs. Bennet",
+    "kind": "speech",
+    "emotion": "excited",
+    "intensity": "strong"
+   },
+   "4": {
+    "speaker": "Mrs. Bennet",
+    "kind": "speech",
+    "emotion": "excited",
+    "intensity": "strong"
+   },
+   "6": {
+    "speaker": "Mrs. Bennet",
+    "kind": "speech",
+    "emotion": "excited",
+    "intensity": "strong"
+   },
+   "8": {
+    "speaker": "Mrs. Bennet",
+    "kind": "speech",
+    "emotion": "excited",
+    "intensity": "strong"
+   },
+   "10": {
+    "speaker": "Mrs. Bennet",
+    "kind": "speech",
+    "emotion": "anxious",
+    "intensity": "strong"
+   },
+   "12": {
+    "speaker": "Mr. Bennet",
+    "kind": "speech",
+    "emotion": "amused",
+    "intensity": "strong"
+   },
+   "14": {
+    "speaker": "Mrs. Bennet",
+    "kind": "speech",
+    "emotion": "excited",
+    "intensity": "strong"
+   },
+   "15": {
+    "speaker": "Mr. Bennet",
+    "kind": "speech",
+    "emotion": "neutral",
+    "intensity": "strong"
+   },
+   "16": {
+    "speaker": "Mrs. Bennet",
+    "kind": "speech",
+    "emotion": "excited",
+    "intensity": "strong"
+   },
+   "17": {
+    "speaker": "Mr. Bennet",
+    "kind": "speech",
+    "emotion": "neutral",
+    "intensity": "strong"
+   },
+   "18": {
+    "speaker": "Mrs. Bennet",
+    "kind": "speech",
+    "emotion": "excited",
+    "intensity": "strong"
+   },
+   "19": {
+    "speaker": "Mr. Bennet",
+    "kind": "speech",
+    "emotion": "neutral",
+    "intensity": "strong"
+   },
+   "20": {
+    "speaker": "Mrs. Bennet",
+    "kind": "speech",
+    "emotion": "excited",
+    "intensity": "strong"
+   },
+   "22": {
+    "speaker": "Mrs. Bennet",
+    "kind": "speech",
+    "emotion": "excited",
+    "intensity": "strong"
+   },
+   "23": {
+    "speaker": "Mr. Bennet",
+    "kind": "speech",
+    "emotion": "neutral",
+    "intensity": "strong"
+   },
+   "24": {
+    "speaker": "Mrs. Bennet",
+    "kind": "speech",
+    "emotion": "excited",
+    "intensity": "strong"
+   },
+   "25": {
+    "speaker": "Mr. Bennet",
+    "kind": "speech",
+    "emotion": "neutral",
+    "intensity": "strong"
+   },
+   "26": {
+    "speaker": "Mrs. Bennet",
+    "kind": "speech",
+    "emotion": "neutral",
+    "intensity": "strong"
+   },
+   "27": {
+    "speaker": "Mr. Bennet",
+    "kind": "speech",
+    "emotion": "neutral",
+    "intensity": "strong"
+   },
+   "28": {
+    "speaker": "Mrs. Bennet",
+    "kind": "speech",
+    "emotion": "excited",
+    "intensity": "strong"
+   },
+   "29": {
+    "speaker": "Mr. Bennet",
+    "kind": "speech",
+    "emotion": "neutral",
+    "intensity": "strong"
+   },
+   "30": {
+    "speaker": "Mrs. Bennet",
+    "kind": "speech",
+    "emotion": "excited",
+    "intensity": "strong"
+   },
+   "31": {
+    "speaker": "Mrs. Bennet",
+    "kind": "speech",
+    "emotion": "excited",
+    "intensity": "strong"
+   },
+   "32": {
+    "speaker": "Mr. Bennet",
+    "kind": "speech",
+    "emotion": "neutral",
+    "intensity": "strong"
+   },
+   "33": {
+    "speaker": "Mr. Bennet",
+    "kind": "speech",
+    "emotion": "neutral",
+    "intensity": "strong"
+   },
+   "35": {
+    "speaker": "Mr. Bennet",
+    "kind": "speech",
+    "emotion": "neutral",
+    "intensity": "strong"
+   },
+   "36": {
+    "speaker": "Mrs. Bennet",
+    "kind": "speech",
+    "emotion": "anxious",
+    "intensity": "strong"
+   },
+   "37": {
+    "speaker": "Mr. Bennet",
+    "kind": "speech",
+    "emotion": "neutral",
+    "intensity": "strong"
+   },
+   "38": {
+    "speaker": "Mrs. Bennet",
+    "kind": "speech",
+    "emotion": "anxious",
+    "intensity": "strong"
+   },
+   "39": {
+    "speaker": "Mr. Bennet",
+    "kind": "speech",
+    "emotion": "neutral",
+    "intensity": "strong"
+   },
+   "40": {
+    "speaker": "Mr. Bennet",
+    "kind": "speech",
+    "emotion": "neutral",
+    "intensity": "strong"
+   },
+   "41": {
+    "speaker": "Mrs. Bennet",
+    "kind": "speech",
+    "emotion": "excited",
+    "intensity": "strong"
+   },
+   "45": {
+    "speaker": "Lizzy",
+    "kind": "speech",
+    "emotion": "excited",
+    "intensity": "strong"
+   },
+   "46": {
+    "speaker": "Mrs. Bennet",
+    "kind": "speech",
+    "emotion": "angry",
+    "intensity": "strong"
+   },
+   "48": {
+    "speaker": "Mrs. Bennet",
+    "kind": "speech",
+    "emotion": "angry",
+    "intensity": "strong"
+   },
+   "49": {
+    "speaker": "Lizzy",
+    "kind": "speech",
+    "emotion": "excited",
+    "intensity": "strong"
+   },
+   "51": {
+    "speaker": "Lizzy",
+    "kind": "speech",
+    "emotion": "excited",
+    "intensity": "strong"
+   },
+   "52": {
+    "speaker": "Mrs. Bennet",
+    "kind": "speech",
+    "emotion": "angry",
+    "intensity": "strong"
+   },
+   "53": {
+    "speaker": "Mr. Bennet",
+    "kind": "speech",
+    "emotion": "amused",
+    "intensity": "strong"
+   },
+   "55": {
+    "speaker": "Mr. Bennet",
+    "kind": "speech",
+    "emotion": "amused",
+    "intensity": "strong"
+   },
+   "57": {
+    "speaker": "Mrs. Bennet",
+    "kind": "speech",
+    "emotion": "neutral",
+    "intensity": "strong"
+   },
+   "58": {
+    "speaker": "Mr. Bennet",
+    "kind": "speech",
+    "emotion": "amused",
+    "intensity": "strong"
+   },
+   "60": {
+    "speaker": "Mr. Bennet",
+    "kind": "speech",
+    "emotion": "amused",
+    "intensity": "strong"
+   },
+   "61": {
+    "speaker": "Kitty",
+    "kind": "speech",
+    "emotion": "neutral",
+    "intensity": "strong"
+   },
+   "63": {
+    "speaker": "Kitty",
+    "kind": "speech",
+    "emotion": "excited",
+    "intensity": "strong"
+   },
+   "64": {
+    "speaker": "Lizzy",
+    "kind": "speech",
+    "emotion": "neutral",
+    "intensity": "strong"
+   },
+   "65": {
+    "speaker": "Mrs. Bennet",
+    "kind": "speech",
+    "emotion": "neutral",
+    "intensity": "strong"
+   },
+   "67": {
+    "speaker": "Mrs. Bennet",
+    "kind": "speech",
+    "emotion": "neutral",
+    "intensity": "strong"
+   },
+   "68": {
+    "speaker": "Mr. Bennet",
+    "kind": "speech",
+    "emotion": "amused",
+    "intensity": "strong"
+   },
+   "69": {
+    "speaker": "Lizzy",
+    "kind": "speech",
+    "emotion": "neutral",
+    "intensity": "strong"
+   },
+   "70": {
+    "speaker": "Mr. Bennet",
+    "kind": "speech",
+    "emotion": "amused",
+    "intensity": "strong"
+   },
+   "72": {
+    "speaker": "Mrs. Bennet",
+    "kind": "speech",
+    "emotion": "neutral",
+    "intensity": "strong"
+   },
+   "73": {
+    "speaker": "Mr. Bennet",
+    "kind": "speech",
+    "emotion": "amused",
+    "intensity": "strong"
+   },
+   "75": {
+    "speaker": "Mr. Bennet",
+    "kind": "speech",
+    "emotion": "amused",
+    "intensity": "strong"
+   },
+   "77": {
+    "speaker": "Mr. Bennet",
+    "kind": "speech",
+    "emotion": "amused",
+    "intensity": "strong"
+   },
+   "79": {
+    "speaker": "Mr. Bennet",
+    "kind": "speech",
+    "emotion": "amused",
+    "intensity": "strong"
+   },
+   "80": {
+    "speaker": "Mrs. Bennet",
+    "kind": "speech",
+    "emotion": "neutral",
+    "intensity": "strong"
+   },
+   "82": {
+    "speaker": "Mr. Bennet",
+    "kind": "speech",
+    "emotion": "amused",
+    "intensity": "strong"
+   },
+   "84": {
+    "speaker": "Mrs. Bennet",
+    "kind": "speech",
+    "emotion": "excited",
+    "intensity": "strong"
+   },
+   "85": {
+    "speaker": "Mr. Bennet",
+    "kind": "speech",
+    "emotion": "amused",
+    "intensity": "strong"
+   },
+   "87": {
+    "speaker": "Mrs. Bennet",
+    "kind": "speech",
+    "emotion": "excited",
+    "intensity": "strong"
+   },
+   "89": {
+    "speaker": "Mrs. Bennet",
+    "kind": "speech",
+    "emotion": "excited",
+    "intensity": "strong"
+   },
+   "90": {
+    "speaker": "Mrs. Bennet",
+    "kind": "speech",
+    "emotion": "excited",
+    "intensity": "strong"
+   },
+   "92": {
+    "speaker": "Lydia",
+    "kind": "speech",
+    "emotion": "excited",
+    "intensity": "strong"
+   }
+  }
+ },
+ "delta-trimmed": {
+  "right": 42,
+  "quotes": 64,
+  "wrong": {
+   "2": "?Mrs. Long",
+   "4": "?Mrs. Long",
+   "6": "?Mrs. Long",
+   "8": "?Mrs. Long",
+   "10": "?Mrs. Long",
+   "14": "?Mrs. Long",
+   "16": "?Mrs. Long",
+   "18": "?Mrs. Long",
+   "20": "?Mrs. Long",
+   "22": "?Mrs. Long",
+   "24": "?Mrs. Long",
+   "26": "?Mrs. Long",
+   "28": "?Mrs. Long",
+   "30": "?Mrs. Long",
+   "31": "?Mrs. Long",
+   "32": "Mr. Bennet",
+   "36": "?Mrs. Long",
+   "38": "?Mrs. Long",
+   "40": "?Mrs. Long",
+   "41": "?Mrs. Long",
+   "69": "Lizzy",
+   "90": "Mrs. Bennet"
+  },
+  "seconds": 201,
+  "chunks": [
+   {
+    "prompt_tokens": 1651,
+    "budget": 6000,
+    "seconds": 98.8,
+    "completion_tokens": 1642,
+    "tokens_per_second": 17.65,
+    "stop": "eos",
+    "truncated": false,
+    "chapter": 1,
+    "quotes": 32,
+    "roster": 9,
+    "roster_tokens": 187,
+    "labelled": 32
+   },
+   {
+    "prompt_tokens": 1837,
+    "budget": 6000,
+    "seconds": 102.1,
+    "completion_tokens": 1672,
+    "tokens_per_second": 17.47,
+    "stop": "eos",
+    "truncated": false,
+    "chapter": 1,
+    "quotes": 32,
+    "roster": 8,
+    "roster_tokens": 175,
+    "labelled": 32
+   }
+  ],
+  "labels": {
+   "2": {
+    "speaker": "Mrs. Long",
+    "kind": "speech",
+    "emotion": "excited",
+    "intensity": "strong"
+   },
+   "4": {
+    "speaker": "Mrs. Long",
+    "kind": "speech",
+    "emotion": "excited",
+    "intensity": "strong"
+   },
+   "6": {
+    "speaker": "Mrs. Long",
+    "kind": "speech",
+    "emotion": "excited",
+    "intensity": "strong"
+   },
+   "8": {
+    "speaker": "Mrs. Long",
+    "kind": "speech",
+    "emotion": "excited",
+    "intensity": "strong"
+   },
+   "10": {
+    "speaker": "Mrs. Long",
+    "kind": "speech",
+    "emotion": "anxious",
+    "intensity": "strong"
+   },
+   "12": {
+    "speaker": "Mr. Bennet",
+    "kind": "speech",
+    "emotion": "amused",
+    "intensity": "strong"
+   },
+   "14": {
+    "speaker": "Mrs. Long",
+    "kind": "speech",
+    "emotion": "excited",
+    "intensity": "strong"
+   },
+   "15": {
+    "speaker": "Mr. Bennet",
+    "kind": "speech",
+    "emotion": "neutral",
+    "intensity": "strong"
+   },
+   "16": {
+    "speaker": "Mrs. Long",
+    "kind": "speech",
+    "emotion": "neutral",
+    "intensity": "strong"
+   },
+   "17": {
+    "speaker": "Mr. Bennet",
+    "kind": "speech",
+    "emotion": "neutral",
+    "intensity": "strong"
+   },
+   "18": {
+    "speaker": "Mrs. Long",
+    "kind": "speech",
+    "emotion": "excited",
+    "intensity": "strong"
+   },
+   "19": {
+    "speaker": "Mr. Bennet",
+    "kind": "speech",
+    "emotion": "neutral",
+    "intensity": "strong"
+   },
+   "20": {
+    "speaker": "Mrs. Long",
+    "kind": "speech",
+    "emotion": "excited",
+    "intensity": "strong"
+   },
+   "22": {
+    "speaker": "Mrs. Long",
+    "kind": "speech",
+    "emotion": "excited",
+    "intensity": "strong"
+   },
+   "23": {
+    "speaker": "Mr. Bennet",
+    "kind": "speech",
+    "emotion": "neutral",
+    "intensity": "strong"
+   },
+   "24": {
+    "speaker": "Mrs. Long",
+    "kind": "speech",
+    "emotion": "excited",
+    "intensity": "strong"
+   },
+   "25": {
+    "speaker": "Mr. Bennet",
+    "kind": "speech",
+    "emotion": "amused",
+    "intensity": "strong"
+   },
+   "26": {
+    "speaker": "Mrs. Long",
+    "kind": "speech",
+    "emotion": "amused",
+    "intensity": "strong"
+   },
+   "27": {
+    "speaker": "Mr. Bennet",
+    "kind": "speech",
+    "emotion": "neutral",
+    "intensity": "strong"
+   },
+   "28": {
+    "speaker": "Mrs. Long",
+    "kind": "speech",
+    "emotion": "excited",
+    "intensity": "strong"
+   },
+   "29": {
+    "speaker": "Mr. Bennet",
+    "kind": "speech",
+    "emotion": "neutral",
+    "intensity": "strong"
+   },
+   "30": {
+    "speaker": "Mrs. Long",
+    "kind": "speech",
+    "emotion": "excited",
+    "intensity": "strong"
+   },
+   "31": {
+    "speaker": "Mrs. Long",
+    "kind": "speech",
+    "emotion": "excited",
+    "intensity": "strong"
+   },
+   "32": {
+    "speaker": "Mr. Bennet",
+    "kind": "speech",
+    "emotion": "neutral",
+    "intensity": "strong"
+   },
+   "33": {
+    "speaker": "Mr. Bennet",
+    "kind": "speech",
+    "emotion": "neutral",
+    "intensity": "strong"
+   },
+   "35": {
+    "speaker": "Mr. Bennet",
+    "kind": "speech",
+    "emotion": "neutral",
+    "intensity": "strong"
+   },
+   "36": {
+    "speaker": "Mrs. Long",
+    "kind": "speech",
+    "emotion": "anxious",
+    "intensity": "strong"
+   },
+   "37": {
+    "speaker": "Mr. Bennet",
+    "kind": "speech",
+    "emotion": "neutral",
+    "intensity": "strong"
+   },
+   "38": {
+    "speaker": "Mrs. Long",
+    "kind": "speech",
+    "emotion": "anxious",
+    "intensity": "strong"
+   },
+   "39": {
+    "speaker": "Mr. Bennet",
+    "kind": "speech",
+    "emotion": "neutral",
+    "intensity": "strong"
+   },
+   "40": {
+    "speaker": "Mrs. Long",
+    "kind": "speech",
+    "emotion": "neutral",
+    "intensity": "strong"
+   },
+   "41": {
+    "speaker": "Mrs. Long",
+    "kind": "speech",
+    "emotion": "neutral",
+    "intensity": "strong"
+   },
+   "45": {
+    "speaker": "Mr. Bennet",
+    "kind": "speech",
+    "emotion": "amused",
+    "intensity": "normal"
+   },
+   "46": {
+    "speaker": "Mrs. Bennet",
+    "kind": "speech",
+    "emotion": "angry",
+    "intensity": "strong"
+   },
+   "48": {
+    "speaker": "Mrs. Bennet",
+    "kind": "speech",
+    "emotion": "angry",
+    "intensity": "strong"
+   },
+   "49": {
+    "speaker": "Lizzy",
+    "kind": "speech",
+    "emotion": "excited",
+    "intensity": "normal"
+   },
+   "51": {
+    "speaker": "Lizzy",
+    "kind": "speech",
+    "emotion": "excited",
+    "intensity": "normal"
+   },
+   "52": {
+    "speaker": "Mrs. Bennet",
+    "kind": "speech",
+    "emotion": "angry",
+    "intensity": "strong"
+   },
+   "53": {
+    "speaker": "Mr. Bennet",
+    "kind": "speech",
+    "emotion": "amused",
+    "intensity": "normal"
+   },
+   "55": {
+    "speaker": "Mr. Bennet",
+    "kind": "speech",
+    "emotion": "amused",
+    "intensity": "normal"
+   },
+   "57": {
+    "speaker": "Mrs. Bennet",
+    "kind": "speech",
+    "emotion": "neutral",
+    "intensity": "normal"
+   },
+   "58": {
+    "speaker": "Mr. Bennet",
+    "kind": "speech",
+    "emotion": "amused",
+    "intensity": "normal"
+   },
+   "60": {
+    "speaker": "Mr. Bennet",
+    "kind": "speech",
+    "emotion": "amused",
+    "intensity": "normal"
+   },
+   "61": {
+    "speaker": "Kitty",
+    "kind": "speech",
+    "emotion": "neutral",
+    "intensity": "normal"
+   },
+   "63": {
+    "speaker": "Kitty",
+    "kind": "speech",
+    "emotion": "excited",
+    "intensity": "normal"
+   },
+   "64": {
+    "speaker": "Lizzy",
+    "kind": "speech",
+    "emotion": "neutral",
+    "intensity": "normal"
+   },
+   "65": {
+    "speaker": "Mrs. Bennet",
+    "kind": "speech",
+    "emotion": "neutral",
+    "intensity": "normal"
+   },
+   "67": {
+    "speaker": "Mrs. Bennet",
+    "kind": "speech",
+    "emotion": "neutral",
+    "intensity": "normal"
+   },
+   "68": {
+    "speaker": "Mr. Bennet",
+    "kind": "speech",
+    "emotion": "amused",
+    "intensity": "normal"
+   },
+   "69": {
+    "speaker": "Lizzy",
+    "kind": "speech",
+    "emotion": "neutral",
+    "intensity": "normal"
+   },
+   "70": {
+    "speaker": "Mr. Bennet",
+    "kind": "speech",
+    "emotion": "amused",
+    "intensity": "strong"
+   },
+   "72": {
+    "speaker": "Mrs. Bennet",
+    "kind": "speech",
+    "emotion": "neutral",
+    "intensity": "normal"
+   },
+   "73": {
+    "speaker": "Mr. Bennet",
+    "kind": "speech",
+    "emotion": "amused",
+    "intensity": "normal"
+   },
+   "75": {
+    "speaker": "Mr. Bennet",
+    "kind": "speech",
+    "emotion": "amused",
+    "intensity": "normal"
+   },
+   "77": {
+    "speaker": "Mr. Bennet",
+    "kind": "speech",
+    "emotion": "amused",
+    "intensity": "normal"
+   },
+   "79": {
+    "speaker": "Mr. Bennet",
+    "kind": "speech",
+    "emotion": "amused",
+    "intensity": "normal"
+   },
+   "80": {
+    "speaker": "Mrs. Bennet",
+    "kind": "speech",
+    "emotion": "neutral",
+    "intensity": "normal"
+   },
+   "82": {
+    "speaker": "Mr. Bennet",
+    "kind": "speech",
+    "emotion": "amused",
+    "intensity": "normal"
+   },
+   "84": {
+    "speaker": "Mrs. Bennet",
+    "kind": "speech",
+    "emotion": "excited",
+    "intensity": "strong"
+   },
+   "85": {
+    "speaker": "Mr. Bennet",
+    "kind": "speech",
+    "emotion": "amused",
+    "intensity": "normal"
+   },
+   "87": {
+    "speaker": "Mrs. Bennet",
+    "kind": "speech",
+    "emotion": "excited",
+    "intensity": "strong"
+   },
+   "89": {
+    "speaker": "Mrs. Bennet",
+    "kind": "speech",
+    "emotion": "excited",
+    "intensity": "strong"
+   },
+   "90": {
+    "speaker": "Mrs. Bennet",
+    "kind": "speech",
+    "emotion": "excited",
+    "intensity": "strong"
+   },
+   "92": {
+    "speaker": "Lydia",
+    "kind": "speech",
+    "emotion": "excited",
+    "intensity": "strong"
+   }
+  }
+ }
+}

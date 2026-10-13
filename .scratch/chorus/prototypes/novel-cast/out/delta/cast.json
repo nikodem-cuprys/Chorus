@@ -1,0 +1,437 @@
+{
+ "done": 167,
+ "cast": {
+  "narrator": {
+   "person": "third",
+   "character": ""
+  },
+  "characters": [
+   {
+    "name": "Mr. Bennet",
+    "aliases": [
+     "Mr. Bennet made no answer"
+    ],
+    "gender": "male",
+    "age": "unknown"
+   },
+   {
+    "name": "Mrs. Bennet",
+    "aliases": [
+     "Mamma",
+     "Mrs. Bennet and Lydia",
+     "Mrs. Bennet and Lydia are going",
+     "Mrs. Bennet was privileged"
+    ],
+    "gender": "female",
+    "age": "unknown"
+   },
+   {
+    "name": "Mrs. Long",
+    "aliases": [],
+    "gender": "female",
+    "age": "unknown"
+   },
+   {
+    "name": "Mr. Morris",
+    "aliases": [],
+    "gender": "male",
+    "age": "unknown"
+   },
+   {
+    "name": "Bingley",
+    "aliases": [
+     "Mr. Bingley",
+     "My brother",
+     "Mr. Bingley and his sisters"
+    ],
+    "gender": "male",
+    "age": "unknown"
+   },
+   {
+    "name": "Sir William",
+    "aliases": [],
+    "gender": "male",
+    "age": "unknown"
+   },
+   {
+    "name": "Lady Lucas",
+    "aliases": [],
+    "gender": "female",
+    "age": "unknown"
+   },
+   {
+    "name": "Lizzy",
+    "aliases": [
+     "Elizabeth",
+     "Elizabeth Bennet",
+     "Eliza",
+     "Miss Bennet",
+     "Lizzie",
+     "Miss Elizabeth Bennet",
+     "Miss Eliza Bennet",
+     "Miss Elizabeth",
+     "Miss Eliza",
+     "Miss Lucas",
+     "Elizabeth found herself",
+     "Elizabeth had",
+     "Elizabeth had rejoiced",
+     "Mrs. Gardiner",
+     "Elizabeth here",
+     "Mrs. Annesley",
+     "Eliza Bennet",
+     "Mrs. Gardiner were",
+     "Mrs. Gardiner were engaged",
+     "Mrs. Gardiner were engaged with",
+     "Mrs. Gardiner were engaged with their",
+     "Mrs. Gardiner were engaged with their children",
+     "Niece",
+     "Elizabeth felt",
+     "Elizabeth had mentioned her name to her mother",
+     "Elizabeth replied",
+     "Elizabeth now expected",
+     "Elizabeth obeyed",
+     "Elizabeth was determined"
+    ],
+    "gender": "female",
+    "age": "unknown"
+   },
+   {
+    "name": "Jane",
+    "aliases": [
+     "Jane had",
+     "Jane had lost",
+     "Jane could",
+     "Jane could not",
+     "Jane could not have",
+     "Jane could not have been",
+     "Jane could not have been wearied",
+     "Jane could not have been wearied by",
+     "Jane could not have been wearied by long",
+     "Jane could not have been wearied by long expectations"
+    ],
+    "gender": "female",
+    "age": "unknown"
+   },
+   {
+    "name": "Lydia",
+    "aliases": [
+     "Lydia herself",
+     "Lydia still",
+     "Mrs. Wickham",
+     "Lydia are going"
+    ],
+    "gender": "female",
+    "age": "unknown"
+   },
+   {
+    "name": "Mr. Hurst",
+    "aliases": [],
+    "gender": "male",
+    "age": "unknown"
+   },
+   {
+    "name": "Mr. Darcy",
+    "aliases": [
+     "Darcy",
+     "Fitzwilliam Darcy",
+     "Mr. Darcy might have been doing"
+    ],
+    "gender": "male",
+    "age": "unknown"
+   },
+   {
+    "name": "Charlotte",
+    "aliases": [],
+    "gender": "female",
+    "age": "unknown"
+   },
+   {
+    "name": "Mary",
+    "aliases": [
+     "Mary and Kitty"
+    ],
+    "gender": "female",
+    "age": "unknown"
+   },
+   {
+    "name": "young Lucas",
+    "aliases": [],
+    "gender": "male",
+    "age": "unknown"
+   },
+   {
+    "name": "Mrs. Philips",
+    "aliases": [],
+    "gender": "female",
+    "age": "unknown"
+   },
+   {
+    "name": "Mr. Philips",
+    "aliases": [],
+    "gender": "male",
+    "age": "unknown"
+   },
+   {
+    "name": "Catherine",
+    "aliases": [
+     "Catherine and Lydia"
+    ],
+    "gender": "female",
+    "age": "unknown"
+   },
+   {
+    "name": "Colonel Forster",
+    "aliases": [
+     "Forsters"
+    ],
+    "gender": "male",
+    "age": "unknown"
+   },
+   {
+    "name": "Captain Carter",
+    "aliases": [],
+    "gender": "male",
+    "age": "unknown"
+   },
+   {
+    "name": "Miss Watson",
+    "aliases": [],
+    "gender": "female",
+    "age": "unknown"
+   },
+   {
+    "name": "Miss Bingley",
+    "aliases": [
+     "Louisa",
+     "Caroline",
+     "Caroline and Mrs. Hurst",
+     "Louisa and I"
+    ],
+    "gender": "female",
+    "age": "unknown"
+   },
+   {
+    "name": "Caroline Bingley",
+    "aliases": [],
+    "gender": "female",
+    "age": "unknown"
+   },
+   {
+    "name": "Clarke",
+    "aliases": [],
+    "gender": "unknown",
+    "age": "unknown"
+   },
+   {
+    "name": "Mrs. Hurst",
+    "aliases": [],
+    "gender": "female",
+    "age": "unknown"
+   },
+   {
+    "name": "Mr. Jones",
+    "aliases": [],
+    "gender": "male",
+    "age": "unknown"
+   },
+   {
+    "name": "Charlotte Lucas",
+    "aliases": [
+     "Charlotte herself"
+    ],
+    "gender": "female",
+    "age": "unknown"
+   },
+   {
+    "name": "Sir William Lucas",
+    "aliases": [],
+    "gender": "male",
+    "age": "unknown"
+   },
+   {
+    "name": "Gardiner",
+    "aliases": [],
+    "gender": "male",
+    "age": "unknown"
+   },
+   {
+    "name": "Mr. Collins",
+    "aliases": [
+     "Mrs. Collins",
+     "Collinses",
+     "Mrs. Collins and myself"
+    ],
+    "gender": "male",
+    "age": "unknown"
+   },
+   {
+    "name": "Lady Catherine de Bourgh",
+    "aliases": [
+     "Lady Catherine",
+     "Miss de Bourgh",
+     "Miss Darcy",
+     "Her Ladyship",
+     "Miss de Bourgh exerted",
+     "Rosings",
+     "Georgiana"
+    ],
+    "gender": "female",
+    "age": "unknown"
+   },
+   {
+    "name": "Sir Lewis de Bourgh",
+    "aliases": [],
+    "gender": "male",
+    "age": "unknown"
+   },
+   {
+    "name": "Richard",
+    "aliases": [],
+    "gender": "male",
+    "age": "unknown"
+   },
+   {
+    "name": "Mr. Denny",
+    "aliases": [
+     "Denny"
+    ],
+    "gender": "male",
+    "age": "unknown"
+   },
+   {
+    "name": "Mr. Wickham",
+    "aliases": [
+     "Wickham",
+     "George Wickham",
+     "William Goulding"
+    ],
+    "gender": "male",
+    "age": "unknown"
+   },
+   {
+    "name": "Mrs. Jenkinson",
+    "aliases": [],
+    "gender": "female",
+    "age": "unknown"
+   },
+   {
+    "name": "Kitty",
+    "aliases": [],
+    "gender": "female",
+    "age": "unknown"
+   },
+   {
+    "name": "Maria",
+    "aliases": [
+     "Maria thought"
+    ],
+    "gender": "female",
+    "age": "unknown"
+   },
+   {
+    "name": "Lady Metcalfe",
+    "aliases": [],
+    "gender": "female",
+    "age": "unknown"
+   },
+   {
+    "name": "Miss Pope",
+    "aliases": [],
+    "gender": "female",
+    "age": "unknown"
+   },
+   {
+    "name": "Colonel Fitzwilliam",
+    "aliases": [
+     "Fitzwilliam"
+    ],
+    "gender": "male",
+    "age": "unknown"
+   },
+   {
+    "name": "Mrs. Forster",
+    "aliases": [
+     "Mrs. Forster called her"
+    ],
+    "gender": "female",
+    "age": "unknown"
+   },
+   {
+    "name": "Harriet",
+    "aliases": [],
+    "gender": "female",
+    "age": "unknown"
+   },
+   {
+    "name": "Pen",
+    "aliases": [],
+    "gender": "female",
+    "age": "unknown"
+   },
+   {
+    "name": "Chamberlayne",
+    "aliases": [],
+    "gender": "male",
+    "age": "unknown"
+   },
+   {
+    "name": "Pratt",
+    "aliases": [],
+    "gender": "male",
+    "age": "unknown"
+   },
+   {
+    "name": "Colonel Miller",
+    "aliases": [],
+    "gender": "male",
+    "age": "unknown"
+   },
+   {
+    "name": "Mrs. Reynolds",
+    "aliases": [
+     "Poor Reynolds"
+    ],
+    "gender": "female",
+    "age": "unknown"
+   },
+   {
+    "name": "Lady Catherine herself",
+    "aliases": [],
+    "gender": "female",
+    "age": "unknown"
+   },
+   {
+    "name": "Mrs. Hill",
+    "aliases": [
+     "Hill"
+    ],
+    "gender": "female",
+    "age": "unknown"
+   },
+   {
+    "name": "the butler",
+    "aliases": [],
+    "gender": "male",
+    "age": "unknown"
+   },
+   {
+    "name": "Mr. Stone",
+    "aliases": [],
+    "gender": "male",
+    "age": "unknown"
+   },
+   {
+    "name": "Mrs. Younge",
+    "aliases": [],
+    "gender": "female",
+    "age": "unknown"
+   },
+   {
+    "name": "the Gouldings",
+    "aliases": [],
+    "gender": "unknown",
+    "age": "unknown"
+   }
+  ]
+ }
+}

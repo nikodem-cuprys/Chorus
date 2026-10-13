@@ -1,0 +1,583 @@
+{
+ "done": 40,
+ "cast": {
+  "narrator": {
+   "person": "third",
+   "character": ""
+  },
+  "characters": [
+   {
+    "name": "Elizabeth Bennet",
+    "aliases": [
+     "Elizabeth",
+     "Lizzy",
+     "Miss Eliza Bennet",
+     "Eliza Bennet",
+     "her",
+     "she",
+     "she",
+     "she"
+    ],
+    "gender": "female",
+    "age": "young adult"
+   },
+   {
+    "name": "Jane",
+    "aliases": [
+     "Jane",
+     "one of them",
+     "she",
+     "she",
+     "she",
+     "she",
+     "she",
+     "she"
+    ],
+    "gender": "female",
+    "age": "young adult"
+   },
+   {
+    "name": "Miss Bingley",
+    "aliases": [
+     "Miss Bingley",
+     "she",
+     "Louisa",
+     "CAROLINE BINGLEY",
+     "Caroline",
+     "his faithful assistant",
+     "Caroline",
+     "my dear Caroline"
+    ],
+    "gender": "female",
+    "age": "young adult"
+   },
+   {
+    "name": "Mr. Bingley",
+    "aliases": [
+     "Mr. Bingley",
+     "he",
+     "Charles",
+     "Bingley",
+     "Charles"
+    ],
+    "gender": "male",
+    "age": "adult"
+   },
+   {
+    "name": "Mr. Jones",
+    "aliases": [
+     "Mr. Jones",
+     "he"
+    ],
+    "gender": "male",
+    "age": "adult"
+   },
+   {
+    "name": "the apothecary",
+    "aliases": [
+     "the apothecary",
+     "he"
+    ],
+    "gender": "male",
+    "age": "adult"
+   },
+   {
+    "name": "the patient",
+    "aliases": [
+     "the patient",
+     "she"
+    ],
+    "gender": "female",
+    "age": "young adult"
+   },
+   {
+    "name": "the other ladies",
+    "aliases": [
+     "the other ladies",
+     "they"
+    ],
+    "gender": "female",
+    "age": "adult"
+   },
+   {
+    "name": "the gentlemen",
+    "aliases": [
+     "the gentlemen",
+     "they"
+    ],
+    "gender": "male",
+    "age": "adult"
+   },
+   {
+    "name": "a servant",
+    "aliases": [
+     "a servant",
+     "he"
+    ],
+    "gender": "male",
+    "age": "adult"
+   },
+   {
+    "name": "Mrs. Bennet",
+    "aliases": [
+     "Mrs. Bennet",
+     "she",
+     "mamma",
+     "mum",
+     "her mother"
+    ],
+    "gender": "female",
+    "age": "adult"
+   },
+   {
+    "name": "Mr. Hurst",
+    "aliases": [
+     "Mr. Hurst",
+     "he"
+    ],
+    "gender": "male",
+    "age": "adult"
+   },
+   {
+    "name": "Miss Darcy",
+    "aliases": [
+     "Miss Darcy",
+     "Miss de Bourgh",
+     "the heiress of Rosings",
+     "her charming daughter",
+     "her daughter"
+    ],
+    "gender": "female",
+    "age": "young adult"
+   },
+   {
+    "name": "Mr. Darcy",
+    "aliases": [
+     "Mr. Darcy",
+     "he",
+     "Darcy",
+     "Darcy",
+     "the very pride of this Mr. Darcy"
+    ],
+    "gender": "male",
+    "age": "adult"
+   },
+   {
+    "name": "Charlotte Lucas",
+    "aliases": [
+     "Charlotte Lucas",
+     "she"
+    ],
+    "gender": "female",
+    "age": "young adult"
+   },
+   {
+    "name": "Sir William Lucas",
+    "aliases": [
+     "Sir William",
+     "he"
+    ],
+    "gender": "male",
+    "age": "adult"
+   },
+   {
+    "name": "Lady Lucas",
+    "aliases": [
+     "Lady Lucas",
+     "she"
+    ],
+    "gender": "female",
+    "age": "adult"
+   },
+   {
+    "name": "brother Gardiner",
+    "aliases": [
+     "brother Gardiner",
+     "he"
+    ],
+    "gender": "male",
+    "age": "adult"
+   },
+   {
+    "name": "sister-in-law",
+    "aliases": [
+     "sister-in-law",
+     "she"
+    ],
+    "gender": "female",
+    "age": "adult"
+   },
+   {
+    "name": "the gentleman",
+    "aliases": [
+     "the gentleman",
+     "he"
+    ],
+    "gender": "male",
+    "age": "adult"
+   },
+   {
+    "name": "Elizabeth",
+    "aliases": [
+     "Elizabeth",
+     "she"
+    ],
+    "gender": "female",
+    "age": "young adult"
+   },
+   {
+    "name": "Darcy",
+    "aliases": [
+     "Darcy",
+     "he"
+    ],
+    "gender": "male",
+    "age": "adult"
+   },
+   {
+    "name": "Lydia",
+    "aliases": [
+     "Lydia",
+     "she",
+     "my young cousin"
+    ],
+    "gender": "female",
+    "age": "young adult"
+   },
+   {
+    "name": "her relations",
+    "aliases": [
+     "her relations",
+     "they"
+    ],
+    "gender": "female",
+    "age": "adult"
+   },
+   {
+    "name": "the two ladies",
+    "aliases": [
+     "the two ladies",
+     "they"
+    ],
+    "gender": "female",
+    "age": "adult"
+   },
+   {
+    "name": "Captain Carter",
+    "aliases": [
+     "Captain Carter",
+     "he"
+    ],
+    "gender": "male",
+    "age": "adult"
+   },
+   {
+    "name": "Colonel Forster",
+    "aliases": [
+     "Colonel Forster",
+     "he",
+     "Colonel Forster"
+    ],
+    "gender": "male",
+    "age": "adult"
+   },
+   {
+    "name": "Mrs. Hurst",
+    "aliases": [
+     "Mrs. Hurst",
+     "she"
+    ],
+    "gender": "female",
+    "age": "adult"
+   },
+   {
+    "name": "Miss Grantley",
+    "aliases": [
+     "Miss Grantley"
+    ],
+    "gender": "female",
+    "age": "adult"
+   },
+   {
+    "name": "Mrs. Philips",
+    "aliases": [
+     "your aunt Philips",
+     "Mrs. Philips"
+    ],
+    "gender": "female",
+    "age": "adult"
+   },
+   {
+    "name": "the judge",
+    "aliases": [
+     "your great-uncle the judge"
+    ],
+    "gender": "male",
+    "age": "adult"
+   },
+   {
+    "name": "Louisa",
+    "aliases": [
+     "Louisa"
+    ],
+    "gender": "female",
+    "age": "young adult"
+   },
+   {
+    "name": "Mary",
+    "aliases": [
+     "Mary"
+    ],
+    "gender": "female",
+    "age": "young adult"
+   },
+   {
+    "name": "Catherine",
+    "aliases": [
+     "Catherine"
+    ],
+    "gender": "female",
+    "age": "young adult"
+   },
+   {
+    "name": "Mr. Bennet",
+    "aliases": [
+     "Mr. Bennet",
+     "he",
+     "your husband"
+    ],
+    "gender": "male",
+    "age": "adult"
+   },
+   {
+    "name": "Hill",
+    "aliases": [
+     "Hill"
+    ],
+    "gender": "male",
+    "age": "adult"
+   },
+   {
+    "name": "Mr. Collins",
+    "aliases": [
+     "Mr. Collins",
+     "him",
+     "that odious man",
+     "the odious man",
+     "your cousin",
+     "the clergyman",
+     "the next in the entail",
+     "WILLIAM COLLINS"
+    ],
+    "gender": "male",
+    "age": "adult"
+   },
+   {
+    "name": "Lady Catherine de Bourgh",
+    "aliases": [
+     "Lady Catherine de Bourgh",
+     "her Ladyship",
+     "the Right Honourable Lady Catherine de Bourgh",
+     "Lady Catherine"
+    ],
+    "gender": "female",
+    "age": "adult"
+   },
+   {
+    "name": "Sir Lewis de Bourgh",
+    "aliases": [
+     "Sir Lewis de Bourgh",
+     "his late honoured father"
+    ],
+    "gender": "male",
+    "age": "adult"
+   },
+   {
+    "name": "the peace-making gentleman",
+    "aliases": [
+     "the peace-making gentleman",
+     "he"
+    ],
+    "gender": "male",
+    "age": "adult"
+   },
+   {
+    "name": "the fair cousins",
+    "aliases": [
+     "the fair cousins",
+     "they"
+    ],
+    "gender": "female",
+    "age": "young adult"
+   },
+   {
+    "name": "Mrs. Bennet's daughters",
+    "aliases": [
+     "Mrs. Bennet's daughters",
+     "they"
+    ],
+    "gender": "female",
+    "age": "young adult"
+   },
+   {
+    "name": "Kitty",
+    "aliases": [
+     "Kitty"
+    ],
+    "gender": "female",
+    "age": "young adult"
+   },
+   {
+    "name": "Miss de Bourgh",
+    "aliases": [
+     "Miss de Bourgh",
+     "the heiress of Rosings",
+     "her charming daughter",
+     "her daughter"
+    ],
+    "gender": "female",
+    "age": "young adult"
+   },
+   {
+    "name": "the ladies",
+    "aliases": [
+     "the ladies"
+    ],
+    "gender": "female",
+    "age": "adult"
+   },
+   {
+    "name": "the ladies at court",
+    "aliases": [
+     "the ladies at court"
+    ],
+    "gender": "female",
+    "age": "adult"
+   },
+   {
+    "name": "Richard",
+    "aliases": [
+     "Richard"
+    ],
+    "gender": "male",
+    "age": "adult"
+   },
+   {
+    "name": "Mr. Denny",
+    "aliases": [
+     "Mr. Denny"
+    ],
+    "gender": "male",
+    "age": "adult"
+   },
+   {
+    "name": "Miss Bennet",
+    "aliases": [
+     "Miss Bennet"
+    ],
+    "gender": "female",
+    "age": "young adult"
+   },
+   {
+    "name": "Mr. Wickham",
+    "aliases": [
+     "Mr. Wickham",
+     "the stranger",
+     "the young man",
+     "the other gentleman",
+     "the stranger",
+     "the other"
+    ],
+    "gender": "male",
+    "age": "young adult"
+   },
+   {
+    "name": "Mr. Philips",
+    "aliases": [
+     "your uncle, Mr. Philips"
+    ],
+    "gender": "male",
+    "age": "adult"
+   },
+   {
+    "name": "Miss Darcy",
+    "aliases": [
+     "Miss Darcy",
+     "the heiress of Rosings",
+     "her charming daughter",
+     "her daughter"
+    ],
+    "gender": "female",
+    "age": "young adult"
+   },
+   {
+    "name": "Lady Anne Darcy",
+    "aliases": [
+     "Lady Anne Darcy"
+    ],
+    "gender": "female",
+    "age": "adult"
+   },
+   {
+    "name": "Mr. Bingley",
+    "aliases": [
+     "Mr. Bingley",
+     "he",
+     "Charles",
+     "Bingley",
+     "Charles"
+    ],
+    "gender": "male",
+    "age": "adult"
+   },
+   {
+    "name": "Mr. Collins",
+    "aliases": [
+     "Mr. Collins",
+     "him",
+     "that odious man",
+     "the odious man",
+     "your cousin",
+     "the clergyman",
+     "the next in the entail",
+     "WILLIAM COLLINS"
+    ],
+    "gender": "male",
+    "age": "adult"
+   },
+   {
+    "name": "Lady Catherine de Bourgh",
+    "aliases": [
+     "Lady Catherine de Bourgh",
+     "her Ladyship",
+     "the Right Honourable Lady Catherine de Bourgh",
+     "Lady Catherine"
+    ],
+    "gender": "female",
+    "age": "adult"
+   },
+   {
+    "name": "Mr. Collins",
+    "aliases": [
+     "Mr. Collins",
+     "he"
+    ],
+    "gender": "male",
+    "age": "adult"
+   },
+   {
+    "name": "Mr. Wickham",
+    "aliases": [
+     "Mr. Wickham",
+     "the stranger",
+     "the young man",
+     "the other gentleman",
+     "the stranger",
+     "the other"
+    ],
+    "gender": "male",
+    "age": "young adult"
+   }
+  ]
+ }
+}

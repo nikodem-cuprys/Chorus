@@ -1,0 +1,191 @@
+{
+ "done": 24,
+ "cast": {
+  "narrator": {
+   "person": "third",
+   "character": ""
+  },
+  "characters": [
+   {
+    "name": "Mr. Bennet",
+    "aliases": [
+     "his companion",
+     "your father",
+     "our father",
+     "their father",
+     "their aunt's brother",
+     "Sir William's neighbour",
+     "her father"
+    ],
+    "gender": "male",
+    "age": "adult"
+   },
+   {
+    "name": "Mrs. Bennet",
+    "aliases": [
+     "her husband",
+     "her mother",
+     "her",
+     "Mamma",
+     "my dear"
+    ],
+    "gender": "female",
+    "age": "adult"
+   },
+   {
+    "name": "Elizabeth",
+    "aliases": [
+     "Lizzy",
+     "Elizabeth Bennet",
+     "her sister",
+     "she",
+     "you",
+     "I",
+     "that",
+     "your",
+     "your good sense",
+     "Miss Bennet",
+     "Eliza",
+     "the sisters",
+     "her patient",
+     "the other ladies",
+     "the gentlemen",
+     "Jane",
+     "Miss Eliza Bennet",
+     "this",
+     "the sick lady",
+     "Jane Bennet",
+     "her own child",
+     "she, you, I, that, your, your good sense, Miss Bennet, Eliza, the sisters, her patient, the other ladies, the gentlemen, Jane, Miss Eliza Bennet, this, the sick lady, Jane Bennet, her own child",
+     "your, your good sense, Miss Bennet, Eliza, the sisters, her patient, the other ladies, the gentlemen, Jane, Miss Eliza Bennet, this, the sick lady, Jane Bennet, her own child, she, you, I, that, your, your good sense, Miss Bennet, Eliza, the sisters, her patient, the other ladies, the gentlemen, Jane, Miss Eliza Bennet, this, the sick lady, Jane Bennet, her own child"
+    ],
+    "gender": "female",
+    "age": "young adult"
+   },
+   {
+    "name": "Kitty",
+    "aliases": [
+     "Catherine",
+     "the two youngest of the family",
+     "their two youngest daughters",
+     "their two youngest sisters"
+    ],
+    "gender": "female",
+    "age": "young adult"
+   },
+   {
+    "name": "Mary",
+    "aliases": [
+     "Mary Bennet",
+     "their sister",
+     "their aunt's sister",
+     "their aunt's brother's sister",
+     "their father's daughter",
+     "their mother's daughter"
+    ],
+    "gender": "female",
+    "age": "young adult"
+   },
+   {
+    "name": "Lydia",
+    "aliases": [
+     "her younger sisters",
+     "my love"
+    ],
+    "gender": "female",
+    "age": "young adult"
+   },
+   {
+    "name": "Mr. Bingley",
+    "aliases": [
+     "he",
+     "this man",
+     "his brother",
+     "his",
+     "his friend",
+     "Bingley",
+     "their brother",
+     "Miss Bingley's brother",
+     "his sisters",
+     "their brother's proposal",
+     "his feelings",
+     "they",
+     "their",
+     "their wretchedness",
+     "they, their, their wretchedness"
+    ],
+    "gender": "male",
+    "age": "adult"
+   },
+   {
+    "name": "Mrs. Long",
+    "aliases": [
+     "-",
+     "their aunt",
+     "their father's sister",
+     "their mother's sister"
+    ],
+    "gender": "female",
+    "age": "adult"
+   },
+   {
+    "name": "Lady Lucas",
+    "aliases": [
+     "a young Lucas",
+     "her friend",
+     "Miss Lucas"
+    ],
+    "gender": "female",
+    "age": "adult"
+   },
+   {
+    "name": "Sir William",
+    "aliases": [
+     "Sir William Lucas",
+     "his neighbour",
+     "her neighbour",
+     "their neighbour",
+     "their aunt's brother's sister's neighbour",
+     "their father's sister's neighbour",
+     "their mother's sister's neighbour"
+    ],
+    "gender": "male",
+    "age": "adult"
+   },
+   {
+    "name": "Mr. Hurst",
+    "aliases": [
+     "Mrs. Hurst's husband",
+     "Mr. Bingley's brother"
+    ],
+    "gender": "male",
+    "age": "adult"
+   },
+   {
+    "name": "Mr. Darcy",
+    "aliases": [
+     "Darcy",
+     "his own",
+     "her brother",
+     "Charles"
+    ],
+    "gender": "male",
+    "age": "adult"
+   },
+   {
+    "name": "Miss Bingley",
+    "aliases": [
+     "Miss Bingley",
+     "Louisa",
+     "this woman",
+     "Miss Darcy",
+     "Caroline",
+     "her companion",
+     "the invalid"
+    ],
+    "gender": "female",
+    "age": "adult"
+   }
+  ]
+ }
+}
