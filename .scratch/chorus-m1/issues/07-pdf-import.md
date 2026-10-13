@@ -41,8 +41,7 @@ Built on 2026-10-13: `backend/chorus/importing/pdf.py` on `pdfplumber` 0.11.10 (
   - the next page starts a bookmark.
 - **Headings:** text more than 1.1 times the body size is a heading. So is a short paragraph in body type that matches the pack's patterns.
 - **Italics:** from the font name (`Italic`, `Oblique`, `-It`) or a slanted character matrix; bold from the font name.
-- **Hyphens:** a hyphen at a line end before a lowercase letter is removed, **except** when the same hyphenated word appears elsewhere in the text mid-line ("well-known"). Before a capital ("Saint-
-Malo") the hyphen stays and the lines join. A dash at a line end joins without a space.
+- **Hyphens:** a hyphen at a line end before a lowercase letter is removed, **except** when the same hyphenated word appears elsewhere in the text mid-line ("well-known"). Before a capital ("Saint-" then "Malo") the hyphen stays and the lines join. A dash at a line end joins without a space.
   - **Deviation:** the spec's other rule (keep the hyphen when both halves are words but the joined word is not) needs a real dictionary. With only the document's words as the list, it kept 5 of the fixture's 60 wrongly ("some-where", "nurse-ry", "pass-ages", "child-ren's", "the-orise").
   - The packaged lists found are no good: `english-words` has Webster's 1934 without inflections, and its GCIDE is GPL. So that rule runs only when the Language pack has a `dictionary` (milestone 4); the code is in place.
 - **Chapters:** top-level bookmarks (two or more), else headings that match the pack's patterns, else all headings (with `split_by_headings`), else one chapter (with `no_chapters`). Front and back matter are told apart as for EPUB. The arranging code moved from `epub.py` to `importing/chapters.py`, which both readers now use.
