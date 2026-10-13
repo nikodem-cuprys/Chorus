@@ -1,10 +1,13 @@
 import { t } from "./i18n";
 import { JobList } from "./JobList";
 import { useJobs } from "./jobs";
+import { VoiceList } from "./VoiceList";
+import { useVoices } from "./voices";
 
 /** The Library, still empty: Works arrive with import (ticket 05). */
 export function Library() {
   const { jobs, connected } = useJobs();
+  const voices = useVoices();
   return (
     <div className="page">
       <header className="top">
@@ -17,6 +20,9 @@ export function Library() {
         <h2>{t("jobs.title")}</h2>
         {!connected && <p className="notice">{t("jobs.connection_lost")}</p>}
         <JobList jobs={jobs} />
+
+        <h2>{t("voices.title")}</h2>
+        <VoiceList voices={voices} />
       </main>
     </div>
   );

@@ -7,6 +7,7 @@ turns them into words.
 
 import json
 from collections.abc import AsyncIterator
+from contextlib import asynccontextmanager
 
 from fastapi import APIRouter, Depends, FastAPI, HTTPException, Request
 from fastapi.responses import FileResponse, StreamingResponse
@@ -15,11 +16,12 @@ from pydantic import BaseModel, Field
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
-from chorus import events, healthcheck, tasks  # noqa: F401  (tasks registers every job kind)
+from chorus import events, healthcheck, tasks, voices  # noqa: F401  (tasks registers job kinds)
 from chorus.config import get_settings
-from chorus.db import get_session
+from chorus.db import get_session, get_sessionmaker
 from chorus.jobs import enqueue
-from chorus.models import Job
+from chorus.languages import get_packs
+from chorus.models import Job, Voice
 
 api = APIRouter(prefix="/api")
 
@@ -47,6 +49,22 @@ def get_job(job_id: int, session: Session = Depends(get_session)) -> dict:
     if row is None:
         raise HTTPException(404, detail={"key": "job.error.not_found", "params": {"id": job_id}})
     return row.to_dict()
+
+
+@api.get("/voices")
+def list_voices(session: Session = Depends(get_session)) -> list[dict]:
+    rows = session.scalars(select(Voice).order_by(Voice.language, Voice.id))
+    return [voices.to_dict(row, get_packs()) for row in rows]
+
+
+@api.get("/voices/{voice_id}/clip")
+def voice_clip(voice_id: int, session: Session = Depends(get_session)) -> FileResponse:
+    row = session.get(Voice, voice_id)
+    if row is None:
+        raise HTTPException(
+            404, detail={"key": "voice.error.not_found", "params": {"id": voice_id}}
+        )
+    return FileResponse(voices.clip_path(row, get_packs()), media_type="audio/wav")
 
 
 @api.get("/events")
@@ -82,9 +100,20 @@ def start_dev_job(body: DevJob, session: Session = Depends(get_session)) -> dict
     return row.to_dict()
 
 
+@asynccontextmanager
+async def lifespan(app: FastAPI) -> AsyncIterator[None]:
+    # A broken Language pack stops startup here, with a PackError naming the part.
+    packs = get_packs()
+    with get_sessionmaker()() as session:
+        voices.sync_built_in_voices(session, packs)
+    yield
+
+
 def create_app() -> FastAPI:
     settings = get_settings()
-    app = FastAPI(title="Chorus", docs_url="/api/docs", openapi_url="/api/openapi.json")
+    app = FastAPI(
+        title="Chorus", docs_url="/api/docs", openapi_url="/api/openapi.json", lifespan=lifespan
+    )
     app.include_router(api)
     if settings.dev:
         app.include_router(dev)

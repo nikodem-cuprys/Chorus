@@ -10,9 +10,10 @@ __pycache__/
 *.pth
 *.pt
 
-# Generated audio, except the 12 built-in Voice library clips
+# Generated audio, except the built-in Voices' clips
 *.wav
 !.scratch/chorus/prototypes/voice-library/library/*.wav
+!backend/chorus/languages/*/voices/*.wav
 
 # App build and run artefacts
 .venv/

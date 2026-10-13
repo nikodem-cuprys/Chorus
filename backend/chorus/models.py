@@ -1,7 +1,7 @@
 import enum
 from datetime import UTC, datetime
 
-from sqlalchemy import JSON, DateTime, Enum, String
+from sqlalchemy import JSON, Boolean, DateTime, Enum, String
 from sqlalchemy.orm import Mapped, mapped_column
 
 from chorus.db import Base
@@ -56,4 +56,41 @@ class Job(Base):
             "created_at": self.created_at.isoformat() if self.created_at else None,
             "started_at": self.started_at.isoformat() if self.started_at else None,
             "finished_at": self.finished_at.isoformat() if self.finished_at else None,
+        }
+
+
+class Voice(Base):
+    """A Voice a Speaker can be given. Built-in Voices are copies of their Language pack's
+    `voices.json`, refreshed at every startup and never edited here (chorus.voices)."""
+
+    __tablename__ = "voice"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    # The pack's id for a built-in Voice ("af_bella").
+    name: Mapped[str] = mapped_column(String(60), unique=True)
+    language: Mapped[str] = mapped_column(String(10), index=True)
+    gender: Mapped[str] = mapped_column(String(10))  # female, male, neutral
+    age: Mapped[str] = mapped_column(String(12))  # child, young_adult, adult, elderly
+    accent: Mapped[str] = mapped_column(String(40))
+    # Timbre words from the fixed list, as ids; the interface translates them.
+    timbre: Mapped[list] = mapped_column(JSON)
+    narrator_ok: Mapped[bool] = mapped_column(Boolean)
+    built_in: Mapped[bool] = mapped_column(Boolean)
+    # Emotion -> clip file name, in the pack's voices folder for a built-in Voice.
+    clips: Mapped[dict] = mapped_column(JSON)
+    # Where a built-in Voice comes from, for the credits; not translated.
+    credit: Mapped[str | None] = mapped_column(String(200))
+
+    def to_dict(self) -> dict:
+        return {
+            "id": self.id,
+            "name": self.name,
+            "language": self.language,
+            "gender": self.gender,
+            "age": self.age,
+            "accent": self.accent,
+            "timbre": self.timbre,
+            "narrator_ok": self.narrator_ok,
+            "built_in": self.built_in,
+            "credit": self.credit,
         }

@@ -1,0 +1,47 @@
+{
+  "language": "en",
+  "quotation": {
+    "pairs": [["“", "”"], ["\"", "\""]],
+    "dash_starts_dialogue": false
+  },
+  "sentences": {
+    "end": [".", "!", "?", "…"],
+    "abbreviations": [
+      "Mr.", "Mrs.", "Ms.", "Messrs.", "Mmes.", "Mme.", "Mlle.", "Dr.", "St.", "Mt.", "Ft.",
+      "Jr.", "Sr.", "Esq.", "Rev.", "Hon.", "Prof.", "Capt.", "Col.", "Gen.", "Lt.", "Maj.",
+      "Sgt.", "Cpl.", "Adm.", "Gov.", "Sen.", "Rep.", "Bros.", "Co.", "No.", "Nos.", "Vol.",
+      "vs.", "viz.", "cf.", "e.g.", "i.e.", "a.m.", "p.m.",
+      "Jan.", "Feb.", "Mar.", "Apr.", "Aug.", "Sept.", "Oct.", "Nov.", "Dec."
+    ]
+  },
+  "voice_model": {
+    "id": "chatterbox-500m",
+    "emotions": "emotions.json"
+  },
+  "voices": "voices/voices.json",
+  "chapter_headings": {
+    "words": ["Chapter", "Part", "Book", "Volume", "Letter", "Stave"],
+    "numbering": ["arabic", "roman", "words"],
+    "number_words": {
+      "units": [
+        "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten",
+        "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen",
+        "Eighteen", "Nineteen"
+      ],
+      "tens": ["Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"],
+      "joiner": "-"
+    },
+    "standalone": ["Prologue", "Epilogue"],
+    "lone_number": true
+  },
+  "speech_verbs": [
+    "said", "says", "asked", "asks", "replied", "replies", "answered", "answers", "cried",
+    "cries", "exclaimed", "exclaims", "shouted", "shouts", "called", "calls", "whispered",
+    "whispers", "muttered", "mutters", "murmured", "murmurs", "added", "adds", "continued",
+    "continues", "returned", "returns", "observed", "observes", "remarked", "remarks",
+    "repeated", "repeats", "began", "begins", "inquired", "inquires", "enquired", "enquires",
+    "demanded", "demands", "declared", "declares", "insisted", "insists", "protested",
+    "protests", "retorted", "retorts", "sighed", "sighs", "laughed", "laughs", "snapped",
+    "snaps", "thought", "thinks", "wrote", "writes", "read", "reads", "told", "tells"
+  ]
+}

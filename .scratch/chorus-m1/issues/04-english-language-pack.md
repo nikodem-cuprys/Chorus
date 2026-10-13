@@ -1,7 +1,7 @@
 # The English Language pack
 
 Type: task (AFK)
-Status: ready-for-agent
+Status: resolved
 Blocked by: 01
 
 ## What to build
@@ -23,3 +23,25 @@ The Language pack format and its loader, with English as the one pack.
 ## Spec
 
 `docs/spec/02-architecture.md` (Language packs), `docs/spec/04-models-and-libraries.md` (Emotion settings, Built-in Voices), `docs/spec/05-data-model.md` (Voice).
+
+## Answer
+
+Built on 2026-10-13.
+
+- **Format:** one folder per language under `backend/chorus/languages/` (shipped as package data). `en/pack.json` holds the quotation rules (`“ ”` and straight `" "`; a leading dash does not start dialogue), the sentence rules (end marks `. ! ? …` and 50 abbreviations), the voice model (`chatterbox-500m` with `emotions.json` beside it), the path to `voices/voices.json`, the chapter-heading patterns and the speech verbs. The 12 clips are in `en/voices/`. In `voices.json` the labels are ids (`young_adult`, `american`); the interface translates them.
+- **Loader:** `chorus.languages.load_packs` reads every pack and raises `PackError` with the pack and the part named, for example "Language pack 'en': the required part 'sentences' is missing". It also checks each Emotion and intensity (exaggeration at most 0.9), each Voice's labels against the fixed lists, that every clip exists, and that the default Narrator suits the Narrator. The web service loads the packs in its startup (lifespan), so a broken pack stops it.
+- **Voices in the database:** a `voice` table (migration 0002). `chorus.voices.sync_built_in_voices` makes its built-in rows match the packs at every startup; nothing else writes them. The API has `GET /api/voices` (with `default_narrator`) and `GET /api/voices/{id}/clip`. The Library page lists them with their labels and a player.
+- **Sentence splitter:** `LanguagePack.split_sentences`. A sentence ends at end marks plus any closing quotes or brackets, followed by a space. It does not end after a pack abbreviation (also after an opening quote: "“Mr."), after a single capital (the initial in "S. Place"), or before a lowercase letter ("How so? how can it affect them?").
+- **Chapter headings:** `ChapterHeadings.is_heading` matches "Chapter 12", "CHAPTER XII", "Part One", "Chapter Twenty-One", "Chapter 3. The Ball", "Prologue" and a lone number. It is ready for tickets 06 and 07.
+
+Acceptance:
+
+- **12 Voices at startup:** checked with the unit tests (SQLite). `TestClient` runs the startup, lists all 12 with their labels and the default Narrator, and serves a clip. Not yet checked on the Compose stack: Docker was not running. A wheel build does contain `pack.json`, `emotions.json`, `voices.json` and the 12 clips.
+- **Removing a required part:** each of the four makes `load_packs` fail with the part named, and the app's startup fails with the same error.
+- **Tests (`tests/test_languages.py`):** the pack is complete, every clip exists and is a WAV, and "Mr. Bennet" stays whole. On all six sample passages, every sentence but the last in a paragraph ends at a sentence end. None ends at an abbreviation or initial, none starts lowercase, and joining them gives back the paragraph.
+
+Left for later:
+
+- **Dictionary (M4) and export lines (M8):** the loader accepts both, but the English pack has neither. The AO3 line is still open question 9.
+- **Single curly quotes:** `‘ ’` is not a quotation pair, because `’` is also the apostrophe. Ticket 09 should decide this when it builds the line splitter, since British-style books need it.
+- **Timbre words per Voice:** the spec says two or three, but six Voices have one, so the check allows one to three.

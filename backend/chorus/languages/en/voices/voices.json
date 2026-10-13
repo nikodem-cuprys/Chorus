@@ -1,0 +1,18 @@
+{
+  "default_narrator": "af_bella",
+  "clip_text": "The house stood at the end of a long gravel road, behind a row of old chestnut trees. Every morning the post arrived at nine, and every evening the lamps were lit before the sun went down.",
+  "voices": [
+    {"id": "af_alloy", "gender": "female", "age": "adult", "accent": "american", "timbre": ["low", "dark", "measured"], "narrator_ok": false, "clips": {"neutral": "af_alloy.wav"}, "credit": "Kokoro-82M voice af_alloy (Apache-2.0)"},
+    {"id": "af_aoede", "gender": "female", "age": "adult", "accent": "american", "timbre": ["dark"], "narrator_ok": true, "clips": {"neutral": "af_aoede.wav"}, "credit": "Kokoro-82M voice af_aoede (Apache-2.0)"},
+    {"id": "af_bella", "gender": "female", "age": "adult", "accent": "american", "timbre": ["high", "measured"], "narrator_ok": true, "clips": {"neutral": "af_bella.wav"}, "credit": "Kokoro-82M voice af_bella (Apache-2.0)"},
+    {"id": "af_heart", "gender": "female", "age": "adult", "accent": "american", "timbre": ["high"], "narrator_ok": false, "clips": {"neutral": "af_heart.wav"}, "credit": "Kokoro-82M voice af_heart (Apache-2.0)"},
+    {"id": "af_kore", "gender": "female", "age": "adult", "accent": "american", "timbre": ["low", "dark", "measured"], "narrator_ok": false, "clips": {"neutral": "af_kore.wav"}, "credit": "Kokoro-82M voice af_kore (Apache-2.0)"},
+    {"id": "bf_emma", "gender": "female", "age": "adult", "accent": "british", "timbre": ["bright"], "narrator_ok": true, "clips": {"neutral": "bf_emma.wav"}, "credit": "Kokoro-82M voice bf_emma (Apache-2.0)"},
+    {"id": "am_eric", "gender": "male", "age": "adult", "accent": "american", "timbre": ["high", "dark", "measured"], "narrator_ok": false, "clips": {"neutral": "am_eric.wav"}, "credit": "Kokoro-82M voice am_eric (Apache-2.0)"},
+    {"id": "am_fenrir", "gender": "male", "age": "young_adult", "accent": "american", "timbre": ["high"], "narrator_ok": true, "clips": {"neutral": "am_fenrir.wav"}, "credit": "Kokoro-82M voice am_fenrir (Apache-2.0)"},
+    {"id": "am_michael", "gender": "male", "age": "adult", "accent": "american", "timbre": ["bright", "measured"], "narrator_ok": true, "clips": {"neutral": "am_michael.wav"}, "credit": "Kokoro-82M voice am_michael (Apache-2.0)"},
+    {"id": "bm_daniel", "gender": "male", "age": "adult", "accent": "british", "timbre": ["bright", "brisk"], "narrator_ok": false, "clips": {"neutral": "bm_daniel.wav"}, "credit": "Kokoro-82M voice bm_daniel (Apache-2.0)"},
+    {"id": "bm_fable", "gender": "male", "age": "adult", "accent": "british", "timbre": ["low", "dark", "brisk"], "narrator_ok": false, "clips": {"neutral": "bm_fable.wav"}, "credit": "Kokoro-82M voice bm_fable (Apache-2.0)"},
+    {"id": "bm_lewis", "gender": "male", "age": "adult", "accent": "british", "timbre": ["low"], "narrator_ok": false, "clips": {"neutral": "bm_lewis.wav"}, "credit": "Kokoro-82M voice bm_lewis (Apache-2.0)"}
+  ]
+}
