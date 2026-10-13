@@ -14,13 +14,14 @@ from sqlalchemy.orm import Session
 from chorus.config import get_settings
 from chorus.importing import ImportedWork, ImportRejected, base_language, language
 from chorus.importing.epub import read_epub
+from chorus.importing.pdf import read_pdf
 from chorus.importing.txt import read_txt
 from chorus.jobs import JobContext, enqueue, job
 from chorus.languages import ChapterHeadings, get_packs
 from chorus.models import Chapter, Queue, Work, WorkState
 
-# Source kinds by file extension. PDF and the Calibre formats arrive in tickets 07 and 08.
-SOURCE_KINDS = {".epub": "epub", ".txt": "txt"}
+# Source kinds by file extension. The Calibre formats arrive in ticket 08.
+SOURCE_KINDS = {".epub": "epub", ".txt": "txt", ".pdf": "pdf"}
 
 # The pack whose rules are used when a Work's language has none.
 FALLBACK_LANGUAGE = "en"
@@ -76,6 +77,13 @@ def import_work(ctx: JobContext) -> None:
             imported = read_epub(data, headings_for)
         elif work.source_kind == "txt":
             imported = read_txt(data, headings_for, work.source_name)
+        elif work.source_kind == "pdf":
+            imported = read_pdf(
+                data,
+                lambda code: get_packs()[pack_language(code)],
+                work.source_name,
+                lambda done, total: ctx.report(stage="reading", done=done, total=total),
+            )
         else:
             raise ImportRejected("import.error.unsupported", name=work.source_name)
         ctx.report(stage="saving")

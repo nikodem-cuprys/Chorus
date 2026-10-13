@@ -13,7 +13,7 @@ import posixpath
 import re
 import zipfile
 from collections.abc import Callable
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from io import BytesIO
 from urllib.parse import unquote
 
@@ -22,13 +22,13 @@ from lxml import etree, html
 from chorus.importing import (
     SECTION_BREAK_TEXT,
     Block,
-    ImportedChapter,
     ImportedWork,
     ImportRejected,
     Span,
     base_language,
     normalise_space,
 )
+from chorus.importing.chapters import Segment, arrange
 from chorus.languages import ChapterHeadings
 
 NS = {
@@ -91,12 +91,6 @@ class TocEntry:
     fragment: str | None
     label: str
     depth: int
-
-
-@dataclass
-class _Segment:
-    label: str | None
-    blocks: list[Block] = field(default_factory=list)
 
 
 def read_epub(
@@ -168,7 +162,7 @@ def read_epub(
         work.warn("import.warning.split_by_files")
         segments = _cut(stream, lambda m: m.kind == "file", lambda m: None)
 
-    chapters, more_front, more_back = _arrange(segments, headings_for(work.language))
+    chapters, more_front, more_back = arrange(segments, headings_for(work.language))
     for block in front + back:
         block.boilerplate = True
     work.front_matter = front + more_front
@@ -647,97 +641,24 @@ def _split_off_boilerplate(
     return front, stream, back
 
 
-def _cut(stream, is_cut, label_of) -> list[_Segment]:
-    segments = [_Segment(None)]
+def _cut(stream, is_cut, label_of) -> list[Segment]:
+    segments = [Segment(None)]
     for item in stream:
         if isinstance(item, Marker):
             if is_cut(item):
-                segments.append(_Segment(label_of(item)))
+                segments.append(Segment(label_of(item)))
         else:
             segments[-1].blocks.append(item)
     return segments
 
 
-def _cut_at_headings(stream) -> list[_Segment]:
-    segments = [_Segment(None)]
+def _cut_at_headings(stream) -> list[Segment]:
+    segments = [Segment(None)]
     for item in stream:
         if isinstance(item, Marker):
             continue
         last = segments[-1].blocks[-1] if segments[-1].blocks else None
         if _is_top_heading(item) and not (isinstance(last, Block) and last.type == "heading"):
-            segments.append(_Segment(None))
+            segments.append(Segment(None))
         segments[-1].blocks.append(item)
     return segments
-
-
-def _leading_headings(blocks: list[Block]) -> list[Block]:
-    found = []
-    for block in blocks:
-        if block.type == "heading":
-            found.append(block)
-        elif block.type != "section_break":
-            break
-    return found
-
-
-def _title(segment: _Segment) -> str | None:
-    texts = [normalise_space(h.text) for h in _leading_headings(segment.blocks)]
-    texts = [t for t in texts if t]
-    if texts:
-        parts = [t.rstrip(".:") for t in texts[:-1]] + [texts[-1]]
-        return ": ".join(parts)
-    return segment.label or None
-
-
-def _looks_like_chapter(segment: _Segment, headings: ChapterHeadings | None) -> bool:
-    if headings is None:
-        return False
-    candidates = [normalise_space(h.text) for h in _leading_headings(segment.blocks)]
-    candidates += [segment.label or ""]
-    return any(c and headings.is_heading(c) for c in candidates)
-
-
-def _trim_breaks(blocks: list[Block]) -> list[Block]:
-    while blocks and blocks[0].type == "section_break":
-        blocks = blocks[1:]
-    while blocks and blocks[-1].type == "section_break":
-        blocks = blocks[:-1]
-    return blocks
-
-
-def _arrange(
-    segments: list[_Segment], headings: ChapterHeadings | None
-) -> tuple[list[ImportedChapter], list[Block], list[Block]]:
-    """Segments before the first that looks like a chapter, and after the last, are front and
-    back matter. A segment holding nothing but headings (a part title page) joins the next."""
-    front = segments[0].blocks if segments and segments[0].label is None else []
-    if front:
-        segments = segments[1:]
-    segments = [s for s in segments if any(b.type != "section_break" for b in s.blocks)]
-    chapter_like = [n for n, s in enumerate(segments) if _looks_like_chapter(s, headings)]
-    back: list[Block] = []
-    if chapter_like:
-        for s in segments[: chapter_like[0]]:
-            front += s.blocks
-        for s in segments[chapter_like[-1] + 1 :]:
-            back += s.blocks
-        segments = segments[chapter_like[0] : chapter_like[-1] + 1]
-
-    merged: list[_Segment] = []
-    carry: list[Block] = []
-    for segment in segments:
-        blocks = carry + segment.blocks
-        if all(b.type in ("heading", "section_break") for b in segment.blocks):
-            carry = blocks
-            continue
-        carry = []
-        merged.append(_Segment(segment.label, blocks))
-    if carry and merged:
-        merged[-1].blocks += carry
-
-    chapters = []
-    for segment in merged:
-        blocks = _trim_breaks(segment.blocks)
-        if blocks:
-            chapters.append(ImportedChapter(_title(_Segment(segment.label, blocks)), blocks))
-    return chapters, _trim_breaks(front), _trim_breaks(back)

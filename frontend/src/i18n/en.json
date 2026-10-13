@@ -57,7 +57,7 @@
   "nav.library": "Library",
   "nav.import": "Import",
   "import.title": "Import",
-  "import.intro": "Upload an EPUB or a plain-text (TXT) file. Chorus reads it into a Work you can open from the Library. Other formats arrive in later builds.",
+  "import.intro": "Upload an EPUB, a PDF with selectable text, or a plain-text (TXT) file. Chorus reads it into a Work you can open from the Library. Other formats arrive in later builds.",
   "import.choose": "Choose a file",
   "import.start": "Import",
   "import.uploading": "Uploading…",
@@ -65,7 +65,7 @@
   "import.error.empty": "The file is empty.",
   "import.error.drm": "This ebook is protected with DRM, so Chorus cannot read it. Use a copy without DRM.",
   "import.error.unreadable": "This file is not an ebook Chorus can open.",
-  "import.error.unsupported": "Chorus cannot read {name} yet: only EPUB and TXT files can be imported in this build.",
+  "import.error.unsupported": "Chorus cannot read {name} yet: only EPUB, PDF and TXT files can be imported in this build.",
   "import.error.no_text": "This ebook contains no text to read.",
   "import.error.unexpected": "The import failed unexpectedly: {detail}",
   "import.warning.split_by_headings": "The ebook has no table of contents, so it was split into chapters at its headings.",
@@ -92,5 +92,9 @@
   "chapter.error.not_found": "Chapter {index} does not exist.",
   "import.warning.encoding": "The text was read as {encoding}.",
   "import.warning.encoding_detected": "The file is not UTF-8; it was read as {encoding}, the encoding that fits it best. If letters look wrong, save the file as UTF-8 and import it again.",
-  "import.warning.no_chapters": "No chapter headings were found, so the whole file is one chapter."
+  "import.warning.no_chapters": "No chapter headings were found, so the whole file is one chapter.",
+  "import.error.scanned_pdf": "This PDF has no text to read: it looks like a scan, made of page images. Scanned PDFs are not supported; use a PDF with selectable text, or another format.",
+  "import.warning.pdf_headers_removed": "Running headers or footers were removed on {count} pages.",
+  "import.warning.pdf_page_numbers_removed": "Page numbers were removed on {count} pages.",
+  "import.warning.pdf_pages_without_text": "{count} pages have no text (images only) and were skipped."
 }

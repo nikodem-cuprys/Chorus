@@ -29,7 +29,7 @@ A reader that turns a plain-text file into the shared Work structure.
 
 Built on 2026-10-13: `backend/chorus/importing/txt.py`, used by the import job for `.txt` uploads.
 
-- **Encoding:** the BOM (UTF-8, UTF-16, UTF-32), else strict UTF-8, else `charset-normalizer` 3.5.2. The encoding is always in the warnings: `import.warning.encoding` ("read as UTF-8"), or `import.warning.encoding_detected` when it was guessed.
+- **Encoding:** the BOM (UTF-8, UTF-16, UTF-32), else strict UTF-8, else `charset-normalizer` 3.5.1 (the version the frozen GPU constraints pin; 3.5.2 was pinned at first and corrected in ticket 07). The encoding is always in the warnings: `import.warning.encoding` ("read as UTF-8"), or `import.warning.encoding_detected` when it was guessed.
   - The detector ties Windows-1250, 1252 and 1257 exactly on English text with a few accented letters, and picked 1250, which turned "naïve" into "naďve". A tie now goes to Windows-1252, and a text that reads the same in 1252 is named Windows-1252.
   - A Polish text in Windows-1250 does not tie and is still read as 1250 (tested).
 - **Paragraphs:** split at blank lines; wrapped lines are joined and runs of spaces collapsed. A paragraph whose lines are all indented by two spaces or more (verse) keeps its line breaks. One space is not enough: Holmes indents some of its prose by one space. `_underscores_` become italics.

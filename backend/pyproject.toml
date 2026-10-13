@@ -15,8 +15,10 @@ dependencies = [
     "pydantic-settings==2.15.0",
     "python-multipart==0.0.32",  # file uploads; the version the GPU constraints pin
     "lxml==6.1.3",
+    "pdfplumber==0.11.10",
+    "pypdf==6.19.0",
     "lingua-language-detector==2.1.1",
-    "charset-normalizer==3.5.2",
+    "charset-normalizer==3.5.1",  # the version the GPU constraints pin
 ]
 
 [project.optional-dependencies]
