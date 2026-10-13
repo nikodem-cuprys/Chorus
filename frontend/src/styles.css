@@ -364,3 +364,8 @@ button:disabled {
 .small-caps {
   font-variant: small-caps;
 }
+
+.block-boilerplate {
+  color: var(--muted);
+  font-size: 0.85rem;
+}

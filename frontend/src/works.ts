@@ -38,6 +38,8 @@ export interface Block {
   type: "paragraph" | "heading" | "section_break" | "quote" | "letter" | "list_item" | "footnote";
   spans: Span[];
   level?: number;
+  /** Added by the Source's publisher (Project Gutenberg's header and licence); never voiced. */
+  boilerplate?: boolean;
 }
 
 export interface Chapter {

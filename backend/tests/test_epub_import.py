@@ -124,6 +124,8 @@ def test_the_gutenberg_epub():
     # Gutenberg's header, the preface and the list of illustrations are front matter; the
     # licence is back matter. None of it is in a chapter.
     assert work.front_matter[0].text.startswith("The Project Gutenberg eBook of")
+    assert work.front_matter[0].boilerplate and work.back_matter[0].boilerplate
+    assert not any(b.boilerplate for b in work.front_matter if "PREFACE" in b.text)
     assert work.back_matter[0].text.startswith("*** END OF THE PROJECT GUTENBERG EBOOK")
     assert not any("Gutenberg" in c.text for c in work.chapters)
 

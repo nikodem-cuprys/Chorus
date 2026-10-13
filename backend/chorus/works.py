@@ -14,12 +14,13 @@ from sqlalchemy.orm import Session
 from chorus.config import get_settings
 from chorus.importing import ImportedWork, ImportRejected, base_language, language
 from chorus.importing.epub import read_epub
+from chorus.importing.txt import read_txt
 from chorus.jobs import JobContext, enqueue, job
-from chorus.languages import get_packs
+from chorus.languages import ChapterHeadings, get_packs
 from chorus.models import Chapter, Queue, Work, WorkState
 
-# Source kinds by file extension. TXT, PDF and the Calibre formats arrive in tickets 06 to 08.
-SOURCE_KINDS = {".epub": "epub"}
+# Source kinds by file extension. PDF and the Calibre formats arrive in tickets 07 and 08.
+SOURCE_KINDS = {".epub": "epub", ".txt": "txt"}
 
 # The pack whose rules are used when a Work's language has none.
 FALLBACK_LANGUAGE = "en"
@@ -65,11 +66,18 @@ def import_work(ctx: JobContext) -> None:
     try:
         ctx.report(stage="reading")
         data = (work_dir(work.id) / work.source_file).read_bytes()
-        if work.source_kind != "epub":
-            raise ImportRejected("import.error.unsupported", name=work.source_name)
+
         # The heading patterns of the stated language's pack, else English's: the detector
         # can only run once the text is out.
-        imported = read_epub(data, lambda code: get_packs()[pack_language(code)].chapter_headings)
+        def headings_for(code: str | None) -> ChapterHeadings | None:
+            return get_packs()[pack_language(code)].chapter_headings
+
+        if work.source_kind == "epub":
+            imported = read_epub(data, headings_for)
+        elif work.source_kind == "txt":
+            imported = read_txt(data, headings_for, work.source_name)
+        else:
+            raise ImportRejected("import.error.unsupported", name=work.source_name)
         ctx.report(stage="saving")
         _save(session, work, imported)
     except Exception as exc:

@@ -89,11 +89,11 @@ class ChapterHeadings:
     joiner: str
     standalone: tuple[str, ...]
     lone_number: bool
+    # A number, a full stop and a title in capitals: "I. A SCANDAL IN BOHEMIA".
+    numbered_titles: bool = False
 
     @cached_property
-    def pattern(self) -> re.Pattern[str]:
-        """Matches a whole line that is a chapter heading, ignoring case, with an optional
-        title after a separator ("Chapter 3. The Ball", "CHAPTER XII")."""
+    def _number(self) -> str:
         numbers = []
         if "arabic" in self.numbering:
             numbers.append(r"\d{1,4}")
@@ -107,21 +107,38 @@ class ChapterHeadings:
             words = [f"(?:{tens})(?:{re.escape(self.joiner)}(?:{units}))?"] if tens else []
             words += [f"(?:{units})"] if units else []
             numbers.append("|".join(words))
-        number = "|".join(f"(?:{n})" for n in numbers)
+        return "|".join(f"(?:{n})" for n in numbers)
+
+    @cached_property
+    def _styles(self) -> list[tuple[str, re.Pattern[str]]]:
+        """One whole-line pattern per style of heading, each with an optional title after a
+        separator ("Chapter 3. The Ball", "CHAPTER XII")."""
+        number = self._number
         title = r"(?:\s*[.:—–-](?:\s*\S.*)?|\s+\S.*)?"
-        forms = []
+        styles = []
         if self.words and number:
-            forms.append(f"(?:{'|'.join(map(re.escape, self.words))})\\s+(?:{number}){title}")
+            words = "|".join(map(re.escape, self.words))
+            styles.append(("word", f"(?:{words})\\s+(?:{number}){title}", re.IGNORECASE))
         if self.standalone:
-            forms.append(f"(?:{'|'.join(map(re.escape, self.standalone))}){title}")
+            words = "|".join(map(re.escape, self.standalone))
+            styles.append(("standalone", f"(?:{words}){title}", re.IGNORECASE))
         if self.lone_number and number:
-            forms.append(f"(?:{number})\\.?")
-        if not forms:
-            return re.compile(r"(?!)")
-        return re.compile(f"\\s*(?:{'|'.join(forms)})\\s*", re.IGNORECASE)
+            styles.append(("lone_number", f"(?:{number})\\.?", re.IGNORECASE))
+        if self.numbered_titles and number:
+            # Case matters here: the title must have capitals and no lowercase letters.
+            styles.append(("numbered_title", f"(?:{number})\\.\\s+(?=.*[A-Z])[^a-z]+", 0))
+        return [(name, re.compile(f"\\s*(?:{p})\\s*", flags)) for name, p, flags in styles]
+
+    def style(self, line: str) -> str | None:
+        """Which style of heading the line is ("word", "standalone", "lone_number",
+        "numbered_title"), or None if it is not a heading."""
+        for name, pattern in self._styles:
+            if pattern.fullmatch(line):
+                return name
+        return None
 
     def is_heading(self, line: str) -> bool:
-        return self.pattern.fullmatch(line) is not None
+        return self.style(line) is not None
 
 
 @dataclass(frozen=True)
@@ -301,6 +318,7 @@ def _load_chapter_headings(raw: dict, where: str) -> ChapterHeadings:
         joiner=words.get("joiner", "-"),
         standalone=tuple(raw.get("standalone", ())),
         lone_number=bool(raw.get("lone_number", False)),
+        numbered_titles=bool(raw.get("numbered_titles", False)),
     )
 
 

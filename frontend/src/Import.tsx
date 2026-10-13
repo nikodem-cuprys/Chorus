@@ -31,7 +31,7 @@ export function Import() {
       <form className="import" onSubmit={submit}>
         <input
           type="file"
-          accept=".epub,application/epub+zip"
+          accept=".epub,.txt,application/epub+zip,text/plain"
           aria-label={t("import.choose")}
           onChange={(event) => setFile(event.target.files?.[0] ?? null)}
         />

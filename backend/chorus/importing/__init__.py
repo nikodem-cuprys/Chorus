@@ -17,6 +17,8 @@ BLOCK_TYPES = (
     "paragraph", "heading", "section_break", "quote", "letter", "list_item", "footnote",
 )  # fmt: skip
 MARKS = ("italic", "bold", "underline", "strike", "small_caps", "superscript")
+# A line of nothing but these marks ("* * *", "⁂") is a Section break.
+SECTION_BREAK_TEXT = re.compile(r"^[\s*•·⁂◆◇~#=_—–-]+$")
 
 
 class ImportRejected(JobFailed):
@@ -39,6 +41,9 @@ class Block:
     # Where it came from, for example {"file": "OEBPS/ch1.xhtml", "path": "/html/body/p[3]"}.
     ref: dict = field(default_factory=dict)
     level: int | None = None  # headings only
+    # Text the Source's publisher added, such as Project Gutenberg's header and licence; it is
+    # never voiced.
+    boilerplate: bool = False
 
     @property
     def text(self) -> str:
@@ -48,6 +53,8 @@ class Block:
         data: dict = {"type": self.type, "spans": [s.to_dict() for s in self.spans]}
         if self.level is not None:
             data["level"] = self.level
+        if self.boilerplate:
+            data["boilerplate"] = True
         if self.ref:
             data["ref"] = self.ref
         return data

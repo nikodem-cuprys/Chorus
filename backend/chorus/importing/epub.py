@@ -20,6 +20,7 @@ from urllib.parse import unquote
 from lxml import etree, html
 
 from chorus.importing import (
+    SECTION_BREAK_TEXT,
     Block,
     ImportedChapter,
     ImportedWork,
@@ -73,7 +74,6 @@ SMALL_CAPS_CLASS = re.compile(r"\b(smcap|smallcaps?|small-caps|sc)\b", re.I)
 NOTE_MARKER = re.compile(r"^\W{0,2}[\d*†‡§]{1,3}\W{0,2}$")
 INVISIBLE = re.compile(r"[­​‌⁠﻿]")
 WHITESPACE = re.compile(r"[ \t\r\n\f\v  -   　]+")
-SECTION_BREAK_TEXT = re.compile(r"^[\s*•·⁂◆◇~#=_—–-]+$")
 
 
 @dataclass(frozen=True)
@@ -169,6 +169,8 @@ def read_epub(
         segments = _cut(stream, lambda m: m.kind == "file", lambda m: None)
 
     chapters, more_front, more_back = _arrange(segments, headings_for(work.language))
+    for block in front + back:
+        block.boilerplate = True
     work.front_matter = front + more_front
     work.back_matter = more_back + back
     work.chapters = chapters

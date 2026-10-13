@@ -91,6 +91,23 @@ def test_lines_that_are_not_chapter_headings(line):
     assert not get_pack("en").chapter_headings.is_heading(line)
 
 
+@pytest.mark.parametrize(
+    ("line", "style"),
+    [
+        ("CHAPTER XII.", "word"),
+        ("PART I", "word"),
+        ("EPILOGUE", "standalone"),
+        ("II.", "lone_number"),
+        ("Three", "lone_number"),
+        ("I. A SCANDAL IN BOHEMIA", "numbered_title"),
+        ("I. A scandal in Bohemia", None),
+        ("1. First we went home.", None),
+    ],
+)
+def test_chapter_heading_styles(line, style):
+    assert get_pack("en").chapter_headings.style(line) == style
+
+
 # ---- A broken pack stops Chorus ----
 
 

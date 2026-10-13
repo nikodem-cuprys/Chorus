@@ -42,6 +42,13 @@ export function Blocks({ blocks }: { blocks: Block[] }) {
     <div className="text">
       {blocks.map((block, n) => {
         const spans = <Spans spans={block.spans} />;
+        if (block.boilerplate) {
+          return (
+            <p key={n} className="block-boilerplate">
+              {spans}
+            </p>
+          );
+        }
         switch (block.type) {
           case "heading":
             return (

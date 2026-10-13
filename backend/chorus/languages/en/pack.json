@@ -32,7 +32,8 @@
       "joiner": "-"
     },
     "standalone": ["Prologue", "Epilogue"],
-    "lone_number": true
+    "lone_number": true,
+    "numbered_titles": true
   },
   "speech_verbs": [
     "said", "says", "asked", "asks", "replied", "replies", "answered", "answers", "cried",

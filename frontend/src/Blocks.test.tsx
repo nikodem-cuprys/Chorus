@@ -26,4 +26,11 @@ describe("Blocks", () => {
     expect(container.querySelector("hr.section-break")).toBeTruthy();
     expect(container.querySelectorAll("blockquote br")).toHaveLength(1);
   });
+
+  it("greys out boilerplate", () => {
+    const { container } = render(
+      <Blocks blocks={[{ type: "paragraph", boilerplate: true, spans: [{ text: "*** START" }] }]} />,
+    );
+    expect(container.querySelector(".block-boilerplate")?.textContent).toBe("*** START");
+  });
 });
