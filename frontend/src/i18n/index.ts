@@ -29,3 +29,15 @@ export function tMessage(message: Message): string {
   const template = catalogue[message.key];
   return template === undefined ? message.key : fill(template, message.params);
 }
+
+/** The interface language; English until milestone 5. */
+export const locale = "en";
+
+/** A language's name in the interface language, from the browser's own list. */
+export function languageName(code: string): string {
+  try {
+    return new Intl.DisplayNames([locale], { type: "language" }).of(code) ?? code;
+  } catch {
+    return code;
+  }
+}

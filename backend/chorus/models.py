@@ -1,8 +1,8 @@
 import enum
 from datetime import UTC, datetime
 
-from sqlalchemy import JSON, Boolean, DateTime, Enum, String
-from sqlalchemy.orm import Mapped, mapped_column
+from sqlalchemy import JSON, Boolean, DateTime, Enum, ForeignKey, String, UniqueConstraint
+from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from chorus.db import Base
 
@@ -29,8 +29,10 @@ class Job(Base):
     __tablename__ = "job"
 
     id: Mapped[int] = mapped_column(primary_key=True)
-    # Set once Works exist (ticket 05); a job without a Work is a system job.
-    work_id: Mapped[int | None] = mapped_column(index=True)
+    # A job without a Work is a system job.
+    work_id: Mapped[int | None] = mapped_column(
+        ForeignKey("work.id", ondelete="CASCADE"), index=True
+    )
     kind: Mapped[str] = mapped_column(String(40))
     queue: Mapped[Queue] = mapped_column(Enum(Queue, native_enum=False, length=10))
     state: Mapped[JobState] = mapped_column(
@@ -94,3 +96,67 @@ class Voice(Base):
             "built_in": self.built_in,
             "credit": self.credit,
         }
+
+
+class WorkState(enum.StrEnum):
+    IMPORTING = "importing"
+    # Until analysis follows import by itself (ticket 11), a Work rests here.
+    IMPORTED = "imported"
+    FAILED = "failed"
+
+
+class Work(Base):
+    """A Source after import (docs/spec/05-data-model.md). Blocks are stored as JSON, as the
+    importers produce them (chorus.importing)."""
+
+    __tablename__ = "work"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    title: Mapped[str] = mapped_column(String(500), default="")
+    authors: Mapped[list] = mapped_column(JSON, default=list)
+    # Base language code; where it came from: "metadata", "detector" or "user".
+    language: Mapped[str | None] = mapped_column(String(10))
+    language_source: Mapped[str | None] = mapped_column(String(10))
+    source_kind: Mapped[str] = mapped_column(String(20))
+    source_name: Mapped[str] = mapped_column(String(500))
+    source_hash: Mapped[str | None] = mapped_column(String(64))
+    # Files on the data volume, relative to the Work's folder there.
+    source_file: Mapped[str | None] = mapped_column(String(200))
+    cover_file: Mapped[str | None] = mapped_column(String(200))
+    is_ao3: Mapped[bool] = mapped_column(Boolean, default=False)
+    # summary, tags, series, series_index, rating, warnings, publisher, published
+    meta: Mapped[dict] = mapped_column(JSON, default=dict)
+    # Message-catalogue keys with parameters.
+    warnings: Mapped[list] = mapped_column(JSON, default=list)
+    front_matter: Mapped[list] = mapped_column(JSON, default=list)
+    back_matter: Mapped[list] = mapped_column(JSON, default=list)
+    state: Mapped[WorkState] = mapped_column(
+        Enum(WorkState, native_enum=False, length=20), default=WorkState.IMPORTING
+    )
+    error: Mapped[dict | None] = mapped_column(JSON)
+    imported_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=_now)
+    opened_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
+
+    chapters: Mapped[list["Chapter"]] = relationship(
+        back_populates="work",
+        order_by="Chapter.index",
+        cascade="all, delete-orphan",
+        passive_deletes=True,
+    )
+
+
+class Chapter(Base):
+    __tablename__ = "chapter"
+    __table_args__ = (UniqueConstraint("work_id", "index"),)
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    work_id: Mapped[int] = mapped_column(ForeignKey("work.id", ondelete="CASCADE"), index=True)
+    index: Mapped[int]
+    title: Mapped[str | None] = mapped_column(String(500))
+    content_hash: Mapped[str] = mapped_column(String(64))
+    notes_before: Mapped[list] = mapped_column(JSON, default=list)
+    blocks: Mapped[list] = mapped_column(JSON, default=list)
+    notes_after: Mapped[list] = mapped_column(JSON, default=list)
+
+    work: Mapped[Work] = relationship(back_populates="chapters")

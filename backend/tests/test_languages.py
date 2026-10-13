@@ -77,7 +77,7 @@ def test_every_voice_clip_exists():
 @pytest.mark.parametrize(
     "heading",
     ["Chapter 12", "CHAPTER XII", "Part One", "12", "XII.", "Chapter Twenty-One",
-     "Chapter 3. The Ball", "CHAPTER I: In Which", "Prologue"],
+     "Chapter 3. The Ball", "CHAPTER I: In Which", "CHAPTER II.", "Prologue"],
 )  # fmt: skip
 def test_chapter_headings(heading):
     assert get_pack("en").chapter_headings.is_heading(heading)

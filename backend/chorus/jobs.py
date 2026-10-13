@@ -58,6 +58,19 @@ class JobContext:
         events.publish("job", self.job.to_dict())
 
 
+class JobFailed(Exception):
+    """A job that cannot finish, with a message-catalogue key and parameters saying why."""
+
+    def __init__(self, key: str, detail: str = "", **params: object):
+        super().__init__(detail or key)
+        self.key = key
+        self.params = params
+        self.detail = detail
+
+    def message(self) -> dict:
+        return {"key": self.key, "params": self.params}
+
+
 JobFunction = Callable[..., None]
 _registry: dict[str, tuple[Queue, Task]] = {}
 
@@ -76,6 +89,11 @@ def job(kind: str, queue: Queue) -> Callable[[JobFunction], JobFunction]:
                 ctx._set_state(JobState.RUNNING, started_at=row.started_at or _now())
                 try:
                     fn(ctx, **kwargs)
+                except JobFailed as exc:
+                    # An expected failure: the reason is for the user, not a crash to trace.
+                    session.rollback()
+                    ctx._set_state(JobState.FAILED, finished_at=_now(), error=exc.message())
+                    return
                 except Exception as exc:
                     session.rollback()
                     ctx._set_state(

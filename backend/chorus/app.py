@@ -9,19 +9,20 @@ import json
 from collections.abc import AsyncIterator
 from contextlib import asynccontextmanager
 
-from fastapi import APIRouter, Depends, FastAPI, HTTPException, Request
+from fastapi import APIRouter, Depends, FastAPI, HTTPException, Request, UploadFile
 from fastapi.responses import FileResponse, StreamingResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
-from chorus import events, healthcheck, tasks, voices  # noqa: F401  (tasks registers job kinds)
+from chorus import events, healthcheck, tasks, voices, works  # noqa: F401  (tasks: job kinds)
 from chorus.config import get_settings
 from chorus.db import get_session, get_sessionmaker
+from chorus.importing.language import known_languages
 from chorus.jobs import enqueue
 from chorus.languages import get_packs
-from chorus.models import Job, Voice
+from chorus.models import Chapter, Job, Voice, Work
 
 api = APIRouter(prefix="/api")
 
@@ -49,6 +50,79 @@ def get_job(job_id: int, session: Session = Depends(get_session)) -> dict:
     if row is None:
         raise HTTPException(404, detail={"key": "job.error.not_found", "params": {"id": job_id}})
     return row.to_dict()
+
+
+def _work(session: Session, work_id: int) -> Work:
+    row = session.get(Work, work_id)
+    if row is None:
+        raise HTTPException(404, detail={"key": "work.error.not_found", "params": {"id": work_id}})
+    return row
+
+
+@api.get("/works")
+def list_works(session: Session = Depends(get_session)) -> list[dict]:
+    rows = session.scalars(select(Work).order_by(Work.id.desc()))
+    return [works.summary(row) for row in rows]
+
+
+@api.post("/works", status_code=201)
+async def import_work(file: UploadFile, session: Session = Depends(get_session)) -> dict:
+    """Starts an import; the Work is in the "importing" state until the job is done."""
+    data = await file.read()
+    if not data:
+        raise HTTPException(400, detail={"key": "import.error.empty", "params": {}})
+    return works.detail(works.start_import(session, file.filename or "", data))
+
+
+@api.get("/works/{work_id}")
+def get_work(work_id: int, session: Session = Depends(get_session)) -> dict:
+    return works.detail(_work(session, work_id))
+
+
+class WorkChange(BaseModel):
+    language: str = Field(pattern="^[a-z]{2,3}$")
+
+
+@api.patch("/works/{work_id}")
+def change_work(work_id: int, body: WorkChange, session: Session = Depends(get_session)) -> dict:
+    row = _work(session, work_id)
+    works.set_language(session, row, body.language)
+    return works.detail(row)
+
+
+@api.get("/works/{work_id}/chapters/{index}")
+def get_chapter(work_id: int, index: int, session: Session = Depends(get_session)) -> dict:
+    row = session.scalar(select(Chapter).where(Chapter.work_id == work_id, Chapter.index == index))
+    if row is None:
+        raise HTTPException(
+            404, detail={"key": "chapter.error.not_found", "params": {"index": index}}
+        )
+    return works.chapter_detail(row)
+
+
+@api.get("/works/{work_id}/matter/{part}")
+def get_matter(work_id: int, part: str, session: Session = Depends(get_session)) -> dict:
+    """The front or back matter: what comes before the first chapter and after the last."""
+    row = _work(session, work_id)
+    if part not in ("front", "back"):
+        raise HTTPException(404)
+    blocks = row.front_matter if part == "front" else row.back_matter
+    return {"index": None, "title": None, "notes_before": [], "blocks": blocks, "notes_after": []}
+
+
+@api.get("/works/{work_id}/cover")
+def get_cover(work_id: int, session: Session = Depends(get_session)) -> FileResponse:
+    row = _work(session, work_id)
+    if not row.cover_file:
+        raise HTTPException(404)
+    return FileResponse(works.work_dir(row.id) / row.cover_file)
+
+
+@api.get("/languages")
+def list_languages() -> list[dict]:
+    """The languages a Work can be set to; those without a Language pack use the English one."""
+    packs = get_packs()
+    return [{"code": code, "has_pack": code in packs} for code in known_languages()]
 
 
 @api.get("/voices")

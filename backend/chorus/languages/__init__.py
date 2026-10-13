@@ -108,7 +108,7 @@ class ChapterHeadings:
             words += [f"(?:{units})"] if units else []
             numbers.append("|".join(words))
         number = "|".join(f"(?:{n})" for n in numbers)
-        title = r"(?:\s*[.:—–-]\s*\S.*|\s+\S.*)?"
+        title = r"(?:\s*[.:—–-](?:\s*\S.*)?|\s+\S.*)?"
         forms = []
         if self.words and number:
             forms.append(f"(?:{'|'.join(map(re.escape, self.words))})\\s+(?:{number}){title}")

@@ -12,6 +12,7 @@ _tmp = Path(tempfile.mkdtemp(prefix="chorus-test-"))
 os.environ.setdefault("CHORUS_DATABASE_URL", f"sqlite:///{(_tmp / 'test.db').as_posix()}")
 os.environ.setdefault("CHORUS_DEV", "true")
 os.environ.setdefault("CHORUS_FRONTEND_DIST", str(_tmp / "no-frontend"))
+os.environ.setdefault("CHORUS_DATA_DIR", str(_tmp / "data"))
 
 import pytest  # noqa: E402
 
