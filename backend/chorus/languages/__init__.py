@@ -14,6 +14,7 @@ fails loudly on a missing or broken required part. See docs/spec/02-architecture
 | speech_verbs       | no       | the review queue (milestone 3)              |
 | dictionary         | no       | Respelling candidates (milestone 4)         |
 | export_lines       | no       | YouTube export (milestone 8)                |
+| work_title         | no       | the Script's Work title line (ticket 09)    |
 """
 
 import json
@@ -47,6 +48,29 @@ class PackError(Exception):
 class QuotationRules:
     pairs: tuple[tuple[str, str], ...]  # (opening mark, closing mark)
     dash_starts_dialogue: bool
+    # Used instead of `pairs` for a Work whose text opens more quotations with these, such as
+    # British books that quote speech with ‘ ’. A closing mark followed by a letter is never a
+    # closing mark, which keeps ’ the apostrophe ("don’t") inside such a quotation.
+    alternative_pairs: tuple[tuple[str, str], ...] = ()
+
+
+@dataclass(frozen=True)
+class WorkTitle:
+    """How the Work title and author line is said: `format` with {title} and {authors}, the
+    authors joined with commas and `and` before the last."""
+
+    format: str
+    and_: str
+
+    def say(self, title: str, authors: list[str]) -> str:
+        if not authors:
+            return title
+        joined = (
+            authors[0]
+            if len(authors) == 1
+            else (f"{', '.join(authors[:-1])} {self.and_} {authors[-1]}")
+        )
+        return self.format.format(title=title, authors=joined)
 
 
 @dataclass(frozen=True)
@@ -155,6 +179,7 @@ class LanguagePack:
     speech_verbs: frozenset[str] | None
     dictionary: frozenset[str] | None
     export_lines: dict[str, str] | None
+    work_title: WorkTitle | None = None
 
     def voice(self, voice_id: str) -> BuiltInVoice:
         return next(v for v in self.voices if v.id == voice_id)
@@ -213,17 +238,31 @@ def _strings(value: object, where: str) -> tuple[str, ...]:
     return tuple(value)
 
 
-def _load_quotation(raw: dict, where: str) -> QuotationRules:
-    pairs = _part(raw, "pairs", where)
+def _pairs(pairs: object, name: str, where: str) -> tuple[tuple[str, str], ...]:
     if not isinstance(pairs, list) or not all(
-        isinstance(p, list) and len(p) == 2 and all(isinstance(m, str) and m for m in p)
+        isinstance(p, list) and len(p) == 2 and all(isinstance(m, str) and len(m) == 1 for m in p)
         for p in pairs
     ):
-        raise PackError(f"{where}: 'pairs' must be a list of [opening, closing] marks")
+        raise PackError(f"{where}: '{name}' must be a list of [opening, closing] marks")
+    return tuple((o, c) for o, c in pairs)
+
+
+def _load_quotation(raw: dict, where: str) -> QuotationRules:
+    pairs = _pairs(_part(raw, "pairs", where), "pairs", where)
     dash = raw.get("dash_starts_dialogue")
     if not isinstance(dash, bool):
         raise PackError(f"{where}: the required part 'dash_starts_dialogue' is missing")
-    return QuotationRules(tuple((o, c) for o, c in pairs), dash)
+    alternative = _pairs(raw.get("alternative_pairs", []), "alternative_pairs", where)
+    return QuotationRules(pairs, dash, alternative)
+
+
+def _load_work_title(raw: dict, where: str) -> WorkTitle:
+    text, and_ = raw.get("format"), raw.get("and")
+    if not (isinstance(text, str) and "{title}" in text and "{authors}" in text):
+        raise PackError(f"{where}: 'format' must hold {{title}} and {{authors}}")
+    if not (isinstance(and_, str) and and_):
+        raise PackError(f"{where}: the required part 'and' is missing")
+    return WorkTitle(text, and_)
 
 
 def _load_sentences(raw: dict, where: str) -> SentenceRules:
@@ -360,6 +399,11 @@ def load_pack(folder: Path) -> LanguagePack:
         ),
         dictionary=frozenset(dictionary) if dictionary else None,
         export_lines=raw.get("export_lines") or None,
+        work_title=(
+            _load_work_title(raw["work_title"], f"{where}, part 'work_title'")
+            if raw.get("work_title")
+            else None
+        ),
     )
 
 

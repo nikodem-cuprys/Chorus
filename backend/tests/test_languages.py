@@ -52,6 +52,7 @@ def _edit_pack_json(folder: Path, change) -> None:
 def test_the_english_pack_is_complete():
     pack = get_pack("en")
     assert ("“", "”") in pack.quotation.pairs
+    assert pack.quotation.alternative_pairs == (("‘", "’"),)
     assert pack.quotation.dash_starts_dialogue is False
     assert {"Mr.", "Mrs.", "Dr.", "St."} <= pack.sentences.abbreviations
     assert pack.voice_model.id == "chatterbox-500m"
@@ -121,6 +122,27 @@ def test_a_missing_required_part_is_named(broken_pack, part):
 def test_a_missing_optional_part_is_fine(broken_pack):
     _edit_pack_json(broken_pack, lambda data: data.pop("chapter_headings"))
     assert load_packs()["en"].chapter_headings is None
+
+
+def test_the_work_title_line():
+    title = get_pack("en").work_title
+    assert title.say("Emma", []) == "Emma"
+    assert title.say("Emma", ["Jane Austen"]) == "Emma, by Jane Austen"
+    assert title.say("Good Omens", ["A", "B", "C"]) == "Good Omens, by A, B and C"
+
+
+def test_a_broken_work_title_is_named(broken_pack):
+    _edit_pack_json(broken_pack, lambda data: data["work_title"].update(format="{title}"))
+    with pytest.raises(PackError, match="'work_title'.*must hold"):
+        load_packs()
+
+
+def test_quotation_marks_are_single_characters(broken_pack):
+    _edit_pack_json(
+        broken_pack, lambda data: data["quotation"].update(alternative_pairs=[["<<", ">>"]])
+    )
+    with pytest.raises(PackError, match="'alternative_pairs' must be"):
+        load_packs()
 
 
 def test_a_missing_clip_is_named(broken_pack):

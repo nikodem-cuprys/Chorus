@@ -1,7 +1,7 @@
 import enum
 from datetime import UTC, datetime
 
-from sqlalchemy import JSON, Boolean, DateTime, Enum, ForeignKey, String, UniqueConstraint
+from sqlalchemy import JSON, Boolean, DateTime, Enum, ForeignKey, String, Text, UniqueConstraint
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from chorus.db import Base
@@ -160,3 +160,44 @@ class Chapter(Base):
     notes_after: Mapped[list] = mapped_column(JSON, default=list)
 
     work: Mapped[Work] = relationship(back_populates="chapters")
+
+
+class Line(Base):
+    """One line of the Script (docs/spec/05-data-model.md, chorus.script). The Script is the
+    Work's lines in `position` order: the front matter's, each chapter's, the back matter's."""
+
+    __tablename__ = "line"
+    __table_args__ = (UniqueConstraint("work_id", "position"),)
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    work_id: Mapped[int] = mapped_column(ForeignKey("work.id", ondelete="CASCADE"), index=True)
+    # None for a line of the front or back matter.
+    chapter_id: Mapped[int | None] = mapped_column(
+        ForeignKey("chapter.id", ondelete="CASCADE"), index=True
+    )
+    part: Mapped[str] = mapped_column(String(10))  # front, chapter, back
+    position: Mapped[int]
+    # The blocks the line comes from, as indexes into its part's blocks (for a chapter: notes
+    # before, blocks, notes after, counted as one list). A quotation that runs on over several
+    # paragraphs ends in a later one. None for a line Chorus made, such as the Work title.
+    paragraph: Mapped[int | None]
+    last_paragraph: Mapped[int | None]
+    # The text with its marks, as spans; paragraphs inside one line are joined with "\n".
+    spans: Mapped[list] = mapped_column(JSON)
+    text: Mapped[str] = mapped_column(Text)
+    # narration or quote; analysis (ticket 11) makes a quote speech, thought or written.
+    kind: Mapped[str] = mapped_column(String(12))
+    # The kind of passage: chorus.script.PASSAGES.
+    passage: Mapped[str] = mapped_column(String(16))
+    voiced: Mapped[bool] = mapped_column(Boolean)
+
+    def to_dict(self) -> dict:
+        return {
+            "position": self.position,
+            "paragraph": self.paragraph,
+            "last_paragraph": self.last_paragraph,
+            "spans": self.spans,
+            "kind": self.kind,
+            "passage": self.passage,
+            "voiced": self.voiced,
+        }

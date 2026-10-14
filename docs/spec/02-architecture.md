@@ -90,7 +90,8 @@ Everything that differs by language sits in one Language pack per language. A Wo
 
 | Part of a pack | Required | Without it |
 |---|---|---|
-| Quotation rules for the line splitter: which mark pairs open and close speech, and whether a leading dash starts dialogue | yes | |
+| Quotation rules for the line splitter: which mark pairs open and close speech, alternative pairs for Works that quote with them (‘ ’), and whether a leading dash starts dialogue | yes | |
+| How the Work title and author line is said ("{title}, by {authors}") | no | the title alone |
 | Sentence rules for splitting long lines before voicing: sentence-end punctuation and an abbreviation list ("Mr.", "Mrs.", "Dr.", "St.") | yes | |
 | The voice model, with its Emotion settings | yes | |
 | Built-in Voices with a default Narrator, labelled as in [05-data-model.md](05-data-model.md#voice) | yes | |

@@ -307,6 +307,32 @@ def test_block_kinds_and_marks():
     ]
 
 
+def test_epigraphs_and_verse_from_their_markup():
+    body = (
+        "<h2>Chapter 1</h2>"
+        "<blockquote class='epigraph'><p>Words of a poet.</p><p>— A. Poet</p></blockquote>"
+        "<section epub:type='epigraph' xmlns:epub='http://www.idpf.org/2007/ops'>"
+        "<p>More words.</p></section>"
+        "<p>She sang:</p>"
+        "<div class='poem'><div class='stanza'><span class='i0'>Twinkle, twinkle,<br/></span>"
+        "<span class='i0'>little bat!</span></div></div>"
+        "<div epub:type='z3998:verse' xmlns:epub='http://www.idpf.org/2007/ops'>"
+        "<p>A verse.</p></div>"
+        "<blockquote><p>Just a quotation.</p></blockquote>"
+    )
+    blocks = read(make_epub({"c.xhtml": body})).chapters[0].blocks
+    assert [(b.type, b.text) for b in blocks] == [
+        ("heading", "Chapter 1"),
+        ("epigraph", "Words of a poet."),
+        ("epigraph", "— A. Poet"),
+        ("epigraph", "More words."),
+        ("paragraph", "She sang:"),
+        ("verse", "Twinkle, twinkle,\nlittle bat!"),
+        ("verse", "A verse."),
+        ("quote", "Just a quotation."),
+    ]
+
+
 # ---- Language ----
 
 

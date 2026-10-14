@@ -19,7 +19,8 @@ from chorus.importing.pdf import read_pdf
 from chorus.importing.txt import read_txt
 from chorus.jobs import JobContext, enqueue, job
 from chorus.languages import ChapterHeadings, get_packs
-from chorus.models import Chapter, Queue, Work, WorkState
+from chorus.models import Chapter, Line, Queue, Work, WorkState
+from chorus.script import build_script
 
 # Source kinds Chorus reads itself; any other is named by its extension ("mobi", "docx") and
 # goes through Calibre.
@@ -106,6 +107,7 @@ def import_work(ctx: JobContext) -> None:
 
 
 def _save(session: Session, work: Work, imported: ImportedWork) -> None:
+    session.execute(delete(Line).where(Line.work_id == work.id))
     session.execute(delete(Chapter).where(Chapter.work_id == work.id))
     work.title = imported.title or work.title
     work.authors = imported.authors
@@ -139,6 +141,9 @@ def _save(session: Session, work: Work, imported: ImportedWork) -> None:
                 notes_after=[b.to_dict() for b in chapter.notes_after],
             )
         )
+    session.flush()
+    session.refresh(work, ["chapters"])
+    build_script(session, work, get_packs()[pack_language(work.language)])
     work.state = WorkState.IMPORTED
     work.error = None
     work.imported_at = datetime.now(UTC)
@@ -146,8 +151,9 @@ def _save(session: Session, work: Work, imported: ImportedWork) -> None:
 
 
 def set_language(session: Session, work: Work, code: str) -> None:
-    """Chosen by the user. Nothing runs by itself; from M1 ticket 11 on, the Script and audio
-    are flagged outdated here."""
+    """Chosen by the user. Nothing runs by itself, so the Script keeps the quotation marks of
+    the language it was cut with until the next analysis; from M1 ticket 11 on, the Script and
+    audio are flagged outdated here."""
     work.language = code
     work.language_source = "user"
     session.commit()
@@ -196,11 +202,12 @@ def detail(work: Work) -> dict:
     }
 
 
-def chapter_detail(chapter: Chapter) -> dict:
+def chapter_detail(chapter: Chapter, lines: list[Line]) -> dict:
     return {
         "index": chapter.index,
         "title": chapter.title,
         "notes_before": chapter.notes_before,
         "blocks": chapter.blocks,
         "notes_after": chapter.notes_after,
+        "lines": [line.to_dict() for line in lines],
     }

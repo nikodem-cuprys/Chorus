@@ -26,7 +26,7 @@ function SpanText({ span }: { span: Span }) {
   return <>{node}</>;
 }
 
-function Spans({ spans }: { spans: Span[] }) {
+export function Spans({ spans }: { spans: Span[] }) {
   return (
     <>
       {spans.map((span, n) => (

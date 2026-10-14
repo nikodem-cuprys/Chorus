@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Blocks } from "./Blocks";
 import { languageName, t, tMessage, type MessageKey } from "./i18n";
 import type { Job } from "./jobs";
+import { Lines } from "./Lines";
 import { Shell } from "./Shell";
 import { authorsText } from "./WorkList";
 import { changeLanguage, useChapter, useLanguages, useWork, type Work } from "./works";
@@ -41,14 +42,36 @@ function LanguageField({ work, onChanged }: { work: Work; onChanged: () => void 
   );
 }
 
+type View = "text" | "lines";
+
 function Reader({ workId, part }: { workId: number; part: string }) {
   const chapter = useChapter(workId, part);
+  const [view, setView] = useState<View>("text");
   if (chapter === null) return <p className="muted">{t("work.loading")}</p>;
   return (
     <section className="reader">
-      {chapter.notes_before?.length > 0 && <Blocks blocks={chapter.notes_before} />}
-      <Blocks blocks={chapter.blocks} />
-      {chapter.notes_after?.length > 0 && <Blocks blocks={chapter.notes_after} />}
+      <div className="view-switch" role="group">
+        {(["text", "lines"] as const).map((v) => (
+          <button
+            key={v}
+            type="button"
+            aria-pressed={view === v}
+            className={view === v ? "selected" : ""}
+            onClick={() => setView(v)}
+          >
+            {t(`work.view.${v}`)}
+          </button>
+        ))}
+      </div>
+      {view === "lines" ? (
+        <Lines lines={chapter.lines ?? []} />
+      ) : (
+        <>
+          {chapter.notes_before?.length > 0 && <Blocks blocks={chapter.notes_before} />}
+          <Blocks blocks={chapter.blocks} />
+          {chapter.notes_after?.length > 0 && <Blocks blocks={chapter.notes_after} />}
+        </>
+      )}
     </section>
   );
 }

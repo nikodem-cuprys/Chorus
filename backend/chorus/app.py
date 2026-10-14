@@ -22,7 +22,7 @@ from chorus.db import get_session, get_sessionmaker
 from chorus.importing.language import known_languages
 from chorus.jobs import enqueue
 from chorus.languages import get_packs
-from chorus.models import Chapter, Job, Voice, Work
+from chorus.models import Chapter, Job, Line, Voice, Work
 
 api = APIRouter(prefix="/api")
 
@@ -97,7 +97,8 @@ def get_chapter(work_id: int, index: int, session: Session = Depends(get_session
         raise HTTPException(
             404, detail={"key": "chapter.error.not_found", "params": {"index": index}}
         )
-    return works.chapter_detail(row)
+    lines = session.scalars(select(Line).where(Line.chapter_id == row.id).order_by(Line.position))
+    return works.chapter_detail(row, list(lines))
 
 
 @api.get("/works/{work_id}/matter/{part}")
@@ -107,7 +108,17 @@ def get_matter(work_id: int, part: str, session: Session = Depends(get_session))
     if part not in ("front", "back"):
         raise HTTPException(404)
     blocks = row.front_matter if part == "front" else row.back_matter
-    return {"index": None, "title": None, "notes_before": [], "blocks": blocks, "notes_after": []}
+    lines = session.scalars(
+        select(Line).where(Line.work_id == work_id, Line.part == part).order_by(Line.position)
+    )
+    return {
+        "index": None,
+        "title": None,
+        "notes_before": [],
+        "blocks": blocks,
+        "notes_after": [],
+        "lines": [line.to_dict() for line in lines],
+    }
 
 
 @api.get("/works/{work_id}/cover")

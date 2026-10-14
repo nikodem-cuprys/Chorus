@@ -2,8 +2,10 @@
   "language": "en",
   "quotation": {
     "pairs": [["“", "”"], ["\"", "\""]],
+    "alternative_pairs": [["‘", "’"]],
     "dash_starts_dialogue": false
   },
+  "work_title": {"format": "{title}, by {authors}", "and": "and"},
   "sentences": {
     "end": [".", "!", "?", "…"],
     "abbreviations": [

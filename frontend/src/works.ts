@@ -35,11 +35,44 @@ export interface Span {
 }
 
 export interface Block {
-  type: "paragraph" | "heading" | "section_break" | "quote" | "letter" | "list_item" | "footnote";
+  type:
+    | "paragraph"
+    | "heading"
+    | "section_break"
+    | "quote"
+    | "letter"
+    | "list_item"
+    | "footnote"
+    | "epigraph"
+    | "verse";
   spans: Span[];
   level?: number;
   /** Added by the Source's publisher (Project Gutenberg's header and licence); never voiced. */
   boilerplate?: boolean;
+}
+
+export type Passage =
+  | "narration"
+  | "chapter_title"
+  | "work_title"
+  | "epigraph"
+  | "letter"
+  | "verse"
+  | "footnote"
+  | "list"
+  | "ao3_note"
+  | "never_voiced";
+
+/** One line of the Script. */
+export interface Line {
+  position: number;
+  /** The block it starts in; null for a line Chorus made, such as the Work title. */
+  paragraph: number | null;
+  last_paragraph: number | null;
+  spans: Span[];
+  kind: "narration" | "quote" | "speech" | "thought" | "written";
+  passage: Passage;
+  voiced: boolean;
 }
 
 export interface Chapter {
@@ -48,6 +81,7 @@ export interface Chapter {
   notes_before: Block[];
   blocks: Block[];
   notes_after: Block[];
+  lines: Line[];
 }
 
 /** A signature of the jobs' states, so a list can reload when any job moves on. */

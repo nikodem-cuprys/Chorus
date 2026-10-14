@@ -72,6 +72,10 @@ SKIPPED = {
 SKIPPED_CLASS = re.compile(r"\b(fig\w*|caption|illus\w*|pagenum|pageno|page-?num\w*)\b", re.I)
 SKIPPED_TYPE = re.compile(r"\b(pagebreak|noteref)\b")
 FOOTNOTE_TYPE = re.compile(r"\b(footnote|endnote|rearnote|note)s?\b")
+# An epigraph, and verse (poems, songs, Gutenberg's `div.poem` and its stanzas), by epub:type or
+# class; nothing else marks them.
+EPIGRAPH = re.compile(r"\bepigraph\b", re.I)
+VERSE = re.compile(r"\b(z3998:)?(poem|poetry|verse|stanza|song|lyrics)\b", re.I)
 SMALL_CAPS_CLASS = re.compile(r"\b(smcap|smallcaps?|small-caps|sc)\b", re.I)
 NOTE_MARKER = re.compile(r"^\W{0,2}[\d*†‡§]{1,3}\W{0,2}$")
 INVISIBLE = re.compile(r"[­​‌⁠﻿]")
@@ -515,6 +519,10 @@ class _Walker:
         elif tag in HEADINGS:
             self._mark_ids(el, deep=True)
             self._emit("heading", _spans(el, ()), self._ref(el), HEADINGS[tag])
+        elif EPIGRAPH.search(kind) or EPIGRAPH.search(cls):
+            self._container(el, "epigraph")
+        elif VERSE.search(kind) or VERSE.search(cls):
+            self._container(el, "verse")
         elif tag == "blockquote":
             self._container(el, "quote" if block_type == "paragraph" else block_type)
         elif FOOTNOTE_TYPE.search(kind) or re.search(r"\bfootnote", cls, re.I):

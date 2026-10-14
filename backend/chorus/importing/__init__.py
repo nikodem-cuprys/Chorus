@@ -11,10 +11,11 @@ from dataclasses import dataclass, field
 
 from chorus.jobs import JobFailed
 
-# The kinds of block a reader produces. What is voiced, and how, is decided later from these
-# (M1 ticket 09).
+# The kinds of block a reader produces. The Script's kinds of text, and which are voiced, are
+# decided from these (chorus.script).
 BLOCK_TYPES = (
     "paragraph", "heading", "section_break", "quote", "letter", "list_item", "footnote",
+    "epigraph", "verse",
 )  # fmt: skip
 MARKS = ("italic", "bold", "underline", "strike", "small_caps", "superscript")
 # A line of nothing but these marks ("* * *", "⁂") is a Section break.
@@ -54,6 +55,16 @@ class Block:
     @property
     def text(self) -> str:
         return "".join(s.text for s in self.spans)
+
+    @classmethod
+    def from_dict(cls, data: dict) -> "Block":
+        return cls(
+            type=data["type"],
+            spans=[Span(s["text"], tuple(s.get("marks", ()))) for s in data["spans"]],
+            ref=data.get("ref", {}),
+            level=data.get("level"),
+            boilerplate=data.get("boilerplate", False),
+        )
 
     def to_dict(self) -> dict:
         data: dict = {"type": self.type, "spans": [s.to_dict() for s in self.spans]}
