@@ -47,3 +47,4 @@ Left for later:
 ## Comments
 
 - 2026-10-20, during ticket 11, in Docker: the model files were placed in the `models` volume as `.part` files (copied from ticket 24's volume), and the worker's First run hashed them, renamed them into place and started the queues, so resuming a `.part` works in the container. The third criterion passed there too: with the stack on a network with no route out, an analysis ran in full. Not run: a download from an empty volume, and killing the container mid-download.
+- 2026-10-20, during ticket 13: voicing also resumed and finished with the network cut, so the third criterion holds for both analysis and voicing.

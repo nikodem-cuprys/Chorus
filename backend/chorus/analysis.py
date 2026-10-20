@@ -38,6 +38,7 @@ from sqlalchemy.orm import Session
 from chorus import firstrun
 from chorus.analysis_model import AnalysisModel, LlamaServer, ModelUnavailable
 from chorus.casting import cast_work
+from chorus.config import get_settings
 from chorus.db import get_sessionmaker
 from chorus.jobs import JobContext, JobFailed, job
 from chorus.languages import NameRules, get_packs
@@ -461,6 +462,9 @@ def _start_over(session: Session, work: Work) -> None:
         update(Chapter).where(Chapter.work_id == work.id).values(narrating_character_id=None)
     )
     build_script(session, work, get_packs()[pack_language(work.language)])
+    from chorus.voicing import discard_audio
+
+    discard_audio(work.id)
     work.characters.clear()  # deleted as orphans
     work.analysis = {"stage": "characters", "done": 0, "answers": [], "narrating": {}}
     session.commit()
@@ -603,7 +607,10 @@ def analysis_job(ctx: JobContext) -> None:
     work.state = WorkState.ANALYSED
     session.commit()
     cast_work(session, work)
-    # Voicing is queued here once it exists (ticket 13).
+    if get_settings().voice_after_analysis:
+        from chorus.voicing import start_voicing
+
+        start_voicing(session, work)
 
 
 def run_child(job_id: int) -> int:

@@ -16,7 +16,7 @@ from pydantic import BaseModel, Field
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
-from chorus import events, firstrun, healthcheck, tasks, voices, works  # noqa: F401  (tasks: job kinds)
+from chorus import events, firstrun, healthcheck, tasks, voices, voicing, works  # noqa: F401  (tasks: job kinds)
 from chorus.config import get_settings
 from chorus.db import get_session, get_sessionmaker
 from chorus.importing.language import known_languages
@@ -110,6 +110,31 @@ def analyse_work(work_id: int, session: Session = Depends(get_session)) -> dict:
         raise HTTPException(409, detail={"key": "work.error.busy", "params": {}})
     works.start_analysis(session, row)
     return works.detail(row)
+
+
+@api.post("/works/{work_id}/voicing", status_code=202)
+def voice_work(work_id: int, session: Session = Depends(get_session)) -> dict:
+    """Voices every line that has no audio yet, or whose audio no longer matches it; also
+    continues a stopped voicing."""
+    row = _work(session, work_id)
+    waiting = session.scalar(
+        select(Job.id).where(
+            Job.work_id == work_id, Job.kind == "voicing", Job.state == JobState.QUEUED
+        )
+    )
+    if (row.analysis or {}).get("stage") != "done" or waiting is not None:
+        raise HTTPException(409, detail={"key": "work.error.not_analysed", "params": {}})
+    voicing.start_voicing(session, row)
+    return works.detail(row)
+
+
+@api.get("/works/{work_id}/lines/{position}/audio")
+def line_audio(work_id: int, position: int, session: Session = Depends(get_session)):
+    """A line's current take, as FLAC."""
+    line = session.scalar(select(Line).where(Line.work_id == work_id, Line.position == position))
+    if line is None or not line.take:
+        raise HTTPException(404)
+    return FileResponse(voicing.lines_dir(work_id) / line.take["file"], media_type="audio/flac")
 
 
 @api.get("/works/{work_id}/chapters/{index}")

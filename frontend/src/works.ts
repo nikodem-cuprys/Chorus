@@ -2,7 +2,14 @@ import { useEffect, useState } from "react";
 import type { Message } from "./i18n";
 import type { Job } from "./jobs";
 
-export type WorkState = "importing" | "imported" | "analysing" | "analysed" | "failed";
+export type WorkState =
+  | "importing"
+  | "imported"
+  | "analysing"
+  | "analysed"
+  | "voicing"
+  | "voiced"
+  | "failed";
 
 export interface WorkSummary {
   id: number;
@@ -107,6 +114,10 @@ export interface Line {
   character_id: number | null;
   emotion: Emotion | null;
   intensity: "normal" | "strong" | null;
+  /** Given when the line is first voiced. */
+  seed: number | null;
+  /** The length of its current take; null until it is voiced. */
+  audio_seconds: number | null;
 }
 
 export interface Chapter {

@@ -63,7 +63,7 @@ Only one model is on the card at a time, and the card is often shared with the d
 - **Voicing:** Chatterbox 500M is loaded in two halves, one at a time. T3 (text to speech tokens) runs over a batch of lines, leaves the card, then S3Gen (speech tokens to audio) runs over the same batch. A batch is a chapter, or the lines waiting for Regenerate. Swapping takes about a second, so re-voicing a single line pays that each time.
 - Compute is always FP32. Pascal's FP16 arithmetic is about 64 times slower, so half precision is only ever a way to store weights.
 
-Measured peaks on the card are in [04-models-and-libraries.md](04-models-and-libraries.md#measurements). The old 2.8 GB budget does not hold for analysis (3.3 GB added at peak); voicing with the split adds 2.5 GB.
+Measured peaks on the card are in [04-models-and-libraries.md](04-models-and-libraries.md#measurements). The old 2.8 GB budget does not hold for analysis (3.3 GB added at peak); voicing with the split adds about 3.1 GB on whole passages.
 
 ## Engines
 

@@ -108,13 +108,14 @@ Timbre words are a fixed list of ten: low, high, bright, dark, brisk, measured, 
 
 All on the GTX 1050 Ti with a desktop on the card, in Docker Desktop on WSL2 (Windows 10, driver 582.28), unless noted.
 
-| | Analysis (llama.cpp server) | Voicing, two halves in turn | Voicing, unchanged model |
-|---|---|---|---|
-| Card in use before loading | 572 MiB | 417 MiB | 500 MiB |
-| Added on the card at peak | 3,330 MiB | 2,456 MiB | 3,469 MiB |
-| Spill into system memory | none | none | 862 MiB |
-| Speed | 18 tokens/s; about 0.2 s per word over both runs | 2.2 times real time | 3.0 times real time |
+| | Analysis (llama.cpp server) | Voicing, two halves in turn | Voicing in Chorus (M1 ticket 13) | Voicing, unchanged model |
+|---|---|---|---|---|
+| Card in use before loading | 572 MiB | 417 MiB | 418 MiB | 500 MiB |
+| Added on the card at peak | 3,330 MiB | 2,456 MiB | 3,100 MiB | 3,469 MiB |
+| Spill into system memory | none | none | none | 862 MiB |
+| Speed | 18 tokens/s; about 0.2 s per word over both runs | 2.2 times real time | 2.0 times real time | 3.0 times real time |
 
 - The analysis stage fitted with about 190 MiB to spare beside a desktop holding 572 MiB. A busier desktop would push it into system memory under WSL2, or fail on Linux.
 - The unchanged voice model fails with out-of-memory when held to what is free on the card, which is what a Linux host with a desktop would do. Hence the split.
+- Voicing in Chorus is the two-halves column on whole passages (65 minutes of audio from the six samples) rather than eight short lines. Its peak is T3's phase: about 3.4 GB on the card in all, leaving about 580 MiB free. S3Gen's working memory grows with the length of a sentence; with PyTorch's default allocator a 35 s sentence left 3.85 GB reserved on the card for 2.4 GB in use (a peak of 3,979 MiB, about 100 MiB free), so the voicing process sets `PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True`, which brought it to 2.37 GB.
 - Not measured: a Linux host, and a card with no desktop on it.

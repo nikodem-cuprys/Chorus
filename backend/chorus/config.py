@@ -30,6 +30,8 @@ class Settings(BaseSettings):
 
     # Analysis is queued at the end of every import; off in the unit tests, which have no card.
     analyse_after_import: bool = True
+    # Voicing is queued after every analysis and casting; off in the unit tests too.
+    voice_after_analysis: bool = True
 
     # Enables /api/dev, used to start dummy jobs while there are no real ones.
     dev: bool = False

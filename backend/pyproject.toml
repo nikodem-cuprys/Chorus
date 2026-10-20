@@ -19,6 +19,9 @@ dependencies = [
     "pypdf==6.19.0",
     "lingua-language-detector==2.1.1",
     "charset-normalizer==3.5.1",  # the version the GPU constraints pin
+    # Line audio is written as FLAC outside the GPU code too; the versions the GPU stack pins.
+    "numpy==1.26.4",
+    "soundfile==0.14.0",
 ]
 
 [project.optional-dependencies]
@@ -38,6 +41,8 @@ include = ["chorus*"]
 [tool.setuptools.package-data]
 # The Language packs' files.
 "chorus.languages" = ["*/*.json", "*/voices/*.json", "*/voices/*.wav", "*/*.txt"]
+# The pause settings (chorus.voicing, chapter assembly).
+"chorus" = ["pauses.json"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

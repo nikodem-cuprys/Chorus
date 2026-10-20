@@ -1,0 +1,9 @@
+{
+  "note": "Pauses in seconds, for every Work (M1 tickets 13 and 14). Chapter assembly reads them each time it runs.",
+  "between_sentences": 0.3,
+  "between_lines": 0.45,
+  "new_paragraph": 0.75,
+  "verse_line_end": 0.3,
+  "after_title": 1.5,
+  "section_break": 2.5
+}

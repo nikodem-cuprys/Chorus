@@ -14,6 +14,8 @@ const line = (overrides: Partial<Line>): Line => ({
   character_id: null,
   emotion: null,
   intensity: null,
+  seed: null,
+  audio_seconds: null,
   ...overrides,
 });
 

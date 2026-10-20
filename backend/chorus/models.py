@@ -103,8 +103,11 @@ class WorkState(enum.StrEnum):
     # Imported, with its analysis queued.
     IMPORTED = "imported"
     ANALYSING = "analysing"
-    # Until voicing follows analysis by itself (ticket 13), a Work rests here.
+    # Analysed and cast, with voicing queued.
     ANALYSED = "analysed"
+    VOICING = "voicing"
+    # Until chapter assembly follows voicing (ticket 14), a Work rests here.
+    VOICED = "voiced"
     FAILED = "failed"
 
 
@@ -244,6 +247,11 @@ class Line(Base):
     # One of the nine Emotions and normal or strong; None for the Narrator.
     emotion: Mapped[str | None] = mapped_column(String(12))
     intensity: Mapped[str | None] = mapped_column(String(8))
+    # Given when the line is first voiced and kept, so voicing it again gives the same take.
+    seed: Mapped[int | None]
+    # The current take (chorus.voicing): its file on the data volume, and the Voice, Emotion,
+    # intensity, text and seed it was made with.
+    take: Mapped[dict | None] = mapped_column(JSON)
 
     def to_dict(self) -> dict:
         return {
@@ -258,4 +266,6 @@ class Line(Base):
             "character_id": self.character_id,
             "emotion": self.emotion,
             "intensity": self.intensity,
+            "seed": self.seed,
+            "audio_seconds": (self.take or {}).get("seconds"),
         }

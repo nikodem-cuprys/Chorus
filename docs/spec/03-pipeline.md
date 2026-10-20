@@ -76,15 +76,16 @@ Voicing runs on the GPU queue as one child process with Chatterbox 500M, after a
 - **Order:** reading order, chapter by chapter. A chapter can be played as soon as all its lines are voiced.
 - **Batches:** T3 runs over a batch of lines, then leaves the card, then S3Gen runs over the same batch (see [02-architecture.md](02-architecture.md#gpu-turn-taking)).
 - **Text sent to the model:** the line's text with the Work's Respellings put in place of their words. The Script's text never changes.
+- **Voice:** a Character's line is read in the Character's Voice; narration in the chapter's narration Voice (the Narrating Character's in a first-person chapter, else the Narrator's); a quoted line whose Speaker is Unknown in the Narrator's Voice, with its Emotion.
 - **Reference clip:** the Voice's neutral clip.
 - **Settings per line:** a Character line uses its Emotion and intensity, looked up in the voice model's Emotion settings (`exaggeration` and `cfg_weight`). The Narrator always uses neutral (0.5 / 0.5). No setting goes above `exaggeration` 0.9.
 - **Seed:** each line stores its seed. Re-voicing a line reuses it, which reproduces the same take, so only what the user changed changes. A New take picks a new seed.
 - **Watermark:** Chatterbox's watermark is on. A global switch to turn it off arrives in milestone 8; it applies to audio generated afterwards, and existing audio keeps what it was made with.
 - **Long lines:** a line is split into sentences using the Language pack's sentence rules; each sentence is voiced with the line's Voice, settings and seed, and the sentences are joined with 0.3 s between them. Short inputs keep the voice model reliable.
-- **Output:** one FLAC file per line (24 kHz, as Chatterbox writes it).
+- **Output:** one FLAC file per line (24 kHz, as Chatterbox writes it). A line with nothing to say ("* * *", a lone dash) is a quarter-second of silence: given no words, the model says a sentence of its own.
 - **Not voiced:** lines in passages marked not voiced, and kinds whose switch is off.
 
-**Speed:** about 2.2 times real time with the two halves loaded in turn: a 10-hour Audio drama takes about a day.
+**Speed:** about 2 times real time with the two halves loaded in turn (2.0 on the six sample passages, M1 ticket 13): a 10-hour Audio drama takes most of a day.
 
 ## Assembly
 
