@@ -33,6 +33,8 @@ export interface Work extends WorkSummary {
   }[];
   /** Most lines first. */
   characters: Character[];
+  /** The Narrator's Voice, by its id ("af_bella"); null before casting. */
+  narrator_voice: string | null;
 }
 
 export type Age = "child" | "young_adult" | "adult" | "elderly" | "unknown";
@@ -44,6 +46,11 @@ export interface Character {
   gender: "female" | "male" | "unknown";
   age: Age;
   lines: number;
+  voice_id: number | null;
+  /** The Voice's id ("am_michael"); null before casting. */
+  voice: string | null;
+  /** Auto-cast, rather than chosen by the user. */
+  voice_auto: boolean;
 }
 
 export type Emotion =

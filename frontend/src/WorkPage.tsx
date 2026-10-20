@@ -56,6 +56,12 @@ function Characters({ work }: { work: Work }) {
   if (work.characters.length === 0) return <p className="muted">{t("work.no_characters")}</p>;
   return (
     <ul className="characters">
+      {work.narrator_voice && (
+        <li>
+          <strong>{t("line.speaker.narrator")}</strong>{" "}
+          <span className="muted small">{t("work.voice", { voice: work.narrator_voice })}</span>
+        </li>
+      )}
       {work.characters.map((c) => {
         const narrated = work.chapters
           .filter((chapter) => chapter.narrating_character_id === c.id)
@@ -69,6 +75,8 @@ function Characters({ work }: { work: Work }) {
               {c.aliases.length > 0 &&
                 ` · ${t("work.character_aliases", { aliases: c.aliases.join(", ") })}`}
               {narrated.length > 0 && ` · ${t("work.narrates", { chapters: narrated.join(", ") })}`}
+              {c.voice &&
+                ` · ${t(c.voice_auto ? "work.voice_auto" : "work.voice", { voice: c.voice })}`}
             </span>
           </li>
         );

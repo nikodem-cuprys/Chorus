@@ -44,7 +44,17 @@ describe("Lines", () => {
 
   it("shows who says each analysed quotation, and how", () => {
     const characters: Character[] = [
-      { id: 3, name: "Mrs. Bennet", aliases: [], gender: "female", age: "adult", lines: 2 },
+      {
+        id: 3,
+        name: "Mrs. Bennet",
+        aliases: [],
+        gender: "female",
+        age: "adult",
+        lines: 2,
+        voice_id: null,
+        voice: null,
+        voice_auto: false,
+      },
     ];
     const { container } = render(
       <Lines

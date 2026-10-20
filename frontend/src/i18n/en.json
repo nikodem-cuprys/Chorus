@@ -162,5 +162,7 @@
   "emotion.anxious": "anxious",
   "emotion.surprised": "surprised",
   "analysis.error.model": "The analysis model did not run: {detail}",
-  "analysis.error.unexpected": "Analysis stopped with an error: {detail}"
+  "analysis.error.unexpected": "Analysis stopped with an error: {detail}",
+  "work.voice": "Voice {voice}",
+  "work.voice_auto": "Voice {voice} (auto-cast)"
 }

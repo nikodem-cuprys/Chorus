@@ -144,6 +144,10 @@ class Work(Base):
     # (chorus.analysis): stage, chunks done, each chunk's narration answer, the front and back
     # matter's Narrating Characters. None before the first analysis.
     analysis: Mapped[dict | None] = mapped_column(JSON)
+    # The Narrator's Voice: the pack's default Narrator until the user swaps it (chorus.casting).
+    narrator_voice_id: Mapped[int | None] = mapped_column(
+        ForeignKey("voice.id", ondelete="SET NULL")
+    )
 
     chapters: Mapped[list["Chapter"]] = relationship(
         back_populates="work",
@@ -188,6 +192,9 @@ class Character(Base):
     aliases: Mapped[list] = mapped_column(JSON, default=list)
     gender: Mapped[str] = mapped_column(String(10))  # female, male, unknown
     age: Mapped[str] = mapped_column(String(12))  # child, young_adult, adult, elderly, unknown
+    voice_id: Mapped[int | None] = mapped_column(ForeignKey("voice.id", ondelete="SET NULL"))
+    # Whether the Voice was auto-cast (chorus.casting) rather than chosen by the user.
+    voice_auto: Mapped[bool] = mapped_column(Boolean, default=False)
 
     def to_dict(self) -> dict:
         return {
@@ -196,6 +203,8 @@ class Character(Base):
             "aliases": self.aliases,
             "gender": self.gender,
             "age": self.age,
+            "voice_id": self.voice_id,
+            "voice_auto": self.voice_auto,
         }
 
 

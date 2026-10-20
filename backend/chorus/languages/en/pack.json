@@ -6,6 +6,20 @@
     "dash_starts_dialogue": false
   },
   "work_title": {"format": "{title}, by {authors}", "and": "and"},
+  "names": {
+    "articles": ["the", "a", "an"],
+    "titles": {
+      "female": [
+        "Mrs.", "Miss", "Ms.", "Mme.", "Mlle.", "Madam", "Madame", "Lady", "Dame", "Queen",
+        "Princess", "Duchess", "Countess", "Baroness", "Aunt", "Mother", "Grandmother",
+        "Sister", "Mistress"
+      ],
+      "male": [
+        "Mr.", "Messrs.", "Sir", "Lord", "Master", "King", "Prince", "Duke", "Count", "Baron",
+        "Earl", "Uncle", "Father", "Grandfather", "Brother", "Monsieur"
+      ]
+    }
+  },
   "sentences": {
     "end": [".", "!", "?", "…"],
     "abbreviations": [

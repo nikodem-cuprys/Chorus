@@ -24,6 +24,7 @@ const work = (overrides: Partial<Work>): Work => ({
     { index: 2, title: "Chapter 2: The Door", words: 1100, narrating_character_id: 4 },
   ],
   characters: [],
+  narrator_voice: null,
   ...overrides,
 });
 
@@ -63,6 +64,7 @@ describe("WorkPage", () => {
     serve(
       work({
         state: "analysed",
+        narrator_voice: "af_bella",
         characters: [
           {
             id: 4,
@@ -71,17 +73,33 @@ describe("WorkPage", () => {
             gender: "male",
             age: "adult",
             lines: 14,
+            voice_id: 8,
+            voice: "am_eric",
+            voice_auto: true,
           },
-          { id: 5, name: "Irene", aliases: [], gender: "female", age: "unknown", lines: 1 },
+          {
+            id: 5,
+            name: "Irene",
+            aliases: [],
+            gender: "female",
+            age: "unknown",
+            lines: 1,
+            voice_id: null,
+            voice: null,
+            voice_auto: false,
+          },
         ],
       }),
     );
     render(<WorkPage id={7} jobs={[]} />);
     expect(await screen.findByText("Watson")).toBeTruthy();
     expect(
-      screen.getByText("male, adult · 14 lines · also called Dr. Watson · narrates chapter 2"),
+      screen.getByText(
+        "male, adult · 14 lines · also called Dr. Watson · narrates chapter 2 · Voice am_eric (auto-cast)",
+      ),
     ).toBeTruthy();
     expect(screen.getByText("female, age unknown · 1 lines")).toBeTruthy();
+    expect(screen.getByText("Voice af_bella")).toBeTruthy(); // the Narrator's
     expect(screen.getByText("Analyse again")).toBeTruthy();
   });
 

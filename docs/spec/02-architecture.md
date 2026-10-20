@@ -95,6 +95,7 @@ Everything that differs by language sits in one Language pack per language. A Wo
 | Sentence rules for splitting long lines before voicing: sentence-end punctuation and an abbreviation list ("Mr.", "Mrs.", "Dr.", "St.") | yes | |
 | The voice model, with its Emotion settings | yes | |
 | Built-in Voices with a default Narrator, labelled as in [05-data-model.md](05-data-model.md#voice) | yes | |
+| Name rules for the Character list: articles left out when names are compared ("the Hatter" is "Hatter"), and titles that say a gender ("Mr.", "Lady") | no | names are compared as written; a gender the model leaves unknown stays unknown |
 | Speech-verb list for the queue's "said X" rule | no | that rule is skipped |
 | Dictionary for Respelling candidates | no | only Character names are offered as candidates |
 | Listener-facing export lines (the AI-voice line, the AO3 commercial-use line) | no | the English lines are used |

@@ -137,6 +137,21 @@ def test_a_broken_work_title_is_named(broken_pack):
         load_packs()
 
 
+def test_names_without_their_article_and_genders_from_titles():
+    names = get_pack("en").names
+    assert names.key("The Hatter") == names.key("hatter") == "hatter"
+    assert names.key("The") == "the"  # a lone article is a name
+    assert names.gender(["Mr. Bennet"]) == "male"
+    assert names.gender(["Lizzy", "Miss Bennet"]) == "female"
+    assert names.gender(["Holmes", "Mister"]) is None
+
+
+def test_a_title_for_a_third_gender_is_named(broken_pack):
+    _edit_pack_json(broken_pack, lambda data: data["names"]["titles"].update(other=["Mx."]))
+    with pytest.raises(PackError, match="'other' is not female or male"):
+        load_packs()
+
+
 def test_quotation_marks_are_single_characters(broken_pack):
     _edit_pack_json(
         broken_pack, lambda data: data["quotation"].update(alternative_pairs=[["<<", ">>"]])

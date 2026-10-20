@@ -37,9 +37,10 @@ from sqlalchemy.orm import Session
 
 from chorus import firstrun
 from chorus.analysis_model import AnalysisModel, LlamaServer, ModelUnavailable
+from chorus.casting import cast_work
 from chorus.db import get_sessionmaker
 from chorus.jobs import JobContext, JobFailed, job
-from chorus.languages import get_packs
+from chorus.languages import NameRules, get_packs
 from chorus.models import Chapter, Character, Job, Line, Queue, Work, WorkState
 from chorus.script import build_script
 
@@ -167,16 +168,21 @@ CAST_SYSTEM = (
     "grandchildren mean 'elderly'. Say 'unknown' only when the text gives no hint at all. Say "
     "whether the narration of this part is in the first or third person; if first person, "
     "'character' is the canonical name of the narrating Character (the name others call them, or "
-    "a short description if they are never named; never 'I' or 'narrator'), else ''."
+    "a short description if they are never named; never 'I' or 'narrator'), else ''; for a "
+    "first-person narrator also give their gender and age as for a new Character, and for third "
+    "person 'unknown'."
 )
 
 _NARRATOR_SCHEMA = {
     "type": "object",
     "additionalProperties": False,
-    "required": ["person", "character"],
+    "required": ["person", "character", "gender", "age"],
     "properties": {
         "person": {"type": "string", "enum": ["first", "third"]},
         "character": {"type": "string"},
+        # The narrator's, so one the Character pass never listed is not cast blind.
+        "gender": {"type": "string", "enum": list(GENDERS)},
+        "age": {"type": "string", "enum": list(AGES)},
     },
 }
 _ALIASES = {"type": "array", "maxItems": 8, "items": {"type": "string"}}
@@ -254,21 +260,26 @@ def _in_text(name: str, text: str) -> bool:
 
 
 class CastList:
-    """The Character list being built, with every name and alias it knows."""
+    """The Character list being built, with every name and alias it knows. Names are compared
+    with the Language pack's `names` rules ("the Hatter" is "Hatter"), else by lower case."""
 
-    def __init__(self, characters: list[Character]):
+    def __init__(self, characters: list[Character], names: NameRules | None = None):
         self.characters = characters
-        self.known = {n.lower(): c for c in characters for n in (c.name, *c.aliases)}
+        self.names = names
+        self.known = {self.key(n): c for c in characters for n in (c.name, *c.aliases)}
+
+    def key(self, name: str) -> str:
+        return self.names.key(name) if self.names else name.strip().lower()
 
     def find(self, name: str) -> Character | None:
-        return self.known.get(name.strip().lower())
+        return self.known.get(self.key(name))
 
     def add(self, name: str, gender: str = "unknown", age: str = "unknown") -> Character:
         character = Character(
             name=name.strip(), aliases=[], gender=gender, age=age.replace(" ", "_")
         )
         self.characters.append(character)
-        self.known[character.name.lower()] = character
+        self.known[self.key(character.name)] = character
         return character
 
     def add_alias(self, character: Character, alias: str, text: str) -> bool:
@@ -276,10 +287,10 @@ class CastList:
         alias = alias.strip()
         if not is_name(alias) or not _in_text(alias, text):
             return False
-        if alias.lower() in self.known:
+        if self.key(alias) in self.known:
             return False
         character.aliases = [*character.aliases, alias]
-        self.known[alias.lower()] = character
+        self.known[self.key(alias)] = character
         return True
 
 
@@ -340,8 +351,18 @@ def narrating_character(cast: CastList, answers: list[dict]) -> Character | None
         else:
             unlisted[name] += count
     if by_character and by_character.most_common(1)[0][1] >= max(unlisted.values(), default=0):
-        return cast.find(by_character.most_common(1)[0][0])
-    return cast.add(unlisted.most_common(1)[0][0])
+        character = cast.find(by_character.most_common(1)[0][0])
+    else:
+        character = cast.add(unlisted.most_common(1)[0][0])
+    # Fill in what the list does not know from the answers that named them.
+    theirs = [
+        a for a in answers if a["person"] == "first" and cast.find(a["character"]) is character
+    ]
+    for trait in ("gender", "age"):
+        said = Counter(v for a in theirs if (v := a.get(trait, "unknown")) != "unknown")
+        if getattr(character, trait) == "unknown" and said:
+            setattr(character, trait, said.most_common(1)[0][0].replace(" ", "_"))
+    return character
 
 
 # ---- Attribution pass ----
@@ -454,7 +475,10 @@ def analyse(session: Session, work: Work, model: AnalysisModel, report: Report) 
     )
     chunks = make_chunks(lines)
     total = len(chunks)
-    cast = CastList(list(work.characters))
+    from chorus.works import pack_language
+
+    names = get_packs()[pack_language(work.language)].names
+    cast = CastList(list(work.characters), names)
     chapters = {str(c.id): c for c in work.chapters}
 
     def progress(stage: str, done: int) -> None:
@@ -495,6 +519,11 @@ def analyse(session: Session, work: Work, model: AnalysisModel, report: Report) 
             narrating[part] = character.id if character else None
             if part in chapters:
                 chapters[part].narrating_character_id = narrating[part]
+        # A title in a name says the gender the model left unknown ("Mr. Bennet").
+        for character in work.characters:
+            said = names.gender([character.name, *character.aliases]) if names else None
+            if character.gender == "unknown" and said:
+                character.gender = said
         save(stage="attribution", done=0, narrating=narrating)
 
     # Attribution pass.
@@ -573,6 +602,7 @@ def analysis_job(ctx: JobContext) -> None:
         raise failed
     work.state = WorkState.ANALYSED
     session.commit()
+    cast_work(session, work)
     # Voicing is queued here once it exists (ticket 13).
 
 

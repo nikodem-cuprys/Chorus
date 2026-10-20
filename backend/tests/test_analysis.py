@@ -20,7 +20,9 @@ from chorus.app import create_app
 from chorus.db import get_sessionmaker
 from chorus.importing import Block, Span
 from chorus.jobs import _registry, enqueue
+from chorus.languages import get_packs
 from chorus.models import Chapter, Character, Job, JobState, Line, Work, WorkState
+from chorus.voices import sync_built_in_voices
 
 
 def para(text: str, **kw) -> dict:
@@ -70,6 +72,20 @@ def test_aliases_are_refused_when_absent_from_the_chunk_or_someone_elses():
     assert cast.add_alias(jane, "Miss Bennet", text)
     assert not cast.add_alias(elizabeth, "miss bennet", text)
     assert elizabeth.aliases == ["Lizzy"] and elizabeth.age == "young_adult"
+
+
+def test_names_are_compared_without_their_article():
+    cast = CastList([], get_packs()["en"].names)
+    hatter = cast.add("the Hatter", "male", "adult")
+    merge(
+        cast,
+        {
+            "new_characters": [{"name": "Hatter", "gender": "male", "age": "adult", "aliases": []}],
+            "new_aliases": [{"name": "The Hatter", "aliases": ["Mad Hatter"]}],
+        },
+        "“No room!” said the Hatter. The Mad Hatter frowned.",
+    )
+    assert cast.characters == [hatter] and hatter.aliases == ["Mad Hatter"]
 
 
 def test_a_relisted_character_is_merged_and_fills_in_what_was_unknown():
@@ -125,10 +141,15 @@ def test_a_tie_goes_to_first_person_and_i_names_nobody():
     assert narrating_character(CastList([]), answers[1:2] + answers[4:5]) is None  # only "I"
 
 
-def test_a_narrating_character_missing_from_the_list_is_added():
+def test_a_narrating_character_missing_from_the_list_is_added_with_their_traits():
     cast = CastList([])
-    jane = narrating_character(cast, [{"person": "first", "character": "Jane"}])
+    answers = [
+        {"person": "first", "character": "Jane", "gender": "female", "age": "child"},
+        {"person": "first", "character": "Jane", "gender": "unknown", "age": "unknown"},
+    ]
+    jane = narrating_character(cast, answers)
     assert jane is not None and jane.name == "Jane" and cast.characters == [jane]
+    assert (jane.gender, jane.age) == ("female", "child")
 
 
 # ---- Chunks ----
@@ -196,6 +217,7 @@ class Model:
 
 
 def make_work(session, chapters: list[list[dict]]) -> Work:
+    sync_built_in_voices(session, get_packs())  # what the app does at startup
     work = Work(title="Tales", source_kind="txt", source_name="t.txt", state=WorkState.IMPORTED)
     session.add(work)
     session.flush()
@@ -218,7 +240,7 @@ CAST_ANSWERS = [
         "narrator": {"person": "third", "character": ""},
         "new_characters": [
             {"name": "Mrs. Bennet", "gender": "female", "age": "adult", "aliases": []},
-            {"name": "Mr. Bennet", "gender": "male", "age": "adult", "aliases": []},
+            {"name": "Mr. Bennet", "gender": "unknown", "age": "adult", "aliases": []},
             {"name": "Mr. Morris", "gender": "male", "age": "adult", "aliases": []},
         ],
         "new_aliases": [],
@@ -287,6 +309,8 @@ def test_the_stage_lists_characters_and_labels_every_quoted_line():
         assert sorted(c.name for c in work.characters) == [
             "Holmes", "Mr. Bennet", "Mrs. Bennet", "Watson",
         ]  # fmt: skip
+        bennet = next(c for c in work.characters if c.name == "Mr. Bennet")
+        assert bennet.gender == "male"  # from his title; the model said "unknown"
         narrating = {c.index: c.narrating_character_id for c in work.chapters}
         watson = next(c for c in work.characters if c.name == "Watson")
         assert narrating == {1: None, 2: watson.id}

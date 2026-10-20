@@ -15,6 +15,7 @@ fails loudly on a missing or broken required part. See docs/spec/02-architecture
 | dictionary         | no       | Respelling candidates (milestone 4)         |
 | export_lines       | no       | YouTube export (milestone 8)                |
 | work_title         | no       | the Script's Work title line (ticket 09)    |
+| names              | no       | the Character list (tickets 11 and 12)      |
 """
 
 import json
@@ -52,6 +53,31 @@ class QuotationRules:
     # British books that quote speech with ‘ ’. A closing mark followed by a letter is never a
     # closing mark, which keeps ’ the apostrophe ("don’t") inside such a quotation.
     alternative_pairs: tuple[tuple[str, str], ...] = ()
+
+
+@dataclass(frozen=True)
+class NameRules:
+    """How Character names are read: articles left out when names are compared ("the Hatter" is
+    "Hatter"), and titles that say a gender ("Mr. Bennet" is male)."""
+
+    articles: frozenset[str]
+    # A title, lower case and without its full stop -> female or male.
+    titles: dict[str, str]
+
+    def key(self, name: str) -> str:
+        """A name as compared: lower case, without a leading article."""
+        words = name.strip().lower().split()
+        if len(words) > 1 and words[0] in self.articles:
+            words = words[1:]
+        return " ".join(words)
+
+    def gender(self, names: list[str]) -> str | None:
+        """The gender the first title of any of these names says, if one does."""
+        for name in names:
+            words = name.split()
+            if words and (gender := self.titles.get(words[0].lower().rstrip("."))):
+                return gender
+        return None
 
 
 @dataclass(frozen=True)
@@ -180,6 +206,7 @@ class LanguagePack:
     dictionary: frozenset[str] | None
     export_lines: dict[str, str] | None
     work_title: WorkTitle | None = None
+    names: NameRules | None = None
 
     def voice(self, voice_id: str) -> BuiltInVoice:
         return next(v for v in self.voices if v.id == voice_id)
@@ -263,6 +290,17 @@ def _load_work_title(raw: dict, where: str) -> WorkTitle:
     if not (isinstance(and_, str) and and_):
         raise PackError(f"{where}: the required part 'and' is missing")
     return WorkTitle(text, and_)
+
+
+def _load_names(raw: dict, where: str) -> NameRules:
+    articles = _strings(raw["articles"], f"{where}.articles") if raw.get("articles") else ()
+    titles: dict[str, str] = {}
+    for gender, words in (raw.get("titles") or {}).items():
+        if gender not in ("female", "male"):
+            raise PackError(f"{where}.titles: '{gender}' is not female or male")
+        for word in _strings(words, f"{where}.titles.{gender}"):
+            titles[word.lower().rstrip(".")] = gender
+    return NameRules(frozenset(a.lower() for a in articles), titles)
 
 
 def _load_sentences(raw: dict, where: str) -> SentenceRules:
@@ -404,6 +442,7 @@ def load_pack(folder: Path) -> LanguagePack:
             if raw.get("work_title")
             else None
         ),
+        names=_load_names(raw["names"], f"{where}, part 'names'") if raw.get("names") else None,
     )
 
 
