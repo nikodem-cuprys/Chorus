@@ -25,6 +25,7 @@ Approach B as a job on the `gpu` queue: the Character list, then Speaker attribu
 - Most Characters on the sample passages get an age band other than "unknown"; no Character without lines is left on the list.
 - The card's memory is sampled during the run, with a desktop on the card, and the peak recorded here (expect about 3.3 GB added).
 - Killing the worker mid-analysis and starting again resumes from the last saved chunk.
+- llama-server is started with `-m chorus.firstrun.gguf_path()`; with the network cut after first run, analysis still starts (ticket 10's third criterion).
 
 ## Spec
 

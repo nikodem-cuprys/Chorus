@@ -24,6 +24,7 @@ Pascal support ends with CUDA 12.x, driver branch R580 and PyTorch 2.14, so this
 | | |
 |---|---|
 | Model | Qwen3.5-4B, GGUF Q4_K_M (2.74 GB file) |
+| Weights | `unsloth/Qwen3.5-4B-GGUF` at revision `e87f1764`, `Qwen3.5-4B-Q4_K_M.gguf`, SHA-256 `00fe7986…`: the file every scoring run used. Downloaded on first run (`backend/chorus/firstrun.py` holds the full pins). |
 | Licence | Apache-2.0 |
 | Runtime | llama.cpp server, pinned to build b11318 (the build measured in the container), all layers on the card. Moving to another build means scoring the sample passages again. |
 | Settings | 8k context, one slot (`-np 1`; more slots divide the context), thinking off, temperature 0, JSON-schema constrained output |
@@ -38,6 +39,7 @@ Pascal support ends with CUDA 12.x, driver branch R580 and PyTorch 2.14, so this
 | | |
 |---|---|
 | Model | Chatterbox 500M, `chatterbox-tts==0.1.7` |
+| Weights | `ResembleAI/chatterbox` at revision `5bb1f6ee`: the five files `from_pretrained` fetches (`ve`, `t3_cfg`, `s3gen` safetensors, `tokenizer.json`, `conds.pt`; 3.19 GB), each checked by SHA-256. Downloaded on first run and loaded with `from_local`; the image sets `HF_HUB_OFFLINE=1`. |
 | Licence | MIT |
 | Compute | FP32, with the model's two halves (T3, then S3Gen) loaded one at a time |
 | Emotion control | `exaggeration` and `cfg_weight` per Emotion and intensity, never `exaggeration` above 0.9 |

@@ -7,17 +7,22 @@ so Docker restarts both.
 Before the workers start, the startup check (chorus.healthcheck) runs in its own process and
 stores its result for the interface. A failed check is reported, not fatal: the workers still
 start, so jobs that do not need what failed can run.
+
+Then the First run (chorus.firstrun) downloads any model that is not yet in the models volume, and
+the workers start only when both are in place: no job runs without its model.
 """
 
 import signal
 import subprocess
 import sys
 
+from chorus import firstrun
 from chorus.jobs import CONCURRENCY
 
 
 def main() -> int:
     subprocess.run([sys.executable, "-m", "chorus.healthcheck", "--store"], check=False)
+    firstrun.ensure_models()
 
     workers = [
         subprocess.Popen(

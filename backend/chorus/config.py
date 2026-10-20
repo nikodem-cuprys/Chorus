@@ -16,6 +16,9 @@ class Settings(BaseSettings):
     models_dir: Path = Path("/models")
     exports_dir: Path = Path("/exports")
 
+    # Where the First run downloads the pinned model files from (Hugging Face's layout).
+    models_url: str = "https://huggingface.co"
+
     # The built frontend; served by the backend when the folder exists.
     frontend_dist: Path = Path(__file__).resolve().parent.parent.parent / "frontend" / "dist"
 

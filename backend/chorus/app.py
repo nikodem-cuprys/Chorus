@@ -16,7 +16,7 @@ from pydantic import BaseModel, Field
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
-from chorus import events, healthcheck, tasks, voices, works  # noqa: F401  (tasks: job kinds)
+from chorus import events, firstrun, healthcheck, tasks, voices, works  # noqa: F401  (tasks: job kinds)
 from chorus.config import get_settings
 from chorus.db import get_session, get_sessionmaker
 from chorus.importing.language import known_languages
@@ -36,6 +36,12 @@ def health() -> dict:
 def system_health() -> dict:
     """The worker's startup check; `ok` is null until the worker has run it."""
     return healthcheck.load() or {"checked_at": None, "ok": None, "checks": []}
+
+
+@api.get("/system/models")
+def system_models() -> dict:
+    """The First run: each model's size and how much is downloaded; `ready` once all are."""
+    return firstrun.status(firstrun.load_activity())
 
 
 @api.get("/jobs")
@@ -154,7 +160,8 @@ def voice_clip(voice_id: int, session: Session = Depends(get_session)) -> FileRe
 
 @api.get("/events")
 async def stream_events(request: Request) -> StreamingResponse:
-    """Server-sent events: every job update, as `event: job` with the job as JSON."""
+    """Server-sent events: every job update, as `event: job` with the job as JSON, and the
+    First run's progress, as `event: models` with the same body as /api/system/models."""
 
     async def lines() -> AsyncIterator[str]:
         yield ": connected\n\n"

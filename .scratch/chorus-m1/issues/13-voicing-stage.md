@@ -25,6 +25,7 @@ Chatterbox 500M as a job on the `gpu` queue, run straight after analysis, writin
 - Voicing the same line twice with its stored seed gives the same take.
 - A long narration paragraph is voiced as several sentences in one file.
 - Killing the worker mid-chapter and starting again voices only the missing lines.
+- Chatterbox is loaded with `ChatterboxTTS.from_local(chorus.firstrun.chatterbox_dir(), ...)`, never `from_pretrained`; with the network cut after first run, voicing still starts (ticket 10's third criterion).
 
 ## Spec
 

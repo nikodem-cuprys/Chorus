@@ -20,6 +20,21 @@ REPO = Path(__file__).resolve().parents[3]
 
 pytestmark = pytest.mark.skipif(not URL, reason="CHORUS_STACK_URL is not set")
 
+# On an empty models volume the First run downloads 5.9 GB before the worker takes jobs.
+FIRST_RUN_SECONDS = float(os.environ.get("CHORUS_FIRST_RUN_SECONDS", 4 * 3600))
+
+
+@pytest.fixture(scope="module", autouse=True)
+def models_in_place():
+    if not URL:
+        return
+    with httpx.Client(base_url=URL, timeout=10) as client:
+        deadline = time.monotonic() + FIRST_RUN_SECONDS
+        while not client.get("/api/system/models").json()["ready"]:
+            if time.monotonic() > deadline:
+                pytest.fail("the First run did not finish")
+            time.sleep(10)
+
 
 def _start(client: httpx.Client, queue: str, steps: int, step_seconds: float) -> int:
     response = client.post(
@@ -44,6 +59,17 @@ def _listen(events: list[dict], stop: threading.Event) -> None:
 
 def _when(stamp: str) -> datetime:
     return datetime.fromisoformat(stamp)
+
+
+def test_first_run_has_put_both_pinned_models_in_place():
+    with httpx.Client(base_url=URL, timeout=10) as client:
+        body = client.get("/api/system/models").json()
+    assert body["error"] is None
+    assert [(m["id"], m["state"], m["done"] == m["size"]) for m in body["models"]] == [
+        ("qwen", "done", True),
+        ("chatterbox", "done", True),
+    ]
+    assert [m["size"] for m in body["models"]] == [2_740_937_888, 3_191_966_992]
 
 
 def test_jobs_run_on_their_queues_and_report_over_sse():

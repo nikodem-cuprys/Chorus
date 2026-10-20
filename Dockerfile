@@ -71,6 +71,10 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
     # On Linux, torch 2.14 JIT-compiles some operations with triton the first time they run,
     # which needs a C compiler; this switches that off (ticket 25).
     TORCH_DISABLE_NATIVE_JIT=1 \
+    # Models come only from the First run's pinned download (chorus/firstrun.py), which does not
+    # use huggingface_hub; the GPU code must never reach the network on its own.
+    HF_HUB_OFFLINE=1 \
+    TRANSFORMERS_OFFLINE=1 \
     # ebook-convert has no display in the container.
     QT_QPA_PLATFORM=offscreen \
     CHORUS_LLAMA_SERVER=/usr/local/bin/llama-server \
