@@ -8,6 +8,8 @@ x-chorus: &chorus
     CHORUS_REDIS_URL: redis://redis:6379/0
     # Set CHORUS_DEV=true to enable /api/dev (dummy jobs for testing).
     CHORUS_DEV: ${CHORUS_DEV:-false}
+    # Set CHORUS_ANALYSE_AFTER_IMPORT=false to import without queueing analysis (integration tests).
+    CHORUS_ANALYSE_AFTER_IMPORT: ${CHORUS_ANALYSE_AFTER_IMPORT:-true}
   volumes:
     - data:/data
     - models:/models

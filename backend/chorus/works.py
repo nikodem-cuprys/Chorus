@@ -8,8 +8,8 @@ import hashlib
 from datetime import UTC, datetime
 from pathlib import Path, PurePath
 
-from sqlalchemy import delete
-from sqlalchemy.orm import Session
+from sqlalchemy import delete, func, select
+from sqlalchemy.orm import Session, object_session
 
 from chorus.config import get_settings
 from chorus.importing import ImportedWork, ImportRejected, base_language, language
@@ -94,6 +94,8 @@ def import_work(ctx: JobContext) -> None:
             imported = read_epub(epub, headings_for)
         ctx.report(stage="saving")
         _save(session, work, imported)
+        if get_settings().analyse_after_import:
+            start_analysis(session, work)
     except Exception as exc:
         session.rollback()
         work = session.get(Work, ctx.job.work_id)
@@ -150,10 +152,15 @@ def _save(session: Session, work: Work, imported: ImportedWork) -> None:
     session.commit()
 
 
+def start_analysis(session: Session, work: Work) -> None:
+    """Queues analysis on the GPU queue. An analysed Work is analysed again from the start, with
+    its Script cut again; a stopped analysis continues where it stopped (chorus.analysis)."""
+    enqueue(session, "analysis", work_id=work.id)
+
+
 def set_language(session: Session, work: Work, code: str) -> None:
     """Chosen by the user. Nothing runs by itself, so the Script keeps the quotation marks of
-    the language it was cut with until the next analysis; from M1 ticket 11 on, the Script and
-    audio are flagged outdated here."""
+    the language it was cut with until the next analysis, which cuts it again."""
     work.language = code
     work.language_source = "user"
     session.commit()
@@ -197,9 +204,30 @@ def detail(work: Work) -> dict:
         "front_matter_blocks": len(work.front_matter),
         "back_matter_blocks": len(work.back_matter),
         "chapters": [
-            {"index": c.index, "title": c.title, "words": _words(c.blocks)} for c in work.chapters
+            {
+                "index": c.index,
+                "title": c.title,
+                "words": _words(c.blocks),
+                "narrating_character_id": c.narrating_character_id,
+            }
+            for c in work.chapters
         ],
+        "characters": _characters(work),
     }
+
+
+def _characters(work: Work) -> list[dict]:
+    """The Character list with each Character's number of lines, most lines first."""
+    session = object_session(work)
+    counts = dict(
+        session.execute(
+            select(Line.character_id, func.count())
+            .where(Line.work_id == work.id, Line.character_id.is_not(None))
+            .group_by(Line.character_id)
+        ).all()
+    )
+    rows = [{**c.to_dict(), "lines": counts.get(c.id, 0)} for c in work.characters]
+    return sorted(rows, key=lambda row: -row["lines"])
 
 
 def chapter_detail(chapter: Chapter, lines: list[Line]) -> dict:

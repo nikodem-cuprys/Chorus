@@ -100,8 +100,11 @@ class Voice(Base):
 
 class WorkState(enum.StrEnum):
     IMPORTING = "importing"
-    # Until analysis follows import by itself (ticket 11), a Work rests here.
+    # Imported, with its analysis queued.
     IMPORTED = "imported"
+    ANALYSING = "analysing"
+    # Until voicing follows analysis by itself (ticket 13), a Work rests here.
+    ANALYSED = "analysed"
     FAILED = "failed"
 
 
@@ -137,12 +140,19 @@ class Work(Base):
     imported_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=_now)
     opened_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
+    # Where the analysis is, saved with every finished chunk so it continues where it stopped
+    # (chorus.analysis): stage, chunks done, each chunk's narration answer, the front and back
+    # matter's Narrating Characters. None before the first analysis.
+    analysis: Mapped[dict | None] = mapped_column(JSON)
 
     chapters: Mapped[list["Chapter"]] = relationship(
         back_populates="work",
         order_by="Chapter.index",
         cascade="all, delete-orphan",
         passive_deletes=True,
+    )
+    characters: Mapped[list["Character"]] = relationship(
+        order_by="Character.id", cascade="all, delete-orphan", passive_deletes=True
     )
 
 
@@ -158,8 +168,35 @@ class Chapter(Base):
     notes_before: Mapped[list] = mapped_column(JSON, default=list)
     blocks: Mapped[list] = mapped_column(JSON, default=list)
     notes_after: Mapped[list] = mapped_column(JSON, default=list)
+    # The Character telling a first-person chapter; None for a chapter told in the third person.
+    narrating_character_id: Mapped[int | None] = mapped_column(
+        ForeignKey("character.id", ondelete="SET NULL")
+    )
 
     work: Mapped[Work] = relationship(back_populates="chapters")
+
+
+class Character(Base):
+    """A person on a Work's Character list, found by analysis (chorus.analysis)."""
+
+    __tablename__ = "character"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    work_id: Mapped[int] = mapped_column(ForeignKey("work.id", ondelete="CASCADE"), index=True)
+    name: Mapped[str] = mapped_column(String(200))
+    # The other names and titles the text uses for this person.
+    aliases: Mapped[list] = mapped_column(JSON, default=list)
+    gender: Mapped[str] = mapped_column(String(10))  # female, male, unknown
+    age: Mapped[str] = mapped_column(String(12))  # child, young_adult, adult, elderly, unknown
+
+    def to_dict(self) -> dict:
+        return {
+            "id": self.id,
+            "name": self.name,
+            "aliases": self.aliases,
+            "gender": self.gender,
+            "age": self.age,
+        }
 
 
 class Line(Base):
@@ -185,11 +222,19 @@ class Line(Base):
     # The text with its marks, as spans; paragraphs inside one line are joined with "\n".
     spans: Mapped[list] = mapped_column(JSON)
     text: Mapped[str] = mapped_column(Text)
-    # narration or quote; analysis (ticket 11) makes a quote speech, thought or written.
+    # narration or quote; analysis makes a quote speech, thought or written.
     kind: Mapped[str] = mapped_column(String(12))
     # The kind of passage: chorus.script.PASSAGES.
     passage: Mapped[str] = mapped_column(String(16))
     voiced: Mapped[bool] = mapped_column(Boolean)
+    # From analysis, for voiced lines: narrator, character (with `character_id`) or unknown.
+    speaker: Mapped[str | None] = mapped_column(String(10))
+    character_id: Mapped[int | None] = mapped_column(
+        ForeignKey("character.id", ondelete="SET NULL"), index=True
+    )
+    # One of the nine Emotions and normal or strong; None for the Narrator.
+    emotion: Mapped[str | None] = mapped_column(String(12))
+    intensity: Mapped[str | None] = mapped_column(String(8))
 
     def to_dict(self) -> dict:
         return {
@@ -200,4 +245,8 @@ class Line(Base):
             "kind": self.kind,
             "passage": self.passage,
             "voiced": self.voiced,
+            "speaker": self.speaker,
+            "character_id": self.character_id,
+            "emotion": self.emotion,
+            "intensity": self.intensity,
         }

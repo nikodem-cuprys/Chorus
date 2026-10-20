@@ -5,7 +5,15 @@ import type { Job } from "./jobs";
 import { Lines } from "./Lines";
 import { Shell } from "./Shell";
 import { authorsText } from "./WorkList";
-import { changeLanguage, useChapter, useLanguages, useWork, type Work } from "./works";
+import {
+  changeLanguage,
+  startAnalysis,
+  useChapter,
+  useLanguages,
+  useWork,
+  type Character,
+  type Work,
+} from "./works";
 
 function LanguageField({ work, onChanged }: { work: Work; onChanged: () => void }) {
   const languages = useLanguages();
@@ -44,7 +52,40 @@ function LanguageField({ work, onChanged }: { work: Work; onChanged: () => void 
 
 type View = "text" | "lines";
 
-function Reader({ workId, part }: { workId: number; part: string }) {
+function Characters({ work }: { work: Work }) {
+  if (work.characters.length === 0) return <p className="muted">{t("work.no_characters")}</p>;
+  return (
+    <ul className="characters">
+      {work.characters.map((c) => {
+        const narrated = work.chapters
+          .filter((chapter) => chapter.narrating_character_id === c.id)
+          .map((chapter) => chapter.index);
+        return (
+          <li key={c.id}>
+            <strong>{c.name}</strong>{" "}
+            <span className="muted small">
+              {t(`character.gender.${c.gender}`)}, {t(`character.age.${c.age}`)} ·{" "}
+              {t("work.character_lines", { count: c.lines })}
+              {c.aliases.length > 0 &&
+                ` · ${t("work.character_aliases", { aliases: c.aliases.join(", ") })}`}
+              {narrated.length > 0 && ` · ${t("work.narrates", { chapters: narrated.join(", ") })}`}
+            </span>
+          </li>
+        );
+      })}
+    </ul>
+  );
+}
+
+function Reader({
+  workId,
+  part,
+  characters,
+}: {
+  workId: number;
+  part: string;
+  characters: Character[];
+}) {
   const chapter = useChapter(workId, part);
   const [view, setView] = useState<View>("text");
   if (chapter === null) return <p className="muted">{t("work.loading")}</p>;
@@ -64,7 +105,7 @@ function Reader({ workId, part }: { workId: number; part: string }) {
         ))}
       </div>
       {view === "lines" ? (
-        <Lines lines={chapter.lines ?? []} />
+        <Lines lines={chapter.lines ?? []} characters={characters} />
       ) : (
         <>
           {chapter.notes_before?.length > 0 && <Blocks blocks={chapter.notes_before} />}
@@ -115,6 +156,14 @@ export function WorkPage({ id, jobs }: { id: number; jobs: Job[] }) {
             {t(`work.state.${work.state}` as MessageKey)} · {work.source.name}
           </p>
           <LanguageField work={work} onChanged={() => setVersion((v) => v + 1)} />
+          {(work.state === "analysed" || (work.state === "failed" && work.chapters.length > 0)) && (
+            <button
+              type="button"
+              onClick={() => startAnalysis(work.id).then(() => setVersion((v) => v + 1))}
+            >
+              {t("work.analyse")}
+            </button>
+          )}
         </div>
       </div>
 
@@ -132,6 +181,8 @@ export function WorkPage({ id, jobs }: { id: number; jobs: Job[] }) {
 
       {parts.length > 0 && (
         <>
+          <h2>{t("work.characters")}</h2>
+          <Characters work={work} />
           <h2>{t("work.chapters")}</h2>
           <div className="chapters">
             <ol className="chapter-list">
@@ -148,7 +199,9 @@ export function WorkPage({ id, jobs }: { id: number; jobs: Job[] }) {
                 </li>
               ))}
             </ol>
-            {part !== null && <Reader key={part} workId={work.id} part={part} />}
+            {part !== null && (
+              <Reader key={part} workId={work.id} part={part} characters={work.characters} />
+            )}
           </div>
         </>
       )}

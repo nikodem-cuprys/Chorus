@@ -43,3 +43,7 @@ Not checked in Docker: Docker was not running, so the empty-volume start, the ki
 Left for later:
 
 - **Network cut after first run:** nothing loads a model yet. Tickets 11 and 13 must start llama-server with `gguf_path()` and load Chatterbox with `from_local(chatterbox_dir())`; the third acceptance criterion is checked there.
+
+## Comments
+
+- 2026-10-20, during ticket 11, in Docker: the model files were placed in the `models` volume as `.part` files (copied from ticket 24's volume), and the worker's First run hashed them, renamed them into place and started the queues, so resuming a `.part` works in the container. The third criterion passed there too: with the stack on a network with no route out, an analysis ran in full. Not run: a download from an empty volume, and killing the container mid-download.

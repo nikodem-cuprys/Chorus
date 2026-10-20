@@ -15,6 +15,8 @@ URL = os.environ.get("CHORUS_STACK_URL")
 SAMPLES = Path(__file__).resolve().parents[3] / ".scratch" / "chorus" / "samples" / "import"
 
 pytestmark = pytest.mark.skipif(not URL, reason="CHORUS_STACK_URL is not set")
+# An import queues analysis, unless the stack runs with CHORUS_ANALYSE_AFTER_IMPORT=false.
+IMPORTED = ("imported", "analysing", "analysed")
 
 
 def import_file(client: httpx.Client, name: str, data: bytes) -> dict:
@@ -132,8 +134,8 @@ def test_azw3_and_mobi_give_the_same_work():
     with httpx.Client(base_url=URL, timeout=60) as client:
         azw3 = import_file(client, "alice.azw3", (SAMPLES / "alice-gutenberg.azw3").read_bytes())
         mobi = import_file(client, "alice.mobi", (SAMPLES / "alice-gutenberg.mobi").read_bytes())
-        assert azw3["state"] == "imported", azw3["error"]
-        assert mobi["state"] == "imported", mobi["error"]
+        assert azw3["state"] in IMPORTED, azw3["error"]
+        assert mobi["state"] in IMPORTED, mobi["error"]
         assert (azw3["source"]["kind"], mobi["source"]["kind"]) == ("azw3", "mobi")
         assert len(azw3["chapters"]) == 12
         assert [c["title"] for c in azw3["chapters"]] == [c["title"] for c in mobi["chapters"]]
@@ -143,7 +145,7 @@ def test_azw3_and_mobi_give_the_same_work():
 def test_a_docx_keeps_its_headings_and_italics():
     with httpx.Client(base_url=URL, timeout=60) as client:
         work = import_file(client, "story.docx", make_docx())
-        assert work["state"] == "imported", work["error"]
+        assert work["state"] in IMPORTED, work["error"]
         assert work["source"]["kind"] == "docx"
         assert [c["title"] for c in work["chapters"]] == ["Chapter 1", "Chapter 2"]
         assert italics(client, work) == ["stormy", "over"]

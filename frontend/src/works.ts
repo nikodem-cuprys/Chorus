@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import type { Message } from "./i18n";
 import type { Job } from "./jobs";
 
-export type WorkState = "importing" | "imported" | "failed";
+export type WorkState = "importing" | "imported" | "analysing" | "analysed" | "failed";
 
 export interface WorkSummary {
   id: number;
@@ -24,8 +24,30 @@ export interface Work extends WorkSummary {
   cover_url: string | null;
   front_matter_blocks: number;
   back_matter_blocks: number;
-  chapters: { index: number; title: string | null; words: number }[];
+  chapters: {
+    index: number;
+    title: string | null;
+    words: number;
+    /** The Character telling a first-person chapter. */
+    narrating_character_id: number | null;
+  }[];
+  /** Most lines first. */
+  characters: Character[];
 }
+
+export type Age = "child" | "young_adult" | "adult" | "elderly" | "unknown";
+
+export interface Character {
+  id: number;
+  name: string;
+  aliases: string[];
+  gender: "female" | "male" | "unknown";
+  age: Age;
+  lines: number;
+}
+
+export type Emotion =
+  "neutral" | "happy" | "excited" | "amused" | "angry" | "sad" | "afraid" | "anxious" | "surprised";
 
 export type Mark = "italic" | "bold" | "underline" | "strike" | "small_caps" | "superscript";
 
@@ -73,6 +95,11 @@ export interface Line {
   kind: "narration" | "quote" | "speech" | "thought" | "written";
   passage: Passage;
   voiced: boolean;
+  /** From analysis; null before it, and for lines that are not voiced. */
+  speaker: "narrator" | "character" | "unknown" | null;
+  character_id: number | null;
+  emotion: Emotion | null;
+  intensity: "normal" | "strong" | null;
 }
 
 export interface Chapter {
@@ -148,6 +175,10 @@ export async function uploadWork(file: File): Promise<WorkSummary> {
     throw detail?.detail ?? { key: "import.error.upload_failed" };
   }
   return (await response.json()) as WorkSummary;
+}
+
+export async function startAnalysis(id: number): Promise<void> {
+  await fetch(`/api/works/${id}/analysis`, { method: "POST" });
 }
 
 export async function changeLanguage(id: number, language: string): Promise<void> {

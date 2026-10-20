@@ -20,9 +20,10 @@ const work = (overrides: Partial<Work>): Work => ({
   front_matter_blocks: 3,
   back_matter_blocks: 0,
   chapters: [
-    { index: 1, title: "Chapter 1: Transformed", words: 500 },
-    { index: 2, title: "Chapter 2: The Door", words: 1100 },
+    { index: 1, title: "Chapter 1: Transformed", words: 500, narrating_character_id: null },
+    { index: 2, title: "Chapter 2: The Door", words: 1100, narrating_character_id: 4 },
   ],
+  characters: [],
   ...overrides,
 });
 
@@ -56,6 +57,32 @@ describe("WorkPage", () => {
     expect(screen.getByText("Front matter")).toBeTruthy();
     expect(screen.getByText("1100 words")).toBeTruthy();
     expect(screen.queryByText(/no Language pack/)).toBeNull();
+  });
+
+  it("lists the Characters found by analysis", async () => {
+    serve(
+      work({
+        state: "analysed",
+        characters: [
+          {
+            id: 4,
+            name: "Watson",
+            aliases: ["Dr. Watson"],
+            gender: "male",
+            age: "adult",
+            lines: 14,
+          },
+          { id: 5, name: "Irene", aliases: [], gender: "female", age: "unknown", lines: 1 },
+        ],
+      }),
+    );
+    render(<WorkPage id={7} jobs={[]} />);
+    expect(await screen.findByText("Watson")).toBeTruthy();
+    expect(
+      screen.getByText("male, adult · 14 lines · also called Dr. Watson · narrates chapter 2"),
+    ).toBeTruthy();
+    expect(screen.getByText("female, age unknown · 1 lines")).toBeTruthy();
+    expect(screen.getByText("Analyse again")).toBeTruthy();
   });
 
   it("says the English pack is used for a language without one", async () => {

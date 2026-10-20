@@ -22,7 +22,7 @@ from chorus.db import get_session, get_sessionmaker
 from chorus.importing.language import known_languages
 from chorus.jobs import enqueue
 from chorus.languages import get_packs
-from chorus.models import Chapter, Job, Line, Voice, Work
+from chorus.models import Chapter, Job, JobState, Line, Voice, Work, WorkState
 
 api = APIRouter(prefix="/api")
 
@@ -93,6 +93,22 @@ class WorkChange(BaseModel):
 def change_work(work_id: int, body: WorkChange, session: Session = Depends(get_session)) -> dict:
     row = _work(session, work_id)
     works.set_language(session, row, body.language)
+    return works.detail(row)
+
+
+@api.post("/works/{work_id}/analysis", status_code=202)
+def analyse_work(work_id: int, session: Session = Depends(get_session)) -> dict:
+    """Analyses the Work again from the start, or continues a stopped analysis (one whose
+    worker was killed: its Work still says "analysing")."""
+    row = _work(session, work_id)
+    waiting = session.scalar(
+        select(Job.id).where(
+            Job.work_id == work_id, Job.kind == "analysis", Job.state == JobState.QUEUED
+        )
+    )
+    if row.state == WorkState.IMPORTING or not row.chapters or waiting is not None:
+        raise HTTPException(409, detail={"key": "work.error.busy", "params": {}})
+    works.start_analysis(session, row)
     return works.detail(row)
 
 

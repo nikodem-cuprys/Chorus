@@ -28,6 +28,9 @@ class Settings(BaseSettings):
     ebook_convert: str = "ebook-convert"
     calibre_timeout_seconds: int = 600
 
+    # Analysis is queued at the end of every import; off in the unit tests, which have no card.
+    analyse_after_import: bool = True
+
     # Enables /api/dev, used to start dummy jobs while there are no real ones.
     dev: bool = False
 

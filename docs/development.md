@@ -12,6 +12,8 @@ The first build takes a long time: it compiles llama.cpp for the GTX 1050 Ti and
 
 On the first start the worker downloads the two models (5.9 GB) into the `models` volume, and the browser shows the First run screen until they are in place; the worker's Celery queues start only then. An interrupted download continues where it stopped. The pins (repository, revision, SHA-256) are in `backend/chorus/firstrun.py`; follow it with `docker compose logs -f worker`, or run it by hand with `docker compose exec worker python -m chorus.firstrun`.
 
+Every import queues the Work's analysis on the `gpu` queue (`backend/chorus/analysis.py`): a child process starts llama-server, builds the Character list and labels every quoted line, saving each chunk, and exits. To analyse a Work again, or continue one whose worker was killed: `curl -X POST localhost:8000/api/works/<id>/analysis` (or "Analyse again" on the Work page).
+
 The worker checks the GPU stack when it starts (torch on the card, llama-server seeing the card, Calibre, ffmpeg) and the interface shows what failed. To run the check by hand: `docker compose exec worker python -m chorus.healthcheck`.
 
 If the build fails with "certificate verify failed" or "invalid peer certificate", the host's HTTPS traffic is being re-signed by antivirus or a proxy: see [`certs/README.md`](../certs/README.md).
@@ -25,7 +27,8 @@ python -m venv .venv && .venv/Scripts/python -m pip install -e ".[dev]"   # .ven
 .venv/Scripts/python -m pytest
 .venv/Scripts/python -m ruff check . && .venv/Scripts/python -m ruff format --check .
 
-# backend, against the running stack (started with CHORUS_DEV=true)
+# backend, against the running stack (started with CHORUS_DEV=true, and
+# CHORUS_ANALYSE_AFTER_IMPORT=false so the imported books are not analysed for an hour)
 CHORUS_STACK_URL=http://localhost:8000 .venv/Scripts/python -m pytest tests/integration
 
 # frontend
