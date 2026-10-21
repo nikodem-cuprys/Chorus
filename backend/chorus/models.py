@@ -106,8 +106,10 @@ class WorkState(enum.StrEnum):
     # Analysed and cast, with voicing queued.
     ANALYSED = "analysed"
     VOICING = "voicing"
-    # Until chapter assembly follows voicing (ticket 14), a Work rests here.
+    # Voiced, with its parts being assembled (chorus.assembly).
     VOICED = "voiced"
+    # Every part assembled: ready to listen.
+    READY = "ready"
     FAILED = "failed"
 
 
@@ -151,6 +153,8 @@ class Work(Base):
     narrator_voice_id: Mapped[int | None] = mapped_column(
         ForeignKey("voice.id", ondelete="SET NULL")
     )
+    # The front and back matter's assembled audio, by part ("front", "back"), as a chapter's.
+    matter_audio: Mapped[dict] = mapped_column(JSON, default=dict)
 
     chapters: Mapped[list["Chapter"]] = relationship(
         back_populates="work",
@@ -179,6 +183,9 @@ class Chapter(Base):
     narrating_character_id: Mapped[int | None] = mapped_column(
         ForeignKey("character.id", ondelete="SET NULL")
     )
+    # The assembled audio (chorus.assembly): its file, length, and the key of what it was made
+    # from. None until the chapter's lines are all voiced and assembled.
+    audio: Mapped[dict | None] = mapped_column(JSON)
 
     work: Mapped[Work] = relationship(back_populates="chapters")
 

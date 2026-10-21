@@ -230,7 +230,7 @@ def test_the_job_runs_in_a_child_and_marks_the_work_voiced(monkeypatch):
         assert session.get(Work, work.id).state == WorkState.VOICED
 
 
-def test_analysis_queues_voicing(monkeypatch):
+def test_analysis_queues_voicing_and_voicing_queues_assembly(monkeypatch):
     from chorus import analysis
 
     monkeypatch.setattr(analysis, "run_child", lambda job_id: 0)
@@ -240,6 +240,6 @@ def test_analysis_queues_voicing(monkeypatch):
         work = make_work(session)
         enqueue(session, "analysis", work_id=work.id)
         kinds = [j.kind for j in session.scalars(select(Job).order_by(Job.id))]
-        assert kinds == ["analysis", "voicing"]
+        assert kinds == ["analysis", "voicing", "assembly"]
         session.expire_all()
         assert session.get(Work, work.id).state == WorkState.VOICED

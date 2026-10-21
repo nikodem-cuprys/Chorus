@@ -9,7 +9,8 @@
   thoughts are never strong; `exaggeration` never goes above 0.9.
 - **Seed:** given the first time a line is voiced and kept, so the same line voices the same way.
 - **Long lines** are split into sentences with the pack's sentence rules; each is voiced with the
-  line's Voice, settings and seed, and they are joined with the `between_sentences` pause.
+  line's Voice, settings and seed, and they are joined with the `between_sentences` pause. Verse
+  is split at its line ends too, which take the `verse_line_end` pause.
 
 **Order and batches:** reading order, a chapter (or the front or back matter) at a time; the
 voice model takes each chapter as one batch, its two halves on the card in turn.
@@ -19,7 +20,9 @@ done. A line needs voicing while it has no take, or its take was made with anoth
 Emotion, intensity or text; so a stopped job, started again, voices only what is missing.
 
 **One child process per job:** `python -m chorus.voicing <job id>` loads Chatterbox with
-`from_local` from the models volume, voices every line that needs it, and exits.
+`from_local` from the models volume, voices every line that needs it, and exits. Each part is
+queued for assembly (chorus.assembly) as soon as its lines are voiced, and the whole Work once
+the job ends.
 """
 
 import json
@@ -135,12 +138,27 @@ def sentences(text: str, pack: LanguagePack) -> list[str]:
     return [s for s in pack.split_sentences(text) if any(c.isalnum() for c in s)]
 
 
-def join(parts: list[np.ndarray], pause: float, sample_rate: int) -> np.ndarray:
-    gap = np.zeros(int(round(pause * sample_rate)), dtype=np.float32)
+def pieces(line: Line, pack: LanguagePack, gaps: dict[str, float]) -> list[tuple[str, float]]:
+    """What the line says, a sentence at a time, each with the pause before the next one:
+    `between_sentences`, or `verse_line_end` where a line of verse ends."""
+    if line.passage == "verse":
+        rows = [r for r in line.text.split("\n") if r.strip()]
+    else:
+        rows = [line.text]
+    out: list[tuple[str, float]] = []
+    for row in rows:
+        said = sentences(row, pack)
+        out += [(s, gaps["between_sentences"]) for s in said[:-1]]
+        out += [(s, gaps["verse_line_end"]) for s in said[-1:]]
+    return out
+
+
+def join(parts: list[np.ndarray], gaps: list[float], sample_rate: int) -> np.ndarray:
+    """The parts with each one's pause after it, except the last's."""
     out: list[np.ndarray] = []
     for n, part in enumerate(parts):
         if n:
-            out.append(gap)
+            out.append(np.zeros(int(round(gaps[n - 1] * sample_rate)), dtype=np.float32))
         out.append(part.astype(np.float32))
     return np.concatenate(out) if out else np.zeros(0, dtype=np.float32)
 
@@ -150,13 +168,25 @@ def join(parts: list[np.ndarray], pause: float, sample_rate: int) -> np.ndarray:
 Report = Callable[..., None]
 
 
-def voice_work(session: Session, work: Work, model: VoiceModel, report: Report) -> int:
+def part_key(line: Line, chapters: dict[int, Chapter]) -> str:
+    """The part a line is in, as chorus.assembly names it: front, back or the chapter's index."""
+    return str(chapters[line.chapter_id].index) if line.part == "chapter" else line.part
+
+
+def voice_work(
+    session: Session,
+    work: Work,
+    model: VoiceModel,
+    report: Report,
+    part_voiced: Callable[[str], None] | None = None,
+) -> int:
     """Voices every line of the Work that needs it, chapter by chapter in reading order,
-    committing each line as soon as its file is written. Returns the number of lines voiced."""
+    committing each line as soon as its file is written; `part_voiced` is told each part
+    (chorus.assembly) whose lines were voiced. Returns the number of lines voiced."""
     from chorus.works import pack_language
 
     pack = get_packs()[pack_language(work.language)]
-    gap = pauses()["between_sentences"]
+    gaps = pauses()
     voices = {v.id: v for v in session.scalars(select(Voice))}
     characters = {c.id: c for c in work.characters}
     chapters = {c.id: c for c in work.chapters}
@@ -208,23 +238,25 @@ def voice_work(session: Session, work: Work, model: VoiceModel, report: Report) 
         progress(number)
         batch: list[Speech] = []
         owners: list[Line] = []
-        pieces: dict[int, int] = {}
+        line_gaps: dict[int, list[float]] = {}
         for line in part:
             if line.seed is None:
                 line.seed = random.randrange(2**31)
             plan = plans[line.id]
             reference = voices[plan.voice_id]
             clip = pack.voice(reference.name).clips["neutral"]
-            said = sentences(plan.text, pack)
+            said = pieces(line, pack, gaps)
             if not said:
                 save(line, plan, np.zeros(int(SILENT_LINE_SECONDS * model.sample_rate)))
                 continue
-            pieces[line.id] = len(said)
-            for text in said:
+            line_gaps[line.id] = [gap for _, gap in said]
+            for text, _ in said:
                 batch.append(Speech(text, clip, plan.exaggeration, plan.cfg_weight, line.seed))
                 owners.append(line)
         session.commit()  # the seeds, before any audio exists
         if not batch:
+            if part_voiced:
+                part_voiced(part_key(part[0], chapters))
             continue
 
         started = time.monotonic()
@@ -232,8 +264,8 @@ def voice_work(session: Session, work: Work, model: VoiceModel, report: Report) 
         seconds = 0.0
         for (_, audio), line in zip(model.speak(batch), owners, strict=True):
             heard.setdefault(line.id, []).append(audio)
-            if len(heard[line.id]) == pieces[line.id]:
-                joined = join(heard.pop(line.id), gap, model.sample_rate)
+            if len(heard[line.id]) == len(line_gaps[line.id]):
+                joined = join(heard.pop(line.id), line_gaps[line.id], model.sample_rate)
                 seconds += len(joined) / model.sample_rate
                 save(line, plans[line.id], joined)
                 progress(number)
@@ -243,6 +275,8 @@ def voice_work(session: Session, work: Work, model: VoiceModel, report: Report) 
             f"{seconds:.1f} s of audio in {took:.1f} s ({took / max(seconds, 0.001):.2f}x)",
             flush=True,
         )
+        if part_voiced:
+            part_voiced(part_key(part[0], chapters))
     progress(len(parts))
     return len(todo)
 
@@ -272,6 +306,9 @@ def voicing_job(ctx: JobContext) -> None:
         raise failed
     work.state = WorkState.VOICED
     session.commit()
+    from chorus.assembly import start_assembly
+
+    start_assembly(session, work)
 
 
 def start_voicing(session: Session, work: Work) -> None:
@@ -286,13 +323,21 @@ def run_child(job_id: int) -> int:
 
 
 def main(job_id: int) -> int:
+    from chorus.assembly import start_assembly
+
     with get_sessionmaker()() as session:
         row = session.get(Job, job_id)
         ctx = JobContext(session, row)
         work = session.get(Work, row.work_id)
         try:
             with Chatterbox(firstrun.chatterbox_dir()) as model:
-                voice_work(session, work, model, ctx.report)
+                voice_work(
+                    session,
+                    work,
+                    model,
+                    ctx.report,
+                    part_voiced=lambda part: start_assembly(session, work, part),
+                )
         except Exception as exc:
             session.rollback()
             row.error = {"key": "voicing.error.unexpected", "params": {"detail": repr(exc)}}

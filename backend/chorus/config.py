@@ -27,6 +27,8 @@ class Settings(BaseSettings):
     # Calibre's converter, for the formats Chorus has no reader for, and how long it may take.
     ebook_convert: str = "ebook-convert"
     calibre_timeout_seconds: int = 600
+    # ffmpeg, for chapter assembly and the exports.
+    ffmpeg: str = "ffmpeg"
 
     # Analysis is queued at the end of every import; off in the unit tests, which have no card.
     analyse_after_import: bool = True

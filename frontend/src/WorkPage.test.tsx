@@ -19,9 +19,23 @@ const work = (overrides: Partial<Work>): Work => ({
   cover_url: null,
   front_matter_blocks: 3,
   back_matter_blocks: 0,
+  front_matter_audio_seconds: null,
+  back_matter_audio_seconds: null,
   chapters: [
-    { index: 1, title: "Chapter 1: Transformed", words: 500, narrating_character_id: null },
-    { index: 2, title: "Chapter 2: The Door", words: 1100, narrating_character_id: 4 },
+    {
+      index: 1,
+      title: "Chapter 1: Transformed",
+      words: 500,
+      narrating_character_id: null,
+      audio_seconds: null,
+    },
+    {
+      index: 2,
+      title: "Chapter 2: The Door",
+      words: 1100,
+      narrating_character_id: 4,
+      audio_seconds: null,
+    },
   ],
   characters: [],
   narrator_voice: null,
@@ -101,6 +115,41 @@ describe("WorkPage", () => {
     expect(screen.getByText("female, age unknown · 1 lines")).toBeTruthy();
     expect(screen.getByText("Voice af_bella")).toBeTruthy(); // the Narrator's
     expect(screen.getByText("Analyse again")).toBeTruthy();
+  });
+
+  it("plays each ready part and shows the others as not ready", async () => {
+    const base = work({});
+    serve(
+      work({
+        state: "voicing",
+        front_matter_blocks: 0,
+        front_matter_audio_seconds: 4.2,
+        chapters: [{ ...base.chapters[0], audio_seconds: 754.4 }, base.chapters[1]],
+      }),
+    );
+    render(<WorkPage id={7} jobs={[]} />);
+    const player = await screen.findByLabelText("Play Chapter 1: Transformed");
+    expect(player.getAttribute("src")).toBe("/api/works/7/audio/1");
+    expect(screen.getByText("500 words · 12:34")).toBeTruthy();
+    // The front matter holds only the Work title, and plays.
+    expect(screen.getByLabelText("Play Front matter").getAttribute("src")).toBe(
+      "/api/works/7/audio/front",
+    );
+    expect(screen.getByText("0:04")).toBeTruthy();
+    expect(screen.getAllByText("Not ready yet")).toHaveLength(1); // chapter 2
+  });
+
+  it("says when a Work is ready to listen", async () => {
+    serve(work({ state: "ready" }));
+    render(<WorkPage id={7} jobs={[]} />);
+    expect(await screen.findByText(/Ready to listen/)).toBeTruthy();
+  });
+
+  it("offers no player before voicing", async () => {
+    serve(work({ state: "analysed" }));
+    render(<WorkPage id={7} jobs={[]} />);
+    expect(await screen.findByText("Chapter 2: The Door")).toBeTruthy();
+    expect(screen.queryByText("Not ready yet")).toBeNull();
   });
 
   it("says the English pack is used for a language without one", async () => {

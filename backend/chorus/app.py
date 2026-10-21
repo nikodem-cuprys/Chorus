@@ -16,7 +16,7 @@ from pydantic import BaseModel, Field
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
-from chorus import events, firstrun, healthcheck, tasks, voices, voicing, works  # noqa: F401  (tasks: job kinds)
+from chorus import assembly, events, firstrun, healthcheck, tasks, voices, voicing, works  # noqa: F401  (tasks: job kinds)
 from chorus.config import get_settings
 from chorus.db import get_session, get_sessionmaker
 from chorus.importing.language import known_languages
@@ -126,6 +126,30 @@ def voice_work(work_id: int, session: Session = Depends(get_session)) -> dict:
         raise HTTPException(409, detail={"key": "work.error.not_analysed", "params": {}})
     voicing.start_voicing(session, row)
     return works.detail(row)
+
+
+@api.post("/works/{work_id}/assembly", status_code=202)
+def assemble_work(work_id: int, session: Session = Depends(get_session)) -> dict:
+    """Assembles every part whose lines are all voiced and whose audio is missing or out of
+    date, as after a change to the pause settings."""
+    row = _work(session, work_id)
+    assembly.start_assembly(session, row)
+    return works.detail(row)
+
+
+@api.get("/works/{work_id}/audio/{part}")
+def part_audio(work_id: int, part: str, session: Session = Depends(get_session)):
+    """A part's assembled audio, as FLAC: "front", "back" or a chapter's index."""
+    row = _work(session, work_id)
+    if part in ("front", "back"):
+        record = (row.matter_audio or {}).get(part)
+    else:
+        chapter = next((c for c in row.chapters if str(c.index) == part), None)
+        record = chapter.audio if chapter else None
+    path = assembly.audio_dir(work_id) / record["file"] if record else None
+    if path is None or not path.is_file():
+        raise HTTPException(404)
+    return FileResponse(path, media_type="audio/flac")
 
 
 @api.get("/works/{work_id}/lines/{position}/audio")

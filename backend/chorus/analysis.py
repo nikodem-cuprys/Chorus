@@ -462,9 +462,11 @@ def _start_over(session: Session, work: Work) -> None:
         update(Chapter).where(Chapter.work_id == work.id).values(narrating_character_id=None)
     )
     build_script(session, work, get_packs()[pack_language(work.language)])
+    from chorus.assembly import discard
     from chorus.voicing import discard_audio
 
     discard_audio(work.id)
+    discard(session, work)
     work.characters.clear()  # deleted as orphans
     work.analysis = {"stage": "characters", "done": 0, "answers": [], "narrating": {}}
     session.commit()

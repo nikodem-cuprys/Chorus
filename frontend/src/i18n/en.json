@@ -167,7 +167,15 @@
   "work.voice_auto": "Voice {voice} (auto-cast)",
   "job.kind.voicing": "Voicing",
   "work.state.voicing": "Voicing…",
-  "work.state.voiced": "Voiced",
+  "work.state.voiced": "Voiced; putting the chapters together…",
+  "work.state.ready": "Ready to listen",
+  "job.kind.assembly": "Assembly",
+  "work.not_ready": "Not ready yet",
+  "work.length": "{minutes}:{seconds}",
+  "work.play": "Play {part}",
+  "assembly.error.ffmpeg": "ffmpeg could not put {part} together.",
+  "assembly.error.length": "{part} came out a different length from its lines and pauses.",
+  "assembly.error.sample_rate": "The lines' audio files have different sample rates.",
   "work.error.not_analysed": "The Work has to be analysed before it can be voiced, and its voicing may already be waiting to start.",
   "voicing.error.unexpected": "Voicing stopped with an error: {detail}"
 }

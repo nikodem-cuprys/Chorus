@@ -89,14 +89,15 @@ Voicing runs on the GPU queue as one child process with Chatterbox 500M, after a
 
 ## Assembly
 
-Each chapter's audio is put together from its line files with ffmpeg, on the non-GPU queue, and cached.
+Each chapter's audio is put together from its line files with ffmpeg, on the non-GPU queue, and cached. The front matter (with the Work title and author) and the back matter are assembled the same way, as parts of their own before the first chapter and after the last.
 
-- Each clip's own leading and trailing silence is trimmed first.
+- **When:** as soon as all of a chapter's lines are voiced, so it can be played while later chapters are still being voiced. A Work is ready to listen when every part is assembled.
+- Each clip's own leading and trailing silence is trimmed first (below −50 dB, keeping 0.04 s).
 - Pauses come from one fixed set of lengths, kept in one settings file (not per Work) and tied to nothing in the Script except structure. Starting values, all tuned by ear during milestone 1's listening check:
 
 | Where | Start value |
 |---|---|
-| Between sentences of one line | 0.3 s |
+| Between sentences of one line (voicing joins them) | 0.3 s |
 | Between lines | 0.45 s |
 | At a new paragraph | 0.75 s |
 | At each line end of verse | 0.3 s |

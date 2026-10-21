@@ -203,12 +203,16 @@ def detail(work: Work) -> dict:
         "cover_url": f"/api/works/{work.id}/cover" if work.cover_file else None,
         "front_matter_blocks": len(work.front_matter),
         "back_matter_blocks": len(work.back_matter),
+        # The length of each part's assembled audio (chorus.assembly); None until it is ready.
+        "front_matter_audio_seconds": (work.matter_audio or {}).get("front", {}).get("seconds"),
+        "back_matter_audio_seconds": (work.matter_audio or {}).get("back", {}).get("seconds"),
         "chapters": [
             {
                 "index": c.index,
                 "title": c.title,
                 "words": _words(c.blocks),
                 "narrating_character_id": c.narrating_character_id,
+                "audio_seconds": (c.audio or {}).get("seconds"),
             }
             for c in work.chapters
         ],

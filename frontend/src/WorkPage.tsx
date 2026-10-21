@@ -7,6 +7,7 @@ import { Shell } from "./Shell";
 import { authorsText } from "./WorkList";
 import {
   changeLanguage,
+  partAudioUrl,
   startAnalysis,
   useChapter,
   useLanguages,
@@ -51,6 +52,38 @@ function LanguageField({ work, onChanged }: { work: Work; onChanged: () => void 
 }
 
 type View = "text" | "lines";
+
+export function lengthText(seconds: number): string {
+  const whole = Math.round(seconds);
+  return t("work.length", {
+    minutes: Math.floor(whole / 60),
+    seconds: String(whole % 60).padStart(2, "0"),
+  });
+}
+
+/** A part's plain player, or a note that it is not ready to play yet. */
+function PartAudio({
+  workId,
+  part,
+  label,
+  seconds,
+}: {
+  workId: number;
+  part: string;
+  label: string;
+  seconds: number | null;
+}) {
+  if (seconds === null) return <span className="muted small">{t("work.not_ready")}</span>;
+  return (
+    <audio
+      className="part-audio"
+      controls
+      preload="none"
+      src={partAudioUrl(workId, part)}
+      aria-label={t("work.play", { part: label })}
+    />
+  );
+}
 
 function Characters({ work }: { work: Work }) {
   if (work.characters.length === 0) return <p className="muted">{t("work.no_characters")}</p>;
@@ -138,20 +171,30 @@ export function WorkPage({ id, jobs }: { id: number; jobs: Job[] }) {
     );
   }
 
-  const parts: { key: string; label: string; detail: string }[] = [];
-  if (work.front_matter_blocks > 0) {
-    parts.push({ key: "front", label: t("work.front_matter"), detail: "" });
+  const parts: { key: string; label: string; detail: string; seconds: number | null }[] = [];
+  const withLength = (detail: string, seconds: number | null) =>
+    seconds === null ? detail : [detail, lengthText(seconds)].filter(Boolean).join(" · ");
+  // The front matter holds the Work title and author, so it plays even with no blocks.
+  if (work.front_matter_blocks > 0 || work.front_matter_audio_seconds !== null) {
+    const seconds = work.front_matter_audio_seconds;
+    const label = t("work.front_matter");
+    parts.push({ key: "front", label, detail: withLength("", seconds), seconds });
   }
   for (const chapter of work.chapters) {
     parts.push({
       key: String(chapter.index),
       label: chapter.title ?? t("work.chapter_number", { index: chapter.index }),
-      detail: t("work.words", { count: chapter.words }),
+      detail: withLength(t("work.words", { count: chapter.words }), chapter.audio_seconds),
+      seconds: chapter.audio_seconds,
     });
   }
-  if (work.back_matter_blocks > 0) {
-    parts.push({ key: "back", label: t("work.back_matter"), detail: "" });
+  if (work.back_matter_blocks > 0 || work.back_matter_audio_seconds !== null) {
+    const seconds = work.back_matter_audio_seconds;
+    const label = t("work.back_matter");
+    parts.push({ key: "back", label, detail: withLength("", seconds), seconds });
   }
+  // Parts play from voicing on; before it, none can be ready.
+  const playable = ["voicing", "voiced", "ready", "failed"].includes(work.state);
 
   return (
     <Shell>
@@ -204,6 +247,9 @@ export function WorkPage({ id, jobs }: { id: number; jobs: Job[] }) {
                     <span>{p.label}</span>
                     <span className="muted small">{p.detail}</span>
                   </button>
+                  {playable && (
+                    <PartAudio workId={work.id} part={p.key} label={p.label} seconds={p.seconds} />
+                  )}
                 </li>
               ))}
             </ol>

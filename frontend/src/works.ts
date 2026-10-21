@@ -9,6 +9,7 @@ export type WorkState =
   | "analysed"
   | "voicing"
   | "voiced"
+  | "ready"
   | "failed";
 
 export interface WorkSummary {
@@ -31,12 +32,16 @@ export interface Work extends WorkSummary {
   cover_url: string | null;
   front_matter_blocks: number;
   back_matter_blocks: number;
+  /** The length of each part's assembled audio; null until it is ready to play. */
+  front_matter_audio_seconds: number | null;
+  back_matter_audio_seconds: number | null;
   chapters: {
     index: number;
     title: string | null;
     words: number;
     /** The Character telling a first-person chapter. */
     narrating_character_id: number | null;
+    audio_seconds: number | null;
   }[];
   /** Most lines first. */
   characters: Character[];
@@ -163,6 +168,11 @@ export function useWorks(jobs: Job[]): WorkSummary[] | null {
 /** One Work, reloaded when one of its jobs changes state or `version` changes. */
 export function useWork(id: number, jobs: Job[], version: number): Work | null {
   return useJson<Work>(`/api/works/${id}`, `${jobsKey(jobs, id)}|${version}`);
+}
+
+/** A part's assembled audio: "front", "back" or a chapter's index. */
+export function partAudioUrl(workId: number, part: string): string {
+  return `/api/works/${workId}/audio/${part}`;
 }
 
 export function useChapter(workId: number, part: string | null): Chapter | null {
