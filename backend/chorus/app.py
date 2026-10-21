@@ -18,7 +18,18 @@ from sqlalchemy import select
 from sqlalchemy.orm import Session
 from starlette.background import BackgroundTask
 
-from chorus import assembly, events, exporting, firstrun, healthcheck, tasks, voices, voicing, works  # noqa: F401  (tasks: job kinds)
+from chorus import (  # noqa: F401  (tasks: job kinds)
+    assembly,
+    events,
+    exporting,
+    firstrun,
+    healthcheck,
+    jobs,
+    tasks,
+    voices,
+    voicing,
+    works,
+)
 from chorus.config import get_settings
 from chorus.db import get_session, get_sessionmaker
 from chorus.importing.language import known_languages
@@ -65,6 +76,39 @@ def _work(session: Session, work_id: int) -> Work:
     if row is None:
         raise HTTPException(404, detail={"key": "work.error.not_found", "params": {"id": work_id}})
     return row
+
+
+@api.post("/jobs/{job_id}/{action}")
+def control_job(job_id: int, action: str, session: Session = Depends(get_session)) -> dict:
+    """Pause, resume or cancel a job."""
+    controls = {"pause": jobs.pause, "resume": jobs.resume, "cancel": jobs.cancel}
+    row = session.get(Job, job_id)
+    if row is None or action not in controls:
+        raise HTTPException(404, detail={"key": "job.error.not_found", "params": {"id": job_id}})
+    try:
+        return controls[action](session, row).to_dict()
+    except jobs.NotAllowed as exc:
+        raise HTTPException(
+            409, detail={"key": f"job.error.cannot_{action}", "params": {}}
+        ) from exc
+
+
+@api.post("/works/{work_id}/discard-audio")
+def discard_audio(work_id: int, session: Session = Depends(get_session)) -> dict:
+    """Throws away every line's audio and the assembled chapters; the Work goes back to
+    analysed. Refused while the Work is being voiced, assembled or exported."""
+    row = _work(session, work_id)
+    busy = session.scalar(
+        select(Job.id).where(
+            Job.work_id == work_id,
+            Job.kind.in_(["voicing", "assembly", "export"]),
+            Job.state.in_([JobState.QUEUED, JobState.RUNNING, JobState.PAUSED]),
+        )
+    )
+    if busy is not None:
+        raise HTTPException(409, detail={"key": "work.error.audio_busy", "params": {}})
+    voicing.forget_audio(session, row)
+    return works.detail(row)
 
 
 @api.get("/works")

@@ -315,7 +315,9 @@ def test_the_stage_lists_characters_and_labels_every_quoted_line():
         watson = next(c for c in work.characters if c.name == "Watson")
         assert narrating == {1: None, 2: watson.id}
         assert work.analysis["stage"] == "done"
-        assert reports[-1] == {"stage": "attribution", "done": 2, "total": 2, "percent": 100}
+        assert reports[-1] == {
+            "stage": "attribution", "done": 2, "total": 2, "percent": 100, "seconds_left": 0,
+        }  # fmt: skip
 
 
 def test_a_stopped_analysis_continues_with_the_next_chunk():

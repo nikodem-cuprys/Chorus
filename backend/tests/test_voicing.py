@@ -30,9 +30,18 @@ class Model:
         self.fail_after = fail_after
         self.spoken = 0
 
-    def speak(self, batch):
+    def speak(self, batch, step=None):
+        # T3 over the whole batch, then S3Gen piece by piece, as Chatterbox.speak.
+        for index in range(len(batch)):
+            if step:
+                step("t3", index)
+        yield from self._s3gen(batch, step)
+
+    def _s3gen(self, batch, step):
         self.batches.append(batch)
-        for speech in batch:
+        for index, speech in enumerate(batch):
+            if step:
+                step("s3gen", index)
             if self.fail_after is not None and self.spoken >= self.fail_after:
                 raise RuntimeError("the worker was killed")
             self.spoken += 1

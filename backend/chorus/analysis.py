@@ -40,7 +40,7 @@ from chorus.analysis_model import AnalysisModel, LlamaServer, ModelUnavailable
 from chorus.casting import cast_work
 from chorus.config import get_settings
 from chorus.db import get_sessionmaker
-from chorus.jobs import JobContext, JobFailed, job
+from chorus.jobs import CANCEL, PAUSE, STOPPED_EXIT, JobContext, JobFailed, Pace, Stopped, job
 from chorus.languages import NameRules, get_packs
 from chorus.models import Chapter, Character, Job, Line, Queue, Work, WorkState
 from chorus.script import build_script
@@ -472,8 +472,15 @@ def _start_over(session: Session, work: Work) -> None:
     session.commit()
 
 
-def analyse(session: Session, work: Work, model: AnalysisModel, report: Report) -> None:
-    """Runs the stage over the Work from where it stopped, committing every finished chunk."""
+def analyse(
+    session: Session,
+    work: Work,
+    model: AnalysisModel,
+    report: Report,
+    check: Callable[[], None] | None = None,
+) -> None:
+    """Runs the stage over the Work from where it stopped, committing every finished chunk;
+    `check` is called before each chunk, so a pause stops after the current one."""
     if not work.analysis or work.analysis.get("stage") == "done":
         _start_over(session, work)
     lines = list(
@@ -487,12 +494,25 @@ def analyse(session: Session, work: Work, model: AnalysisModel, report: Report) 
     cast = CastList(list(work.characters), names)
     chapters = {str(c.id): c for c in work.chapters}
 
+    pace = Pace()
+
     def progress(stage: str, done: int) -> None:
         cast_done = total if stage == "attribution" else done
         attribution_done = done if stage == "attribution" else 0
         weight = (1 + ATTRIBUTION_WEIGHT) * total or 1
-        percent = round(100 * (cast_done + ATTRIBUTION_WEIGHT * attribution_done) / weight)
-        report(stage=stage, done=done, total=total, percent=percent)
+        reached = cast_done + ATTRIBUTION_WEIGHT * attribution_done
+        report(
+            stage=stage,
+            done=done,
+            total=total,
+            percent=round(100 * reached / weight),
+            seconds_left=pace.seconds_left(reached, weight),
+        )
+
+    def step(stage: str, index: int) -> None:
+        if check:
+            check()
+        progress(stage, index)
 
     def save(**state: object) -> None:
         work.analysis = {**work.analysis, **state}
@@ -502,7 +522,7 @@ def analyse(session: Session, work: Work, model: AnalysisModel, report: Report) 
     if work.analysis["stage"] == "characters":
         answers = list(work.analysis["answers"])
         for index in range(work.analysis["done"], total):
-            progress("characters", index)
+            step("characters", index)
             text = chunks[index].text
             user = f"LIST SO FAR:\n{roster(cast.characters)}\n\nNEXT PART OF THE TEXT:\n{text}"
             done = model.complete(CAST_SYSTEM, user, CAST_SCHEMA, CAST_MAX_TOKENS)
@@ -542,7 +562,7 @@ def analyse(session: Session, work: Work, model: AnalysisModel, report: Report) 
             if line.voiced and not analysed(line):
                 _narrate(line)
         for index in range(work.analysis["done"], total):
-            progress("attribution", index)
+            step("attribution", index)
             chunk = chunks[index]
             text, quotes = chunk.render()
             for line in chunk.lines:
@@ -595,6 +615,14 @@ def analysis_job(ctx: JobContext) -> None:
     session.commit()
     returncode = run_child(ctx.job.id)
     session.expire_all()
+    if returncode == STOPPED_EXIT:
+        request = ctx.requested() or PAUSE
+        # Cancelled, the Work is back to imported: analysing it again continues from the
+        # chunks already done. Paused, it stays analysing, and the job shows as paused.
+        if request == CANCEL:
+            work.state = WorkState.IMPORTED
+        session.commit()
+        raise Stopped(request)
     if returncode != 0:
         error = ctx.job.error or {
             "key": "analysis.error.unexpected",
@@ -627,7 +655,10 @@ def main(job_id: int) -> int:
         work = session.get(Work, row.work_id)
         try:
             with LlamaServer(firstrun.gguf_path()) as model:
-                analyse(session, work, model, ctx.report)
+                analyse(session, work, model, ctx.report, check=ctx.check)
+        except Stopped:
+            session.rollback()
+            return STOPPED_EXIT
         except ModelUnavailable as exc:
             print(f"analysis: {exc}", flush=True)
             session.rollback()

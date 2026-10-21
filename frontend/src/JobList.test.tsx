@@ -11,6 +11,7 @@ const job = (overrides: Partial<Job>): Job => ({
   state: "running",
   progress: { percent: 40, done: 2, total: 5 },
   error: null,
+  request: null,
   created_at: null,
   started_at: null,
   finished_at: null,

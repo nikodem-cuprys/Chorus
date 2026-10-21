@@ -1,4 +1,5 @@
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
+import type { Job } from "./jobs";
 import { WorkPage } from "./WorkPage";
 import type { Work } from "./works";
 
@@ -40,6 +41,7 @@ const work = (overrides: Partial<Work>): Work => ({
   characters: [],
   narrator_voice: null,
   exports: [],
+  voiced_lines: 0,
   ...overrides,
 });
 
@@ -185,6 +187,58 @@ describe("WorkPage", () => {
     expect((screen.getByText("Export MP3") as HTMLButtonElement).disabled).toBe(true);
     expect(screen.getByText(/can be exported once every chapter is ready/)).toBeTruthy();
     expect(screen.getByText("No exports yet.")).toBeTruthy();
+  });
+
+  it("shows the running job with its progress, time left and controls", async () => {
+    serve(work({ state: "voicing" }));
+    const voicing: Job = {
+      id: 31,
+      work_id: 7,
+      kind: "voicing",
+      queue: "gpu",
+      state: "running",
+      progress: {
+        stage: "voicing", part: 2, parts: 5, done: 120, total: 541, percent: 23,
+        seconds_left: 4980,
+      },
+      error: null,
+      request: null,
+      created_at: null,
+      started_at: null,
+      finished_at: null,
+    };
+    render(<WorkPage id={7} jobs={[voicing]} />);
+    expect(
+      await screen.findByText("Voicing · part 2 of 5 · 120 of 541 lines · 23% · about 1 h 23 min left"),
+    ).toBeTruthy();
+    expect(screen.getByText("Pause")).toBeTruthy();
+    expect(screen.getByText("Cancel")).toBeTruthy();
+    expect(screen.queryByText("Resume")).toBeNull();
+  });
+
+  it("offers resume for a paused job and says when a pause is waiting", async () => {
+    serve(work({ state: "voicing" }));
+    const base: Job = {
+      id: 31, work_id: 7, kind: "voicing", queue: "gpu", state: "paused",
+      progress: { percent: 23 }, error: null, request: null,
+      created_at: null, started_at: null, finished_at: null,
+    };
+    const { rerender } = render(<WorkPage id={7} jobs={[base]} />);
+    expect(await screen.findByText("Resume")).toBeTruthy();
+    expect(screen.getByText("Paused")).toBeTruthy();
+    rerender(<WorkPage id={7} jobs={[{ ...base, state: "running", request: "pause" }]} />);
+    expect(await screen.findByText("Pausing after the current step…")).toBeTruthy();
+    expect((screen.getByText("Pause") as HTMLButtonElement).disabled).toBe(true);
+  });
+
+  it("offers to voice an analysed Work and to discard its audio, with a confirmation", async () => {
+    serve(work({ state: "analysed", voiced_lines: 214 }));
+    render(<WorkPage id={7} jobs={[]} />);
+    expect(await screen.findByText("Voice")).toBeTruthy();
+    fireEvent.click(screen.getByText("Discard audio…"));
+    expect(screen.getByText(/deletes the audio of all 214 voiced lines/)).toBeTruthy();
+    fireEvent.click(screen.getByText("Keep it"));
+    expect(screen.queryByText(/deletes the audio/)).toBeNull();
   });
 
   it("says the English pack is used for a language without one", async () => {

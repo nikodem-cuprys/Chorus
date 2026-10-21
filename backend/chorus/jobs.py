@@ -2,13 +2,28 @@
 
 A job is a row in the `job` table plus a Celery task that carries the row's id. Tasks report
 progress through `JobContext.report`, which saves it and publishes it for the browser.
+
+**Control** (docs/spec/02-architecture.md, Jobs): pausing or cancelling a running job saves the
+request on its row; the job looks at it between steps (`JobContext.check`, after a line, a
+chunk, a part) and stops by raising `Stopped`, keeping all it finished. A queued or paused job is
+paused or cancelled at once. Resuming sends the job again, and it continues where it stopped,
+since every stage saves as it goes. A job run in a child process stops by exiting with
+`STOPPED_EXIT`.
+
+**Sent again:** each job keeps its arguments and the id of the Celery message that may run it;
+any other message for it (a copy Celery hands out again after a crash) is ignored. When the
+worker starts (`recover`), every job that was queued or running is sent again, so a job cut off
+by a crash or restart resumes by itself; a paused job stays paused.
 """
 
+import time
+import uuid
 from collections.abc import Callable
 from datetime import UTC, datetime
 from typing import Any
 
 from celery import Celery, Task
+from sqlalchemy import select
 from sqlalchemy.orm import Session
 
 from chorus import events
@@ -36,6 +51,20 @@ def _now() -> datetime:
     return datetime.now(UTC)
 
 
+# How a job run in a child process says it stopped at a pause or cancel request.
+STOPPED_EXIT = 3
+# Requests a running job can be sent.
+PAUSE, CANCEL = "pause", "cancel"
+
+
+class Stopped(Exception):
+    """Raised by a job that stops at a request: paused or cancelled, keeping what it finished."""
+
+    def __init__(self, request: str):
+        super().__init__(request)
+        self.request = request
+
+
 class JobContext:
     """What a running task uses to talk about its job."""
 
@@ -46,6 +75,17 @@ class JobContext:
     def report(self, **progress: Any) -> None:
         self.job.progress = {**(self.job.progress or {}), **progress}
         self._save()
+
+    def requested(self) -> str | None:
+        """Pause or cancel, if the user asked for either since the job started."""
+        self.session.refresh(self.job, ["request"])
+        return self.job.request
+
+    def check(self) -> None:
+        """Called between steps: raises Stopped when the user asked to pause or cancel."""
+        request = self.requested()
+        if request:
+            raise Stopped(request)
 
     def _set_state(self, state: JobState, **fields: Any) -> None:
         self.job.state = state
@@ -79,16 +119,25 @@ def job(kind: str, queue: Queue) -> Callable[[JobFunction], JobFunction]:
     """Register `fn(ctx, **kwargs)` as the task that runs jobs of this kind on this queue."""
 
     def register(fn: JobFunction) -> JobFunction:
-        @celery_app.task(name=f"chorus.{kind}")
-        def run(job_id: int, **kwargs: Any) -> None:
+        @celery_app.task(name=f"chorus.{kind}", bind=True)
+        def run(task: Task, job_id: int, **kwargs: Any) -> None:
             with get_sessionmaker()() as session:
                 row = session.get(Job, job_id)
-                if row is None or row.state in (JobState.CANCELLED, JobState.DONE):
-                    return
+                if row is None or row.state not in (JobState.QUEUED, JobState.RUNNING):
+                    return  # paused, cancelled or finished since it was sent
+                if row.task_id and task.request.id and task.request.id != row.task_id:
+                    return  # an old message: the job was sent again since
                 ctx = JobContext(session, row)
                 ctx._set_state(JobState.RUNNING, started_at=row.started_at or _now())
                 try:
                     fn(ctx, **kwargs)
+                except Stopped as exc:
+                    session.rollback()
+                    if exc.request == CANCEL:
+                        ctx._set_state(JobState.CANCELLED, finished_at=_now(), request=None)
+                    else:
+                        ctx._set_state(JobState.PAUSED, request=None)
+                    return
                 except JobFailed as exc:
                     # An expected failure: the reason is for the user, not a crash to trace.
                     session.rollback()
@@ -112,10 +161,107 @@ def job(kind: str, queue: Queue) -> Callable[[JobFunction], JobFunction]:
 
 def enqueue(session: Session, kind: str, work_id: int | None = None, **kwargs: Any) -> Job:
     """Create the job row and put its task on the kind's queue."""
-    queue, task = _registry[kind]
-    row = Job(work_id=work_id, kind=kind, queue=queue, state=JobState.QUEUED, progress={})
+    queue, _ = _registry[kind]
+    row = Job(
+        work_id=work_id, kind=kind, queue=queue, state=JobState.QUEUED, progress={}, kwargs=kwargs
+    )
     session.add(row)
     session.commit()
-    events.publish("job", row.to_dict())
-    task.apply_async(args=[row.id], kwargs=kwargs, queue=queue.value)
+    send(session, row)
     return row
+
+
+def send(session: Session, row: Job) -> None:
+    """Puts the job on its queue as a new message; any earlier one is ignored from now on."""
+    _, task = _registry[row.kind]
+    row.state = JobState.QUEUED
+    row.request = None
+    row.task_id = uuid.uuid4().hex
+    session.commit()
+    events.publish("job", row.to_dict())
+    task.apply_async(
+        args=[row.id], kwargs=row.kwargs or {}, queue=row.queue.value, task_id=row.task_id
+    )
+
+
+# ---- Control ----
+
+
+class NotAllowed(Exception):
+    """The job is not in a state that allows what was asked."""
+
+
+def _publish(session: Session, row: Job) -> Job:
+    session.commit()
+    events.publish("job", row.to_dict())
+    return row
+
+
+def pause(session: Session, row: Job) -> Job:
+    if row.state == JobState.QUEUED:
+        row.state = JobState.PAUSED
+    elif row.state == JobState.RUNNING:
+        row.request = PAUSE
+    else:
+        raise NotAllowed
+    return _publish(session, row)
+
+
+def resume(session: Session, row: Job) -> Job:
+    if row.state != JobState.PAUSED:
+        raise NotAllowed
+    send(session, row)
+    return row
+
+
+def cancel(session: Session, row: Job) -> Job:
+    if row.state in (JobState.QUEUED, JobState.PAUSED):
+        row.state, row.finished_at, row.request = JobState.CANCELLED, _now(), None
+    elif row.state == JobState.RUNNING:
+        row.request = CANCEL
+    else:
+        raise NotAllowed
+    return _publish(session, row)
+
+
+def recover(session: Session) -> list[Job]:
+    """Sends again every job that was queued or running when the worker stopped; one asked to
+    pause or cancel while it ran is paused or cancelled instead. Run before the workers start."""
+    resent = []
+    rows = session.scalars(
+        select(Job).where(Job.state.in_([JobState.QUEUED, JobState.RUNNING])).order_by(Job.id)
+    )
+    for row in list(rows):
+        if row.kind not in _registry:
+            continue
+        if row.request == CANCEL:
+            row.state, row.finished_at, row.request = JobState.CANCELLED, _now(), None
+            _publish(session, row)
+        elif row.request == PAUSE:
+            row.state, row.request = JobState.PAUSED, None
+            _publish(session, row)
+        else:
+            send(session, row)
+            resent.append(row)
+    return resent
+
+
+# ---- Time left ----
+
+
+class Pace:
+    """A time-left estimate from the speed measured since the first call in this run."""
+
+    def __init__(self) -> None:
+        self._start: tuple[float, float] | None = None
+
+    def seconds_left(self, done: float, total: float) -> int | None:
+        now = time.monotonic()
+        if self._start is None:
+            self._start = (now, done)
+            return None
+        started, done_then = self._start
+        if done <= done_then or now <= started:
+            return None
+        rate = (done - done_then) / (now - started)
+        return round(max(0.0, total - done) / rate)

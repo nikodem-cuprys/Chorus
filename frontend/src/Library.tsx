@@ -19,7 +19,7 @@ export function Library({ jobs, connected }: { jobs: Job[]; connected: boolean }
           {t("nav.import")}
         </Link>
       </div>
-      {works && <WorkList works={works} />}
+      {works && <WorkList works={works} jobs={jobs} />}
 
       <h2>{t("jobs.title")}</h2>
       {!connected && <p className="notice">{t("jobs.connection_lost")}</p>}

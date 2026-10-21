@@ -8,7 +8,7 @@ import hashlib
 from datetime import UTC, datetime
 from pathlib import Path, PurePath
 
-from sqlalchemy import delete, func, select
+from sqlalchemy import Text, cast, delete, func, select
 from sqlalchemy.orm import Session, object_session
 
 from chorus.config import get_settings
@@ -218,8 +218,21 @@ def detail(work: Work) -> dict:
         ],
         "characters": _characters(work),
         "exports": _exports(work),
+        "voiced_lines": voiced_lines(work),
         "narrator_voice": _voice_names(object_session(work)).get(work.narrator_voice_id),
     }
+
+
+def voiced_lines(work: Work) -> int:
+    """Lines with a take. A take cleared to None is stored as JSON null, so both are counted
+    as none."""
+    return object_session(work).scalar(
+        select(func.count()).where(
+            Line.work_id == work.id,
+            Line.take.is_not(None),
+            cast(Line.take, Text) != "null",
+        )
+    )
 
 
 def _exports(work: Work) -> list[dict]:

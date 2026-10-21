@@ -45,7 +45,7 @@ from chorus import firstrun
 from chorus.casting import narration_voice
 from chorus.config import get_settings
 from chorus.db import get_sessionmaker
-from chorus.jobs import JobContext, JobFailed, job
+from chorus.jobs import CANCEL, PAUSE, STOPPED_EXIT, JobContext, JobFailed, Pace, Stopped, job
 from chorus.languages import MAX_EXAGGERATION, LanguagePack, get_packs
 from chorus.models import Chapter, Character, Job, Line, Queue, Voice, Work, WorkState
 from chorus.voice_model import Chatterbox, Speech, VoiceModel
@@ -55,6 +55,9 @@ NEUTRAL = ("neutral", "normal")
 # A line with no letters or digits in it ("* * *", a lone dash) is this much silence: the voice
 # model, given no words, says a sentence of its own.
 SILENT_LINE_SECONDS = 0.25
+# The share of a sentence's voicing time spent in T3 (the rest in S3Gen), for progress and the
+# time left: 500 s of 771 s voicing Metamorphosis' chapter on the GTX 1050 Ti (M1 ticket 15).
+T3_SHARE = 0.65
 
 
 def pauses() -> dict[str, float]:
@@ -70,6 +73,20 @@ def lines_dir(work_id: int) -> Path:
 def discard_audio(work_id: int) -> None:
     """Removes a Work's line audio, for a new analysis that cuts the Script again."""
     shutil.rmtree(lines_dir(work_id), ignore_errors=True)
+
+
+def forget_audio(session: Session, work: Work) -> None:
+    """Throws away the Work's audio at the user's request: every line's take and seed, and the
+    assembled parts. Voicing it again starts from nothing, with new seeds."""
+    from chorus.assembly import discard
+
+    discard_audio(work.id)
+    discard(session, work)
+    for line in session.scalars(select(Line).where(Line.work_id == work.id)):
+        line.take, line.seed = None, None
+    if work.state in (WorkState.VOICING, WorkState.VOICED, WorkState.READY):
+        work.state = WorkState.ANALYSED
+    session.commit()
 
 
 # ---- What a line is voiced with ----
@@ -168,6 +185,10 @@ def join(parts: list[np.ndarray], gaps: list[float], sample_rate: int) -> np.nda
 Report = Callable[..., None]
 
 
+def _words(text: str) -> int:
+    return len(text.split())
+
+
 def part_key(line: Line, chapters: dict[int, Chapter]) -> str:
     """The part a line is in, as chorus.assembly names it: front, back or the chapter's index."""
     return str(chapters[line.chapter_id].index) if line.part == "chapter" else line.part
@@ -179,10 +200,17 @@ def voice_work(
     model: VoiceModel,
     report: Report,
     part_voiced: Callable[[str], None] | None = None,
+    check: Callable[[], None] | None = None,
 ) -> int:
     """Voices every line of the Work that needs it, chapter by chapter in reading order,
     committing each line as soon as its file is written; `part_voiced` is told each part
-    (chorus.assembly) whose lines were voiced. Returns the number of lines voiced."""
+    (chorus.assembly) whose lines were voiced, and `check` is called before each sentence in
+    each half of the model, so a pause stops within a sentence. Returns the number of lines
+    voiced.
+
+    Progress is counted in words, each sentence's words split between T3 and S3Gen by the time
+    each half takes (`T3_SHARE`): lines voiced before this run count as done, and the time
+    left comes from this run's speed."""
     from chorus.works import pack_language
 
     pack = get_packs()[pack_language(work.language)]
@@ -206,16 +234,29 @@ def voice_work(
     }
     todo = [line for line in lines if needs_voicing(line, plans[line.id], work.id)]
     parts = [list(group) for _, group in groupby(todo, key=lambda ln: (ln.part, ln.chapter_id))]
+    # Every part of the Work, so progress says "part 3 of 12" also when only 3 to 12 are left.
+    every_part = list(dict.fromkeys(part_key(line, chapters) for line in lines))
     done = len(lines) - len(todo)
+    words_total = sum(_words(line.text) for line in lines) or 1
+    words_done = float(words_total - sum(_words(line.text) for line in todo))
+    pace = Pace()
+    reached = words_done  # where the last report was, in words
 
-    def progress(part: int) -> None:
+    def progress(part: int, words: float | None = None) -> None:
+        nonlocal reached
+        if words is not None:
+            reached = words
+        share = reached / words_total
+        key = part_key(parts[part - 1][0], chapters) if parts else None
         report(
             stage="voicing",
-            part=part,
-            parts=len(parts),
+            part=every_part.index(key) + 1 if key else len(every_part),
+            parts=len(every_part),
+            chapter=key,
             done=done,
             total=len(lines),
-            percent=round(100 * done / len(lines)) if lines else 100,
+            percent=min(100, round(100 * share)),
+            seconds_left=pace.seconds_left(share, 1.0),
         )
 
     def save(line: Line, plan: LinePlan, audio: np.ndarray) -> None:
@@ -255,14 +296,30 @@ def voice_work(
                 owners.append(line)
         session.commit()  # the seeds, before any audio exists
         if not batch:
+            words_done += sum(_words(line.text) for line in part)
+            progress(number, words_done)
             if part_voiced:
                 part_voiced(part_key(part[0], chapters))
             continue
 
+        # Words before each piece of the batch, for progress inside a half.
+        before = [0]
+        for speech in batch:
+            before.append(before[-1] + _words(speech.text))
+
+        def step(half: str, index: int, before=before, number=number, base=words_done) -> None:
+            if check:
+                check()
+            if half == "t3":
+                inside = T3_SHARE * before[index]
+            else:
+                inside = T3_SHARE * before[-1] + (1 - T3_SHARE) * before[index]
+            progress(number, base + inside)
+
         started = time.monotonic()
         heard: dict[int, list[np.ndarray]] = {}
         seconds = 0.0
-        for (_, audio), line in zip(model.speak(batch), owners, strict=True):
+        for (_, audio), line in zip(model.speak(batch, step), owners, strict=True):
             heard.setdefault(line.id, []).append(audio)
             if len(heard[line.id]) == len(line_gaps[line.id]):
                 joined = join(heard.pop(line.id), line_gaps[line.id], model.sample_rate)
@@ -275,6 +332,8 @@ def voice_work(
             f"{seconds:.1f} s of audio in {took:.1f} s ({took / max(seconds, 0.001):.2f}x)",
             flush=True,
         )
+        words_done += sum(_words(line.text) for line in part)
+        progress(number, words_done)
         if part_voiced:
             part_voiced(part_key(part[0], chapters))
     progress(len(parts))
@@ -293,6 +352,14 @@ def voicing_job(ctx: JobContext) -> None:
     session.commit()
     returncode = run_child(ctx.job.id)
     session.expire_all()
+    if returncode == STOPPED_EXIT:
+        request = ctx.requested() or PAUSE
+        # Cancelled, the Work is back to analysed: starting voicing again voices what is
+        # missing. Paused, it stays voicing, and the job shows as paused.
+        if request == CANCEL:
+            work.state = WorkState.ANALYSED
+        session.commit()
+        raise Stopped(request)
     if returncode != 0:
         error = ctx.job.error or {
             "key": "voicing.error.unexpected",
@@ -337,7 +404,11 @@ def main(job_id: int) -> int:
                     model,
                     ctx.report,
                     part_voiced=lambda part: start_assembly(session, work, part),
+                    check=ctx.check,
                 )
+        except Stopped:
+            session.rollback()
+            return STOPPED_EXIT
         except Exception as exc:
             session.rollback()
             row.error = {"key": "voicing.error.unexpected", "params": {"detail": repr(exc)}}

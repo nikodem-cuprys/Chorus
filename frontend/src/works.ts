@@ -49,6 +49,8 @@ export interface Work extends WorkSummary {
   narrator_voice: string | null;
   /** MP3 and M4B exports, newest first. */
   exports: Export[];
+  /** Lines voiced at least once; 0 when there is no audio to discard. */
+  voiced_lines: number;
 }
 
 export type ExportKind = "m4b" | "mp3";
@@ -239,6 +241,18 @@ export async function startExport(id: number, kind: ExportKind): Promise<void> {
 
 export async function deleteExport(id: number): Promise<void> {
   await fetch(`/api/exports/${id}`, { method: "DELETE" });
+}
+
+export async function startVoicing(id: number): Promise<void> {
+  await fetch(`/api/works/${id}/voicing`, { method: "POST" });
+}
+
+export async function discardAudio(id: number): Promise<void> {
+  const response = await fetch(`/api/works/${id}/discard-audio`, { method: "POST" });
+  if (!response.ok) {
+    const detail = (await response.json().catch(() => null)) as { detail?: Message } | null;
+    throw detail?.detail ?? { key: "work.error.audio_busy" };
+  }
 }
 
 export async function changeLanguage(id: number, language: string): Promise<void> {

@@ -1,15 +1,18 @@
 import { useState } from "react";
 import { Blocks } from "./Blocks";
 import { languageName, locale, t, tMessage, type Message, type MessageKey } from "./i18n";
-import type { Job } from "./jobs";
+import { activeJob, progressText, stateText } from "./JobProgress";
+import { controlJob, type Job, type JobAction } from "./jobs";
 import { Lines } from "./Lines";
 import { Shell } from "./Shell";
 import { authorsText } from "./WorkList";
 import {
   changeLanguage,
   deleteExport,
+  discardAudio,
   partAudioUrl,
   startExport,
+  startVoicing,
   startAnalysis,
   useChapter,
   useLanguages,
@@ -55,6 +58,82 @@ function LanguageField({ work, onChanged }: { work: Work; onChanged: () => void 
 }
 
 type View = "text" | "lines";
+
+/** The Work's job still to finish, with its progress and pause, resume and cancel. */
+function JobPanel({ job }: { job: Job }) {
+  const [error, setError] = useState<Message | null>(null);
+  const act = (action: JobAction) => {
+    setError(null);
+    controlJob(job.id, action).catch((message: Message) => setError(message));
+  };
+  const percent = job.progress.percent ?? 0;
+  const waiting = job.request !== null;
+  return (
+    <section className="job-panel">
+      <div className="job-head">
+        <strong>{tMessage({ key: `job.kind.${job.kind}` })}</strong>
+        <span className="muted">{stateText(job)}</span>
+      </div>
+      <div className="bar" role="progressbar" aria-valuemin={0} aria-valuemax={100} aria-valuenow={percent}>
+        <div className="bar-fill" style={{ width: `${percent}%` }} />
+      </div>
+      <p className="muted small">{progressText(job)}</p>
+      <div className="job-controls">
+        {(job.state === "queued" || job.state === "running") && (
+          <button type="button" disabled={waiting} onClick={() => act("pause")}>
+            {t("job.pause")}
+          </button>
+        )}
+        {job.state === "paused" && (
+          <button type="button" onClick={() => act("resume")}>
+            {t("job.resume")}
+          </button>
+        )}
+        <button type="button" disabled={waiting} onClick={() => act("cancel")}>
+          {t("job.cancel")}
+        </button>
+      </div>
+      {error && <p className="error">{tMessage(error)}</p>}
+    </section>
+  );
+}
+
+/** Throws away the Work's audio, after a confirmation that says how much. */
+function DiscardAudio({ work, onChanged }: { work: Work; onChanged: () => void }) {
+  const [asking, setAsking] = useState(false);
+  const [error, setError] = useState<Message | null>(null);
+  if (!asking) {
+    return (
+      <button type="button" className="quiet" onClick={() => setAsking(true)}>
+        {t("work.discard_audio")}
+      </button>
+    );
+  }
+  return (
+    <div className="confirm" role="alertdialog">
+      <p>{t("work.discard_audio_confirm", { count: work.voiced_lines })}</p>
+      <button
+        type="button"
+        className="danger"
+        onClick={() =>
+          discardAudio(work.id).then(
+            () => {
+              setAsking(false);
+              onChanged();
+            },
+            (message: Message) => setError(message),
+          )
+        }
+      >
+        {t("work.discard_audio_yes")}
+      </button>{" "}
+      <button type="button" onClick={() => setAsking(false)}>
+        {t("work.discard_audio_no")}
+      </button>
+      {error && <p className="error">{tMessage(error)}</p>}
+    </div>
+  );
+}
 
 function dateText(iso: string | null): string {
   if (iso === null) return "";
@@ -218,6 +297,7 @@ export function WorkPage({ id, jobs }: { id: number; jobs: Job[] }) {
   const [version, setVersion] = useState(0);
   const work = useWork(id, jobs, version);
   const [part, setPart] = useState<string | null>(null);
+  const job = activeJob(jobs, id);
 
   if (work === null) {
     return (
@@ -249,8 +329,10 @@ export function WorkPage({ id, jobs }: { id: number; jobs: Job[] }) {
     const label = t("work.back_matter");
     parts.push({ key: "back", label, detail: withLength("", seconds), seconds });
   }
-  // Parts play from voicing on; before it, none can be ready.
-  const playable = ["voicing", "voiced", "ready", "failed"].includes(work.state);
+  // Parts play from voicing on, and after a cancelled one; before it, none can be ready.
+  const playable =
+    ["voicing", "voiced", "ready", "failed"].includes(work.state) || work.voiced_lines > 0;
+  const reload = () => setVersion((v) => v + 1);
 
   return (
     <Shell>
@@ -263,16 +345,32 @@ export function WorkPage({ id, jobs }: { id: number; jobs: Job[] }) {
             {t(`work.state.${work.state}` as MessageKey)} · {work.source.name}
           </p>
           <LanguageField work={work} onChanged={() => setVersion((v) => v + 1)} />
-          {(work.state === "analysed" || (work.state === "failed" && work.chapters.length > 0)) && (
-            <button
-              type="button"
-              onClick={() => startAnalysis(work.id).then(() => setVersion((v) => v + 1))}
-            >
-              {t("work.analyse")}
-            </button>
-          )}
+          <div className="work-actions">
+            {job === null && work.state === "imported" && work.chapters.length > 0 && (
+              <button type="button" onClick={() => startAnalysis(work.id).then(reload)}>
+                {t("work.analyse_first")}
+              </button>
+            )}
+            {job === null &&
+              (work.state === "analysed" ||
+                (work.state === "failed" && work.chapters.length > 0)) && (
+                <button type="button" onClick={() => startAnalysis(work.id).then(reload)}>
+                  {t("work.analyse")}
+                </button>
+              )}
+            {job === null && work.state === "analysed" && (
+              <button type="button" onClick={() => startVoicing(work.id).then(reload)}>
+                {t("work.voice_start")}
+              </button>
+            )}
+            {job === null && work.voiced_lines > 0 && (
+              <DiscardAudio work={work} onChanged={reload} />
+            )}
+          </div>
         </div>
       </div>
+
+      {job && <JobPanel job={job} />}
 
       {work.error && <p className="error">{tMessage(work.error)}</p>}
       {work.warnings.length > 0 && (

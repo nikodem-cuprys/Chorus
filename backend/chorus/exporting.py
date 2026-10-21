@@ -38,7 +38,7 @@ from sqlalchemy.orm import Session
 
 from chorus.assembly import Part, audio_dir, is_assembled, is_voiced, parts_of
 from chorus.config import get_settings
-from chorus.jobs import JobContext, JobFailed, job
+from chorus.jobs import JobContext, JobFailed, Pace, job
 from chorus.models import Export, Queue, Work, WorkState
 
 KINDS = ("m4b", "mp3")
@@ -140,19 +140,26 @@ def _metadata(value: str) -> str:
 
 
 def run_ffmpeg(arguments: list[str], seconds: float, progress: Callable[[float], None]) -> None:
-    """Runs ffmpeg, telling `progress` the share of `seconds` written so far."""
+    """Runs ffmpeg, telling `progress` the share of `seconds` written so far. Whatever
+    `progress` raises (a pause, chorus.jobs) stops ffmpeg and is raised again."""
     command = [
         get_settings().ffmpeg, "-nostdin", "-hide_banner", "-loglevel", "error", "-y",
         "-progress", "pipe:1", "-nostats", *arguments,
     ]  # fmt: skip
     with tempfile.TemporaryFile("w+", encoding="utf-8") as errors:
         process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=errors, text=True)
-        for row in process.stdout:
-            if row.startswith("out_time_us=") and seconds > 0:
-                try:
-                    progress(min(1.0, int(row.split("=", 1)[1]) / 1e6 / seconds))
-                except ValueError:
-                    pass  # "N/A" before the first packet
+        try:
+            for row in process.stdout:
+                if row.startswith("out_time_us=") and seconds > 0:
+                    try:
+                        written = int(row.split("=", 1)[1]) / 1e6
+                    except ValueError:
+                        continue  # "N/A" before the first packet
+                    progress(min(1.0, written / seconds))
+        except BaseException:
+            process.kill()
+            process.wait()
+            raise
         if process.wait() != 0:
             errors.seek(0)
             raise JobFailed("export.error.ffmpeg", errors.read()[-2000:])
@@ -274,14 +281,29 @@ def ready_parts(session: Session, work: Work) -> list[Part]:
     return parts
 
 
-def export_work(session: Session, work: Work, kind: str, report: Report) -> Export:
-    """Writes the export's files and records it, replacing the Work's export of that kind."""
+def export_work(
+    session: Session,
+    work: Work,
+    kind: str,
+    report: Report,
+    check: Callable[[], None] | None = None,
+) -> Export:
+    """Writes the export's files and records it, replacing the Work's export of that kind.
+    `check` is called as ffmpeg writes; a paused export starts over when resumed."""
     parts = ready_parts(session, work)
     folder = exports_dir() / work_folder(work)
     folder.mkdir(parents=True, exist_ok=True)
+    pace = Pace()
 
     def progress(share: float) -> None:
-        report(stage="export", kind=kind, percent=round(100 * share))
+        if check:
+            check()
+        report(
+            stage="export",
+            kind=kind,
+            percent=round(100 * share),
+            seconds_left=pace.seconds_left(share, 1.0),
+        )
 
     progress(0)
     with tempfile.TemporaryDirectory(prefix=".export-", dir=folder) as tmp:
@@ -315,7 +337,7 @@ def export_work(session: Session, work: Work, kind: str, report: Report) -> Expo
     )
     session.add(row)
     session.commit()
-    progress(1)
+    report(stage="export", kind=kind, percent=100, seconds_left=0)
     return row
 
 
@@ -327,7 +349,7 @@ def export_job(ctx: JobContext, export_kind: str) -> None:
     work = ctx.session.get(Work, ctx.job.work_id)
     if work is None:
         return
-    export_work(ctx.session, work, export_kind, ctx.report)
+    export_work(ctx.session, work, export_kind, ctx.report, check=ctx.check)
 
 
 def start_export(session: Session, work: Work, kind: str) -> None:

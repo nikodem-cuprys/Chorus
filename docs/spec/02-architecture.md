@@ -49,7 +49,8 @@ So import, assembly and export run while audio is being generated.
 
 - **Saved as it goes:** every finished analysis chunk and every voiced line is saved at once. A job that stops continues where it stopped.
 - **Controls:** pause, resume and cancel for analysis, voicing and export. Pause stops after the current line or chunk and frees the GPU. Cancel keeps every finished line, so starting again does only what is missing; throwing audio away is a separate, explicit action.
-- **After a crash or reboot:** a running job resumes by itself when Chorus is back up; a paused job stays paused.
+- **How a job stops:** pause and cancel are saved as a request on the job; the job looks at it between steps (a sentence in either half of voicing, an analysis chunk, ffmpeg's progress in an export), and a GPU stage's child process exits, which frees the card. Resuming queues the job again. A paused export starts its files over.
+- **After a crash or reboot:** a running job resumes by itself when Chorus is back up; a paused job stays paused. When the worker starts, it queues again every job that was queued or running; each job keeps the id of its latest queue message and ignores older copies, which Celery hands out again after a crash.
 - **Progress:** the stage, chapter x of y, lines done of total, a percentage and a time-left estimate from the measured speed. Shown on the Work page and in the Library.
 - **Corrections never restart a running job** (see [03-pipeline.md](03-pipeline.md#regenerate)).
 

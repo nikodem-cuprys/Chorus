@@ -52,6 +52,12 @@ class Job(Base):
     progress: Mapped[dict] = mapped_column(JSON, default=dict)
     # A message-catalogue key and its parameters, never display text.
     error: Mapped[dict | None] = mapped_column(JSON)
+    # The arguments it runs with, so it can be sent again (chorus.jobs).
+    kwargs: Mapped[dict] = mapped_column(JSON, default=dict)
+    # The Celery message that may run it; other messages for it are ignored.
+    task_id: Mapped[str | None] = mapped_column(String(64))
+    # "pause" or "cancel", asked of it while it runs.
+    request: Mapped[str | None] = mapped_column(String(10))
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=_now)
     started_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
     finished_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
@@ -65,6 +71,7 @@ class Job(Base):
             "state": self.state.value,
             "progress": self.progress or {},
             "error": self.error,
+            "request": self.request,
             "created_at": self.created_at.isoformat() if self.created_at else None,
             "started_at": self.started_at.isoformat() if self.started_at else None,
             "finished_at": self.finished_at.isoformat() if self.finished_at else None,

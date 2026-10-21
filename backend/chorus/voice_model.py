@@ -13,7 +13,7 @@ tests never load them.
 
 import gc
 import os
-from collections.abc import Iterator
+from collections.abc import Callable, Iterator
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Protocol
@@ -37,10 +37,17 @@ class Speech:
     seed: int
 
 
+# Called before each piece of a batch in each half: the half ("t3" or "s3gen") and the piece's
+# index. It may raise to stop the batch (a pause, chorus.jobs).
+Step = Callable[[str, int], None]
+
+
 class VoiceModel(Protocol):
     sample_rate: int
 
-    def speak(self, batch: list[Speech]) -> Iterator[tuple[Speech, np.ndarray]]:
+    def speak(
+        self, batch: list[Speech], step: Step | None = None
+    ) -> Iterator[tuple[Speech, np.ndarray]]:
         """Each piece of the batch with its audio (mono float32 at `sample_rate`), in order."""
         ...
 
@@ -88,7 +95,9 @@ class Chatterbox:
             )
         return self._references[path]
 
-    def speak(self, batch: list[Speech]) -> Iterator[tuple[Speech, np.ndarray]]:
+    def speak(
+        self, batch: list[Speech], step: Step | None = None
+    ) -> Iterator[tuple[Speech, np.ndarray]]:
         import torch
         import torch.nn.functional as F
         from chatterbox.models.s3tokenizer import drop_invalid_tokens
@@ -103,7 +112,9 @@ class Chatterbox:
         tts.t3.to(self.device)
         tokens = []
         try:
-            for speech in batch:
+            for index, speech in enumerate(batch):
+                if step:
+                    step("t3", index)
                 embedding, prompt, _ = self._references[speech.reference]
                 cond = T3Cond(
                     speaker_emb=embedding,
@@ -133,7 +144,9 @@ class Chatterbox:
         # S3Gen over the same batch.
         tts.s3gen.to(self.device)
         try:
-            for speech, speech_tokens in zip(batch, tokens, strict=True):
+            for index, (speech, speech_tokens) in enumerate(zip(batch, tokens, strict=True)):
+                if step:
+                    step("s3gen", index)
                 gen = {
                     k: v.to(self.device) if torch.is_tensor(v) else v
                     for k, v in self._references[speech.reference][2].items()

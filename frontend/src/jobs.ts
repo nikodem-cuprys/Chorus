@@ -11,9 +11,22 @@ export interface Job {
   state: JobState;
   progress: { percent?: number; done?: number; total?: number; [name: string]: unknown };
   error: Message | null;
+  /** A pause or cancel asked of a running job, waiting for its next step. */
+  request: "pause" | "cancel" | null;
   created_at: string | null;
   started_at: string | null;
   finished_at: string | null;
+}
+
+export type JobAction = "pause" | "resume" | "cancel";
+
+/** Pauses, resumes or cancels a job; throws the backend's message when it is refused. */
+export async function controlJob(id: number, action: JobAction): Promise<void> {
+  const response = await fetch(`/api/jobs/${id}/${action}`, { method: "POST" });
+  if (!response.ok) {
+    const detail = (await response.json().catch(() => null)) as { detail?: Message } | null;
+    throw detail?.detail ?? { key: "job.error.unexpected", params: { detail: response.status } };
+  }
 }
 
 /** The latest jobs, kept up to date from the server-sent events stream. */
