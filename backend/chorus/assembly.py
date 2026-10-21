@@ -118,29 +118,35 @@ def is_voiced(work: Work, part: Part) -> bool:
     )
 
 
-def pauses_after(part: Part, gaps: dict[str, float]) -> list[float]:
-    """The pause after each of the part's lines. After the last one, only a long pause."""
+def pause_kinds(part: Part) -> list[list[str]]:
+    """The kinds of pause (keys of the pause settings) that apply after each of the part's
+    lines; none after the last line unless it asks for a long pause."""
     breaks = {n for n, b in enumerate(part.blocks) if b.get("type") == "section_break"}
     out = []
     for line, following in zip(part.lines, [*part.lines[1:], None], strict=True):
         long = line.passage in LONG_PAUSE_AFTER or (
             line.passage == "epigraph" and (following is None or following.passage != "epigraph")
         )
-        candidates = [gaps["after_title"]] if long else [0.0]
+        kinds = ["after_title"] if long else []
         if following is not None:
             # A line Chorus made (a title) stands before the part's first block.
             end = line.last_paragraph if line.last_paragraph is not None else -1
             start = following.paragraph if following.paragraph is not None else end + 1
             if any(end < n < start for n in breaks):
-                candidates.append(gaps["section_break"])
+                kinds.append("section_break")
             elif start == end:
-                candidates.append(gaps["between_lines"])
+                kinds.append("between_lines")
             elif start == end + 1 and line.passage == following.passage == "verse":
-                candidates.append(gaps["verse_line_end"])
+                kinds.append("verse_line_end")
             else:
-                candidates.append(gaps["new_paragraph"])
-        out.append(max(candidates))
+                kinds.append("new_paragraph")
+        out.append(kinds)
     return out
+
+
+def pauses_after(part: Part, gaps: dict[str, float]) -> list[float]:
+    """The pause after each of the part's lines: the longest that applies."""
+    return [max((gaps[k] for k in kinds), default=0.0) for kinds in pause_kinds(part)]
 
 
 # ---- Assembling one part ----

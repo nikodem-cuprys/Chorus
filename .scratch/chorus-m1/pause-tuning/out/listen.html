@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width, initial-scale=1">
+<title>Pause tuning</title>
+<style>
+:root { --bg: #fbfaf7; --text: #1d1d1b; --muted: #6b6a66; --line: #dddad2; --accent: #2f5d8a; }
+@media (prefers-color-scheme: dark) { :root { --bg: #1b1c1e; --text: #ecebe7; --muted: #a3a19b; --line: #3a3b3e; --accent: #8db8e3; } }
+body { background: var(--bg); color: var(--text); font: 16px/1.5 system-ui, sans-serif; margin: 0 auto; max-width: 1100px; padding: 16px; }
+h1 { margin-bottom: 0 } h2 { margin-top: 40px; border-top: 1px solid var(--line); padding-top: 16px; }
+.muted { color: var(--muted) } .example { margin: 12px 0 20px }
+.row { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 8px; }
+figure { margin: 0; padding: 6px 8px; border: 1px solid var(--line); border-radius: 8px; }
+figure.now { border-color: var(--accent) } figcaption { font-size: 14px; color: var(--muted) }
+audio { width: 100% } .pick { background: color-mix(in srgb, var(--accent) 10%, transparent); padding: 8px 12px; border-radius: 8px; }
+textarea { width: 100%; font: 14px ui-monospace, monospace; height: 9em; background: var(--bg); color: var(--text); border: 1px solid var(--line); }
+input.other { width: 5em }
+</style></head><body>
+<h1>Pause tuning</h1>
+<p class=muted>Real excerpts of the voiced sample passages, put together exactly as assembly does (each take trimmed, keeping 0.04 s at each end, then the pause). For each pause, listen to the examples at each length and pick one. The choices appear at the bottom: paste them back to Claude.</p>
+<p class=muted><b>Setting and heard silence differ.</b> Each player shows the setting and the silence actually heard there (quieter than −50 dB). Between lines, the heard silence is the setting plus the 0.08 s kept at the two trimmed ends. Between sentences, inside one take, it is much longer: voicing joins the sentences as the voice model wrote them, each with its own silence at the end and start, which is not trimmed. If sentence pauses sound too long even at the shortest setting, that is the cause, and it can be fixed in voicing.</p>
+<section><h2>Between sentences of one line</h2>
+<p class=muted>Now <b>0.3 s</b> (<code>between_sentences</code>).</p>
+<div class=example><p><b>1.</b> dream as an exploit to be attempted, although he still … <span class=muted>(06-crime-and-punishment-opening, af_bella)</span></p><div class=row>
+<figure class='v'><figcaption>0.15 s · heard 0.45 s</figcaption><audio controls preload=none src='between_sentences-1-0.15.wav'></audio></figure>
+<figure class='v now'><figcaption>0.3 s (now) · heard 0.6 s</figcaption><audio controls preload=none src='between_sentences-1-0.3.wav'></audio></figure>
+<figure class='v'><figcaption>0.45 s · heard 0.75 s</figcaption><audio controls preload=none src='between_sentences-1-0.45.wav'></audio></figure>
+<figure class='v'><figcaption>0.6 s · heard 0.9 s</figcaption><audio controls preload=none src='between_sentences-1-0.6.wav'></audio></figure>
+</div></div>
+<div class=example><p><b>2.</b> “Oh, single, my dear, to be sure! A single man … <span class=muted>(01-pride-and-prejudice-ch1-2, af_alloy)</span></p><div class=row>
+<figure class='v'><figcaption>0.15 s · heard 0.6 s</figcaption><audio controls preload=none src='between_sentences-2-0.15.wav'></audio></figure>
+<figure class='v now'><figcaption>0.3 s (now) · heard 0.75 s</figcaption><audio controls preload=none src='between_sentences-2-0.3.wav'></audio></figure>
+<figure class='v'><figcaption>0.45 s · heard 0.9 s</figcaption><audio controls preload=none src='between_sentences-2-0.45.wav'></audio></figure>
+<figure class='v'><figcaption>0.6 s · heard 1.05 s</figcaption><audio controls preload=none src='between_sentences-2-0.6.wav'></audio></figure>
+</div></div>
+<div class=example><p><b>3.</b> said the Hatter. He had been looking at Alice for … <span class=muted>(02-alice-mad-tea-party, af_bella)</span></p><div class=row>
+<figure class='v'><figcaption>0.15 s · heard 0.37 s</figcaption><audio controls preload=none src='between_sentences-3-0.15.wav'></audio></figure>
+<figure class='v now'><figcaption>0.3 s (now) · heard 0.52 s</figcaption><audio controls preload=none src='between_sentences-3-0.3.wav'></audio></figure>
+<figure class='v'><figcaption>0.45 s · heard 0.67 s</figcaption><audio controls preload=none src='between_sentences-3-0.45.wav'></audio></figure>
+<figure class='v'><figcaption>0.6 s · heard 0.82 s</figcaption><audio controls preload=none src='between_sentences-3-0.6.wav'></audio></figure>
+</div></div>
+<p class=pick>Pick: <label><input type=radio name=between_sentences value=0.15> 0.15 s</label> <label><input type=radio name=between_sentences value=0.3 checked> 0.3 s</label> <label><input type=radio name=between_sentences value=0.45> 0.45 s</label> <label><input type=radio name=between_sentences value=0.6> 0.6 s</label> <label><input type=radio name=between_sentences value=other> other: <input type=number step=0.05 min=0 class=other data-kind=between_sentences></label></p></section>
+<section><h2>Between lines in one paragraph (a quotation and its narration)</h2>
+<p class=muted>Now <b>0.45 s</b> (<code>between_lines</code>).</p>
+<div class=example><p><b>1.</b> … a thing like that and am frightened by these trifles,”  ‖  he thought, with an odd smile. <span class=muted>(06-crime-and-punishment-opening, af_bella)</span></p><div class=row>
+<figure class='v'><figcaption>0.3 s · heard 0.38 s</figcaption><audio controls preload=none src='between_lines-1-0.3.wav'></audio></figure>
+<figure class='v now'><figcaption>0.45 s (now) · heard 0.53 s</figcaption><audio controls preload=none src='between_lines-1-0.45.wav'></audio></figure>
+<figure class='v'><figcaption>0.6 s · heard 0.68 s</figcaption><audio controls preload=none src='between_lines-1-0.6.wav'></audio></figure>
+<figure class='v'><figcaption>0.8 s · heard 0.88 s</figcaption><audio controls preload=none src='between_lines-1-0.8.wav'></audio></figure>
+</div></div>
+<div class=example><p><b>2.</b> “My dear Mr. Bennet,”  ‖  said his lady to him one day, <span class=muted>(01-pride-and-prejudice-ch1-2, af_bella)</span></p><div class=row>
+<figure class='v'><figcaption>0.3 s · heard 0.38 s</figcaption><audio controls preload=none src='between_lines-2-0.3.wav'></audio></figure>
+<figure class='v now'><figcaption>0.45 s (now) · heard 0.53 s</figcaption><audio controls preload=none src='between_lines-2-0.45.wav'></audio></figure>
+<figure class='v'><figcaption>0.6 s · heard 0.68 s</figcaption><audio controls preload=none src='between_lines-2-0.6.wav'></audio></figure>
+<figure class='v'><figcaption>0.8 s · heard 0.88 s</figcaption><audio controls preload=none src='between_lines-2-0.8.wav'></audio></figure>
+</div></div>
+<div class=example><p><b>3.</b> … resting their elbows on it, and talking over its head.  ‖  “Very uncomfortable for the Dormouse,” <span class=muted>(02-alice-mad-tea-party, af_bella)</span></p><div class=row>
+<figure class='v'><figcaption>0.3 s · heard 0.38 s</figcaption><audio controls preload=none src='between_lines-3-0.3.wav'></audio></figure>
+<figure class='v now'><figcaption>0.45 s (now) · heard 0.53 s</figcaption><audio controls preload=none src='between_lines-3-0.45.wav'></audio></figure>
+<figure class='v'><figcaption>0.6 s · heard 0.68 s</figcaption><audio controls preload=none src='between_lines-3-0.6.wav'></audio></figure>
+<figure class='v'><figcaption>0.8 s · heard 0.88 s</figcaption><audio controls preload=none src='between_lines-3-0.8.wav'></audio></figure>
+</div></div>
+<p class=pick>Pick: <label><input type=radio name=between_lines value=0.3> 0.3 s</label> <label><input type=radio name=between_lines value=0.45 checked> 0.45 s</label> <label><input type=radio name=between_lines value=0.6> 0.6 s</label> <label><input type=radio name=between_lines value=0.8> 0.8 s</label> <label><input type=radio name=between_lines value=other> other: <input type=number step=0.05 min=0 class=other data-kind=between_lines></label></p></section>
+<section><h2>At a new paragraph</h2>
+<p class=muted>Now <b>0.75 s</b> (<code>new_paragraph</code>).</p>
+<div class=example><p><b>1.</b> … and walked slowly, as though in hesitation, towards K. bridge.  ‖  He had successfully avoided meeting his landlady on the staircase. … <span class=muted>(06-crime-and-punishment-opening, af_bella)</span></p><div class=row>
+<figure class='v'><figcaption>0.5 s · heard 0.58 s</figcaption><audio controls preload=none src='new_paragraph-1-0.5.wav'></audio></figure>
+<figure class='v now'><figcaption>0.75 s (now) · heard 0.83 s</figcaption><audio controls preload=none src='new_paragraph-1-0.75.wav'></audio></figure>
+<figure class='v'><figcaption>1.0 s · heard 1.08 s</figcaption><audio controls preload=none src='new_paragraph-1-1.0.wav'></audio></figure>
+<figure class='v'><figcaption>1.3 s · heard 1.38 s</figcaption><audio controls preload=none src='new_paragraph-1-1.3.wav'></audio></figure>
+</div></div>
+<div class=example><p><b>2.</b> … a good fortune must be in want of a wife.  ‖  However little known the feelings or views of such a … <span class=muted>(01-pride-and-prejudice-ch1-2, af_bella)</span></p><div class=row>
+<figure class='v'><figcaption>0.5 s · heard 0.58 s</figcaption><audio controls preload=none src='new_paragraph-2-0.5.wav'></audio></figure>
+<figure class='v now'><figcaption>0.75 s (now) · heard 0.83 s</figcaption><audio controls preload=none src='new_paragraph-2-0.75.wav'></audio></figure>
+<figure class='v'><figcaption>1.0 s · heard 1.08 s</figcaption><audio controls preload=none src='new_paragraph-2-1.0.wav'></audio></figure>
+<figure class='v'><figcaption>1.3 s · heard 1.38 s</figcaption><audio controls preload=none src='new_paragraph-2-1.3.wav'></audio></figure>
+</div></div>
+<div class=example><p><b>3.</b> “only, as it’s asleep, I suppose it doesn’t mind.”  ‖  The table was a large one, but the three were … <span class=muted>(02-alice-mad-tea-party, af_bella)</span></p><div class=row>
+<figure class='v'><figcaption>0.5 s · heard 0.58 s</figcaption><audio controls preload=none src='new_paragraph-3-0.5.wav'></audio></figure>
+<figure class='v now'><figcaption>0.75 s (now) · heard 0.83 s</figcaption><audio controls preload=none src='new_paragraph-3-0.75.wav'></audio></figure>
+<figure class='v'><figcaption>1.0 s · heard 1.08 s</figcaption><audio controls preload=none src='new_paragraph-3-1.0.wav'></audio></figure>
+<figure class='v'><figcaption>1.3 s · heard 1.38 s</figcaption><audio controls preload=none src='new_paragraph-3-1.3.wav'></audio></figure>
+</div></div>
+<p class=pick>Pick: <label><input type=radio name=new_paragraph value=0.5> 0.5 s</label> <label><input type=radio name=new_paragraph value=0.75 checked> 0.75 s</label> <label><input type=radio name=new_paragraph value=1.0> 1.0 s</label> <label><input type=radio name=new_paragraph value=1.3> 1.3 s</label> <label><input type=radio name=new_paragraph value=other> other: <input type=number step=0.05 min=0 class=other data-kind=new_paragraph></label></p></section>
+<section><h2>At each line end of verse</h2>
+<p class=muted>Now <b>0.3 s</b> (<code>verse_line_end</code>).</p>
+<p class=muted>No example in the voiced passages yet.</p>
+<p class=pick>Pick: <label><input type=radio name=verse_line_end value=0.15> 0.15 s</label> <label><input type=radio name=verse_line_end value=0.3 checked> 0.3 s</label> <label><input type=radio name=verse_line_end value=0.5> 0.5 s</label> <label><input type=radio name=verse_line_end value=0.7> 0.7 s</label> <label><input type=radio name=verse_line_end value=other> other: <input type=number step=0.05 min=0 class=other data-kind=verse_line_end></label></p></section>
+<section><h2>Long pause: after the Work title and author, a chapter title</h2>
+<p class=muted>Now <b>1.5 s</b> (<code>after_title</code>).</p>
+<div class=example><p><b>1.</b> CHAPTER II.  ‖  Mr. Bennet was among the earliest of those who waited … <span class=muted>(01-pride-and-prejudice-ch1-2, af_bella)</span></p><div class=row>
+<figure class='v'><figcaption>1.0 s · heard 1.08 s</figcaption><audio controls preload=none src='after_title-1-1.0.wav'></audio></figure>
+<figure class='v now'><figcaption>1.5 s (now) · heard 1.58 s</figcaption><audio controls preload=none src='after_title-1-1.5.wav'></audio></figure>
+<figure class='v'><figcaption>2.0 s · heard 2.08 s</figcaption><audio controls preload=none src='after_title-1-2.0.wav'></audio></figure>
+<figure class='v'><figcaption>2.5 s · heard 2.58 s</figcaption><audio controls preload=none src='after_title-1-2.5.wav'></audio></figure>
+</div></div>
+<p class=pick>Pick: <label><input type=radio name=after_title value=1.0> 1.0 s</label> <label><input type=radio name=after_title value=1.5 checked> 1.5 s</label> <label><input type=radio name=after_title value=2.0> 2.0 s</label> <label><input type=radio name=after_title value=2.5> 2.5 s</label> <label><input type=radio name=after_title value=other> other: <input type=number step=0.05 min=0 class=other data-kind=after_title></label></p></section>
+<section><h2>Longest pause: at a Section break</h2>
+<p class=muted>Now <b>2.5 s</b> (<code>section_break</code>).</p>
+<p class=muted>No example in the voiced passages yet.</p>
+<p class=pick>Pick: <label><input type=radio name=section_break value=1.5> 1.5 s</label> <label><input type=radio name=section_break value=2.5 checked> 2.5 s</label> <label><input type=radio name=section_break value=3.0> 3.0 s</label> <label><input type=radio name=section_break value=3.5> 3.5 s</label> <label><input type=radio name=section_break value=other> other: <input type=number step=0.05 min=0 class=other data-kind=section_break></label></p></section>
+<h2>Your choices</h2>
+<textarea id=out readonly></textarea>
+<script>
+const kinds = ["between_sentences", "between_lines", "new_paragraph", "verse_line_end", "after_title", "section_break"];
+function update() {
+  const picked = {};
+  for (const k of kinds) {
+    const r = document.querySelector(`input[name=${k}]:checked`);
+    if (!r) continue;
+    picked[k] = r.value === "other" ? Number(document.querySelector(`.other[data-kind=${k}]`).value) : Number(r.value);
+  }
+  document.getElementById("out").value = JSON.stringify(picked, null, 2);
+}
+document.addEventListener("input", update);
+update();
+</script></body></html>

@@ -60,8 +60,11 @@ EMOTIONS = (
 INTENSITIES = ("normal", "strong")
 NARRATOR, UNKNOWN = "Narrator", "Unknown"
 
-# The attribution pass takes about three times as long per chunk as the Character pass.
-ATTRIBUTION_WEIGHT = 3
+# How long an attribution chunk takes against a Character chunk, for the percentage: 100 min
+# against 88 for Pride and Prejudice's 173 chunks (M1 ticket 18). It depends on how much of the
+# text is dialogue (the six short samples, mostly dialogue, took about three times as long), so
+# the time left is measured on each pass separately.
+ATTRIBUTION_WEIGHT = 1.15
 
 
 # ---- Chunks ----
@@ -494,7 +497,8 @@ def analyse(
     cast = CastList(list(work.characters), names)
     chapters = {str(c.id): c for c in work.chapters}
 
-    pace = Pace()
+    # Each pass's own speed: once attribution starts, the time left is from attribution alone.
+    paces = {"characters": Pace(), "attribution": Pace()}
 
     def progress(stage: str, done: int) -> None:
         cast_done = total if stage == "attribution" else done
@@ -506,7 +510,7 @@ def analyse(
             done=done,
             total=total,
             percent=round(100 * reached / weight),
-            seconds_left=pace.seconds_left(reached, weight),
+            seconds_left=paces[stage].seconds_left(reached, weight),
         )
 
     def step(stage: str, index: int) -> None:
