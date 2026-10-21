@@ -26,7 +26,7 @@ Pascal support ends with CUDA 12.x, driver branch R580 and PyTorch 2.14, so this
 | Model | Qwen3.5-4B, GGUF Q4_K_M (2.74 GB file) |
 | Weights | `unsloth/Qwen3.5-4B-GGUF` at revision `e87f1764`, `Qwen3.5-4B-Q4_K_M.gguf`, SHA-256 `00fe7986…`: the file every scoring run used. Downloaded on first run (`backend/chorus/firstrun.py` holds the full pins). |
 | Licence | Apache-2.0 |
-| Runtime | llama.cpp server, pinned to build b11318 (the build measured in the container), all layers on the card. Moving to another build means scoring the sample passages again. |
+| Runtime | llama.cpp server (MIT), pinned to build b11318 (the build measured in the container), all layers on the card. Moving to another build means scoring the sample passages again. |
 | Settings | 8k context, one slot (`-np 1`; more slots divide the context), thinking off, temperature 0, JSON-schema constrained output |
 | Approach | B: LLM-only chunked attribution with a global Character and alias list, plus a blind second labelling run (see [03-pipeline.md](03-pipeline.md#analysis)) |
 
