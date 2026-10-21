@@ -39,6 +39,7 @@ const work = (overrides: Partial<Work>): Work => ({
   ],
   characters: [],
   narrator_voice: null,
+  exports: [],
   ...overrides,
 });
 
@@ -150,6 +151,40 @@ describe("WorkPage", () => {
     render(<WorkPage id={7} jobs={[]} />);
     expect(await screen.findByText("Chapter 2: The Door")).toBeTruthy();
     expect(screen.queryByText("Not ready yet")).toBeNull();
+  });
+
+  it("lists exports and offers new ones once the Work is ready", async () => {
+    serve(
+      work({
+        state: "ready",
+        exports: [
+          {
+            id: 3,
+            kind: "mp3",
+            folder: "The Morning After (7)",
+            files: ["01 - Front matter.mp3", "02 - Chapter 1.mp3"],
+            seconds: 125,
+            created_at: "2026-10-21T13:30:00+00:00",
+            download_url: "/api/exports/3/download",
+          },
+        ],
+      }),
+    );
+    render(<WorkPage id={7} jobs={[]} />);
+    expect(await screen.findByText("MP3")).toBeTruthy();
+    expect(screen.getByText("2:05 · 2 files · in the exports folder, The Morning After (7)", { exact: false })).toBeTruthy();
+    expect(screen.getByText("Download").getAttribute("href")).toBe("/api/exports/3/download");
+    expect((screen.getByText("Export M4B") as HTMLButtonElement).disabled).toBe(false);
+    expect(screen.getByText("Delete")).toBeTruthy();
+  });
+
+  it("offers no export until every chapter is ready", async () => {
+    serve(work({ state: "voicing" }));
+    render(<WorkPage id={7} jobs={[]} />);
+    expect(await screen.findByText("Export MP3")).toBeTruthy();
+    expect((screen.getByText("Export MP3") as HTMLButtonElement).disabled).toBe(true);
+    expect(screen.getByText(/can be exported once every chapter is ready/)).toBeTruthy();
+    expect(screen.getByText("No exports yet.")).toBeTruthy();
   });
 
   it("says the English pack is used for a language without one", async () => {

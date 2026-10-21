@@ -1,7 +1,17 @@
 import enum
 from datetime import UTC, datetime
 
-from sqlalchemy import JSON, Boolean, DateTime, Enum, ForeignKey, String, Text, UniqueConstraint
+from sqlalchemy import (
+    JSON,
+    Boolean,
+    DateTime,
+    Enum,
+    Float,
+    ForeignKey,
+    String,
+    Text,
+    UniqueConstraint,
+)
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from chorus.db import Base
@@ -275,4 +285,32 @@ class Line(Base):
             "intensity": self.intensity,
             "seed": self.seed,
             "audio_seconds": (self.take or {}).get("seconds"),
+        }
+
+
+class Export(Base):
+    """An MP3 or M4B export in the host's exports folder (chorus.exporting)."""
+
+    __tablename__ = "export"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    work_id: Mapped[int] = mapped_column(ForeignKey("work.id", ondelete="CASCADE"), index=True)
+    kind: Mapped[str] = mapped_column(String(10))  # m4b, mp3
+    # The Work's sub-folder of the exports folder, and the files, relative to the exports folder.
+    folder: Mapped[str] = mapped_column(String(300))
+    files: Mapped[list] = mapped_column(JSON)
+    # The parts it covers (chorus.assembly) and their length in all.
+    parts: Mapped[list] = mapped_column(JSON)
+    seconds: Mapped[float] = mapped_column(Float)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=_now)
+
+    def to_dict(self) -> dict:
+        return {
+            "id": self.id,
+            "kind": self.kind,
+            "folder": self.folder,
+            "files": [f.rsplit("/", 1)[-1] for f in self.files],
+            "seconds": self.seconds,
+            "created_at": self.created_at.isoformat() if self.created_at else None,
+            "download_url": f"/api/exports/{self.id}/download",
         }

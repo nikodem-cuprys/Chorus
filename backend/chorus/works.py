@@ -19,7 +19,7 @@ from chorus.importing.pdf import read_pdf
 from chorus.importing.txt import read_txt
 from chorus.jobs import JobContext, enqueue, job
 from chorus.languages import ChapterHeadings, get_packs
-from chorus.models import Chapter, Line, Queue, Voice, Work, WorkState
+from chorus.models import Chapter, Export, Line, Queue, Voice, Work, WorkState
 from chorus.script import build_script
 
 # Source kinds Chorus reads itself; any other is named by its extension ("mobi", "docx") and
@@ -217,8 +217,17 @@ def detail(work: Work) -> dict:
             for c in work.chapters
         ],
         "characters": _characters(work),
+        "exports": _exports(work),
         "narrator_voice": _voice_names(object_session(work)).get(work.narrator_voice_id),
     }
+
+
+def _exports(work: Work) -> list[dict]:
+    """The Work's MP3 and M4B exports, newest first."""
+    rows = object_session(work).scalars(
+        select(Export).where(Export.work_id == work.id).order_by(Export.created_at.desc())
+    )
+    return [row.to_dict() for row in rows]
 
 
 def _voice_names(session: Session) -> dict[int, str]:

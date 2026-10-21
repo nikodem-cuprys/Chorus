@@ -22,6 +22,7 @@ dependencies = [
     # Line audio is written as FLAC outside the GPU code too; the versions the GPU stack pins.
     "numpy==1.26.4",
     "soundfile==0.14.0",
+    "pillow==12.3.0",  # export covers and title cards; the version the GPU stack pins
 ]
 
 [project.optional-dependencies]

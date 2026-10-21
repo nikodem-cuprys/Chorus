@@ -13,6 +13,7 @@ os.environ.setdefault("CHORUS_DATABASE_URL", f"sqlite:///{(_tmp / 'test.db').as_
 os.environ.setdefault("CHORUS_DEV", "true")
 os.environ.setdefault("CHORUS_FRONTEND_DIST", str(_tmp / "no-frontend"))
 os.environ.setdefault("CHORUS_DATA_DIR", str(_tmp / "data"))
+os.environ.setdefault("CHORUS_EXPORTS_DIR", str(_tmp / "exports"))
 os.environ.setdefault("CHORUS_ANALYSE_AFTER_IMPORT", "false")
 os.environ.setdefault("CHORUS_VOICE_AFTER_ANALYSIS", "false")
 

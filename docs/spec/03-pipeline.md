@@ -151,6 +151,11 @@ Written to the host's exports folder, one sub-folder per Work, so the files surv
 | Chapters | chapter markers from the assembled chapter lengths | one file per chapter |
 | Tags | title, author, cover | title, author, track number, cover |
 
+- **Names:** the Work's sub-folder is its title with its id, "Pride and Prejudice (12)"; the M4B is named after the Work, and the MP3s ("01 - Front matter.mp3", "02 - Chapter 1.mp3") go in an `MP3` folder inside it. A new export of the same kind replaces the one before it.
+- **What is in it:** the assembled parts in reading order, the front matter (with the Work title) and back matter included, each one an M4B chapter or an MP3 file. A Work that is not ready to listen is refused.
+- **Cover:** the Source's cover as a JPEG, else a generated title card with the title and authors.
+- **Download:** the M4B as it is; the MP3s as one zip.
+
 Line audio stays 24 kHz FLAC; the YouTube export resamples to 48 kHz.
 
 ## YouTube export (milestone 8)

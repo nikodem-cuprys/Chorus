@@ -47,6 +47,21 @@ export interface Work extends WorkSummary {
   characters: Character[];
   /** The Narrator's Voice, by its id ("af_bella"); null before casting. */
   narrator_voice: string | null;
+  /** MP3 and M4B exports, newest first. */
+  exports: Export[];
+}
+
+export type ExportKind = "m4b" | "mp3";
+
+export interface Export {
+  id: number;
+  kind: ExportKind;
+  /** The Work's sub-folder of the exports folder. */
+  folder: string;
+  files: string[];
+  seconds: number;
+  created_at: string | null;
+  download_url: string;
 }
 
 export type Age = "child" | "young_adult" | "adult" | "elderly" | "unknown";
@@ -207,6 +222,23 @@ export async function uploadWork(file: File): Promise<WorkSummary> {
 
 export async function startAnalysis(id: number): Promise<void> {
   await fetch(`/api/works/${id}/analysis`, { method: "POST" });
+}
+
+/** Queues an export; throws the backend's message when it is refused. */
+export async function startExport(id: number, kind: ExportKind): Promise<void> {
+  const response = await fetch(`/api/works/${id}/exports`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ kind }),
+  });
+  if (!response.ok) {
+    const detail = (await response.json().catch(() => null)) as { detail?: Message } | null;
+    throw detail?.detail ?? { key: "export.error.failed" };
+  }
+}
+
+export async function deleteExport(id: number): Promise<void> {
+  await fetch(`/api/exports/${id}`, { method: "DELETE" });
 }
 
 export async function changeLanguage(id: number, language: string): Promise<void> {

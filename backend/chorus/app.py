@@ -8,21 +8,23 @@ turns them into words.
 import json
 from collections.abc import AsyncIterator
 from contextlib import asynccontextmanager
+from typing import Literal
 
-from fastapi import APIRouter, Depends, FastAPI, HTTPException, Request, UploadFile
+from fastapi import APIRouter, Depends, FastAPI, HTTPException, Request, Response, UploadFile
 from fastapi.responses import FileResponse, StreamingResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 from sqlalchemy import select
 from sqlalchemy.orm import Session
+from starlette.background import BackgroundTask
 
-from chorus import assembly, events, firstrun, healthcheck, tasks, voices, voicing, works  # noqa: F401  (tasks: job kinds)
+from chorus import assembly, events, exporting, firstrun, healthcheck, tasks, voices, voicing, works  # noqa: F401  (tasks: job kinds)
 from chorus.config import get_settings
 from chorus.db import get_session, get_sessionmaker
 from chorus.importing.language import known_languages
-from chorus.jobs import enqueue
+from chorus.jobs import JobFailed, enqueue
 from chorus.languages import get_packs
-from chorus.models import Chapter, Job, JobState, Line, Voice, Work, WorkState
+from chorus.models import Chapter, Export, Job, JobState, Line, Voice, Work, WorkState
 
 api = APIRouter(prefix="/api")
 
@@ -150,6 +152,58 @@ def part_audio(work_id: int, part: str, session: Session = Depends(get_session))
     if path is None or not path.is_file():
         raise HTTPException(404)
     return FileResponse(path, media_type="audio/flac")
+
+
+class ExportRequest(BaseModel):
+    kind: Literal["m4b", "mp3"]
+
+
+@api.post("/works/{work_id}/exports", status_code=202)
+def export_work(work_id: int, body: ExportRequest, session: Session = Depends(get_session)) -> dict:
+    """Queues an MP3 or M4B export; refused until the Work is ready to listen."""
+    row = _work(session, work_id)
+    try:
+        exporting.start_export(session, row, body.kind)
+    except JobFailed as exc:
+        raise HTTPException(409, detail=exc.message()) from exc
+    return works.detail(row)
+
+
+def _export(session: Session, export_id: int) -> Export:
+    row = session.get(Export, export_id)
+    if row is None:
+        raise HTTPException(
+            404, detail={"key": "export.error.not_found", "params": {"id": export_id}}
+        )
+    return row
+
+
+@api.get("/exports/{export_id}/download")
+def download_export(export_id: int, session: Session = Depends(get_session)) -> FileResponse:
+    """The M4B file, or the MP3 files in one zip."""
+    row = _export(session, export_id)
+    name = exporting.download_name(row)
+    if row.kind == "m4b":
+        path = exporting.exports_dir() / row.files[0]
+        if not path.is_file():
+            raise HTTPException(404)
+        return FileResponse(path, media_type="audio/mp4", filename=name)
+    if not all((exporting.exports_dir() / f).is_file() for f in row.files):
+        raise HTTPException(404)
+    archive = exporting.zip_mp3s(row)
+    return FileResponse(
+        archive,
+        media_type="application/zip",
+        filename=name,
+        background=BackgroundTask(archive.unlink, missing_ok=True),
+    )
+
+
+@api.delete("/exports/{export_id}", status_code=204)
+def delete_export(export_id: int, session: Session = Depends(get_session)) -> Response:
+    """Deletes the export and its files."""
+    exporting.delete_export(session, _export(session, export_id))
+    return Response(status_code=204)
 
 
 @api.get("/works/{work_id}/lines/{position}/audio")

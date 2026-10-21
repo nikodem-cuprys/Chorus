@@ -455,3 +455,17 @@ button:disabled {
   display: block;
   padding: 0 8px;
 }
+
+.export-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.exports {
+  list-style: none;
+  padding: 0;
+}
+
+.exports > li {
+  padding: 4px 0;
+}

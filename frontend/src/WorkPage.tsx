@@ -1,18 +1,21 @@
 import { useState } from "react";
 import { Blocks } from "./Blocks";
-import { languageName, t, tMessage, type MessageKey } from "./i18n";
+import { languageName, locale, t, tMessage, type Message, type MessageKey } from "./i18n";
 import type { Job } from "./jobs";
 import { Lines } from "./Lines";
 import { Shell } from "./Shell";
 import { authorsText } from "./WorkList";
 import {
   changeLanguage,
+  deleteExport,
   partAudioUrl,
+  startExport,
   startAnalysis,
   useChapter,
   useLanguages,
   useWork,
   type Character,
+  type ExportKind,
   type Work,
 } from "./works";
 
@@ -52,6 +55,59 @@ function LanguageField({ work, onChanged }: { work: Work; onChanged: () => void 
 }
 
 type View = "text" | "lines";
+
+function dateText(iso: string | null): string {
+  if (iso === null) return "";
+  return new Intl.DateTimeFormat(locale, { dateStyle: "medium", timeStyle: "short" }).format(
+    new Date(iso),
+  );
+}
+
+/** Buttons to export the Work, and its exports with their dates, downloads and delete. */
+function Exports({ work, onChanged }: { work: Work; onChanged: () => void }) {
+  const [error, setError] = useState<Message | null>(null);
+  const ready = work.state === "ready";
+  const start = (kind: ExportKind) => {
+    setError(null);
+    startExport(work.id, kind).then(onChanged, (message: Message) => setError(message));
+  };
+  return (
+    <>
+      <h2>{t("work.exports")}</h2>
+      <div className="export-buttons">
+        {(["m4b", "mp3"] as const).map((kind) => (
+          <button key={kind} type="button" disabled={!ready} onClick={() => start(kind)}>
+            {t(`work.export.${kind}`)}
+          </button>
+        ))}
+      </div>
+      {!ready && <p className="muted small">{t("work.export_not_ready")}</p>}
+      {error && <p className="error">{tMessage(error)}</p>}
+      {work.exports.length === 0 ? (
+        <p className="muted">{t("work.no_exports")}</p>
+      ) : (
+        <ul className="exports">
+          {work.exports.map((e) => (
+            <li key={e.id}>
+              <strong>{t(`export.kind.${e.kind}`)}</strong>{" "}
+              <span className="muted small">
+                {dateText(e.created_at)} · {lengthText(e.seconds)}
+                {e.kind === "mp3" && ` · ${t("export.files", { count: e.files.length })}`} ·{" "}
+                {t("export.where", { folder: e.folder })}
+              </span>{" "}
+              <a href={e.download_url} download>
+                {t("export.download")}
+              </a>{" "}
+              <button type="button" onClick={() => deleteExport(e.id).then(onChanged)}>
+                {t("export.delete")}
+              </button>
+            </li>
+          ))}
+        </ul>
+      )}
+    </>
+  );
+}
 
 export function lengthText(seconds: number): string {
   const whole = Math.round(seconds);
@@ -257,6 +313,7 @@ export function WorkPage({ id, jobs }: { id: number; jobs: Job[] }) {
               <Reader key={part} workId={work.id} part={part} characters={work.characters} />
             )}
           </div>
+          <Exports work={work} onChanged={() => setVersion((v) => v + 1)} />
         </>
       )}
     </Shell>
