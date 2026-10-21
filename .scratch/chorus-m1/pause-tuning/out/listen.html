@@ -82,7 +82,18 @@ input.other { width: 5em }
 <p class=pick>Pick: <label><input type=radio name=new_paragraph value=0.5> 0.5 s</label> <label><input type=radio name=new_paragraph value=0.75 checked> 0.75 s</label> <label><input type=radio name=new_paragraph value=1.0> 1.0 s</label> <label><input type=radio name=new_paragraph value=1.3> 1.3 s</label> <label><input type=radio name=new_paragraph value=other> other: <input type=number step=0.05 min=0 class=other data-kind=new_paragraph></label></p></section>
 <section><h2>At each line end of verse</h2>
 <p class=muted>Now <b>0.3 s</b> (<code>verse_line_end</code>).</p>
-<p class=muted>No example in the voiced passages yet.</p>
+<div class=example><p><b>1.</b> Twinkle, twinkle, little bat! How I wonder what you&#x27;re at! … <span class=muted>(pause-test, af_bella)</span></p><div class=row>
+<figure class='v'><figcaption>0.15 s · heard 0.51 s</figcaption><audio controls preload=none src='verse_line_end-1-0.15.wav'></audio></figure>
+<figure class='v now'><figcaption>0.3 s (now) · heard 0.66 s</figcaption><audio controls preload=none src='verse_line_end-1-0.3.wav'></audio></figure>
+<figure class='v'><figcaption>0.5 s · heard 0.86 s</figcaption><audio controls preload=none src='verse_line_end-1-0.5.wav'></audio></figure>
+<figure class='v'><figcaption>0.7 s · heard 1.06 s</figcaption><audio controls preload=none src='verse_line_end-1-0.7.wav'></audio></figure>
+</div></div>
+<div class=example><p><b>2.</b> How doth the little crocodile Improve his shining tail, And … <span class=muted>(pause-test, af_bella)</span></p><div class=row>
+<figure class='v'><figcaption>0.15 s · heard 0.52 s</figcaption><audio controls preload=none src='verse_line_end-2-0.15.wav'></audio></figure>
+<figure class='v now'><figcaption>0.3 s (now) · heard 0.67 s</figcaption><audio controls preload=none src='verse_line_end-2-0.3.wav'></audio></figure>
+<figure class='v'><figcaption>0.5 s · heard 0.87 s</figcaption><audio controls preload=none src='verse_line_end-2-0.5.wav'></audio></figure>
+<figure class='v'><figcaption>0.7 s · heard 1.07 s</figcaption><audio controls preload=none src='verse_line_end-2-0.7.wav'></audio></figure>
+</div></div>
 <p class=pick>Pick: <label><input type=radio name=verse_line_end value=0.15> 0.15 s</label> <label><input type=radio name=verse_line_end value=0.3 checked> 0.3 s</label> <label><input type=radio name=verse_line_end value=0.5> 0.5 s</label> <label><input type=radio name=verse_line_end value=0.7> 0.7 s</label> <label><input type=radio name=verse_line_end value=other> other: <input type=number step=0.05 min=0 class=other data-kind=verse_line_end></label></p></section>
 <section><h2>Long pause: after the Work title and author, a chapter title</h2>
 <p class=muted>Now <b>1.5 s</b> (<code>after_title</code>).</p>
@@ -92,10 +103,27 @@ input.other { width: 5em }
 <figure class='v'><figcaption>2.0 s · heard 2.08 s</figcaption><audio controls preload=none src='after_title-1-2.0.wav'></audio></figure>
 <figure class='v'><figcaption>2.5 s · heard 2.58 s</figcaption><audio controls preload=none src='after_title-1-2.5.wav'></audio></figure>
 </div></div>
+<div class=example><p><b>2.</b> pause-test  ‖  The Pause Test <span class=muted>(pause-test, af_bella)</span></p><div class=row>
+<figure class='v'><figcaption>1.0 s · heard 1.08 s</figcaption><audio controls preload=none src='after_title-2-1.0.wav'></audio></figure>
+<figure class='v now'><figcaption>1.5 s (now) · heard 1.58 s</figcaption><audio controls preload=none src='after_title-2-1.5.wav'></audio></figure>
+<figure class='v'><figcaption>2.0 s · heard 2.08 s</figcaption><audio controls preload=none src='after_title-2-2.0.wav'></audio></figure>
+<figure class='v'><figcaption>2.5 s · heard 2.58 s</figcaption><audio controls preload=none src='after_title-2-2.5.wav'></audio></figure>
+</div></div>
+<div class=example><p><b>3.</b> CHAPTER I.  ‖  The kettle had been singing for some time before anyone … <span class=muted>(pause-test, af_bella)</span></p><div class=row>
+<figure class='v'><figcaption>1.0 s · heard 1.08 s</figcaption><audio controls preload=none src='after_title-3-1.0.wav'></audio></figure>
+<figure class='v now'><figcaption>1.5 s (now) · heard 1.58 s</figcaption><audio controls preload=none src='after_title-3-1.5.wav'></audio></figure>
+<figure class='v'><figcaption>2.0 s · heard 2.08 s</figcaption><audio controls preload=none src='after_title-3-2.0.wav'></audio></figure>
+<figure class='v'><figcaption>2.5 s · heard 2.58 s</figcaption><audio controls preload=none src='after_title-3-2.5.wav'></audio></figure>
+</div></div>
 <p class=pick>Pick: <label><input type=radio name=after_title value=1.0> 1.0 s</label> <label><input type=radio name=after_title value=1.5 checked> 1.5 s</label> <label><input type=radio name=after_title value=2.0> 2.0 s</label> <label><input type=radio name=after_title value=2.5> 2.5 s</label> <label><input type=radio name=after_title value=other> other: <input type=number step=0.05 min=0 class=other data-kind=after_title></label></p></section>
 <section><h2>Longest pause: at a Section break</h2>
 <p class=muted>Now <b>2.5 s</b> (<code>section_break</code>).</p>
-<p class=muted>No example in the voiced passages yet.</p>
+<div class=example><p><b>1.</b> he said.  ‖  By the time the knock came, the tea was cold … <span class=muted>(pause-test, af_bella)</span></p><div class=row>
+<figure class='v'><figcaption>1.5 s · heard 1.58 s</figcaption><audio controls preload=none src='section_break-1-1.5.wav'></audio></figure>
+<figure class='v now'><figcaption>2.5 s (now) · heard 2.58 s</figcaption><audio controls preload=none src='section_break-1-2.5.wav'></audio></figure>
+<figure class='v'><figcaption>3.0 s · heard 3.08 s</figcaption><audio controls preload=none src='section_break-1-3.0.wav'></audio></figure>
+<figure class='v'><figcaption>3.5 s · heard 3.58 s</figcaption><audio controls preload=none src='section_break-1-3.5.wav'></audio></figure>
+</div></div>
 <p class=pick>Pick: <label><input type=radio name=section_break value=1.5> 1.5 s</label> <label><input type=radio name=section_break value=2.5 checked> 2.5 s</label> <label><input type=radio name=section_break value=3.0> 3.0 s</label> <label><input type=radio name=section_break value=3.5> 3.5 s</label> <label><input type=radio name=section_break value=other> other: <input type=number step=0.05 min=0 class=other data-kind=section_break></label></p></section>
 <h2>Your choices</h2>
 <textarea id=out readonly></textarea>

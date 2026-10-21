@@ -26,6 +26,7 @@ from chorus.languages import get_packs
 from chorus.voicing import lines_dir, pauses, pieces
 
 WORKS = (11, 12, 13, 14, 15, 16, 17)  # the six sample passages and the pause test
+PAUSE_TEST = 17
 EXAMPLES = 3  # per kind of pause
 OUT = Path("/data/pause-tuning")
 VARIANTS = {
@@ -118,6 +119,8 @@ def find_examples(session, current: dict[str, float]) -> dict[str, list[dict]]:
         flat = [(p, i) for p in parts for i in range(len(p.lines))]
         kinds_of = {id(p): pause_kinds(p) for p in parts}
         taken_here: set[str] = set()
+        # The pause test holds the only verse and Section breaks: take all it has.
+        once = work_id != PAUSE_TEST
 
         def ok(line) -> bool:
             # The sample files open with "#" notes about the sample, voiced like any text.
@@ -141,7 +144,7 @@ def find_examples(session, current: dict[str, float]) -> dict[str, list[dict]]:
                     "work": work_id, "title": work.title, "voice": voices.get(line.take["voice_id"]),
                     "lines": [line], "text": snippet(line.text, False),
                 })  # fmt: skip
-                taken_here.add(inside)
+                once and taken_here.add(inside)
             # Between this line and the next one in reading order (the next part's first line
             # after the last line of a part).
             kinds = kinds_of[id(part)][i] or (["after_title"] if line.passage == "work_title" else [])
@@ -157,7 +160,7 @@ def find_examples(session, current: dict[str, float]) -> dict[str, list[dict]]:
                 "lines": [line, nxt],
                 "text": f"{snippet(line.text, True)}  ‖  {snippet(nxt.text, False)}",
             })  # fmt: skip
-            taken_here.add(kind)
+            once and taken_here.add(kind)
     return found
 
 
